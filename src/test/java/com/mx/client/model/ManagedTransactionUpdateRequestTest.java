@@ -28,33 +28,17 @@ import org.junit.Test;
 
 
 /**
- * Model tests for TransactionResponse
+ * Model tests for ManagedTransactionUpdateRequest
  */
-public class TransactionResponseTest {
-    private final TransactionResponse model = new TransactionResponse();
+public class ManagedTransactionUpdateRequestTest {
+    private final ManagedTransactionUpdateRequest model = new ManagedTransactionUpdateRequest();
 
     /**
-     * Model tests for TransactionResponse
+     * Model tests for ManagedTransactionUpdateRequest
      */
     @Test
-    public void testTransactionResponse() {
-        // TODO: test TransactionResponse
-    }
-
-    /**
-     * Test the property 'accountGuid'
-     */
-    @Test
-    public void accountGuidTest() {
-        // TODO: test accountGuid
-    }
-
-    /**
-     * Test the property 'accountId'
-     */
-    @Test
-    public void accountIdTest() {
-        // TODO: test accountId
+    public void testManagedTransactionUpdateRequest() {
+        // TODO: test ManagedTransactionUpdateRequest
     }
 
     /**
@@ -82,27 +66,11 @@ public class TransactionResponseTest {
     }
 
     /**
-     * Test the property 'createdAt'
-     */
-    @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
-    }
-
-    /**
      * Test the property 'currencyCode'
      */
     @Test
     public void currencyCodeTest() {
         // TODO: test currencyCode
-    }
-
-    /**
-     * Test the property 'date'
-     */
-    @Test
-    public void dateTest() {
-        // TODO: test date
     }
 
     /**
@@ -114,14 +82,6 @@ public class TransactionResponseTest {
     }
 
     /**
-     * Test the property 'guid'
-     */
-    @Test
-    public void guidTest() {
-        // TODO: test guid
-    }
-
-    /**
      * Test the property 'id'
      */
     @Test
@@ -130,83 +90,11 @@ public class TransactionResponseTest {
     }
 
     /**
-     * Test the property 'isBillPay'
-     */
-    @Test
-    public void isBillPayTest() {
-        // TODO: test isBillPay
-    }
-
-    /**
-     * Test the property 'isDirectDeposit'
-     */
-    @Test
-    public void isDirectDepositTest() {
-        // TODO: test isDirectDeposit
-    }
-
-    /**
-     * Test the property 'isExpense'
-     */
-    @Test
-    public void isExpenseTest() {
-        // TODO: test isExpense
-    }
-
-    /**
-     * Test the property 'isFee'
-     */
-    @Test
-    public void isFeeTest() {
-        // TODO: test isFee
-    }
-
-    /**
-     * Test the property 'isIncome'
-     */
-    @Test
-    public void isIncomeTest() {
-        // TODO: test isIncome
-    }
-
-    /**
      * Test the property 'isInternational'
      */
     @Test
     public void isInternationalTest() {
         // TODO: test isInternational
-    }
-
-    /**
-     * Test the property 'isOverdraftFee'
-     */
-    @Test
-    public void isOverdraftFeeTest() {
-        // TODO: test isOverdraftFee
-    }
-
-    /**
-     * Test the property 'isPayrollAdvance'
-     */
-    @Test
-    public void isPayrollAdvanceTest() {
-        // TODO: test isPayrollAdvance
-    }
-
-    /**
-     * Test the property 'isRecurring'
-     */
-    @Test
-    public void isRecurringTest() {
-        // TODO: test isRecurring
-    }
-
-    /**
-     * Test the property 'isSubscription'
-     */
-    @Test
-    public void isSubscriptionTest() {
-        // TODO: test isSubscription
     }
 
     /**
@@ -239,22 +127,6 @@ public class TransactionResponseTest {
     @Test
     public void longitudeTest() {
         // TODO: test longitude
-    }
-
-    /**
-     * Test the property 'memberGuid'
-     */
-    @Test
-    public void memberGuidTest() {
-        // TODO: test memberGuid
-    }
-
-    /**
-     * Test the property 'memberIsManagedByUser'
-     */
-    @Test
-    public void memberIsManagedByUserTest() {
-        // TODO: test memberIsManagedByUser
     }
 
     /**
@@ -298,14 +170,6 @@ public class TransactionResponseTest {
     }
 
     /**
-     * Test the property 'originalDescription'
-     */
-    @Test
-    public void originalDescriptionTest() {
-        // TODO: test originalDescription
-    }
-
-    /**
      * Test the property 'postedAt'
      */
     @Test
@@ -322,14 +186,6 @@ public class TransactionResponseTest {
     }
 
     /**
-     * Test the property 'topLevelCategory'
-     */
-    @Test
-    public void topLevelCategoryTest() {
-        // TODO: test topLevelCategory
-    }
-
-    /**
      * Test the property 'transactedAt'
      */
     @Test
@@ -343,30 +199,6 @@ public class TransactionResponseTest {
     @Test
     public void typeTest() {
         // TODO: test type
-    }
-
-    /**
-     * Test the property 'updatedAt'
-     */
-    @Test
-    public void updatedAtTest() {
-        // TODO: test updatedAt
-    }
-
-    /**
-     * Test the property 'userGuid'
-     */
-    @Test
-    public void userGuidTest() {
-        // TODO: test userGuid
-    }
-
-    /**
-     * Test the property 'userId'
-     */
-    @Test
-    public void userIdTest() {
-        // TODO: test userId
     }
 
 }

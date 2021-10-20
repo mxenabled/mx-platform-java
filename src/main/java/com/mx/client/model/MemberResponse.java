@@ -53,6 +53,10 @@ public class MemberResponse {
   @SerializedName(SERIALIZED_NAME_IS_BEING_AGGREGATED)
   private Boolean isBeingAggregated;
 
+  public static final String SERIALIZED_NAME_IS_MANAGED_BY_USER = "is_managed_by_user";
+  @SerializedName(SERIALIZED_NAME_IS_MANAGED_BY_USER)
+  private Boolean isManagedByUser;
+
   public static final String SERIALIZED_NAME_IS_OAUTH = "is_oauth";
   @SerializedName(SERIALIZED_NAME_IS_OAUTH)
   private Boolean isOauth;
@@ -76,6 +80,10 @@ public class MemberResponse {
   public static final String SERIALIZED_NAME_USER_GUID = "user_guid";
   @SerializedName(SERIALIZED_NAME_USER_GUID)
   private String userGuid;
+
+  public static final String SERIALIZED_NAME_USER_ID = "user_id";
+  @SerializedName(SERIALIZED_NAME_USER_ID)
+  private String userId;
 
 
   public MemberResponse aggregatedAt(String aggregatedAt) {
@@ -213,6 +221,29 @@ public class MemberResponse {
 
   public void setIsBeingAggregated(Boolean isBeingAggregated) {
     this.isBeingAggregated = isBeingAggregated;
+  }
+
+
+  public MemberResponse isManagedByUser(Boolean isManagedByUser) {
+    
+    this.isManagedByUser = isManagedByUser;
+    return this;
+  }
+
+   /**
+   * Get isManagedByUser
+   * @return isManagedByUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "")
+
+  public Boolean getIsManagedByUser() {
+    return isManagedByUser;
+  }
+
+
+  public void setIsManagedByUser(Boolean isManagedByUser) {
+    this.isManagedByUser = isManagedByUser;
   }
 
 
@@ -354,6 +385,29 @@ public class MemberResponse {
   }
 
 
+  public MemberResponse userId(String userId) {
+    
+    this.userId = userId;
+    return this;
+  }
+
+   /**
+   * Get userId
+   * @return userId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "user123", value = "")
+
+  public String getUserId() {
+    return userId;
+  }
+
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -369,17 +423,19 @@ public class MemberResponse {
         Objects.equals(this.id, memberResponse.id) &&
         Objects.equals(this.institutionCode, memberResponse.institutionCode) &&
         Objects.equals(this.isBeingAggregated, memberResponse.isBeingAggregated) &&
+        Objects.equals(this.isManagedByUser, memberResponse.isManagedByUser) &&
         Objects.equals(this.isOauth, memberResponse.isOauth) &&
         Objects.equals(this.metadata, memberResponse.metadata) &&
         Objects.equals(this.name, memberResponse.name) &&
         Objects.equals(this.oauthWindowUri, memberResponse.oauthWindowUri) &&
         Objects.equals(this.successfullyAggregatedAt, memberResponse.successfullyAggregatedAt) &&
-        Objects.equals(this.userGuid, memberResponse.userGuid);
+        Objects.equals(this.userGuid, memberResponse.userGuid) &&
+        Objects.equals(this.userId, memberResponse.userId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregatedAt, connectionStatus, guid, id, institutionCode, isBeingAggregated, isOauth, metadata, name, oauthWindowUri, successfullyAggregatedAt, userGuid);
+    return Objects.hash(aggregatedAt, connectionStatus, guid, id, institutionCode, isBeingAggregated, isManagedByUser, isOauth, metadata, name, oauthWindowUri, successfullyAggregatedAt, userGuid, userId);
   }
 
   @Override
@@ -392,12 +448,14 @@ public class MemberResponse {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    institutionCode: ").append(toIndentedString(institutionCode)).append("\n");
     sb.append("    isBeingAggregated: ").append(toIndentedString(isBeingAggregated)).append("\n");
+    sb.append("    isManagedByUser: ").append(toIndentedString(isManagedByUser)).append("\n");
     sb.append("    isOauth: ").append(toIndentedString(isOauth)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    oauthWindowUri: ").append(toIndentedString(oauthWindowUri)).append("\n");
     sb.append("    successfullyAggregatedAt: ").append(toIndentedString(successfullyAggregatedAt)).append("\n");
     sb.append("    userGuid: ").append(toIndentedString(userGuid)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
