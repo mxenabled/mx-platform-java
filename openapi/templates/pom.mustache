@@ -1,33 +1,40 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.mx</groupId>
-    <artifactId>mx-platform-java</artifactId>
+    <groupId>{{groupId}}</groupId>
+    <artifactId>{{artifactId}}</artifactId>
     <packaging>jar</packaging>
-    <name>mx-platform-java</name>
-    <version>0.2.1</version>
-    <url>https://github.com/mxenabled/mx-platform-java</url>
-    <description>A Java library for the MX Platform API</description>
+    <name>{{artifactId}}</name>
+    <version>{{artifactVersion}}</version>
+    <url>{{artifactUrl}}</url>
+    <description>{{artifactDescription}}</description>
     <scm>
-        <connection>https://github.com/mxenabled/mx-platform-java.git</connection>
-        <developerConnection>git@github.com:mxenabled/mx-platform-java.git</developerConnection>
-        <url>https://github.com/mxenabled/mx-platform-java</url>
+        <connection>{{scmConnection}}</connection>
+        <developerConnection>{{scmDeveloperConnection}}</developerConnection>
+        <url>{{scmUrl}}</url>
     </scm>
+{{#parentOverridden}}
+    <parent>
+        <groupId>{{{parentGroupId}}}</groupId>
+        <artifactId>{{{parentArtifactId}}}</artifactId>
+        <version>{{{parentVersion}}}</version>
+    </parent>
+{{/parentOverridden}}
 
     <licenses>
         <license>
-            <name>MIT</name>
-            <url>https://github.com/mxenabled/mx-platform-java/LICENSE</url>
+            <name>{{licenseName}}</name>
+            <url>{{licenseUrl}}</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
 
     <developers>
         <developer>
-            <name>MX</name>
-            <email>devexperience@mx.com</email>
-            <organization>MX Technologies Inc.</organization>
-            <organizationUrl>https://www.mx.com/</organizationUrl>
+            <name>{{developerName}}</name>
+            <email>{{developerEmail}}</email>
+            <organization>{{developerOrganization}}</organization>
+            <organizationUrl>{{developerOrganizationUrl}}</organizationUrl>
         </developer>
     </developers>
 

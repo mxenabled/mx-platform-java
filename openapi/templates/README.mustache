@@ -119,8 +119,8 @@ public class {{{classname}}}Example {
         {{{dataType}}} {{{paramName}}} = {{{example}}}; // {{{dataType}}} | {{{description}}}
         {{/allParams}}
         try {
-            {{#returnType}}{{{.}}} result = {{/returnType}}apiInstance.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});{{#returnType}}
-            System.out.println(result);{{/returnType}}
+            {{#returnType}}{{{.}}} response = {{/returnType}}apiInstance.{{{operationId}}}({{#allParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/allParams}});{{#returnType}}
+            System.out.println(response);{{/returnType}}
         } catch (ApiException e) {
             System.err.println("Exception when calling {{{classname}}}#{{{operationId}}}");
             System.err.println("Status code: " + e.getCode());

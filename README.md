@@ -28,7 +28,7 @@ mvn clean package
 ```
 
 Then manually install the following JARs:
-  - `target/mx-platform-java-0.2.0.jar`
+  - `target/mx-platform-java-0.2.1.jar`
   - `target/lib/*.jar`
 
 ## Getting Started
@@ -59,8 +59,8 @@ public class MxPlatformApiExample {
         String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
         String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
         try {
-            MemberResponseBody result = apiInstance.aggregateMember(memberGuid, userGuid);
-            System.out.println(result);
+            MemberResponseBody response = apiInstance.aggregateMember(memberGuid, userGuid);
+            System.out.println(response);
         } catch (ApiException e) {
             System.err.println("Exception when calling MxPlatformApi#aggregateMember");
             System.err.println("Status code: " + e.getCode());
