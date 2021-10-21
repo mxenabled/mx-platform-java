@@ -34,6 +34,10 @@ public class TransactionResponse {
   @SerializedName(SERIALIZED_NAME_ACCOUNT_GUID)
   private String accountGuid;
 
+  public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
+  private String accountId;
+
   public static final String SERIALIZED_NAME_AMOUNT = "amount";
   @SerializedName(SERIALIZED_NAME_AMOUNT)
   private BigDecimal amount;
@@ -130,6 +134,10 @@ public class TransactionResponse {
   @SerializedName(SERIALIZED_NAME_MEMBER_GUID)
   private String memberGuid;
 
+  public static final String SERIALIZED_NAME_MEMBER_IS_MANAGED_BY_USER = "member_is_managed_by_user";
+  @SerializedName(SERIALIZED_NAME_MEMBER_IS_MANAGED_BY_USER)
+  private Boolean memberIsManagedByUser;
+
   public static final String SERIALIZED_NAME_MEMO = "memo";
   @SerializedName(SERIALIZED_NAME_MEMO)
   private String memo;
@@ -141,6 +149,14 @@ public class TransactionResponse {
   public static final String SERIALIZED_NAME_MERCHANT_GUID = "merchant_guid";
   @SerializedName(SERIALIZED_NAME_MERCHANT_GUID)
   private String merchantGuid;
+
+  public static final String SERIALIZED_NAME_MERCHANT_LOCATION_GUID = "merchant_location_guid";
+  @SerializedName(SERIALIZED_NAME_MERCHANT_LOCATION_GUID)
+  private String merchantLocationGuid;
+
+  public static final String SERIALIZED_NAME_METADATA = "metadata";
+  @SerializedName(SERIALIZED_NAME_METADATA)
+  private String metadata;
 
   public static final String SERIALIZED_NAME_ORIGINAL_DESCRIPTION = "original_description";
   @SerializedName(SERIALIZED_NAME_ORIGINAL_DESCRIPTION)
@@ -174,6 +190,10 @@ public class TransactionResponse {
   @SerializedName(SERIALIZED_NAME_USER_GUID)
   private String userGuid;
 
+  public static final String SERIALIZED_NAME_USER_ID = "user_id";
+  @SerializedName(SERIALIZED_NAME_USER_ID)
+  private String userId;
+
 
   public TransactionResponse accountGuid(String accountGuid) {
     
@@ -195,6 +215,29 @@ public class TransactionResponse {
 
   public void setAccountGuid(String accountGuid) {
     this.accountGuid = accountGuid;
+  }
+
+
+  public TransactionResponse accountId(String accountId) {
+    
+    this.accountId = accountId;
+    return this;
+  }
+
+   /**
+   * Get accountId
+   * @return accountId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "account123", value = "")
+
+  public String getAccountId() {
+    return accountId;
+  }
+
+
+  public void setAccountId(String accountId) {
+    this.accountId = accountId;
   }
 
 
@@ -750,6 +793,29 @@ public class TransactionResponse {
   }
 
 
+  public TransactionResponse memberIsManagedByUser(Boolean memberIsManagedByUser) {
+    
+    this.memberIsManagedByUser = memberIsManagedByUser;
+    return this;
+  }
+
+   /**
+   * Get memberIsManagedByUser
+   * @return memberIsManagedByUser
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "")
+
+  public Boolean getMemberIsManagedByUser() {
+    return memberIsManagedByUser;
+  }
+
+
+  public void setMemberIsManagedByUser(Boolean memberIsManagedByUser) {
+    this.memberIsManagedByUser = memberIsManagedByUser;
+  }
+
+
   public TransactionResponse memo(String memo) {
     
     this.memo = memo;
@@ -816,6 +882,52 @@ public class TransactionResponse {
 
   public void setMerchantGuid(String merchantGuid) {
     this.merchantGuid = merchantGuid;
+  }
+
+
+  public TransactionResponse merchantLocationGuid(String merchantLocationGuid) {
+    
+    this.merchantLocationGuid = merchantLocationGuid;
+    return this;
+  }
+
+   /**
+   * Get merchantLocationGuid
+   * @return merchantLocationGuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "MCL-00024e59-18b5-4d79-b879-2a7896726fea", value = "")
+
+  public String getMerchantLocationGuid() {
+    return merchantLocationGuid;
+  }
+
+
+  public void setMerchantLocationGuid(String merchantLocationGuid) {
+    this.merchantLocationGuid = merchantLocationGuid;
+  }
+
+
+  public TransactionResponse metadata(String metadata) {
+    
+    this.metadata = metadata;
+    return this;
+  }
+
+   /**
+   * Get metadata
+   * @return metadata
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "some metadata", value = "")
+
+  public String getMetadata() {
+    return metadata;
+  }
+
+
+  public void setMetadata(String metadata) {
+    this.metadata = metadata;
   }
 
 
@@ -1003,6 +1115,29 @@ public class TransactionResponse {
   }
 
 
+  public TransactionResponse userId(String userId) {
+    
+    this.userId = userId;
+    return this;
+  }
+
+   /**
+   * Get userId
+   * @return userId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "user123", value = "")
+
+  public String getUserId() {
+    return userId;
+  }
+
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -1013,6 +1148,7 @@ public class TransactionResponse {
     }
     TransactionResponse transactionResponse = (TransactionResponse) o;
     return Objects.equals(this.accountGuid, transactionResponse.accountGuid) &&
+        Objects.equals(this.accountId, transactionResponse.accountId) &&
         Objects.equals(this.amount, transactionResponse.amount) &&
         Objects.equals(this.category, transactionResponse.category) &&
         Objects.equals(this.checkNumberString, transactionResponse.checkNumberString) &&
@@ -1037,9 +1173,12 @@ public class TransactionResponse {
         Objects.equals(this.localizedMemo, transactionResponse.localizedMemo) &&
         Objects.equals(this.longitude, transactionResponse.longitude) &&
         Objects.equals(this.memberGuid, transactionResponse.memberGuid) &&
+        Objects.equals(this.memberIsManagedByUser, transactionResponse.memberIsManagedByUser) &&
         Objects.equals(this.memo, transactionResponse.memo) &&
         Objects.equals(this.merchantCategoryCode, transactionResponse.merchantCategoryCode) &&
         Objects.equals(this.merchantGuid, transactionResponse.merchantGuid) &&
+        Objects.equals(this.merchantLocationGuid, transactionResponse.merchantLocationGuid) &&
+        Objects.equals(this.metadata, transactionResponse.metadata) &&
         Objects.equals(this.originalDescription, transactionResponse.originalDescription) &&
         Objects.equals(this.postedAt, transactionResponse.postedAt) &&
         Objects.equals(this.status, transactionResponse.status) &&
@@ -1047,12 +1186,13 @@ public class TransactionResponse {
         Objects.equals(this.transactedAt, transactionResponse.transactedAt) &&
         Objects.equals(this.type, transactionResponse.type) &&
         Objects.equals(this.updatedAt, transactionResponse.updatedAt) &&
-        Objects.equals(this.userGuid, transactionResponse.userGuid);
+        Objects.equals(this.userGuid, transactionResponse.userGuid) &&
+        Objects.equals(this.userId, transactionResponse.userId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountGuid, amount, category, checkNumberString, createdAt, currencyCode, date, description, guid, id, isBillPay, isDirectDeposit, isExpense, isFee, isIncome, isInternational, isOverdraftFee, isPayrollAdvance, isRecurring, isSubscription, latitude, localizedDescription, localizedMemo, longitude, memberGuid, memo, merchantCategoryCode, merchantGuid, originalDescription, postedAt, status, topLevelCategory, transactedAt, type, updatedAt, userGuid);
+    return Objects.hash(accountGuid, accountId, amount, category, checkNumberString, createdAt, currencyCode, date, description, guid, id, isBillPay, isDirectDeposit, isExpense, isFee, isIncome, isInternational, isOverdraftFee, isPayrollAdvance, isRecurring, isSubscription, latitude, localizedDescription, localizedMemo, longitude, memberGuid, memberIsManagedByUser, memo, merchantCategoryCode, merchantGuid, merchantLocationGuid, metadata, originalDescription, postedAt, status, topLevelCategory, transactedAt, type, updatedAt, userGuid, userId);
   }
 
   @Override
@@ -1060,6 +1200,7 @@ public class TransactionResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class TransactionResponse {\n");
     sb.append("    accountGuid: ").append(toIndentedString(accountGuid)).append("\n");
+    sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
     sb.append("    checkNumberString: ").append(toIndentedString(checkNumberString)).append("\n");
@@ -1084,9 +1225,12 @@ public class TransactionResponse {
     sb.append("    localizedMemo: ").append(toIndentedString(localizedMemo)).append("\n");
     sb.append("    longitude: ").append(toIndentedString(longitude)).append("\n");
     sb.append("    memberGuid: ").append(toIndentedString(memberGuid)).append("\n");
+    sb.append("    memberIsManagedByUser: ").append(toIndentedString(memberIsManagedByUser)).append("\n");
     sb.append("    memo: ").append(toIndentedString(memo)).append("\n");
     sb.append("    merchantCategoryCode: ").append(toIndentedString(merchantCategoryCode)).append("\n");
     sb.append("    merchantGuid: ").append(toIndentedString(merchantGuid)).append("\n");
+    sb.append("    merchantLocationGuid: ").append(toIndentedString(merchantLocationGuid)).append("\n");
+    sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    originalDescription: ").append(toIndentedString(originalDescription)).append("\n");
     sb.append("    postedAt: ").append(toIndentedString(postedAt)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -1095,6 +1239,7 @@ public class TransactionResponse {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    userGuid: ").append(toIndentedString(userGuid)).append("\n");
+    sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -13,12 +13,14 @@ Name | Type | Description | Notes
 **id** | **String** |  |  [optional]
 **institutionCode** | **String** |  |  [optional]
 **isBeingAggregated** | **Boolean** |  |  [optional]
+**isManagedByUser** | **Boolean** |  |  [optional]
 **isOauth** | **Boolean** |  |  [optional]
 **metadata** | **String** |  |  [optional]
 **name** | **String** |  |  [optional]
 **oauthWindowUri** | **String** |  |  [optional]
 **successfullyAggregatedAt** | **String** |  |  [optional]
 **userGuid** | **String** |  |  [optional]
+**userId** | **String** |  |  [optional]
 
 
 

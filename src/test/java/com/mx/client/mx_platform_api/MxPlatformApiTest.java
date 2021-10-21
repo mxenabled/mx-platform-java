@@ -34,12 +34,19 @@ import com.mx.client.model.HoldingResponseBody;
 import com.mx.client.model.HoldingsResponseBody;
 import com.mx.client.model.InstitutionResponseBody;
 import com.mx.client.model.InstitutionsResponseBody;
+import com.mx.client.model.ManagedAccountCreateRequestBody;
+import com.mx.client.model.ManagedAccountUpdateRequestBody;
+import com.mx.client.model.ManagedMemberCreateRequestBody;
+import com.mx.client.model.ManagedMemberUpdateRequestBody;
+import com.mx.client.model.ManagedTransactionCreateRequestBody;
+import com.mx.client.model.ManagedTransactionUpdateRequestBody;
 import com.mx.client.model.MemberCreateRequestBody;
 import com.mx.client.model.MemberResponseBody;
 import com.mx.client.model.MemberResumeRequestBody;
 import com.mx.client.model.MemberStatusResponseBody;
 import com.mx.client.model.MemberUpdateRequestBody;
 import com.mx.client.model.MembersResponseBody;
+import com.mx.client.model.MerchantLocationResponseBody;
 import com.mx.client.model.MerchantResponseBody;
 import com.mx.client.model.MerchantsResponseBody;
 import com.mx.client.model.OAuthWindowResponseBody;
@@ -130,6 +137,59 @@ public class MxPlatformApiTest {
         String userGuid = null;
         CategoryCreateRequestBody categoryCreateRequestBody = null;
         CategoryResponseBody response = api.createCategory(userGuid, categoryCreateRequestBody);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create managed account
+     *
+     * Use this endpoint to create a partner-managed account.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createManagedAccountTest() throws ApiException {
+        String userGuid = null;
+        String memberGuid = null;
+        ManagedAccountCreateRequestBody managedAccountCreateRequestBody = null;
+        AccountResponseBody response = api.createManagedAccount(userGuid, memberGuid, managedAccountCreateRequestBody);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create managed member
+     *
+     * Use this endpoint to create a new partner-managed &#x60;member&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createManagedMemberTest() throws ApiException {
+        String userGuid = null;
+        ManagedMemberCreateRequestBody managedMemberCreateRequestBody = null;
+        MemberResponseBody response = api.createManagedMember(userGuid, managedMemberCreateRequestBody);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Create managed transaction
+     *
+     * Use this endpoint to create a new partner-managed &#x60;transaction&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createManagedTransactionTest() throws ApiException {
+        String userGuid = null;
+        String memberGuid = null;
+        ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody = null;
+        TransactionResponseBody response = api.createManagedTransaction(userGuid, memberGuid, managedTransactionCreateRequestBody);
 
         // TODO: test validations
     }
@@ -231,6 +291,59 @@ public class MxPlatformApiTest {
         String categoryGuid = null;
         String userGuid = null;
         api.deleteCategory(categoryGuid, userGuid);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete managed account
+     *
+     * Use this endpoint to delete a partner-managed account according to its unique GUID. If successful, the API will respond with a status of &#x60;204 No Content&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteManagedAccountTest() throws ApiException {
+        String memberGuid = null;
+        String userGuid = null;
+        String accountGuid = null;
+        api.deleteManagedAccount(memberGuid, userGuid, accountGuid);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete managed member
+     *
+     * Use this endpoint to delete the specified partner-managed &#x60;member&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteManagedMemberTest() throws ApiException {
+        String memberGuid = null;
+        String userGuid = null;
+        api.deleteManagedMember(memberGuid, userGuid);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete managed transaction
+     *
+     * Use this endpoint to delete the specified partner-managed &#x60;transaction&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteManagedTransactionTest() throws ApiException {
+        String memberGuid = null;
+        String userGuid = null;
+        String transactionGuid = null;
+        api.deleteManagedTransaction(memberGuid, userGuid, transactionGuid);
 
         // TODO: test validations
     }
@@ -592,6 +705,79 @@ public class MxPlatformApiTest {
     }
     
     /**
+     * List managed accounts
+     *
+     * Use this endpoint to retrieve a list of all the partner-managed accounts associated with the given partner-manage member.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listManagedAccountsTest() throws ApiException {
+        String userGuid = null;
+        String memberGuid = null;
+        Integer page = null;
+        Integer recordsPerPage = null;
+        AccountsResponseBody response = api.listManagedAccounts(userGuid, memberGuid, page, recordsPerPage);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List managed institutions
+     *
+     * This endpoint returns a list of institutions which can be used to create partner-managed members.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listManagedInstitutionsTest() throws ApiException {
+        Integer page = null;
+        Integer recordsPerPage = null;
+        InstitutionsResponseBody response = api.listManagedInstitutions(page, recordsPerPage);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List managed members
+     *
+     * This endpoint returns a list of all the partner-managed members associated with the specified &#x60;user&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listManagedMembersTest() throws ApiException {
+        String userGuid = null;
+        Integer page = null;
+        Integer recordsPerPage = null;
+        MembersResponseBody response = api.listManagedMembers(userGuid, page, recordsPerPage);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * List managed transactions
+     *
+     * This endpoint returns a list of all the partner-managed transactions associated with the specified &#x60;account&#x60;, scoped through a &#x60;user&#x60; and a &#x60;member&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listManagedTransactionsTest() throws ApiException {
+        String userGuid = null;
+        String memberGuid = null;
+        Integer page = null;
+        Integer recordsPerPage = null;
+        TransactionsResponseBody response = api.listManagedTransactions(userGuid, memberGuid, page, recordsPerPage);
+
+        // TODO: test validations
+    }
+    
+    /**
      * List member challenges
      *
      * Use this endpoint for information on what multi-factor authentication challenges need to be answered in order to aggregate a member. If the aggregation is not challenged, i.e., the member does not have a connection status of &#x60;CHALLENGED&#x60;, then code &#x60;204 No Content&#x60; will be returned. If the aggregation has been challenged, i.e., the member does have a connection status of &#x60;CHALLENGED&#x60;, then code &#x60;200 OK&#x60; will be returned - along with the corresponding credentials.
@@ -919,6 +1105,59 @@ public class MxPlatformApiTest {
     }
     
     /**
+     * Read managed account
+     *
+     * Use this endpoint to read the attributes of a partner-managed account according to its unique guid.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void readManagedAccountTest() throws ApiException {
+        String memberGuid = null;
+        String userGuid = null;
+        String accountGuid = null;
+        AccountResponseBody response = api.readManagedAccount(memberGuid, userGuid, accountGuid);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Read managed member
+     *
+     * This endpoint returns the attributes of the specified partner-managed &#x60;member&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void readManagedMemberTest() throws ApiException {
+        String memberGuid = null;
+        String userGuid = null;
+        MemberResponseBody response = api.readManagedMember(memberGuid, userGuid);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Read managed transaction
+     *
+     * Requests to this endpoint will return the attributes of the specified partner-managed &#x60;transaction&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void readManagedTransactionTest() throws ApiException {
+        String memberGuid = null;
+        String userGuid = null;
+        String transactionGuid = null;
+        TransactionResponseBody response = api.readManagedTransaction(memberGuid, userGuid, transactionGuid);
+
+        // TODO: test validations
+    }
+    
+    /**
      * Read member
      *
      * Use this endpoint to read the attributes of a specific member.
@@ -964,6 +1203,22 @@ public class MxPlatformApiTest {
     public void readMerchantTest() throws ApiException {
         String merchantGuid = null;
         MerchantResponseBody response = api.readMerchant(merchantGuid);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Read merchant location
+     *
+     * This endpoint returns the specified merchant_location resource.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void readMerchantLocationTest() throws ApiException {
+        String merchantLocationGuid = null;
+        MerchantLocationResponseBody response = api.readMerchantLocation(merchantLocationGuid);
 
         // TODO: test validations
     }
@@ -1101,7 +1356,8 @@ public class MxPlatformApiTest {
         String userGuid = null;
         String referralSource = null;
         String uiMessageWebviewUrlScheme = null;
-        OAuthWindowResponseBody response = api.requestOAuthWindowURI(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme);
+        Boolean skipAggregation = null;
+        OAuthWindowResponseBody response = api.requestOAuthWindowURI(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme, skipAggregation);
 
         // TODO: test validations
     }
@@ -1175,6 +1431,62 @@ public class MxPlatformApiTest {
         String userGuid = null;
         CategoryUpdateRequestBody categoryUpdateRequestBody = null;
         CategoryResponseBody response = api.updateCategory(categoryGuid, userGuid, categoryUpdateRequestBody);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update managed account
+     *
+     * Use this endpoint to update the attributes of a partner-managed account according to its unique GUID.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateManagedAccountTest() throws ApiException {
+        String memberGuid = null;
+        String userGuid = null;
+        String accountGuid = null;
+        ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody = null;
+        AccountResponseBody response = api.updateManagedAccount(memberGuid, userGuid, accountGuid, managedAccountUpdateRequestBody);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update managed member
+     *
+     * Use this endpoint to update the attributes of the specified partner_managed &#x60;member&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateManagedMemberTest() throws ApiException {
+        String memberGuid = null;
+        String userGuid = null;
+        ManagedMemberUpdateRequestBody managedMemberUpdateRequestBody = null;
+        MemberResponseBody response = api.updateManagedMember(memberGuid, userGuid, managedMemberUpdateRequestBody);
+
+        // TODO: test validations
+    }
+    
+    /**
+     * Update managed transaction
+     *
+     * Use this endpoint to update the attributes of the specified partner_managed &#x60;transaction&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateManagedTransactionTest() throws ApiException {
+        String memberGuid = null;
+        String userGuid = null;
+        String transactionGuid = null;
+        ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody = null;
+        TransactionResponseBody response = api.updateManagedTransaction(memberGuid, userGuid, transactionGuid, managedTransactionUpdateRequestBody);
 
         // TODO: test validations
     }

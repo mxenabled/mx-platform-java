@@ -47,12 +47,19 @@ import com.mx.client.model.HoldingResponseBody;
 import com.mx.client.model.HoldingsResponseBody;
 import com.mx.client.model.InstitutionResponseBody;
 import com.mx.client.model.InstitutionsResponseBody;
+import com.mx.client.model.ManagedAccountCreateRequestBody;
+import com.mx.client.model.ManagedAccountUpdateRequestBody;
+import com.mx.client.model.ManagedMemberCreateRequestBody;
+import com.mx.client.model.ManagedMemberUpdateRequestBody;
+import com.mx.client.model.ManagedTransactionCreateRequestBody;
+import com.mx.client.model.ManagedTransactionUpdateRequestBody;
 import com.mx.client.model.MemberCreateRequestBody;
 import com.mx.client.model.MemberResponseBody;
 import com.mx.client.model.MemberResumeRequestBody;
 import com.mx.client.model.MemberStatusResponseBody;
 import com.mx.client.model.MemberUpdateRequestBody;
 import com.mx.client.model.MembersResponseBody;
+import com.mx.client.model.MerchantLocationResponseBody;
 import com.mx.client.model.MerchantResponseBody;
 import com.mx.client.model.MerchantsResponseBody;
 import com.mx.client.model.OAuthWindowResponseBody;
@@ -467,6 +474,389 @@ public class MxPlatformApi {
 
         okhttp3.Call localVarCall = createCategoryValidateBeforeCall(userGuid, categoryCreateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<CategoryResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createManagedAccount
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param managedAccountCreateRequestBody Managed account to be created. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createManagedAccountCall(String userGuid, String memberGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = managedAccountCreateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createManagedAccountValidateBeforeCall(String userGuid, String memberGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling createManagedAccount(Async)");
+        }
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling createManagedAccount(Async)");
+        }
+        
+        // verify the required parameter 'managedAccountCreateRequestBody' is set
+        if (managedAccountCreateRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'managedAccountCreateRequestBody' when calling createManagedAccount(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createManagedAccountCall(userGuid, memberGuid, managedAccountCreateRequestBody, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create managed account
+     * Use this endpoint to create a partner-managed account.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param managedAccountCreateRequestBody Managed account to be created. (required)
+     * @return AccountResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public AccountResponseBody createManagedAccount(String userGuid, String memberGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody) throws ApiException {
+        ApiResponse<AccountResponseBody> localVarResp = createManagedAccountWithHttpInfo(userGuid, memberGuid, managedAccountCreateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create managed account
+     * Use this endpoint to create a partner-managed account.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param managedAccountCreateRequestBody Managed account to be created. (required)
+     * @return ApiResponse&lt;AccountResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AccountResponseBody> createManagedAccountWithHttpInfo(String userGuid, String memberGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = createManagedAccountValidateBeforeCall(userGuid, memberGuid, managedAccountCreateRequestBody, null);
+        Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create managed account (asynchronously)
+     * Use this endpoint to create a partner-managed account.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param managedAccountCreateRequestBody Managed account to be created. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createManagedAccountAsync(String userGuid, String memberGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody, final ApiCallback<AccountResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createManagedAccountValidateBeforeCall(userGuid, memberGuid, managedAccountCreateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createManagedMember
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param managedMemberCreateRequestBody Managed member to be created. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createManagedMemberCall(String userGuid, ManagedMemberCreateRequestBody managedMemberCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = managedMemberCreateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/managed_members"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createManagedMemberValidateBeforeCall(String userGuid, ManagedMemberCreateRequestBody managedMemberCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling createManagedMember(Async)");
+        }
+        
+        // verify the required parameter 'managedMemberCreateRequestBody' is set
+        if (managedMemberCreateRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'managedMemberCreateRequestBody' when calling createManagedMember(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createManagedMemberCall(userGuid, managedMemberCreateRequestBody, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create managed member
+     * Use this endpoint to create a new partner-managed &#x60;member&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param managedMemberCreateRequestBody Managed member to be created. (required)
+     * @return MemberResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public MemberResponseBody createManagedMember(String userGuid, ManagedMemberCreateRequestBody managedMemberCreateRequestBody) throws ApiException {
+        ApiResponse<MemberResponseBody> localVarResp = createManagedMemberWithHttpInfo(userGuid, managedMemberCreateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create managed member
+     * Use this endpoint to create a new partner-managed &#x60;member&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param managedMemberCreateRequestBody Managed member to be created. (required)
+     * @return ApiResponse&lt;MemberResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<MemberResponseBody> createManagedMemberWithHttpInfo(String userGuid, ManagedMemberCreateRequestBody managedMemberCreateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = createManagedMemberValidateBeforeCall(userGuid, managedMemberCreateRequestBody, null);
+        Type localVarReturnType = new TypeToken<MemberResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create managed member (asynchronously)
+     * Use this endpoint to create a new partner-managed &#x60;member&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param managedMemberCreateRequestBody Managed member to be created. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createManagedMemberAsync(String userGuid, ManagedMemberCreateRequestBody managedMemberCreateRequestBody, final ApiCallback<MemberResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createManagedMemberValidateBeforeCall(userGuid, managedMemberCreateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<MemberResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createManagedTransaction
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param managedTransactionCreateRequestBody Managed transaction to be created. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createManagedTransactionCall(String userGuid, String memberGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = managedTransactionCreateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/transactions"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createManagedTransactionValidateBeforeCall(String userGuid, String memberGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling createManagedTransaction(Async)");
+        }
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling createManagedTransaction(Async)");
+        }
+        
+        // verify the required parameter 'managedTransactionCreateRequestBody' is set
+        if (managedTransactionCreateRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'managedTransactionCreateRequestBody' when calling createManagedTransaction(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createManagedTransactionCall(userGuid, memberGuid, managedTransactionCreateRequestBody, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create managed transaction
+     * Use this endpoint to create a new partner-managed &#x60;transaction&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param managedTransactionCreateRequestBody Managed transaction to be created. (required)
+     * @return TransactionResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public TransactionResponseBody createManagedTransaction(String userGuid, String memberGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody) throws ApiException {
+        ApiResponse<TransactionResponseBody> localVarResp = createManagedTransactionWithHttpInfo(userGuid, memberGuid, managedTransactionCreateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create managed transaction
+     * Use this endpoint to create a new partner-managed &#x60;transaction&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param managedTransactionCreateRequestBody Managed transaction to be created. (required)
+     * @return ApiResponse&lt;TransactionResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TransactionResponseBody> createManagedTransactionWithHttpInfo(String userGuid, String memberGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = createManagedTransactionValidateBeforeCall(userGuid, memberGuid, managedTransactionCreateRequestBody, null);
+        Type localVarReturnType = new TypeToken<TransactionResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create managed transaction (asynchronously)
+     * Use this endpoint to create a new partner-managed &#x60;transaction&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param managedTransactionCreateRequestBody Managed transaction to be created. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createManagedTransactionAsync(String userGuid, String memberGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody, final ApiCallback<TransactionResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createManagedTransactionValidateBeforeCall(userGuid, memberGuid, managedTransactionCreateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<TransactionResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1180,6 +1570,380 @@ public class MxPlatformApi {
     public okhttp3.Call deleteCategoryAsync(String categoryGuid, String userGuid, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteCategoryValidateBeforeCall(categoryGuid, userGuid, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteManagedAccount
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteManagedAccountCall(String memberGuid, String userGuid, String accountGuid, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}"
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteManagedAccountValidateBeforeCall(String memberGuid, String userGuid, String accountGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling deleteManagedAccount(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling deleteManagedAccount(Async)");
+        }
+        
+        // verify the required parameter 'accountGuid' is set
+        if (accountGuid == null) {
+            throw new ApiException("Missing the required parameter 'accountGuid' when calling deleteManagedAccount(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteManagedAccountCall(memberGuid, userGuid, accountGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete managed account
+     * Use this endpoint to delete a partner-managed account according to its unique GUID. If successful, the API will respond with a status of &#x60;204 No Content&#x60;.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteManagedAccount(String memberGuid, String userGuid, String accountGuid) throws ApiException {
+        deleteManagedAccountWithHttpInfo(memberGuid, userGuid, accountGuid);
+    }
+
+    /**
+     * Delete managed account
+     * Use this endpoint to delete a partner-managed account according to its unique GUID. If successful, the API will respond with a status of &#x60;204 No Content&#x60;.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteManagedAccountWithHttpInfo(String memberGuid, String userGuid, String accountGuid) throws ApiException {
+        okhttp3.Call localVarCall = deleteManagedAccountValidateBeforeCall(memberGuid, userGuid, accountGuid, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete managed account (asynchronously)
+     * Use this endpoint to delete a partner-managed account according to its unique GUID. If successful, the API will respond with a status of &#x60;204 No Content&#x60;.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteManagedAccountAsync(String memberGuid, String userGuid, String accountGuid, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteManagedAccountValidateBeforeCall(memberGuid, userGuid, accountGuid, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteManagedMember
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteManagedMemberCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}"
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteManagedMemberValidateBeforeCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling deleteManagedMember(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling deleteManagedMember(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteManagedMemberCall(memberGuid, userGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete managed member
+     * Use this endpoint to delete the specified partner-managed &#x60;member&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteManagedMember(String memberGuid, String userGuid) throws ApiException {
+        deleteManagedMemberWithHttpInfo(memberGuid, userGuid);
+    }
+
+    /**
+     * Delete managed member
+     * Use this endpoint to delete the specified partner-managed &#x60;member&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteManagedMemberWithHttpInfo(String memberGuid, String userGuid) throws ApiException {
+        okhttp3.Call localVarCall = deleteManagedMemberValidateBeforeCall(memberGuid, userGuid, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete managed member (asynchronously)
+     * Use this endpoint to delete the specified partner-managed &#x60;member&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteManagedMemberAsync(String memberGuid, String userGuid, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteManagedMemberValidateBeforeCall(memberGuid, userGuid, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteManagedTransaction
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteManagedTransactionCall(String memberGuid, String userGuid, String transactionGuid, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid}"
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "transaction_guid" + "\\}", localVarApiClient.escapeString(transactionGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteManagedTransactionValidateBeforeCall(String memberGuid, String userGuid, String transactionGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling deleteManagedTransaction(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling deleteManagedTransaction(Async)");
+        }
+        
+        // verify the required parameter 'transactionGuid' is set
+        if (transactionGuid == null) {
+            throw new ApiException("Missing the required parameter 'transactionGuid' when calling deleteManagedTransaction(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteManagedTransactionCall(memberGuid, userGuid, transactionGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete managed transaction
+     * Use this endpoint to delete the specified partner-managed &#x60;transaction&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteManagedTransaction(String memberGuid, String userGuid, String transactionGuid) throws ApiException {
+        deleteManagedTransactionWithHttpInfo(memberGuid, userGuid, transactionGuid);
+    }
+
+    /**
+     * Delete managed transaction
+     * Use this endpoint to delete the specified partner-managed &#x60;transaction&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteManagedTransactionWithHttpInfo(String memberGuid, String userGuid, String transactionGuid) throws ApiException {
+        okhttp3.Call localVarCall = deleteManagedTransactionValidateBeforeCall(memberGuid, userGuid, transactionGuid, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete managed transaction (asynchronously)
+     * Use this endpoint to delete the specified partner-managed &#x60;transaction&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteManagedTransactionAsync(String memberGuid, String userGuid, String transactionGuid, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteManagedTransactionValidateBeforeCall(memberGuid, userGuid, transactionGuid, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -3713,6 +4477,528 @@ public class MxPlatformApi {
         return localVarCall;
     }
     /**
+     * Build call for listManagedAccounts
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listManagedAccountsCall(String userGuid, String memberGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listManagedAccountsValidateBeforeCall(String userGuid, String memberGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling listManagedAccounts(Async)");
+        }
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling listManagedAccounts(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listManagedAccountsCall(userGuid, memberGuid, page, recordsPerPage, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List managed accounts
+     * Use this endpoint to retrieve a list of all the partner-managed accounts associated with the given partner-manage member.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return AccountsResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public AccountsResponseBody listManagedAccounts(String userGuid, String memberGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<AccountsResponseBody> localVarResp = listManagedAccountsWithHttpInfo(userGuid, memberGuid, page, recordsPerPage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List managed accounts
+     * Use this endpoint to retrieve a list of all the partner-managed accounts associated with the given partner-manage member.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return ApiResponse&lt;AccountsResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AccountsResponseBody> listManagedAccountsWithHttpInfo(String userGuid, String memberGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listManagedAccountsValidateBeforeCall(userGuid, memberGuid, page, recordsPerPage, null);
+        Type localVarReturnType = new TypeToken<AccountsResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List managed accounts (asynchronously)
+     * Use this endpoint to retrieve a list of all the partner-managed accounts associated with the given partner-manage member.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listManagedAccountsAsync(String userGuid, String memberGuid, Integer page, Integer recordsPerPage, final ApiCallback<AccountsResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listManagedAccountsValidateBeforeCall(userGuid, memberGuid, page, recordsPerPage, _callback);
+        Type localVarReturnType = new TypeToken<AccountsResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listManagedInstitutions
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listManagedInstitutionsCall(Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/managed_institutions";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listManagedInstitutionsValidateBeforeCall(Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = listManagedInstitutionsCall(page, recordsPerPage, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List managed institutions
+     * This endpoint returns a list of institutions which can be used to create partner-managed members.
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return InstitutionsResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public InstitutionsResponseBody listManagedInstitutions(Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<InstitutionsResponseBody> localVarResp = listManagedInstitutionsWithHttpInfo(page, recordsPerPage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List managed institutions
+     * This endpoint returns a list of institutions which can be used to create partner-managed members.
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return ApiResponse&lt;InstitutionsResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<InstitutionsResponseBody> listManagedInstitutionsWithHttpInfo(Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listManagedInstitutionsValidateBeforeCall(page, recordsPerPage, null);
+        Type localVarReturnType = new TypeToken<InstitutionsResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List managed institutions (asynchronously)
+     * This endpoint returns a list of institutions which can be used to create partner-managed members.
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listManagedInstitutionsAsync(Integer page, Integer recordsPerPage, final ApiCallback<InstitutionsResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listManagedInstitutionsValidateBeforeCall(page, recordsPerPage, _callback);
+        Type localVarReturnType = new TypeToken<InstitutionsResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listManagedMembers
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listManagedMembersCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/managed_members"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listManagedMembersValidateBeforeCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling listManagedMembers(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listManagedMembersCall(userGuid, page, recordsPerPage, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List managed members
+     * This endpoint returns a list of all the partner-managed members associated with the specified &#x60;user&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return MembersResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public MembersResponseBody listManagedMembers(String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<MembersResponseBody> localVarResp = listManagedMembersWithHttpInfo(userGuid, page, recordsPerPage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List managed members
+     * This endpoint returns a list of all the partner-managed members associated with the specified &#x60;user&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return ApiResponse&lt;MembersResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<MembersResponseBody> listManagedMembersWithHttpInfo(String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listManagedMembersValidateBeforeCall(userGuid, page, recordsPerPage, null);
+        Type localVarReturnType = new TypeToken<MembersResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List managed members (asynchronously)
+     * This endpoint returns a list of all the partner-managed members associated with the specified &#x60;user&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listManagedMembersAsync(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback<MembersResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listManagedMembersValidateBeforeCall(userGuid, page, recordsPerPage, _callback);
+        Type localVarReturnType = new TypeToken<MembersResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listManagedTransactions
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listManagedTransactionsCall(String userGuid, String memberGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/transactions"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listManagedTransactionsValidateBeforeCall(String userGuid, String memberGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling listManagedTransactions(Async)");
+        }
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling listManagedTransactions(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listManagedTransactionsCall(userGuid, memberGuid, page, recordsPerPage, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List managed transactions
+     * This endpoint returns a list of all the partner-managed transactions associated with the specified &#x60;account&#x60;, scoped through a &#x60;user&#x60; and a &#x60;member&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return TransactionsResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public TransactionsResponseBody listManagedTransactions(String userGuid, String memberGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<TransactionsResponseBody> localVarResp = listManagedTransactionsWithHttpInfo(userGuid, memberGuid, page, recordsPerPage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List managed transactions
+     * This endpoint returns a list of all the partner-managed transactions associated with the specified &#x60;account&#x60;, scoped through a &#x60;user&#x60; and a &#x60;member&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return ApiResponse&lt;TransactionsResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TransactionsResponseBody> listManagedTransactionsWithHttpInfo(String userGuid, String memberGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listManagedTransactionsValidateBeforeCall(userGuid, memberGuid, page, recordsPerPage, null);
+        Type localVarReturnType = new TypeToken<TransactionsResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List managed transactions (asynchronously)
+     * This endpoint returns a list of all the partner-managed transactions associated with the specified &#x60;account&#x60;, scoped through a &#x60;user&#x60; and a &#x60;member&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listManagedTransactionsAsync(String userGuid, String memberGuid, Integer page, Integer recordsPerPage, final ApiCallback<TransactionsResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listManagedTransactionsValidateBeforeCall(userGuid, memberGuid, page, recordsPerPage, _callback);
+        Type localVarReturnType = new TypeToken<TransactionsResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listMemberChallenges
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
@@ -6055,6 +7341,392 @@ public class MxPlatformApi {
         return localVarCall;
     }
     /**
+     * Build call for readManagedAccount
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readManagedAccountCall(String memberGuid, String userGuid, String accountGuid, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}"
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call readManagedAccountValidateBeforeCall(String memberGuid, String userGuid, String accountGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling readManagedAccount(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling readManagedAccount(Async)");
+        }
+        
+        // verify the required parameter 'accountGuid' is set
+        if (accountGuid == null) {
+            throw new ApiException("Missing the required parameter 'accountGuid' when calling readManagedAccount(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = readManagedAccountCall(memberGuid, userGuid, accountGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read managed account
+     * Use this endpoint to read the attributes of a partner-managed account according to its unique guid.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @return AccountResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public AccountResponseBody readManagedAccount(String memberGuid, String userGuid, String accountGuid) throws ApiException {
+        ApiResponse<AccountResponseBody> localVarResp = readManagedAccountWithHttpInfo(memberGuid, userGuid, accountGuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read managed account
+     * Use this endpoint to read the attributes of a partner-managed account according to its unique guid.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @return ApiResponse&lt;AccountResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AccountResponseBody> readManagedAccountWithHttpInfo(String memberGuid, String userGuid, String accountGuid) throws ApiException {
+        okhttp3.Call localVarCall = readManagedAccountValidateBeforeCall(memberGuid, userGuid, accountGuid, null);
+        Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read managed account (asynchronously)
+     * Use this endpoint to read the attributes of a partner-managed account according to its unique guid.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readManagedAccountAsync(String memberGuid, String userGuid, String accountGuid, final ApiCallback<AccountResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = readManagedAccountValidateBeforeCall(memberGuid, userGuid, accountGuid, _callback);
+        Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for readManagedMember
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readManagedMemberCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}"
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call readManagedMemberValidateBeforeCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling readManagedMember(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling readManagedMember(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = readManagedMemberCall(memberGuid, userGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read managed member
+     * This endpoint returns the attributes of the specified partner-managed &#x60;member&#x60;.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return MemberResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public MemberResponseBody readManagedMember(String memberGuid, String userGuid) throws ApiException {
+        ApiResponse<MemberResponseBody> localVarResp = readManagedMemberWithHttpInfo(memberGuid, userGuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read managed member
+     * This endpoint returns the attributes of the specified partner-managed &#x60;member&#x60;.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return ApiResponse&lt;MemberResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<MemberResponseBody> readManagedMemberWithHttpInfo(String memberGuid, String userGuid) throws ApiException {
+        okhttp3.Call localVarCall = readManagedMemberValidateBeforeCall(memberGuid, userGuid, null);
+        Type localVarReturnType = new TypeToken<MemberResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read managed member (asynchronously)
+     * This endpoint returns the attributes of the specified partner-managed &#x60;member&#x60;.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readManagedMemberAsync(String memberGuid, String userGuid, final ApiCallback<MemberResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = readManagedMemberValidateBeforeCall(memberGuid, userGuid, _callback);
+        Type localVarReturnType = new TypeToken<MemberResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for readManagedTransaction
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readManagedTransactionCall(String memberGuid, String userGuid, String transactionGuid, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid}"
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "transaction_guid" + "\\}", localVarApiClient.escapeString(transactionGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call readManagedTransactionValidateBeforeCall(String memberGuid, String userGuid, String transactionGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling readManagedTransaction(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling readManagedTransaction(Async)");
+        }
+        
+        // verify the required parameter 'transactionGuid' is set
+        if (transactionGuid == null) {
+            throw new ApiException("Missing the required parameter 'transactionGuid' when calling readManagedTransaction(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = readManagedTransactionCall(memberGuid, userGuid, transactionGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read managed transaction
+     * Requests to this endpoint will return the attributes of the specified partner-managed &#x60;transaction&#x60;.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @return TransactionResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public TransactionResponseBody readManagedTransaction(String memberGuid, String userGuid, String transactionGuid) throws ApiException {
+        ApiResponse<TransactionResponseBody> localVarResp = readManagedTransactionWithHttpInfo(memberGuid, userGuid, transactionGuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read managed transaction
+     * Requests to this endpoint will return the attributes of the specified partner-managed &#x60;transaction&#x60;.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @return ApiResponse&lt;TransactionResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TransactionResponseBody> readManagedTransactionWithHttpInfo(String memberGuid, String userGuid, String transactionGuid) throws ApiException {
+        okhttp3.Call localVarCall = readManagedTransactionValidateBeforeCall(memberGuid, userGuid, transactionGuid, null);
+        Type localVarReturnType = new TypeToken<TransactionResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read managed transaction (asynchronously)
+     * Requests to this endpoint will return the attributes of the specified partner-managed &#x60;transaction&#x60;.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readManagedTransactionAsync(String memberGuid, String userGuid, String transactionGuid, final ApiCallback<TransactionResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = readManagedTransactionValidateBeforeCall(memberGuid, userGuid, transactionGuid, _callback);
+        Type localVarReturnType = new TypeToken<TransactionResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for readMember
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
@@ -6407,6 +8079,118 @@ public class MxPlatformApi {
 
         okhttp3.Call localVarCall = readMerchantValidateBeforeCall(merchantGuid, _callback);
         Type localVarReturnType = new TypeToken<MerchantResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for readMerchantLocation
+     * @param merchantLocationGuid The unique id for a &#x60;merchant_location&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readMerchantLocationCall(String merchantLocationGuid, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/merchant_locations/{merchant_location_guid}"
+            .replaceAll("\\{" + "merchant_location_guid" + "\\}", localVarApiClient.escapeString(merchantLocationGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call readMerchantLocationValidateBeforeCall(String merchantLocationGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'merchantLocationGuid' is set
+        if (merchantLocationGuid == null) {
+            throw new ApiException("Missing the required parameter 'merchantLocationGuid' when calling readMerchantLocation(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = readMerchantLocationCall(merchantLocationGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read merchant location
+     * This endpoint returns the specified merchant_location resource.
+     * @param merchantLocationGuid The unique id for a &#x60;merchant_location&#x60;. (required)
+     * @return MerchantLocationResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public MerchantLocationResponseBody readMerchantLocation(String merchantLocationGuid) throws ApiException {
+        ApiResponse<MerchantLocationResponseBody> localVarResp = readMerchantLocationWithHttpInfo(merchantLocationGuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read merchant location
+     * This endpoint returns the specified merchant_location resource.
+     * @param merchantLocationGuid The unique id for a &#x60;merchant_location&#x60;. (required)
+     * @return ApiResponse&lt;MerchantLocationResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<MerchantLocationResponseBody> readMerchantLocationWithHttpInfo(String merchantLocationGuid) throws ApiException {
+        okhttp3.Call localVarCall = readMerchantLocationValidateBeforeCall(merchantLocationGuid, null);
+        Type localVarReturnType = new TypeToken<MerchantLocationResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read merchant location (asynchronously)
+     * This endpoint returns the specified merchant_location resource.
+     * @param merchantLocationGuid The unique id for a &#x60;merchant_location&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readMerchantLocationAsync(String merchantLocationGuid, final ApiCallback<MerchantLocationResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = readMerchantLocationValidateBeforeCall(merchantLocationGuid, _callback);
+        Type localVarReturnType = new TypeToken<MerchantLocationResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -7264,6 +9048,7 @@ public class MxPlatformApi {
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param referralSource Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. (optional)
      * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. (optional)
+     * @param skipAggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -7273,7 +9058,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestOAuthWindowURICall(String memberGuid, String userGuid, String referralSource, String uiMessageWebviewUrlScheme, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call requestOAuthWindowURICall(String memberGuid, String userGuid, String referralSource, String uiMessageWebviewUrlScheme, Boolean skipAggregation, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -7295,6 +9080,10 @@ public class MxPlatformApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("ui_message_webview_url_scheme", uiMessageWebviewUrlScheme));
         }
 
+        if (skipAggregation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip_aggregation", skipAggregation));
+        }
+
         final String[] localVarAccepts = {
             "application/vnd.mx.api.v1+json"
         };
@@ -7314,7 +9103,7 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call requestOAuthWindowURIValidateBeforeCall(String memberGuid, String userGuid, String referralSource, String uiMessageWebviewUrlScheme, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call requestOAuthWindowURIValidateBeforeCall(String memberGuid, String userGuid, String referralSource, String uiMessageWebviewUrlScheme, Boolean skipAggregation, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
@@ -7327,7 +9116,7 @@ public class MxPlatformApi {
         }
         
 
-        okhttp3.Call localVarCall = requestOAuthWindowURICall(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme, _callback);
+        okhttp3.Call localVarCall = requestOAuthWindowURICall(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme, skipAggregation, _callback);
         return localVarCall;
 
     }
@@ -7339,6 +9128,7 @@ public class MxPlatformApi {
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param referralSource Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. (optional)
      * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. (optional)
+     * @param skipAggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. (optional)
      * @return OAuthWindowResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7347,8 +9137,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public OAuthWindowResponseBody requestOAuthWindowURI(String memberGuid, String userGuid, String referralSource, String uiMessageWebviewUrlScheme) throws ApiException {
-        ApiResponse<OAuthWindowResponseBody> localVarResp = requestOAuthWindowURIWithHttpInfo(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme);
+    public OAuthWindowResponseBody requestOAuthWindowURI(String memberGuid, String userGuid, String referralSource, String uiMessageWebviewUrlScheme, Boolean skipAggregation) throws ApiException {
+        ApiResponse<OAuthWindowResponseBody> localVarResp = requestOAuthWindowURIWithHttpInfo(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme, skipAggregation);
         return localVarResp.getData();
     }
 
@@ -7359,6 +9149,7 @@ public class MxPlatformApi {
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param referralSource Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. (optional)
      * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. (optional)
+     * @param skipAggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. (optional)
      * @return ApiResponse&lt;OAuthWindowResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7367,8 +9158,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OAuthWindowResponseBody> requestOAuthWindowURIWithHttpInfo(String memberGuid, String userGuid, String referralSource, String uiMessageWebviewUrlScheme) throws ApiException {
-        okhttp3.Call localVarCall = requestOAuthWindowURIValidateBeforeCall(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme, null);
+    public ApiResponse<OAuthWindowResponseBody> requestOAuthWindowURIWithHttpInfo(String memberGuid, String userGuid, String referralSource, String uiMessageWebviewUrlScheme, Boolean skipAggregation) throws ApiException {
+        okhttp3.Call localVarCall = requestOAuthWindowURIValidateBeforeCall(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme, skipAggregation, null);
         Type localVarReturnType = new TypeToken<OAuthWindowResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -7380,6 +9171,7 @@ public class MxPlatformApi {
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param referralSource Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. (optional)
      * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. (optional)
+     * @param skipAggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7389,9 +9181,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestOAuthWindowURIAsync(String memberGuid, String userGuid, String referralSource, String uiMessageWebviewUrlScheme, final ApiCallback<OAuthWindowResponseBody> _callback) throws ApiException {
+    public okhttp3.Call requestOAuthWindowURIAsync(String memberGuid, String userGuid, String referralSource, String uiMessageWebviewUrlScheme, Boolean skipAggregation, final ApiCallback<OAuthWindowResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = requestOAuthWindowURIValidateBeforeCall(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme, _callback);
+        okhttp3.Call localVarCall = requestOAuthWindowURIValidateBeforeCall(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme, skipAggregation, _callback);
         Type localVarReturnType = new TypeToken<OAuthWindowResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7925,6 +9717,419 @@ public class MxPlatformApi {
 
         okhttp3.Call localVarCall = updateCategoryValidateBeforeCall(categoryGuid, userGuid, categoryUpdateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<CategoryResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateManagedAccount
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param managedAccountUpdateRequestBody Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateManagedAccountCall(String memberGuid, String userGuid, String accountGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = managedAccountUpdateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}"
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateManagedAccountValidateBeforeCall(String memberGuid, String userGuid, String accountGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling updateManagedAccount(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling updateManagedAccount(Async)");
+        }
+        
+        // verify the required parameter 'accountGuid' is set
+        if (accountGuid == null) {
+            throw new ApiException("Missing the required parameter 'accountGuid' when calling updateManagedAccount(Async)");
+        }
+        
+        // verify the required parameter 'managedAccountUpdateRequestBody' is set
+        if (managedAccountUpdateRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'managedAccountUpdateRequestBody' when calling updateManagedAccount(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateManagedAccountCall(memberGuid, userGuid, accountGuid, managedAccountUpdateRequestBody, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update managed account
+     * Use this endpoint to update the attributes of a partner-managed account according to its unique GUID.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param managedAccountUpdateRequestBody Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
+     * @return AccountResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public AccountResponseBody updateManagedAccount(String memberGuid, String userGuid, String accountGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody) throws ApiException {
+        ApiResponse<AccountResponseBody> localVarResp = updateManagedAccountWithHttpInfo(memberGuid, userGuid, accountGuid, managedAccountUpdateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update managed account
+     * Use this endpoint to update the attributes of a partner-managed account according to its unique GUID.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param managedAccountUpdateRequestBody Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
+     * @return ApiResponse&lt;AccountResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AccountResponseBody> updateManagedAccountWithHttpInfo(String memberGuid, String userGuid, String accountGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = updateManagedAccountValidateBeforeCall(memberGuid, userGuid, accountGuid, managedAccountUpdateRequestBody, null);
+        Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update managed account (asynchronously)
+     * Use this endpoint to update the attributes of a partner-managed account according to its unique GUID.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param managedAccountUpdateRequestBody Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateManagedAccountAsync(String memberGuid, String userGuid, String accountGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody, final ApiCallback<AccountResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateManagedAccountValidateBeforeCall(memberGuid, userGuid, accountGuid, managedAccountUpdateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateManagedMember
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param managedMemberUpdateRequestBody Managed member object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateManagedMemberCall(String memberGuid, String userGuid, ManagedMemberUpdateRequestBody managedMemberUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = managedMemberUpdateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}"
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateManagedMemberValidateBeforeCall(String memberGuid, String userGuid, ManagedMemberUpdateRequestBody managedMemberUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling updateManagedMember(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling updateManagedMember(Async)");
+        }
+        
+        // verify the required parameter 'managedMemberUpdateRequestBody' is set
+        if (managedMemberUpdateRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'managedMemberUpdateRequestBody' when calling updateManagedMember(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateManagedMemberCall(memberGuid, userGuid, managedMemberUpdateRequestBody, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update managed member
+     * Use this endpoint to update the attributes of the specified partner_managed &#x60;member&#x60;.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param managedMemberUpdateRequestBody Managed member object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
+     * @return MemberResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public MemberResponseBody updateManagedMember(String memberGuid, String userGuid, ManagedMemberUpdateRequestBody managedMemberUpdateRequestBody) throws ApiException {
+        ApiResponse<MemberResponseBody> localVarResp = updateManagedMemberWithHttpInfo(memberGuid, userGuid, managedMemberUpdateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update managed member
+     * Use this endpoint to update the attributes of the specified partner_managed &#x60;member&#x60;.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param managedMemberUpdateRequestBody Managed member object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
+     * @return ApiResponse&lt;MemberResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<MemberResponseBody> updateManagedMemberWithHttpInfo(String memberGuid, String userGuid, ManagedMemberUpdateRequestBody managedMemberUpdateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = updateManagedMemberValidateBeforeCall(memberGuid, userGuid, managedMemberUpdateRequestBody, null);
+        Type localVarReturnType = new TypeToken<MemberResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update managed member (asynchronously)
+     * Use this endpoint to update the attributes of the specified partner_managed &#x60;member&#x60;.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param managedMemberUpdateRequestBody Managed member object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateManagedMemberAsync(String memberGuid, String userGuid, ManagedMemberUpdateRequestBody managedMemberUpdateRequestBody, final ApiCallback<MemberResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateManagedMemberValidateBeforeCall(memberGuid, userGuid, managedMemberUpdateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<MemberResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateManagedTransaction
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param managedTransactionUpdateRequestBody Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateManagedTransactionCall(String memberGuid, String userGuid, String transactionGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = managedTransactionUpdateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid}"
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "transaction_guid" + "\\}", localVarApiClient.escapeString(transactionGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateManagedTransactionValidateBeforeCall(String memberGuid, String userGuid, String transactionGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling updateManagedTransaction(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling updateManagedTransaction(Async)");
+        }
+        
+        // verify the required parameter 'transactionGuid' is set
+        if (transactionGuid == null) {
+            throw new ApiException("Missing the required parameter 'transactionGuid' when calling updateManagedTransaction(Async)");
+        }
+        
+        // verify the required parameter 'managedTransactionUpdateRequestBody' is set
+        if (managedTransactionUpdateRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'managedTransactionUpdateRequestBody' when calling updateManagedTransaction(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateManagedTransactionCall(memberGuid, userGuid, transactionGuid, managedTransactionUpdateRequestBody, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update managed transaction
+     * Use this endpoint to update the attributes of the specified partner_managed &#x60;transaction&#x60;.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param managedTransactionUpdateRequestBody Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
+     * @return TransactionResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public TransactionResponseBody updateManagedTransaction(String memberGuid, String userGuid, String transactionGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody) throws ApiException {
+        ApiResponse<TransactionResponseBody> localVarResp = updateManagedTransactionWithHttpInfo(memberGuid, userGuid, transactionGuid, managedTransactionUpdateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update managed transaction
+     * Use this endpoint to update the attributes of the specified partner_managed &#x60;transaction&#x60;.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param managedTransactionUpdateRequestBody Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
+     * @return ApiResponse&lt;TransactionResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TransactionResponseBody> updateManagedTransactionWithHttpInfo(String memberGuid, String userGuid, String transactionGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = updateManagedTransactionValidateBeforeCall(memberGuid, userGuid, transactionGuid, managedTransactionUpdateRequestBody, null);
+        Type localVarReturnType = new TypeToken<TransactionResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update managed transaction (asynchronously)
+     * Use this endpoint to update the attributes of the specified partner_managed &#x60;transaction&#x60;.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param managedTransactionUpdateRequestBody Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateManagedTransactionAsync(String memberGuid, String userGuid, String transactionGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody, final ApiCallback<TransactionResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateManagedTransactionValidateBeforeCall(memberGuid, userGuid, transactionGuid, managedTransactionUpdateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<TransactionResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

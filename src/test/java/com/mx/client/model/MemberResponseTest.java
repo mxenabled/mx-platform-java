@@ -89,6 +89,14 @@ public class MemberResponseTest {
     }
 
     /**
+     * Test the property 'isManagedByUser'
+     */
+    @Test
+    public void isManagedByUserTest() {
+        // TODO: test isManagedByUser
+    }
+
+    /**
      * Test the property 'isOauth'
      */
     @Test
@@ -134,6 +142,14 @@ public class MemberResponseTest {
     @Test
     public void userGuidTest() {
         // TODO: test userGuid
+    }
+
+    /**
+     * Test the property 'userId'
+     */
+    @Test
+    public void userIdTest() {
+        // TODO: test userId
     }
 
 }

@@ -8,6 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **accountGuid** | **String** |  |  [optional]
+**accountId** | **String** |  |  [optional]
 **amount** | **BigDecimal** |  |  [optional]
 **category** | **String** |  |  [optional]
 **checkNumberString** | **String** |  |  [optional]
@@ -32,9 +33,12 @@ Name | Type | Description | Notes
 **localizedMemo** | **String** |  |  [optional]
 **longitude** | **BigDecimal** |  |  [optional]
 **memberGuid** | **String** |  |  [optional]
+**memberIsManagedByUser** | **Boolean** |  |  [optional]
 **memo** | **String** |  |  [optional]
 **merchantCategoryCode** | **Integer** |  |  [optional]
 **merchantGuid** | **String** |  |  [optional]
+**merchantLocationGuid** | **String** |  |  [optional]
+**metadata** | **String** |  |  [optional]
 **originalDescription** | **String** |  |  [optional]
 **postedAt** | **String** |  |  [optional]
 **status** | **String** |  |  [optional]
@@ -43,6 +47,7 @@ Name | Type | Description | Notes
 **type** | **String** |  |  [optional]
 **updatedAt** | **String** |  |  [optional]
 **userGuid** | **String** |  |  [optional]
+**userId** | **String** |  |  [optional]
 
 
 
