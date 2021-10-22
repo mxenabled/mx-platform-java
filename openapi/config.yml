@@ -2,7 +2,7 @@ apiPackage: "com.mx.client.mx-platform-api"
 artifactDescription: "A Java library for the MX Platform API"
 artifactId: "mx-platform-java"
 artifactUrl: "https://github.com/mxenabled/mx-platform-java"
-artifactVersion: 0.2.1
+artifactVersion: 0.2.2
 developerEmail: "devexperience@mx.com"
 developerName: "MX"
 developerOrganization: "MX Technologies Inc."

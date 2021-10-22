@@ -5,7 +5,7 @@
     <artifactId>mx-platform-java</artifactId>
     <packaging>jar</packaging>
     <name>mx-platform-java</name>
-    <version>0.2.1</version>
+    <version>0.2.2</version>
     <url>https://github.com/mxenabled/mx-platform-java</url>
     <description>A Java library for the MX Platform API</description>
     <scm>
@@ -214,6 +214,12 @@
                                 </goals>
                             </execution>
                         </executions>
+                        <configuration>
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
