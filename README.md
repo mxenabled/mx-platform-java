@@ -28,7 +28,7 @@ mvn clean package
 ```
 
 Then manually install the following JARs:
-  - `target/mx-platform-java-0.2.2.jar`
+  - `target/mx-platform-java-0.2.3.jar`
   - `target/lib/*.jar`
 
 ## Getting Started

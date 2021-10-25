@@ -206,6 +206,12 @@
     <profiles>
         <profile>
             <id>sign-artifacts</id>
+            <activation>
+                <os>
+                    <name>Ubuntu</name>
+                    <version>20.04.3</version>
+                </os>
+            </activation>
             <build>
                 <plugins>
                     <plugin>
