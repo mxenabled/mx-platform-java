@@ -15,6 +15,19 @@ jobs:
           distribution: 'adopt'
           java-version: '11'
 
+      - name: Set up Maven Central
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+          server-id: ossrh
+          settings-path: ${{ github.workspace }}
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+          overwrite-settings: false
+
       - name: Build settings file
         uses: whelk-io/maven-settings-xml-action@v20
         with:
@@ -39,20 +52,8 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
-      - name: Set up Maven Central
-        uses: actions/setup-java@v2
-        with:
-          distribution: 'adopt'
-          java-version: '11'
-          server-id: ossrh
-          settings-path: ${{ github.workspace }}
-          server-username: MAVEN_USERNAME
-          server-password: MAVEN_PASSWORD
-          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
-          gpg-passphrase: MAVEN_GPG_PASSPHRASE
-
       - name: Publish to Maven Central
-        run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+        run: mvn clean deploy -s $GITHUB_WORKSPACE/.m2/settings.xml
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
