@@ -2133,7 +2133,7 @@ Name | Type | Description  | Notes
 
 <a name="listDefaultCategories"></a>
 # **listDefaultCategories**
-> CategoriesResponseBody listDefaultCategories(userGuid)
+> CategoriesResponseBody listDefaultCategories(userGuid, page, recordsPerPage)
 
 List default categories
 
@@ -2161,8 +2161,10 @@ public class Example {
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
     String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    Integer page = 1; // Integer | Specify current page.
+    Integer recordsPerPage = 10; // Integer | Specify records per page.
     try {
-      CategoriesResponseBody result = apiInstance.listDefaultCategories(userGuid);
+      CategoriesResponseBody result = apiInstance.listDefaultCategories(userGuid, page, recordsPerPage);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#listDefaultCategories");
@@ -2180,6 +2182,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+ **page** | **Integer**| Specify current page. | [optional]
+ **recordsPerPage** | **Integer**| Specify records per page. | [optional]
 
 ### Return type
 
@@ -2497,7 +2501,7 @@ Name | Type | Description  | Notes
 
 <a name="listInstitutions"></a>
 # **listInstitutions**
-> InstitutionsResponseBody listInstitutions(name, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory)
+> InstitutionsResponseBody listInstitutions(name, page, recordsPerPage, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory)
 
 List institutions
 
@@ -2525,12 +2529,14 @@ public class Example {
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
     String name = "chase"; // String | This will list only institutions in which the appended string appears.
+    Integer page = 1; // Integer | Specify current page.
+    Integer recordsPerPage = 10; // Integer | Specify records per page.
     Boolean supportsAccountIdentification = true; // Boolean | Filter only institutions which support account identification.
     Boolean supportsAccountStatement = true; // Boolean | Filter only institutions which support account statements.
     Boolean supportsAccountVerification = true; // Boolean | Filter only institutions which support account verification.
     Boolean supportsTransactionHistory = true; // Boolean | Filter only institutions which support extended transaction history.
     try {
-      InstitutionsResponseBody result = apiInstance.listInstitutions(name, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory);
+      InstitutionsResponseBody result = apiInstance.listInstitutions(name, page, recordsPerPage, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#listInstitutions");
@@ -2548,6 +2554,8 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| This will list only institutions in which the appended string appears. | [optional]
+ **page** | **Integer**| Specify current page. | [optional]
+ **recordsPerPage** | **Integer**| Specify records per page. | [optional]
  **supportsAccountIdentification** | **Boolean**| Filter only institutions which support account identification. | [optional]
  **supportsAccountStatement** | **Boolean**| Filter only institutions which support account statements. | [optional]
  **supportsAccountVerification** | **Boolean**| Filter only institutions which support account verification. | [optional]
@@ -3675,7 +3683,7 @@ Name | Type | Description  | Notes
 
 <a name="listTransactionsByTag"></a>
 # **listTransactionsByTag**
-> TransactionsResponseBody listTransactionsByTag(tagGuid, userGuid)
+> TransactionsResponseBody listTransactionsByTag(tagGuid, userGuid, fromDate, page, recordsPerPage, toDate)
 
 List transactions by tag
 
@@ -3704,8 +3712,12 @@ public class Example {
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
     String tagGuid = "TAG-aef36e72-6294-4c38-844d-e573e80aed52"; // String | The unique id for a `tag`.
     String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String fromDate = "2015-09-20"; // String | Filter transactions from this date.
+    Integer page = 1; // Integer | Specify current page.
+    Integer recordsPerPage = 10; // Integer | Specify records per page.
+    String toDate = "2019-10-20"; // String | Filter transactions to this date.
     try {
-      TransactionsResponseBody result = apiInstance.listTransactionsByTag(tagGuid, userGuid);
+      TransactionsResponseBody result = apiInstance.listTransactionsByTag(tagGuid, userGuid, fromDate, page, recordsPerPage, toDate);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#listTransactionsByTag");
@@ -3724,6 +3736,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **tagGuid** | **String**| The unique id for a &#x60;tag&#x60;. |
  **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+ **fromDate** | **String**| Filter transactions from this date. | [optional]
+ **page** | **Integer**| Specify current page. | [optional]
+ **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+ **toDate** | **String**| Filter transactions to this date. | [optional]
 
 ### Return type
 

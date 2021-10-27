@@ -603,7 +603,9 @@ public class MxPlatformApiTest {
     @Test
     public void listDefaultCategoriesTest() throws ApiException {
         String userGuid = null;
-        CategoriesResponseBody response = api.listDefaultCategories(userGuid);
+        Integer page = null;
+        Integer recordsPerPage = null;
+        CategoriesResponseBody response = api.listDefaultCategories(userGuid, page, recordsPerPage);
 
         // TODO: test validations
     }
@@ -695,11 +697,13 @@ public class MxPlatformApiTest {
     @Test
     public void listInstitutionsTest() throws ApiException {
         String name = null;
+        Integer page = null;
+        Integer recordsPerPage = null;
         Boolean supportsAccountIdentification = null;
         Boolean supportsAccountStatement = null;
         Boolean supportsAccountVerification = null;
         Boolean supportsTransactionHistory = null;
-        InstitutionsResponseBody response = api.listInstitutions(name, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory);
+        InstitutionsResponseBody response = api.listInstitutions(name, page, recordsPerPage, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory);
 
         // TODO: test validations
     }
@@ -997,7 +1001,11 @@ public class MxPlatformApiTest {
     public void listTransactionsByTagTest() throws ApiException {
         String tagGuid = null;
         String userGuid = null;
-        TransactionsResponseBody response = api.listTransactionsByTag(tagGuid, userGuid);
+        String fromDate = null;
+        Integer page = null;
+        Integer recordsPerPage = null;
+        String toDate = null;
+        TransactionsResponseBody response = api.listTransactionsByTag(tagGuid, userGuid, fromDate, page, recordsPerPage, toDate);
 
         // TODO: test validations
     }
