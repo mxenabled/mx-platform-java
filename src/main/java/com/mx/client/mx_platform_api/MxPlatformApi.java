@@ -3681,6 +3681,8 @@ public class MxPlatformApi {
     /**
      * Build call for listDefaultCategories
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3690,7 +3692,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listDefaultCategoriesCall(String userGuid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listDefaultCategoriesCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3702,6 +3704,14 @@ public class MxPlatformApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
 
         final String[] localVarAccepts = {
             "application/vnd.mx.api.v1+json"
@@ -3722,7 +3732,7 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listDefaultCategoriesValidateBeforeCall(String userGuid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDefaultCategoriesValidateBeforeCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
@@ -3730,7 +3740,7 @@ public class MxPlatformApi {
         }
         
 
-        okhttp3.Call localVarCall = listDefaultCategoriesCall(userGuid, _callback);
+        okhttp3.Call localVarCall = listDefaultCategoriesCall(userGuid, page, recordsPerPage, _callback);
         return localVarCall;
 
     }
@@ -3739,6 +3749,8 @@ public class MxPlatformApi {
      * List default categories
      * Use this endpoint to read the attributes of a specific user.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
      * @return CategoriesResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3747,8 +3759,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CategoriesResponseBody listDefaultCategories(String userGuid) throws ApiException {
-        ApiResponse<CategoriesResponseBody> localVarResp = listDefaultCategoriesWithHttpInfo(userGuid);
+    public CategoriesResponseBody listDefaultCategories(String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<CategoriesResponseBody> localVarResp = listDefaultCategoriesWithHttpInfo(userGuid, page, recordsPerPage);
         return localVarResp.getData();
     }
 
@@ -3756,6 +3768,8 @@ public class MxPlatformApi {
      * List default categories
      * Use this endpoint to read the attributes of a specific user.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
      * @return ApiResponse&lt;CategoriesResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3764,8 +3778,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CategoriesResponseBody> listDefaultCategoriesWithHttpInfo(String userGuid) throws ApiException {
-        okhttp3.Call localVarCall = listDefaultCategoriesValidateBeforeCall(userGuid, null);
+    public ApiResponse<CategoriesResponseBody> listDefaultCategoriesWithHttpInfo(String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listDefaultCategoriesValidateBeforeCall(userGuid, page, recordsPerPage, null);
         Type localVarReturnType = new TypeToken<CategoriesResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3774,6 +3788,8 @@ public class MxPlatformApi {
      * List default categories (asynchronously)
      * Use this endpoint to read the attributes of a specific user.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3783,9 +3799,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listDefaultCategoriesAsync(String userGuid, final ApiCallback<CategoriesResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listDefaultCategoriesAsync(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback<CategoriesResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listDefaultCategoriesValidateBeforeCall(userGuid, _callback);
+        okhttp3.Call localVarCall = listDefaultCategoriesValidateBeforeCall(userGuid, page, recordsPerPage, _callback);
         Type localVarReturnType = new TypeToken<CategoriesResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4337,6 +4353,8 @@ public class MxPlatformApi {
     /**
      * Build call for listInstitutions
      * @param name This will list only institutions in which the appended string appears. (optional)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
      * @param supportsAccountIdentification Filter only institutions which support account identification. (optional)
      * @param supportsAccountStatement Filter only institutions which support account statements. (optional)
      * @param supportsAccountVerification Filter only institutions which support account verification. (optional)
@@ -4350,7 +4368,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listInstitutionsCall(String name, Boolean supportsAccountIdentification, Boolean supportsAccountStatement, Boolean supportsAccountVerification, Boolean supportsTransactionHistory, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listInstitutionsCall(String name, Integer page, Integer recordsPerPage, Boolean supportsAccountIdentification, Boolean supportsAccountStatement, Boolean supportsAccountVerification, Boolean supportsTransactionHistory, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4364,6 +4382,14 @@ public class MxPlatformApi {
 
         if (name != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("name", name));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
         }
 
         if (supportsAccountIdentification != null) {
@@ -4401,10 +4427,10 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listInstitutionsValidateBeforeCall(String name, Boolean supportsAccountIdentification, Boolean supportsAccountStatement, Boolean supportsAccountVerification, Boolean supportsTransactionHistory, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listInstitutionsValidateBeforeCall(String name, Integer page, Integer recordsPerPage, Boolean supportsAccountIdentification, Boolean supportsAccountStatement, Boolean supportsAccountVerification, Boolean supportsTransactionHistory, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = listInstitutionsCall(name, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory, _callback);
+        okhttp3.Call localVarCall = listInstitutionsCall(name, page, recordsPerPage, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory, _callback);
         return localVarCall;
 
     }
@@ -4413,6 +4439,8 @@ public class MxPlatformApi {
      * List institutions
      * This endpoint returns a list of institutions based on the specified search term or parameter.
      * @param name This will list only institutions in which the appended string appears. (optional)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
      * @param supportsAccountIdentification Filter only institutions which support account identification. (optional)
      * @param supportsAccountStatement Filter only institutions which support account statements. (optional)
      * @param supportsAccountVerification Filter only institutions which support account verification. (optional)
@@ -4425,8 +4453,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public InstitutionsResponseBody listInstitutions(String name, Boolean supportsAccountIdentification, Boolean supportsAccountStatement, Boolean supportsAccountVerification, Boolean supportsTransactionHistory) throws ApiException {
-        ApiResponse<InstitutionsResponseBody> localVarResp = listInstitutionsWithHttpInfo(name, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory);
+    public InstitutionsResponseBody listInstitutions(String name, Integer page, Integer recordsPerPage, Boolean supportsAccountIdentification, Boolean supportsAccountStatement, Boolean supportsAccountVerification, Boolean supportsTransactionHistory) throws ApiException {
+        ApiResponse<InstitutionsResponseBody> localVarResp = listInstitutionsWithHttpInfo(name, page, recordsPerPage, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory);
         return localVarResp.getData();
     }
 
@@ -4434,6 +4462,8 @@ public class MxPlatformApi {
      * List institutions
      * This endpoint returns a list of institutions based on the specified search term or parameter.
      * @param name This will list only institutions in which the appended string appears. (optional)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
      * @param supportsAccountIdentification Filter only institutions which support account identification. (optional)
      * @param supportsAccountStatement Filter only institutions which support account statements. (optional)
      * @param supportsAccountVerification Filter only institutions which support account verification. (optional)
@@ -4446,8 +4476,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<InstitutionsResponseBody> listInstitutionsWithHttpInfo(String name, Boolean supportsAccountIdentification, Boolean supportsAccountStatement, Boolean supportsAccountVerification, Boolean supportsTransactionHistory) throws ApiException {
-        okhttp3.Call localVarCall = listInstitutionsValidateBeforeCall(name, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory, null);
+    public ApiResponse<InstitutionsResponseBody> listInstitutionsWithHttpInfo(String name, Integer page, Integer recordsPerPage, Boolean supportsAccountIdentification, Boolean supportsAccountStatement, Boolean supportsAccountVerification, Boolean supportsTransactionHistory) throws ApiException {
+        okhttp3.Call localVarCall = listInstitutionsValidateBeforeCall(name, page, recordsPerPage, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory, null);
         Type localVarReturnType = new TypeToken<InstitutionsResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4456,6 +4486,8 @@ public class MxPlatformApi {
      * List institutions (asynchronously)
      * This endpoint returns a list of institutions based on the specified search term or parameter.
      * @param name This will list only institutions in which the appended string appears. (optional)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
      * @param supportsAccountIdentification Filter only institutions which support account identification. (optional)
      * @param supportsAccountStatement Filter only institutions which support account statements. (optional)
      * @param supportsAccountVerification Filter only institutions which support account verification. (optional)
@@ -4469,9 +4501,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listInstitutionsAsync(String name, Boolean supportsAccountIdentification, Boolean supportsAccountStatement, Boolean supportsAccountVerification, Boolean supportsTransactionHistory, final ApiCallback<InstitutionsResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listInstitutionsAsync(String name, Integer page, Integer recordsPerPage, Boolean supportsAccountIdentification, Boolean supportsAccountStatement, Boolean supportsAccountVerification, Boolean supportsTransactionHistory, final ApiCallback<InstitutionsResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listInstitutionsValidateBeforeCall(name, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory, _callback);
+        okhttp3.Call localVarCall = listInstitutionsValidateBeforeCall(name, page, recordsPerPage, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory, _callback);
         Type localVarReturnType = new TypeToken<InstitutionsResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6498,6 +6530,10 @@ public class MxPlatformApi {
      * Build call for listTransactionsByTag
      * @param tagGuid The unique id for a &#x60;tag&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param fromDate Filter transactions from this date. (optional)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param toDate Filter transactions to this date. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6507,7 +6543,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTransactionsByTagCall(String tagGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listTransactionsByTagCall(String tagGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -6520,6 +6556,22 @@ public class MxPlatformApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (fromDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from_date", fromDate));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        if (toDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to_date", toDate));
+        }
 
         final String[] localVarAccepts = {
             "application/vnd.mx.api.v1+json"
@@ -6540,7 +6592,7 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listTransactionsByTagValidateBeforeCall(String tagGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listTransactionsByTagValidateBeforeCall(String tagGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'tagGuid' is set
         if (tagGuid == null) {
@@ -6553,7 +6605,7 @@ public class MxPlatformApi {
         }
         
 
-        okhttp3.Call localVarCall = listTransactionsByTagCall(tagGuid, userGuid, _callback);
+        okhttp3.Call localVarCall = listTransactionsByTagCall(tagGuid, userGuid, fromDate, page, recordsPerPage, toDate, _callback);
         return localVarCall;
 
     }
@@ -6563,6 +6615,10 @@ public class MxPlatformApi {
      * Use this endpoint to get a list of all transactions associated with a particular tag according to the tag’s unique GUID. In other words, a list of all transactions that have been assigned to a particular tag using the create a tagging endpoint.
      * @param tagGuid The unique id for a &#x60;tag&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param fromDate Filter transactions from this date. (optional)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param toDate Filter transactions to this date. (optional)
      * @return TransactionsResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6571,8 +6627,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TransactionsResponseBody listTransactionsByTag(String tagGuid, String userGuid) throws ApiException {
-        ApiResponse<TransactionsResponseBody> localVarResp = listTransactionsByTagWithHttpInfo(tagGuid, userGuid);
+    public TransactionsResponseBody listTransactionsByTag(String tagGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate) throws ApiException {
+        ApiResponse<TransactionsResponseBody> localVarResp = listTransactionsByTagWithHttpInfo(tagGuid, userGuid, fromDate, page, recordsPerPage, toDate);
         return localVarResp.getData();
     }
 
@@ -6581,6 +6637,10 @@ public class MxPlatformApi {
      * Use this endpoint to get a list of all transactions associated with a particular tag according to the tag’s unique GUID. In other words, a list of all transactions that have been assigned to a particular tag using the create a tagging endpoint.
      * @param tagGuid The unique id for a &#x60;tag&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param fromDate Filter transactions from this date. (optional)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param toDate Filter transactions to this date. (optional)
      * @return ApiResponse&lt;TransactionsResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6589,8 +6649,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TransactionsResponseBody> listTransactionsByTagWithHttpInfo(String tagGuid, String userGuid) throws ApiException {
-        okhttp3.Call localVarCall = listTransactionsByTagValidateBeforeCall(tagGuid, userGuid, null);
+    public ApiResponse<TransactionsResponseBody> listTransactionsByTagWithHttpInfo(String tagGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate) throws ApiException {
+        okhttp3.Call localVarCall = listTransactionsByTagValidateBeforeCall(tagGuid, userGuid, fromDate, page, recordsPerPage, toDate, null);
         Type localVarReturnType = new TypeToken<TransactionsResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -6600,6 +6660,10 @@ public class MxPlatformApi {
      * Use this endpoint to get a list of all transactions associated with a particular tag according to the tag’s unique GUID. In other words, a list of all transactions that have been assigned to a particular tag using the create a tagging endpoint.
      * @param tagGuid The unique id for a &#x60;tag&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param fromDate Filter transactions from this date. (optional)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param toDate Filter transactions to this date. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6609,9 +6673,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listTransactionsByTagAsync(String tagGuid, String userGuid, final ApiCallback<TransactionsResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listTransactionsByTagAsync(String tagGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback<TransactionsResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listTransactionsByTagValidateBeforeCall(tagGuid, userGuid, _callback);
+        okhttp3.Call localVarCall = listTransactionsByTagValidateBeforeCall(tagGuid, userGuid, fromDate, page, recordsPerPage, toDate, _callback);
         Type localVarReturnType = new TypeToken<TransactionsResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
