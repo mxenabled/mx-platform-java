@@ -28,8 +28,23 @@ mvn clean package
 ```
 
 Then manually install the following JARs:
-  - `target/mx-platform-java-0.3.0.jar`
+  - `target/mx-platform-java-0.3.1.jar`
   - `target/lib/*.jar`
+
+### Maven users
+
+Add this dependency to your project's POM:
+
+```xml
+<dependency>
+  <groupId>com.mx</groupId>
+  <artifactId>mx-platform-java</artifactId>
+  <version>0.3.1</version>
+  <scope>compile</scope>
+</dependency>
+```
+
+You can find the MX Platform Java Library in the [Maven Central Repository](https://search.maven.org/search?q=mx-platform-java).
 
 ## Getting Started
 

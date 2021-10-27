@@ -33,6 +33,21 @@ Then manually install the following JARs:
   - `target/{{{artifactId}}}-{{{artifactVersion}}}.jar`
   - `target/lib/*.jar`
 
+### Maven users
+
+Add this dependency to your project's POM:
+
+```xml
+<dependency>
+  <groupId>{{{groupId}}}</groupId>
+  <artifactId>{{{artifactId}}}</artifactId>
+  <version>{{{artifactVersion}}}</version>
+  <scope>compile</scope>
+</dependency>
+```
+
+You can find the MX Platform Java Library in the [Maven Central Repository](https://search.maven.org/search?q=mx-platform-java).
+
 {{#jersey2}}
 ## Usage
 
