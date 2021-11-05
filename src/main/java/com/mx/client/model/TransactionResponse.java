@@ -24,6 +24,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * TransactionResponse
@@ -1190,9 +1191,20 @@ public class TransactionResponse {
         Objects.equals(this.userId, transactionResponse.userId);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(accountGuid, accountId, amount, category, checkNumberString, createdAt, currencyCode, date, description, guid, id, isBillPay, isDirectDeposit, isExpense, isFee, isIncome, isInternational, isOverdraftFee, isPayrollAdvance, isRecurring, isSubscription, latitude, localizedDescription, localizedMemo, longitude, memberGuid, memberIsManagedByUser, memo, merchantCategoryCode, merchantGuid, merchantLocationGuid, metadata, originalDescription, postedAt, status, topLevelCategory, transactedAt, type, updatedAt, userGuid, userId);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
