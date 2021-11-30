@@ -58,11 +58,27 @@ public class EnhanceTransactionsRequestTest {
     }
 
     /**
+     * Test the property 'extendedTransactionType'
+     */
+    @Test
+    public void extendedTransactionTypeTest() {
+        // TODO: test extendedTransactionType
+    }
+
+    /**
      * Test the property 'id'
      */
     @Test
     public void idTest() {
         // TODO: test id
+    }
+
+    /**
+     * Test the property 'memo'
+     */
+    @Test
+    public void memoTest() {
+        // TODO: test memo
     }
 
     /**

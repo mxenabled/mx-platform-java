@@ -75,6 +75,14 @@ public class TransactionResponseTest {
     }
 
     /**
+     * Test the property 'categoryGuid'
+     */
+    @Test
+    public void categoryGuidTest() {
+        // TODO: test categoryGuid
+    }
+
+    /**
      * Test the property 'checkNumberString'
      */
     @Test
@@ -112,6 +120,14 @@ public class TransactionResponseTest {
     @Test
     public void descriptionTest() {
         // TODO: test description
+    }
+
+    /**
+     * Test the property 'extendedTransactionType'
+     */
+    @Test
+    public void extendedTransactionTypeTest() {
+        // TODO: test extendedTransactionType
     }
 
     /**
