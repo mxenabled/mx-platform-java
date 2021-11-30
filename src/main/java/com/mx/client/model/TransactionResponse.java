@@ -47,6 +47,10 @@ public class TransactionResponse {
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private String category;
 
+  public static final String SERIALIZED_NAME_CATEGORY_GUID = "category_guid";
+  @SerializedName(SERIALIZED_NAME_CATEGORY_GUID)
+  private String categoryGuid;
+
   public static final String SERIALIZED_NAME_CHECK_NUMBER_STRING = "check_number_string";
   @SerializedName(SERIALIZED_NAME_CHECK_NUMBER_STRING)
   private String checkNumberString;
@@ -66,6 +70,10 @@ public class TransactionResponse {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
+
+  public static final String SERIALIZED_NAME_EXTENDED_TRANSACTION_TYPE = "extended_transaction_type";
+  @SerializedName(SERIALIZED_NAME_EXTENDED_TRANSACTION_TYPE)
+  private String extendedTransactionType;
 
   public static final String SERIALIZED_NAME_GUID = "guid";
   @SerializedName(SERIALIZED_NAME_GUID)
@@ -288,6 +296,29 @@ public class TransactionResponse {
   }
 
 
+  public TransactionResponse categoryGuid(String categoryGuid) {
+    
+    this.categoryGuid = categoryGuid;
+    return this;
+  }
+
+   /**
+   * Get categoryGuid
+   * @return categoryGuid
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "CAT-9588eaad-90a4-bb5c-66c8-1812503d0db8", value = "")
+
+  public String getCategoryGuid() {
+    return categoryGuid;
+  }
+
+
+  public void setCategoryGuid(String categoryGuid) {
+    this.categoryGuid = categoryGuid;
+  }
+
+
   public TransactionResponse checkNumberString(String checkNumberString) {
     
     this.checkNumberString = checkNumberString;
@@ -400,6 +431,29 @@ public class TransactionResponse {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public TransactionResponse extendedTransactionType(String extendedTransactionType) {
+    
+    this.extendedTransactionType = extendedTransactionType;
+    return this;
+  }
+
+   /**
+   * Get extendedTransactionType
+   * @return extendedTransactionType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "partner_transaction_type", value = "")
+
+  public String getExtendedTransactionType() {
+    return extendedTransactionType;
+  }
+
+
+  public void setExtendedTransactionType(String extendedTransactionType) {
+    this.extendedTransactionType = extendedTransactionType;
   }
 
 
@@ -1152,11 +1206,13 @@ public class TransactionResponse {
         Objects.equals(this.accountId, transactionResponse.accountId) &&
         Objects.equals(this.amount, transactionResponse.amount) &&
         Objects.equals(this.category, transactionResponse.category) &&
+        Objects.equals(this.categoryGuid, transactionResponse.categoryGuid) &&
         Objects.equals(this.checkNumberString, transactionResponse.checkNumberString) &&
         Objects.equals(this.createdAt, transactionResponse.createdAt) &&
         Objects.equals(this.currencyCode, transactionResponse.currencyCode) &&
         Objects.equals(this.date, transactionResponse.date) &&
         Objects.equals(this.description, transactionResponse.description) &&
+        Objects.equals(this.extendedTransactionType, transactionResponse.extendedTransactionType) &&
         Objects.equals(this.guid, transactionResponse.guid) &&
         Objects.equals(this.id, transactionResponse.id) &&
         Objects.equals(this.isBillPay, transactionResponse.isBillPay) &&
@@ -1197,7 +1253,7 @@ public class TransactionResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountGuid, accountId, amount, category, checkNumberString, createdAt, currencyCode, date, description, guid, id, isBillPay, isDirectDeposit, isExpense, isFee, isIncome, isInternational, isOverdraftFee, isPayrollAdvance, isRecurring, isSubscription, latitude, localizedDescription, localizedMemo, longitude, memberGuid, memberIsManagedByUser, memo, merchantCategoryCode, merchantGuid, merchantLocationGuid, metadata, originalDescription, postedAt, status, topLevelCategory, transactedAt, type, updatedAt, userGuid, userId);
+    return Objects.hash(accountGuid, accountId, amount, category, categoryGuid, checkNumberString, createdAt, currencyCode, date, description, extendedTransactionType, guid, id, isBillPay, isDirectDeposit, isExpense, isFee, isIncome, isInternational, isOverdraftFee, isPayrollAdvance, isRecurring, isSubscription, latitude, localizedDescription, localizedMemo, longitude, memberGuid, memberIsManagedByUser, memo, merchantCategoryCode, merchantGuid, merchantLocationGuid, metadata, originalDescription, postedAt, status, topLevelCategory, transactedAt, type, updatedAt, userGuid, userId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1215,11 +1271,13 @@ public class TransactionResponse {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    category: ").append(toIndentedString(category)).append("\n");
+    sb.append("    categoryGuid: ").append(toIndentedString(categoryGuid)).append("\n");
     sb.append("    checkNumberString: ").append(toIndentedString(checkNumberString)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
     sb.append("    date: ").append(toIndentedString(date)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    extendedTransactionType: ").append(toIndentedString(extendedTransactionType)).append("\n");
     sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    isBillPay: ").append(toIndentedString(isBillPay)).append("\n");

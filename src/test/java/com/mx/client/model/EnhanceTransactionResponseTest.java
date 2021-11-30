@@ -51,6 +51,14 @@ public class EnhanceTransactionResponseTest {
     }
 
     /**
+     * Test the property 'categorizedBy'
+     */
+    @Test
+    public void categorizedByTest() {
+        // TODO: test categorizedBy
+    }
+
+    /**
      * Test the property 'category'
      */
     @Test
@@ -59,11 +67,35 @@ public class EnhanceTransactionResponseTest {
     }
 
     /**
+     * Test the property 'categoryGuid'
+     */
+    @Test
+    public void categoryGuidTest() {
+        // TODO: test categoryGuid
+    }
+
+    /**
+     * Test the property 'describedBy'
+     */
+    @Test
+    public void describedByTest() {
+        // TODO: test describedBy
+    }
+
+    /**
      * Test the property 'description'
      */
     @Test
     public void descriptionTest() {
         // TODO: test description
+    }
+
+    /**
+     * Test the property 'extendedTransactionType'
+     */
+    @Test
+    public void extendedTransactionTypeTest() {
+        // TODO: test extendedTransactionType
     }
 
     /**
@@ -139,6 +171,22 @@ public class EnhanceTransactionResponseTest {
     }
 
     /**
+     * Test the property 'isSubscription'
+     */
+    @Test
+    public void isSubscriptionTest() {
+        // TODO: test isSubscription
+    }
+
+    /**
+     * Test the property 'memo'
+     */
+    @Test
+    public void memoTest() {
+        // TODO: test memo
+    }
+
+    /**
      * Test the property 'merchantCategoryCode'
      */
     @Test
@@ -152,6 +200,14 @@ public class EnhanceTransactionResponseTest {
     @Test
     public void merchantGuidTest() {
         // TODO: test merchantGuid
+    }
+
+    /**
+     * Test the property 'merchantLocationGuid'
+     */
+    @Test
+    public void merchantLocationGuidTest() {
+        // TODO: test merchantLocationGuid
     }
 
     /**

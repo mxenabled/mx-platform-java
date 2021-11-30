@@ -38,9 +38,17 @@ public class EnhanceTransactionsRequest {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public static final String SERIALIZED_NAME_EXTENDED_TRANSACTION_TYPE = "extended_transaction_type";
+  @SerializedName(SERIALIZED_NAME_EXTENDED_TRANSACTION_TYPE)
+  private String extendedTransactionType;
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
+
+  public static final String SERIALIZED_NAME_MEMO = "memo";
+  @SerializedName(SERIALIZED_NAME_MEMO)
+  private String memo;
 
   public static final String SERIALIZED_NAME_MERCHANT_CATEGORY_CODE = "merchant_category_code";
   @SerializedName(SERIALIZED_NAME_MERCHANT_CATEGORY_CODE)
@@ -85,7 +93,7 @@ public class EnhanceTransactionsRequest {
    * @return description
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "IN-N-OUT BURGER", required = true, value = "")
+  @ApiModelProperty(example = "ubr* pending.uber.com", required = true, value = "")
 
   public String getDescription() {
     return description;
@@ -94,6 +102,29 @@ public class EnhanceTransactionsRequest {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+
+  public EnhanceTransactionsRequest extendedTransactionType(String extendedTransactionType) {
+    
+    this.extendedTransactionType = extendedTransactionType;
+    return this;
+  }
+
+   /**
+   * Get extendedTransactionType
+   * @return extendedTransactionType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "partner_transaction_type", value = "")
+
+  public String getExtendedTransactionType() {
+    return extendedTransactionType;
+  }
+
+
+  public void setExtendedTransactionType(String extendedTransactionType) {
+    this.extendedTransactionType = extendedTransactionType;
   }
 
 
@@ -117,6 +148,29 @@ public class EnhanceTransactionsRequest {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+
+  public EnhanceTransactionsRequest memo(String memo) {
+    
+    this.memo = memo;
+    return this;
+  }
+
+   /**
+   * Get memo
+   * @return memo
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Additional-information*on_transaction", value = "")
+
+  public String getMemo() {
+    return memo;
+  }
+
+
+  public void setMemo(String memo) {
+    this.memo = memo;
   }
 
 
@@ -177,14 +231,16 @@ public class EnhanceTransactionsRequest {
     EnhanceTransactionsRequest enhanceTransactionsRequest = (EnhanceTransactionsRequest) o;
     return Objects.equals(this.amount, enhanceTransactionsRequest.amount) &&
         Objects.equals(this.description, enhanceTransactionsRequest.description) &&
+        Objects.equals(this.extendedTransactionType, enhanceTransactionsRequest.extendedTransactionType) &&
         Objects.equals(this.id, enhanceTransactionsRequest.id) &&
+        Objects.equals(this.memo, enhanceTransactionsRequest.memo) &&
         Objects.equals(this.merchantCategoryCode, enhanceTransactionsRequest.merchantCategoryCode) &&
         Objects.equals(this.type, enhanceTransactionsRequest.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(amount, description, id, merchantCategoryCode, type);
+    return Objects.hash(amount, description, extendedTransactionType, id, memo, merchantCategoryCode, type);
   }
 
   @Override
@@ -193,7 +249,9 @@ public class EnhanceTransactionsRequest {
     sb.append("class EnhanceTransactionsRequest {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    extendedTransactionType: ").append(toIndentedString(extendedTransactionType)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    memo: ").append(toIndentedString(memo)).append("\n");
     sb.append("    merchantCategoryCode: ").append(toIndentedString(merchantCategoryCode)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
