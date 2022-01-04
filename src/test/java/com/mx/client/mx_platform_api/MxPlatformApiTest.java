@@ -566,17 +566,33 @@ public class MxPlatformApiTest {
     /**
      * List default categories
      *
-     * Use this endpoint to read the attributes of a specific user.
+     * Use this endpoint to retrieve a list of all the default categories and subcategories offered within the MX Platform API. In other words, each item in the returned list will have its &#x60;is_default&#x60; field set to &#x60;true&#x60;. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
      *
      * @throws ApiException
      *          if the Api call fails
      */
     @Test
     public void listDefaultCategoriesTest() throws ApiException {
+        Integer page = null;
+        Integer recordsPerPage = null;
+                CategoriesResponseBody response = api.listDefaultCategories(page, recordsPerPage);
+        // TODO: test validations
+    }
+    
+    /**
+     * List default categories by user
+     *
+     * Use this endpoint to retrieve a list of all the default categories and subcategories, scoped by user, offered within the MX Platform API. In other words, each item in the returned list will have its &#x60;is_default&#x60; field set to &#x60;true&#x60;. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listDefaultCategoriesByUserTest() throws ApiException {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                CategoriesResponseBody response = api.listDefaultCategories(userGuid, page, recordsPerPage);
+                CategoriesResponseBody response = api.listDefaultCategoriesByUser(userGuid, page, recordsPerPage);
         // TODO: test validations
     }
     
@@ -1009,7 +1025,7 @@ public class MxPlatformApiTest {
     }
     
     /**
-     * Read category
+     * Read a custom category
      *
      * Use this endpoint to read the attributes of either a default category or a custom category.
      *
@@ -1021,6 +1037,22 @@ public class MxPlatformApiTest {
         String categoryGuid = null;
         String userGuid = null;
                 CategoryResponseBody response = api.readCategory(categoryGuid, userGuid);
+        // TODO: test validations
+    }
+    
+    /**
+     * Read a default category
+     *
+     * Use this endpoint to read the attributes of a default category.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void readDefaultCategoryTest() throws ApiException {
+        String categoryGuid = null;
+        String userGuid = null;
+                CategoryResponseBody response = api.readDefaultCategory(categoryGuid, userGuid);
         // TODO: test validations
     }
     
