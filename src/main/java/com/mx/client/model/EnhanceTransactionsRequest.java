@@ -185,7 +185,7 @@ public class EnhanceTransactionsRequest {
    * @return merchantCategoryCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123", value = "")
+  @ApiModelProperty(example = "4121", value = "")
 
   public Integer getMerchantCategoryCode() {
     return merchantCategoryCode;

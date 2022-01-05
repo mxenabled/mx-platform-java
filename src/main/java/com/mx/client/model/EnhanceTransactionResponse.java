@@ -549,7 +549,7 @@ public class EnhanceTransactionResponse {
    * @return merchantCategoryCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "5411", value = "")
+  @ApiModelProperty(example = "4121", value = "")
 
   public Integer getMerchantCategoryCode() {
     return merchantCategoryCode;

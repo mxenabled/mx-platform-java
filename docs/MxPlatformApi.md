@@ -33,7 +33,8 @@ Method | HTTP request | Description
 [**listAccountNumbersByMember**](MxPlatformApi.md#listAccountNumbersByMember) | **GET** /users/{user_guid}/members/{member_guid}/account_numbers | List account numbers by member
 [**listAccountOwnersByMember**](MxPlatformApi.md#listAccountOwnersByMember) | **GET** /users/{user_guid}/members/{member_guid}/account_owners | List account owners by member
 [**listCategories**](MxPlatformApi.md#listCategories) | **GET** /users/{user_guid}/categories | List categories
-[**listDefaultCategories**](MxPlatformApi.md#listDefaultCategories) | **GET** /users/{user_guid}/categories/default | List default categories
+[**listDefaultCategories**](MxPlatformApi.md#listDefaultCategories) | **GET** /categories/default | List default categories
+[**listDefaultCategoriesByUser**](MxPlatformApi.md#listDefaultCategoriesByUser) | **GET** /users/{user_guid}/categories/default | List default categories by user
 [**listFavoriteInstitutions**](MxPlatformApi.md#listFavoriteInstitutions) | **GET** /institutions/favorites | List favorite institutions
 [**listHoldings**](MxPlatformApi.md#listHoldings) | **GET** /users/{user_guid}/holdings | List holdings
 [**listHoldingsByMember**](MxPlatformApi.md#listHoldingsByMember) | **GET** /users/{user_guid}/members/{member_guid}/holdings | List holdings by member
@@ -58,7 +59,8 @@ Method | HTTP request | Description
 [**listUserAccounts**](MxPlatformApi.md#listUserAccounts) | **GET** /users/{user_guid}/accounts | List accounts
 [**listUsers**](MxPlatformApi.md#listUsers) | **GET** /users | List users
 [**readAccount**](MxPlatformApi.md#readAccount) | **GET** /users/{user_guid}/accounts/{account_guid} | Read account
-[**readCategory**](MxPlatformApi.md#readCategory) | **GET** /users/{user_guid}/categories/{category_guid} | Read category
+[**readCategory**](MxPlatformApi.md#readCategory) | **GET** /users/{user_guid}/categories/{category_guid} | Read a custom category
+[**readDefaultCategory**](MxPlatformApi.md#readDefaultCategory) | **GET** /categories/{category_guid} | Read a default category
 [**readHolding**](MxPlatformApi.md#readHolding) | **GET** /users/{user_guid}/holdings/{holding_guid} | Read holding
 [**readInstitution**](MxPlatformApi.md#readInstitution) | **GET** /institutions/{institution_code} | Read institution
 [**readManagedAccount**](MxPlatformApi.md#readManagedAccount) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Read managed account
@@ -2133,11 +2135,81 @@ Name | Type | Description  | Notes
 
 <a name="listDefaultCategories"></a>
 # **listDefaultCategories**
-> CategoriesResponseBody listDefaultCategories(userGuid, page, recordsPerPage)
+> CategoriesResponseBody listDefaultCategories(page, recordsPerPage)
 
 List default categories
 
-Use this endpoint to read the attributes of a specific user.
+Use this endpoint to retrieve a list of all the default categories and subcategories offered within the MX Platform API. In other words, each item in the returned list will have its &#x60;is_default&#x60; field set to &#x60;true&#x60;. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    Integer page = 1; // Integer | Specify current page.
+    Integer recordsPerPage = 10; // Integer | Specify records per page.
+    try {
+      CategoriesResponseBody result = apiInstance.listDefaultCategories(page, recordsPerPage);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#listDefaultCategories");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **Integer**| Specify current page. | [optional]
+ **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+
+### Return type
+
+[**CategoriesResponseBody**](CategoriesResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+<a name="listDefaultCategoriesByUser"></a>
+# **listDefaultCategoriesByUser**
+> CategoriesResponseBody listDefaultCategoriesByUser(userGuid, page, recordsPerPage)
+
+List default categories by user
+
+Use this endpoint to retrieve a list of all the default categories and subcategories, scoped by user, offered within the MX Platform API. In other words, each item in the returned list will have its &#x60;is_default&#x60; field set to &#x60;true&#x60;. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
 
 ### Example
 ```java
@@ -2164,10 +2236,10 @@ public class Example {
     Integer page = 1; // Integer | Specify current page.
     Integer recordsPerPage = 10; // Integer | Specify records per page.
     try {
-      CategoriesResponseBody result = apiInstance.listDefaultCategories(userGuid, page, recordsPerPage);
+      CategoriesResponseBody result = apiInstance.listDefaultCategoriesByUser(userGuid, page, recordsPerPage);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling MxPlatformApi#listDefaultCategories");
+      System.err.println("Exception when calling MxPlatformApi#listDefaultCategoriesByUser");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -3975,7 +4047,7 @@ Name | Type | Description  | Notes
 # **readCategory**
 > CategoryResponseBody readCategory(categoryGuid, userGuid)
 
-Read category
+Read a custom category
 
 Use this endpoint to read the attributes of either a default category or a custom category.
 
@@ -4007,6 +4079,76 @@ public class Example {
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#readCategory");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **categoryGuid** | **String**| The unique id for a &#x60;category&#x60;. |
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+
+### Return type
+
+[**CategoryResponseBody**](CategoryResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+<a name="readDefaultCategory"></a>
+# **readDefaultCategory**
+> CategoryResponseBody readDefaultCategory(categoryGuid, userGuid)
+
+Read a default category
+
+Use this endpoint to read the attributes of a default category.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String categoryGuid = "CAT-7829f71c-2e8c-afa5-2f55-fa3634b89874"; // String | The unique id for a `category`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    try {
+      CategoryResponseBody result = apiInstance.readDefaultCategory(categoryGuid, userGuid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#readDefaultCategory");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

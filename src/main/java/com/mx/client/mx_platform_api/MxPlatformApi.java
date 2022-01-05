@@ -3680,6 +3680,124 @@ public class MxPlatformApi {
     }
     /**
      * Build call for listDefaultCategories
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listDefaultCategoriesCall(Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/categories/default";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listDefaultCategoriesValidateBeforeCall(Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = listDefaultCategoriesCall(page, recordsPerPage, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List default categories
+     * Use this endpoint to retrieve a list of all the default categories and subcategories offered within the MX Platform API. In other words, each item in the returned list will have its &#x60;is_default&#x60; field set to &#x60;true&#x60;. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return CategoriesResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public CategoriesResponseBody listDefaultCategories(Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<CategoriesResponseBody> localVarResp = listDefaultCategoriesWithHttpInfo(page, recordsPerPage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List default categories
+     * Use this endpoint to retrieve a list of all the default categories and subcategories offered within the MX Platform API. In other words, each item in the returned list will have its &#x60;is_default&#x60; field set to &#x60;true&#x60;. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return ApiResponse&lt;CategoriesResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CategoriesResponseBody> listDefaultCategoriesWithHttpInfo(Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listDefaultCategoriesValidateBeforeCall(page, recordsPerPage, null);
+        Type localVarReturnType = new TypeToken<CategoriesResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List default categories (asynchronously)
+     * Use this endpoint to retrieve a list of all the default categories and subcategories offered within the MX Platform API. In other words, each item in the returned list will have its &#x60;is_default&#x60; field set to &#x60;true&#x60;. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listDefaultCategoriesAsync(Integer page, Integer recordsPerPage, final ApiCallback<CategoriesResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listDefaultCategoriesValidateBeforeCall(page, recordsPerPage, _callback);
+        Type localVarReturnType = new TypeToken<CategoriesResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listDefaultCategoriesByUser
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
@@ -3692,7 +3810,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listDefaultCategoriesCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listDefaultCategoriesByUserCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3732,22 +3850,22 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listDefaultCategoriesValidateBeforeCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listDefaultCategoriesByUserValidateBeforeCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
-            throw new ApiException("Missing the required parameter 'userGuid' when calling listDefaultCategories(Async)");
+            throw new ApiException("Missing the required parameter 'userGuid' when calling listDefaultCategoriesByUser(Async)");
         }
         
 
-        okhttp3.Call localVarCall = listDefaultCategoriesCall(userGuid, page, recordsPerPage, _callback);
+        okhttp3.Call localVarCall = listDefaultCategoriesByUserCall(userGuid, page, recordsPerPage, _callback);
         return localVarCall;
 
     }
 
     /**
-     * List default categories
-     * Use this endpoint to read the attributes of a specific user.
+     * List default categories by user
+     * Use this endpoint to retrieve a list of all the default categories and subcategories, scoped by user, offered within the MX Platform API. In other words, each item in the returned list will have its &#x60;is_default&#x60; field set to &#x60;true&#x60;. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
@@ -3759,14 +3877,14 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CategoriesResponseBody listDefaultCategories(String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
-        ApiResponse<CategoriesResponseBody> localVarResp = listDefaultCategoriesWithHttpInfo(userGuid, page, recordsPerPage);
+    public CategoriesResponseBody listDefaultCategoriesByUser(String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<CategoriesResponseBody> localVarResp = listDefaultCategoriesByUserWithHttpInfo(userGuid, page, recordsPerPage);
         return localVarResp.getData();
     }
 
     /**
-     * List default categories
-     * Use this endpoint to read the attributes of a specific user.
+     * List default categories by user
+     * Use this endpoint to retrieve a list of all the default categories and subcategories, scoped by user, offered within the MX Platform API. In other words, each item in the returned list will have its &#x60;is_default&#x60; field set to &#x60;true&#x60;. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
@@ -3778,15 +3896,15 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CategoriesResponseBody> listDefaultCategoriesWithHttpInfo(String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
-        okhttp3.Call localVarCall = listDefaultCategoriesValidateBeforeCall(userGuid, page, recordsPerPage, null);
+    public ApiResponse<CategoriesResponseBody> listDefaultCategoriesByUserWithHttpInfo(String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listDefaultCategoriesByUserValidateBeforeCall(userGuid, page, recordsPerPage, null);
         Type localVarReturnType = new TypeToken<CategoriesResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * List default categories (asynchronously)
-     * Use this endpoint to read the attributes of a specific user.
+     * List default categories by user (asynchronously)
+     * Use this endpoint to retrieve a list of all the default categories and subcategories, scoped by user, offered within the MX Platform API. In other words, each item in the returned list will have its &#x60;is_default&#x60; field set to &#x60;true&#x60;. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
@@ -3799,9 +3917,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listDefaultCategoriesAsync(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback<CategoriesResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listDefaultCategoriesByUserAsync(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback<CategoriesResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listDefaultCategoriesValidateBeforeCall(userGuid, page, recordsPerPage, _callback);
+        okhttp3.Call localVarCall = listDefaultCategoriesByUserValidateBeforeCall(userGuid, page, recordsPerPage, _callback);
         Type localVarReturnType = new TypeToken<CategoriesResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7113,7 +7231,7 @@ public class MxPlatformApi {
     }
 
     /**
-     * Read category
+     * Read a custom category
      * Use this endpoint to read the attributes of either a default category or a custom category.
      * @param categoryGuid The unique id for a &#x60;category&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
@@ -7131,7 +7249,7 @@ public class MxPlatformApi {
     }
 
     /**
-     * Read category
+     * Read a custom category
      * Use this endpoint to read the attributes of either a default category or a custom category.
      * @param categoryGuid The unique id for a &#x60;category&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
@@ -7150,7 +7268,7 @@ public class MxPlatformApi {
     }
 
     /**
-     * Read category (asynchronously)
+     * Read a custom category (asynchronously)
      * Use this endpoint to read the attributes of either a default category or a custom category.
      * @param categoryGuid The unique id for a &#x60;category&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
@@ -7166,6 +7284,128 @@ public class MxPlatformApi {
     public okhttp3.Call readCategoryAsync(String categoryGuid, String userGuid, final ApiCallback<CategoryResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readCategoryValidateBeforeCall(categoryGuid, userGuid, _callback);
+        Type localVarReturnType = new TypeToken<CategoryResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for readDefaultCategory
+     * @param categoryGuid The unique id for a &#x60;category&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readDefaultCategoryCall(String categoryGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/categories/{category_guid}"
+            .replaceAll("\\{" + "category_guid" + "\\}", localVarApiClient.escapeString(categoryGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        localVarHeaderParams.put("Content-Type", localVarContentType);
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call readDefaultCategoryValidateBeforeCall(String categoryGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'categoryGuid' is set
+        if (categoryGuid == null) {
+            throw new ApiException("Missing the required parameter 'categoryGuid' when calling readDefaultCategory(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling readDefaultCategory(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = readDefaultCategoryCall(categoryGuid, userGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read a default category
+     * Use this endpoint to read the attributes of a default category.
+     * @param categoryGuid The unique id for a &#x60;category&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return CategoryResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public CategoryResponseBody readDefaultCategory(String categoryGuid, String userGuid) throws ApiException {
+        ApiResponse<CategoryResponseBody> localVarResp = readDefaultCategoryWithHttpInfo(categoryGuid, userGuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read a default category
+     * Use this endpoint to read the attributes of a default category.
+     * @param categoryGuid The unique id for a &#x60;category&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return ApiResponse&lt;CategoryResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CategoryResponseBody> readDefaultCategoryWithHttpInfo(String categoryGuid, String userGuid) throws ApiException {
+        okhttp3.Call localVarCall = readDefaultCategoryValidateBeforeCall(categoryGuid, userGuid, null);
+        Type localVarReturnType = new TypeToken<CategoryResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read a default category (asynchronously)
+     * Use this endpoint to read the attributes of a default category.
+     * @param categoryGuid The unique id for a &#x60;category&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readDefaultCategoryAsync(String categoryGuid, String userGuid, final ApiCallback<CategoryResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = readDefaultCategoryValidateBeforeCall(categoryGuid, userGuid, _callback);
         Type localVarReturnType = new TypeToken<CategoryResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
