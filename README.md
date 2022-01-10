@@ -24,7 +24,7 @@ mvn clean package
 ```
 
 Then manually install the following JARs:
-  - `target/mx-platform-java-0.4.0.jar`
+  - `target/mx-platform-java-0.4.1.jar`
   - `target/lib/*.jar`
 
 ### Maven users
@@ -35,7 +35,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.mx</groupId>
   <artifactId>mx-platform-java</artifactId>
-  <version>0.4.0</version>
+  <version>0.4.1</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -55,6 +55,7 @@ import com.mx.client.Configuration;
 import com.mx.client.auth.*;
 import com.mx.client.model.*;
 import com.mx.client.mx_platform_api.MxPlatformApi;
+import java.util.*;
 
 public class Example {
     public static void main(String[] args) {
@@ -69,10 +70,9 @@ public class Example {
 
         MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
 
+        UserCreateRequestBody userCreateRequestBody = new UserCreateRequestBody();
         UserCreateRequest userCreateRequest = new UserCreateRequest();
         userCreateRequest.setMetadata("Creating a user!");
-
-        UserCreateRequestBody userCreateRequestBody = new UserCreateRequestBody();
         userCreateRequestBody.setUser(userCreateRequest);
 
         try {
