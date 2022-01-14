@@ -45,6 +45,8 @@ public class ManagedMemberCreateRequest {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public ManagedMemberCreateRequest() { 
+  }
 
   public ManagedMemberCreateRequest id(String id) {
     

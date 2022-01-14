@@ -50,6 +50,8 @@ public class TaggingResponse {
   @SerializedName(SERIALIZED_NAME_USER_GUID)
   private String userGuid;
 
+  public TaggingResponse() { 
+  }
 
   public TaggingResponse guid(String guid) {
     

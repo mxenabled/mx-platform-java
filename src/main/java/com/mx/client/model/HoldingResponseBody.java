@@ -34,6 +34,8 @@ public class HoldingResponseBody {
   @SerializedName(SERIALIZED_NAME_HOLDING)
   private HoldingResponse holding;
 
+  public HoldingResponseBody() { 
+  }
 
   public HoldingResponseBody holding(HoldingResponse holding) {
     

@@ -928,7 +928,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.mx.api.v1+json
+ - **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -999,7 +999,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.mx.api.v1+json
+ - **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1068,7 +1068,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.mx.api.v1+json
+ - **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1139,7 +1139,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.mx.api.v1+json
+ - **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1208,7 +1208,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.mx.api.v1+json
+ - **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1277,7 +1277,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.mx.api.v1+json
+ - **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1346,7 +1346,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.mx.api.v1+json
+ - **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1415,7 +1415,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.mx.api.v1+json
+ - **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1482,7 +1482,7 @@ null (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/vnd.mx.api.v1+json
+ - **Accept**: Not defined
 
 ### HTTP response details
 | Status code | Description | Response headers |

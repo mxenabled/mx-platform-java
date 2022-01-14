@@ -41,6 +41,8 @@ public class ManagedMemberUpdateRequest {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public ManagedMemberUpdateRequest() { 
+  }
 
   public ManagedMemberUpdateRequest id(String id) {
     

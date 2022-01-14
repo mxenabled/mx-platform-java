@@ -34,6 +34,8 @@ public class StatementResponseBody {
   @SerializedName(SERIALIZED_NAME_STATEMENT)
   private StatementResponse statement;
 
+  public StatementResponseBody() { 
+  }
 
   public StatementResponseBody statement(StatementResponse statement) {
     

@@ -219,6 +219,8 @@ public class AccountResponse {
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private String userId;
 
+  public AccountResponse() { 
+  }
 
   public AccountResponse accountNumber(String accountNumber) {
     

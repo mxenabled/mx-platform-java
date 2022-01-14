@@ -34,6 +34,8 @@ public class ConnectWidgetRequestBody {
   @SerializedName(SERIALIZED_NAME_CONFIG)
   private ConnectWidgetRequest config;
 
+  public ConnectWidgetRequestBody() { 
+  }
 
   public ConnectWidgetRequestBody config(ConnectWidgetRequest config) {
     

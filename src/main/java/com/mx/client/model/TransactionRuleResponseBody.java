@@ -34,6 +34,8 @@ public class TransactionRuleResponseBody {
   @SerializedName(SERIALIZED_NAME_TRANSACTION_RULE)
   private TransactionRuleResponse transactionRule;
 
+  public TransactionRuleResponseBody() { 
+  }
 
   public TransactionRuleResponseBody transactionRule(TransactionRuleResponse transactionRule) {
     

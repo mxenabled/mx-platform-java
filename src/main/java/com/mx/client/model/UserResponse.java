@@ -50,6 +50,8 @@ public class UserResponse {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
 
+  public UserResponse() { 
+  }
 
   public UserResponse email(String email) {
     

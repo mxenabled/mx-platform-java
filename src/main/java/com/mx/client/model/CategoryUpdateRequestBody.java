@@ -34,6 +34,8 @@ public class CategoryUpdateRequestBody {
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private CategoryUpdateRequest category;
 
+  public CategoryUpdateRequestBody() { 
+  }
 
   public CategoryUpdateRequestBody category(CategoryUpdateRequest category) {
     

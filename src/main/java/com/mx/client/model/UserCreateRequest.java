@@ -45,6 +45,8 @@ public class UserCreateRequest {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
 
+  public UserCreateRequest() { 
+  }
 
   public UserCreateRequest email(String email) {
     

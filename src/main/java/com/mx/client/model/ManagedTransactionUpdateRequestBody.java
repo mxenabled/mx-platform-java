@@ -34,6 +34,8 @@ public class ManagedTransactionUpdateRequestBody {
   @SerializedName(SERIALIZED_NAME_TRANSACTION)
   private ManagedTransactionUpdateRequest transaction;
 
+  public ManagedTransactionUpdateRequestBody() { 
+  }
 
   public ManagedTransactionUpdateRequestBody transaction(ManagedTransactionUpdateRequest transaction) {
     

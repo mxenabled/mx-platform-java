@@ -42,6 +42,8 @@ public class WidgetResponse {
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private String userId;
 
+  public WidgetResponse() { 
+  }
 
   public WidgetResponse type(String type) {
     

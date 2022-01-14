@@ -154,6 +154,8 @@ public class ManagedAccountCreateRequest {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public ManagedAccountCreateRequest() { 
+  }
 
   public ManagedAccountCreateRequest accountNumber(String accountNumber) {
     

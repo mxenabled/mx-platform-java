@@ -34,6 +34,8 @@ public class OAuthWindowResponseBody {
   @SerializedName(SERIALIZED_NAME_MEMBER)
   private OAuthWindowResponse member;
 
+  public OAuthWindowResponseBody() { 
+  }
 
   public OAuthWindowResponseBody member(OAuthWindowResponse member) {
     

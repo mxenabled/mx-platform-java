@@ -34,6 +34,8 @@ public class TaggingUpdateRequestBody {
   @SerializedName(SERIALIZED_NAME_TAGGING)
   private TaggingUpdateRequest tagging;
 
+  public TaggingUpdateRequestBody() { 
+  }
 
   public TaggingUpdateRequestBody tagging(TaggingUpdateRequest tagging) {
     

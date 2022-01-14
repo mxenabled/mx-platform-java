@@ -45,6 +45,8 @@ public class UserUpdateRequest {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
 
+  public UserUpdateRequest() { 
+  }
 
   public UserUpdateRequest email(String email) {
     

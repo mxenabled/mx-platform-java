@@ -34,6 +34,8 @@ public class MerchantLocationResponseBody {
   @SerializedName(SERIALIZED_NAME_MERCHANT_LOCATION)
   private MerchantLocationResponse merchantLocation;
 
+  public MerchantLocationResponseBody() { 
+  }
 
   public MerchantLocationResponseBody merchantLocation(MerchantLocationResponse merchantLocation) {
     

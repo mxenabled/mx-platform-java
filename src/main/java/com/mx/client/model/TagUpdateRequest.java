@@ -33,6 +33,8 @@ public class TagUpdateRequest {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public TagUpdateRequest() { 
+  }
 
   public TagUpdateRequest name(String name) {
     

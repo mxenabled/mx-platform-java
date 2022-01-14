@@ -41,6 +41,8 @@ public class MerchantsResponseBody {
   @SerializedName(SERIALIZED_NAME_PAGINATION)
   private PaginationResponse pagination;
 
+  public MerchantsResponseBody() { 
+  }
 
   public MerchantsResponseBody merchants(List<MerchantResponse> merchants) {
     

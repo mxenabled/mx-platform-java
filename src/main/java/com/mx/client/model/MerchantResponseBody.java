@@ -34,6 +34,8 @@ public class MerchantResponseBody {
   @SerializedName(SERIALIZED_NAME_MERCHANT)
   private MerchantResponse merchant;
 
+  public MerchantResponseBody() { 
+  }
 
   public MerchantResponseBody merchant(MerchantResponse merchant) {
     

@@ -41,6 +41,8 @@ public class CategoryCreateRequest {
   @SerializedName(SERIALIZED_NAME_PARENT_GUID)
   private String parentGuid;
 
+  public CategoryCreateRequest() { 
+  }
 
   public CategoryCreateRequest metadata(String metadata) {
     

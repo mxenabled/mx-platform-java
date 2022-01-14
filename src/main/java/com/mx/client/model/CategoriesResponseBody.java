@@ -41,6 +41,8 @@ public class CategoriesResponseBody {
   @SerializedName(SERIALIZED_NAME_PAGINATION)
   private PaginationResponse pagination;
 
+  public CategoriesResponseBody() { 
+  }
 
   public CategoriesResponseBody categories(List<CategoryResponse> categories) {
     

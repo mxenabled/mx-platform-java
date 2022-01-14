@@ -34,6 +34,8 @@ public class UserUpdateRequestBody {
   @SerializedName(SERIALIZED_NAME_USER)
   private UserUpdateRequest user;
 
+  public UserUpdateRequestBody() { 
+  }
 
   public UserUpdateRequestBody user(UserUpdateRequest user) {
     

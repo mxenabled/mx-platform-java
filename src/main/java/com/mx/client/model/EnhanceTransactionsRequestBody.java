@@ -36,6 +36,8 @@ public class EnhanceTransactionsRequestBody {
   @SerializedName(SERIALIZED_NAME_TRANSACTIONS)
   private List<EnhanceTransactionsRequest> transactions = null;
 
+  public EnhanceTransactionsRequestBody() { 
+  }
 
   public EnhanceTransactionsRequestBody transactions(List<EnhanceTransactionsRequest> transactions) {
     

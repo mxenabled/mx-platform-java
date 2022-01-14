@@ -41,6 +41,8 @@ public class UsersResponseBody {
   @SerializedName(SERIALIZED_NAME_USERS)
   private List<UserResponse> users = null;
 
+  public UsersResponseBody() { 
+  }
 
   public UsersResponseBody pagination(PaginationResponse pagination) {
     

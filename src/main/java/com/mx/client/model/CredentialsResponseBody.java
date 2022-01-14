@@ -41,6 +41,8 @@ public class CredentialsResponseBody {
   @SerializedName(SERIALIZED_NAME_PAGINATION)
   private PaginationResponse pagination;
 
+  public CredentialsResponseBody() { 
+  }
 
   public CredentialsResponseBody credentials(List<CredentialResponse> credentials) {
     

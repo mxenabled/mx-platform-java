@@ -41,6 +41,8 @@ public class AccountOwnersResponseBody {
   @SerializedName(SERIALIZED_NAME_PAGINATION)
   private PaginationResponse pagination;
 
+  public AccountOwnersResponseBody() { 
+  }
 
   public AccountOwnersResponseBody accountOwners(List<AccountOwnerResponse> accountOwners) {
     

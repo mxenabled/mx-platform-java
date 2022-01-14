@@ -37,6 +37,8 @@ public class CategoryUpdateRequest {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public CategoryUpdateRequest() { 
+  }
 
   public CategoryUpdateRequest metadata(String metadata) {
     

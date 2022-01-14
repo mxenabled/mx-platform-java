@@ -41,6 +41,8 @@ public class TaggingsResponseBody {
   @SerializedName(SERIALIZED_NAME_TAGGINGS)
   private List<TaggingResponse> taggings = null;
 
+  public TaggingsResponseBody() { 
+  }
 
   public TaggingsResponseBody pagination(PaginationResponse pagination) {
     

@@ -34,6 +34,8 @@ public class TaggingCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_TAGGING)
   private TaggingCreateRequest tagging;
 
+  public TaggingCreateRequestBody() { 
+  }
 
   public TaggingCreateRequestBody tagging(TaggingCreateRequest tagging) {
     

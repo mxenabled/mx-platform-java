@@ -79,6 +79,8 @@ public class MerchantLocationResponse {
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private String updatedAt;
 
+  public MerchantLocationResponse() { 
+  }
 
   public MerchantLocationResponse city(String city) {
     

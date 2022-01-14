@@ -73,6 +73,8 @@ public class ConnectWidgetRequest {
   @SerializedName(SERIALIZED_NAME_WAIT_FOR_FULL_AGGREGATION)
   private Boolean waitForFullAggregation;
 
+  public ConnectWidgetRequest() { 
+  }
 
   public ConnectWidgetRequest colorScheme(String colorScheme) {
     

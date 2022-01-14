@@ -154,6 +154,8 @@ public class ManagedAccountUpdateRequest {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public ManagedAccountUpdateRequest() { 
+  }
 
   public ManagedAccountUpdateRequest accountNumber(String accountNumber) {
     

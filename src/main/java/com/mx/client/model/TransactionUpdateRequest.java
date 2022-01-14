@@ -33,6 +33,8 @@ public class TransactionUpdateRequest {
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
+  public TransactionUpdateRequest() { 
+  }
 
   public TransactionUpdateRequest description(String description) {
     

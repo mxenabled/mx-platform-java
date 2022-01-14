@@ -33,6 +33,8 @@ public class TaggingUpdateRequest {
   @SerializedName(SERIALIZED_NAME_TAG_GUID)
   private String tagGuid;
 
+  public TaggingUpdateRequest() { 
+  }
 
   public TaggingUpdateRequest tagGuid(String tagGuid) {
     

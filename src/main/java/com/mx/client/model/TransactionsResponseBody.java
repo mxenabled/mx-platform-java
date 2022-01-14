@@ -41,6 +41,8 @@ public class TransactionsResponseBody {
   @SerializedName(SERIALIZED_NAME_TRANSACTIONS)
   private List<TransactionResponse> transactions = null;
 
+  public TransactionsResponseBody() { 
+  }
 
   public TransactionsResponseBody pagination(PaginationResponse pagination) {
     

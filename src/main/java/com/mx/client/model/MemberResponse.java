@@ -86,6 +86,8 @@ public class MemberResponse {
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private String userId;
 
+  public MemberResponse() { 
+  }
 
   public MemberResponse aggregatedAt(String aggregatedAt) {
     

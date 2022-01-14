@@ -34,6 +34,8 @@ public class TagResponseBody {
   @SerializedName(SERIALIZED_NAME_TAG)
   private TagResponse tag;
 
+  public TagResponseBody() { 
+  }
 
   public TagResponseBody tag(TagResponse tag) {
     

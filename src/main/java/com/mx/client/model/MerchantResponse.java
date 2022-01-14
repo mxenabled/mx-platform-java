@@ -54,6 +54,8 @@ public class MerchantResponse {
   @SerializedName(SERIALIZED_NAME_WEBSITE_URL)
   private String websiteUrl;
 
+  public MerchantResponse() { 
+  }
 
   public MerchantResponse createdAt(String createdAt) {
     

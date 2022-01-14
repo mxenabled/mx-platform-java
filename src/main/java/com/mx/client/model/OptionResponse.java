@@ -38,6 +38,8 @@ public class OptionResponse {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
+  public OptionResponse() { 
+  }
 
   public OptionResponse label(String label) {
     

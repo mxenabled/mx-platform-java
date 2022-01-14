@@ -42,6 +42,8 @@ public class ImageOptionResponse {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
+  public ImageOptionResponse() { 
+  }
 
   public ImageOptionResponse dataUri(String dataUri) {
     

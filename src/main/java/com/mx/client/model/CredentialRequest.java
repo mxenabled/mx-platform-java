@@ -38,6 +38,8 @@ public class CredentialRequest {
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
 
+  public CredentialRequest() { 
+  }
 
   public CredentialRequest guid(String guid) {
     

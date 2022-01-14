@@ -34,6 +34,8 @@ public class MemberStatusResponseBody {
   @SerializedName(SERIALIZED_NAME_MEMBER)
   private MemberStatusResponse member;
 
+  public MemberStatusResponseBody() { 
+  }
 
   public MemberStatusResponseBody member(MemberStatusResponse member) {
     

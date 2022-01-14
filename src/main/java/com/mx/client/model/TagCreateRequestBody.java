@@ -34,6 +34,8 @@ public class TagCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_TAG)
   private TagCreateRequest tag;
 
+  public TagCreateRequestBody() { 
+  }
 
   public TagCreateRequestBody tag(TagCreateRequest tag) {
     

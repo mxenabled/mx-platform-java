@@ -123,6 +123,8 @@ public class EnhanceTransactionResponse {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public EnhanceTransactionResponse() { 
+  }
 
   public EnhanceTransactionResponse amount(BigDecimal amount) {
     

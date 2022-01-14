@@ -41,6 +41,8 @@ public class InstitutionsResponseBody {
   @SerializedName(SERIALIZED_NAME_PAGINATION)
   private PaginationResponse pagination;
 
+  public InstitutionsResponseBody() { 
+  }
 
   public InstitutionsResponseBody institutions(List<InstitutionResponse> institutions) {
     

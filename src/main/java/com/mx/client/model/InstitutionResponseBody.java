@@ -34,6 +34,8 @@ public class InstitutionResponseBody {
   @SerializedName(SERIALIZED_NAME_INSTITUTION)
   private InstitutionResponse institution;
 
+  public InstitutionResponseBody() { 
+  }
 
   public InstitutionResponseBody institution(InstitutionResponse institution) {
     
