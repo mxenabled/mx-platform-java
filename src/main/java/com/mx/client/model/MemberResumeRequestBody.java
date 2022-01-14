@@ -34,6 +34,8 @@ public class MemberResumeRequestBody {
   @SerializedName(SERIALIZED_NAME_MEMBER)
   private MemberResumeRequest member;
 
+  public MemberResumeRequestBody() { 
+  }
 
   public MemberResumeRequestBody member(MemberResumeRequest member) {
     

@@ -34,6 +34,8 @@ public class CategoryResponseBody {
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private CategoryResponse category;
 
+  public CategoryResponseBody() { 
+  }
 
   public CategoryResponseBody category(CategoryResponse category) {
     

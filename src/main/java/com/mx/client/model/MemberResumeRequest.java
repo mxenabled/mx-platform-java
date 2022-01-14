@@ -36,6 +36,8 @@ public class MemberResumeRequest {
   @SerializedName(SERIALIZED_NAME_CHALLENGES)
   private List<CredentialRequest> challenges = null;
 
+  public MemberResumeRequest() { 
+  }
 
   public MemberResumeRequest challenges(List<CredentialRequest> challenges) {
     

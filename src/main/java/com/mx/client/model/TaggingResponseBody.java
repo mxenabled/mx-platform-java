@@ -34,6 +34,8 @@ public class TaggingResponseBody {
   @SerializedName(SERIALIZED_NAME_TAGGING)
   private TaggingResponse tagging;
 
+  public TaggingResponseBody() { 
+  }
 
   public TaggingResponseBody tagging(TaggingResponse tagging) {
     

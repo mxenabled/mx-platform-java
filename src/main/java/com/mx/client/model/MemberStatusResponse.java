@@ -69,6 +69,8 @@ public class MemberStatusResponse {
   @SerializedName(SERIALIZED_NAME_SUCCESSFULLY_AGGREGATED_AT)
   private String successfullyAggregatedAt;
 
+  public MemberStatusResponse() { 
+  }
 
   public MemberStatusResponse aggregatedAt(String aggregatedAt) {
     

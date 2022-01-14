@@ -42,6 +42,8 @@ public class MemberCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_UI_MESSAGE_WEBVIEW_URL_SCHEME)
   private String uiMessageWebviewUrlScheme;
 
+  public MemberCreateRequestBody() { 
+  }
 
   public MemberCreateRequestBody member(MemberCreateRequest member) {
     

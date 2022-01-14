@@ -41,6 +41,8 @@ public class StatementsResponseBody {
   @SerializedName(SERIALIZED_NAME_STATEMENTS)
   private List<StatementResponse> statements = null;
 
+  public StatementsResponseBody() { 
+  }
 
   public StatementsResponseBody pagination(PaginationResponse pagination) {
     

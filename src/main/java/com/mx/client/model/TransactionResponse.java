@@ -203,6 +203,8 @@ public class TransactionResponse {
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private String userId;
 
+  public TransactionResponse() { 
+  }
 
   public TransactionResponse accountGuid(String accountGuid) {
     

@@ -34,6 +34,8 @@ public class TagUpdateRequestBody {
   @SerializedName(SERIALIZED_NAME_TAG)
   private TagUpdateRequest tag;
 
+  public TagUpdateRequestBody() { 
+  }
 
   public TagUpdateRequestBody tag(TagUpdateRequest tag) {
     

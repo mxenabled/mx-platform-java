@@ -50,6 +50,8 @@ public class CredentialResponse {
   @SerializedName(SERIALIZED_NAME_LABEL)
   private String label;
 
+  public CredentialResponse() { 
+  }
 
   public CredentialResponse displayOrder(Integer displayOrder) {
     

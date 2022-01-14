@@ -33,6 +33,8 @@ public class TagCreateRequest {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public TagCreateRequest() { 
+  }
 
   public TagCreateRequest name(String name) {
     

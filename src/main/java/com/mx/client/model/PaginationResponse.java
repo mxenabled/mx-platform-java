@@ -45,6 +45,8 @@ public class PaginationResponse {
   @SerializedName(SERIALIZED_NAME_TOTAL_PAGES)
   private Integer totalPages;
 
+  public PaginationResponse() { 
+  }
 
   public PaginationResponse currentPage(Integer currentPage) {
     

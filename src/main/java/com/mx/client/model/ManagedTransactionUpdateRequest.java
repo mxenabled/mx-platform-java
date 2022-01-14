@@ -110,6 +110,8 @@ public class ManagedTransactionUpdateRequest {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public ManagedTransactionUpdateRequest() { 
+  }
 
   public ManagedTransactionUpdateRequest amount(String amount) {
     

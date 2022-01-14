@@ -34,6 +34,8 @@ public class WidgetResponseBody {
   @SerializedName(SERIALIZED_NAME_WIDGET_URL)
   private WidgetResponse widgetUrl;
 
+  public WidgetResponseBody() { 
+  }
 
   public WidgetResponseBody widgetUrl(WidgetResponse widgetUrl) {
     

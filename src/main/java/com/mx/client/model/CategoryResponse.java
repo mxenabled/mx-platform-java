@@ -62,6 +62,8 @@ public class CategoryResponse {
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private String updatedAt;
 
+  public CategoryResponse() { 
+  }
 
   public CategoryResponse createdAt(String createdAt) {
     

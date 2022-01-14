@@ -58,6 +58,8 @@ public class TransactionRuleResponse {
   @SerializedName(SERIALIZED_NAME_USER_GUID)
   private String userGuid;
 
+  public TransactionRuleResponse() { 
+  }
 
   public TransactionRuleResponse categoryGuid(String categoryGuid) {
     

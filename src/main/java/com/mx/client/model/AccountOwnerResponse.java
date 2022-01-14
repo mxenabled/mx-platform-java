@@ -78,6 +78,8 @@ public class AccountOwnerResponse {
   @SerializedName(SERIALIZED_NAME_USER_GUID)
   private String userGuid;
 
+  public AccountOwnerResponse() { 
+  }
 
   public AccountOwnerResponse accountGuid(String accountGuid) {
     

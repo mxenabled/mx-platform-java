@@ -34,6 +34,8 @@ public class ManagedTransactionCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_TRANSACTION)
   private ManagedTransactionCreateRequest transaction;
 
+  public ManagedTransactionCreateRequestBody() { 
+  }
 
   public ManagedTransactionCreateRequestBody transaction(ManagedTransactionCreateRequest transaction) {
     

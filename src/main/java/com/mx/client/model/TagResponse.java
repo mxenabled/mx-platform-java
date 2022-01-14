@@ -42,6 +42,8 @@ public class TagResponse {
   @SerializedName(SERIALIZED_NAME_USER_GUID)
   private String userGuid;
 
+  public TagResponse() { 
+  }
 
   public TagResponse guid(String guid) {
     

@@ -38,6 +38,8 @@ public class OAuthWindowResponse {
   @SerializedName(SERIALIZED_NAME_OAUTH_WINDOW_URI)
   private String oauthWindowUri;
 
+  public OAuthWindowResponse() { 
+  }
 
   public OAuthWindowResponse guid(String guid) {
     

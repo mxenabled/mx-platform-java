@@ -70,6 +70,8 @@ public class InstitutionResponse {
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
 
+  public InstitutionResponse() { 
+  }
 
   public InstitutionResponse code(String code) {
     

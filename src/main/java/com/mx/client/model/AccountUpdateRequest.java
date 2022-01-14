@@ -33,6 +33,8 @@ public class AccountUpdateRequest {
   @SerializedName(SERIALIZED_NAME_IS_HIDDEN)
   private Boolean isHidden;
 
+  public AccountUpdateRequest() { 
+  }
 
   public AccountUpdateRequest isHidden(Boolean isHidden) {
     

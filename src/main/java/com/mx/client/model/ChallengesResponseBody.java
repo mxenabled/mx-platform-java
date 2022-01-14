@@ -41,6 +41,8 @@ public class ChallengesResponseBody {
   @SerializedName(SERIALIZED_NAME_PAGINATION)
   private PaginationResponse pagination;
 
+  public ChallengesResponseBody() { 
+  }
 
   public ChallengesResponseBody challenges(List<ChallengeResponse> challenges) {
     

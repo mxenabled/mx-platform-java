@@ -41,6 +41,8 @@ public class MembersResponseBody {
   @SerializedName(SERIALIZED_NAME_PAGINATION)
   private PaginationResponse pagination;
 
+  public MembersResponseBody() { 
+  }
 
   public MembersResponseBody members(List<MemberResponse> members) {
     

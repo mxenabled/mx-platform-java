@@ -52,6 +52,8 @@ public class MemberUpdateRequest {
   @SerializedName(SERIALIZED_NAME_SKIP_AGGREGATION)
   private Boolean skipAggregation;
 
+  public MemberUpdateRequest() { 
+  }
 
   public MemberUpdateRequest backgroundAggregationIsDisabled(Boolean backgroundAggregationIsDisabled) {
     

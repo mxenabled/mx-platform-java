@@ -34,6 +34,8 @@ public class ConnectWidgetResponseBody {
   @SerializedName(SERIALIZED_NAME_USER)
   private ConnectWidgetResponse user;
 
+  public ConnectWidgetResponseBody() { 
+  }
 
   public ConnectWidgetResponseBody user(ConnectWidgetResponse user) {
     

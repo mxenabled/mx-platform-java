@@ -34,6 +34,8 @@ public class ManagedMemberUpdateRequestBody {
   @SerializedName(SERIALIZED_NAME_MEMBER)
   private ManagedMemberUpdateRequest member;
 
+  public ManagedMemberUpdateRequestBody() { 
+  }
 
   public ManagedMemberUpdateRequestBody member(ManagedMemberUpdateRequest member) {
     

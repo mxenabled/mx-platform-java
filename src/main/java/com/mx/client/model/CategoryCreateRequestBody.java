@@ -34,6 +34,8 @@ public class CategoryCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_CATEGORY)
   private CategoryCreateRequest category;
 
+  public CategoryCreateRequestBody() { 
+  }
 
   public CategoryCreateRequestBody category(CategoryCreateRequest category) {
     

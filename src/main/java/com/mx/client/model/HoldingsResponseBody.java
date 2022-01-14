@@ -41,6 +41,8 @@ public class HoldingsResponseBody {
   @SerializedName(SERIALIZED_NAME_PAGINATION)
   private PaginationResponse pagination;
 
+  public HoldingsResponseBody() { 
+  }
 
   public HoldingsResponseBody holdings(List<HoldingResponse> holdings) {
     

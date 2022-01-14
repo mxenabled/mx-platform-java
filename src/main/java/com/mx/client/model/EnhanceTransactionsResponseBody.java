@@ -36,6 +36,8 @@ public class EnhanceTransactionsResponseBody {
   @SerializedName(SERIALIZED_NAME_TRANSACTIONS)
   private List<EnhanceTransactionResponse> transactions = null;
 
+  public EnhanceTransactionsResponseBody() { 
+  }
 
   public EnhanceTransactionsResponseBody transactions(List<EnhanceTransactionResponse> transactions) {
     

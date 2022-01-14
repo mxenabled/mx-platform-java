@@ -42,6 +42,8 @@ public class TransactionRuleUpdateRequest {
   @SerializedName(SERIALIZED_NAME_MATCH_DESCRIPTION)
   private String matchDescription;
 
+  public TransactionRuleUpdateRequest() { 
+  }
 
   public TransactionRuleUpdateRequest categoryGuid(String categoryGuid) {
     

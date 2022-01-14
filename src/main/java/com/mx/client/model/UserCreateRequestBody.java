@@ -34,6 +34,8 @@ public class UserCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_USER)
   private UserCreateRequest user;
 
+  public UserCreateRequestBody() { 
+  }
 
   public UserCreateRequestBody user(UserCreateRequest user) {
     

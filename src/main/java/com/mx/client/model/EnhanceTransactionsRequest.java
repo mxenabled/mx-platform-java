@@ -58,6 +58,8 @@ public class EnhanceTransactionsRequest {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public EnhanceTransactionsRequest() { 
+  }
 
   public EnhanceTransactionsRequest amount(BigDecimal amount) {
     

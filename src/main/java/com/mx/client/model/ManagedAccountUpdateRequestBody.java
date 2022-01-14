@@ -34,6 +34,8 @@ public class ManagedAccountUpdateRequestBody {
   @SerializedName(SERIALIZED_NAME_ACCOUNT)
   private ManagedAccountUpdateRequest account;
 
+  public ManagedAccountUpdateRequestBody() { 
+  }
 
   public ManagedAccountUpdateRequestBody account(ManagedAccountUpdateRequest account) {
     

@@ -81,6 +81,8 @@ public class WidgetRequest {
   @SerializedName(SERIALIZED_NAME_WIDGET_TYPE)
   private String widgetType;
 
+  public WidgetRequest() { 
+  }
 
   public WidgetRequest colorScheme(String colorScheme) {
     

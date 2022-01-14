@@ -103,6 +103,8 @@ public class HoldingResponse {
   @SerializedName(SERIALIZED_NAME_USER_GUID)
   private String userGuid;
 
+  public HoldingResponse() { 
+  }
 
   public HoldingResponse accountGuid(String accountGuid) {
     

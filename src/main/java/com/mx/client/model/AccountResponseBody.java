@@ -34,6 +34,8 @@ public class AccountResponseBody {
   @SerializedName(SERIALIZED_NAME_ACCOUNT)
   private AccountResponse account;
 
+  public AccountResponseBody() { 
+  }
 
   public AccountResponseBody account(AccountResponse account) {
     

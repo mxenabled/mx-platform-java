@@ -41,6 +41,8 @@ public class TransactionRulesResponseBody {
   @SerializedName(SERIALIZED_NAME_TRANSACTION_RULES)
   private List<TransactionRuleResponse> transactionRules = null;
 
+  public TransactionRulesResponseBody() { 
+  }
 
   public TransactionRulesResponseBody pagination(PaginationResponse pagination) {
     

@@ -60,6 +60,8 @@ public class MemberCreateRequest {
   @SerializedName(SERIALIZED_NAME_SKIP_AGGREGATION)
   private Boolean skipAggregation;
 
+  public MemberCreateRequest() { 
+  }
 
   public MemberCreateRequest backgroundAggregationIsDisabled(Boolean backgroundAggregationIsDisabled) {
     

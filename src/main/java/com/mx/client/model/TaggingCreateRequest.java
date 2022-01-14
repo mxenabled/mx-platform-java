@@ -37,6 +37,8 @@ public class TaggingCreateRequest {
   @SerializedName(SERIALIZED_NAME_TRANSACTION_GUID)
   private String transactionGuid;
 
+  public TaggingCreateRequest() { 
+  }
 
   public TaggingCreateRequest tagGuid(String tagGuid) {
     

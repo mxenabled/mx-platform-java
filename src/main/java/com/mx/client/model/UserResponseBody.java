@@ -34,6 +34,8 @@ public class UserResponseBody {
   @SerializedName(SERIALIZED_NAME_USER)
   private UserResponse user;
 
+  public UserResponseBody() { 
+  }
 
   public UserResponseBody user(UserResponse user) {
     

@@ -34,6 +34,8 @@ public class TransactionResponseBody {
   @SerializedName(SERIALIZED_NAME_TRANSACTION)
   private TransactionResponse transaction;
 
+  public TransactionResponseBody() { 
+  }
 
   public TransactionResponseBody transaction(TransactionResponse transaction) {
     

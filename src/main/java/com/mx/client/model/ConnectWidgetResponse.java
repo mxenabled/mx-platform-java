@@ -38,6 +38,8 @@ public class ConnectWidgetResponse {
   @SerializedName(SERIALIZED_NAME_GUID)
   private String guid;
 
+  public ConnectWidgetResponse() { 
+  }
 
   public ConnectWidgetResponse connectWidgetUrl(String connectWidgetUrl) {
     

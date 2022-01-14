@@ -34,6 +34,8 @@ public class ManagedAccountCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_ACCOUNT)
   private ManagedAccountCreateRequest account;
 
+  public ManagedAccountCreateRequestBody() { 
+  }
 
   public ManagedAccountCreateRequestBody account(ManagedAccountCreateRequest account) {
     

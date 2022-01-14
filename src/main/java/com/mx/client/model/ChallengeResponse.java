@@ -62,6 +62,8 @@ public class ChallengeResponse {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public ChallengeResponse() { 
+  }
 
   public ChallengeResponse fieldName(String fieldName) {
     

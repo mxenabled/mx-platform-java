@@ -34,6 +34,8 @@ public class ManagedMemberCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_MEMBER)
   private ManagedMemberCreateRequest member;
 
+  public ManagedMemberCreateRequestBody() { 
+  }
 
   public ManagedMemberCreateRequestBody member(ManagedMemberCreateRequest member) {
     
