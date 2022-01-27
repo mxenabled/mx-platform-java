@@ -1,18 +1,19 @@
-apiPackage: "com.mx.client.mx-platform-api"
-artifactDescription: "A Java library for the MX Platform API"
-artifactId: "mx-platform-java"
-artifactUrl: "https://github.com/mxenabled/mx-platform-java"
-artifactVersion: 0.5.1
-developerEmail: "devexperience@mx.com"
-developerName: "MX"
-developerOrganization: "MX Technologies Inc."
-developerOrganizationUrl: "https://www.mx.com/"
-groupId: "com.mx"
+---
+apiPackage: com.mx.client.mx-platform-api
+artifactDescription: A Java library for the MX Platform API
+artifactId: mx-platform-java
+artifactUrl: https://github.com/mxenabled/mx-platform-java
+artifactVersion: 0.5.2
+developerEmail: devexperience@mx.com
+developerName: MX
+developerOrganization: MX Technologies Inc.
+developerOrganizationUrl: https://www.mx.com/
+groupId: com.mx
 hideGenerationTimestamp: true
-invokerPackage: "com.mx.client"
-licenseName: "MIT"
-licenseUrl: "https://github.com/mxenabled/mx-platform-java/LICENSE"
-modelPackage: "com.mx.client.model"
-scmConnection: "https://github.com/mxenabled/mx-platform-java.git"
-scmDeveloperConnection: "git@github.com:mxenabled/mx-platform-java.git"
-scmUrl: "https://github.com/mxenabled/mx-platform-java"
+invokerPackage: com.mx.client
+licenseName: MIT
+licenseUrl: https://github.com/mxenabled/mx-platform-java/LICENSE
+modelPackage: com.mx.client.model
+scmConnection: https://github.com/mxenabled/mx-platform-java.git
+scmDeveloperConnection: git@github.com:mxenabled/mx-platform-java.git
+scmUrl: https://github.com/mxenabled/mx-platform-java
