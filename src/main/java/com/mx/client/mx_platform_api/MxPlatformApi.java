@@ -4733,6 +4733,176 @@ public class MxPlatformApi {
         return localVarCall;
     }
     /**
+     * Build call for listHoldingsByAccount
+     * @param accountGuid The unique id for the &#x60;account&#x60;. (required)
+     * @param userGuid The unique id for the &#x60;user&#x60;. (required)
+     * @param fromDate Filter holdings from this date. (optional)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param toDate Filter holdings to this date. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listHoldingsByAccountCall(String accountGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/accounts/{account_guid}/holdings"
+            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (fromDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from_date", fromDate));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        if (toDate != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("to_date", toDate));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarHeaderParams != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listHoldingsByAccountValidateBeforeCall(String accountGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'accountGuid' is set
+        if (accountGuid == null) {
+            throw new ApiException("Missing the required parameter 'accountGuid' when calling listHoldingsByAccount(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling listHoldingsByAccount(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listHoldingsByAccountCall(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List holdings by account
+     * This endpoint returns all holdings associated with the specified &#x60;account&#x60;.
+     * @param accountGuid The unique id for the &#x60;account&#x60;. (required)
+     * @param userGuid The unique id for the &#x60;user&#x60;. (required)
+     * @param fromDate Filter holdings from this date. (optional)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param toDate Filter holdings to this date. (optional)
+     * @return HoldingsResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public HoldingsResponseBody listHoldingsByAccount(String accountGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate) throws ApiException {
+        ApiResponse<HoldingsResponseBody> localVarResp = listHoldingsByAccountWithHttpInfo(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List holdings by account
+     * This endpoint returns all holdings associated with the specified &#x60;account&#x60;.
+     * @param accountGuid The unique id for the &#x60;account&#x60;. (required)
+     * @param userGuid The unique id for the &#x60;user&#x60;. (required)
+     * @param fromDate Filter holdings from this date. (optional)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param toDate Filter holdings to this date. (optional)
+     * @return ApiResponse&lt;HoldingsResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<HoldingsResponseBody> listHoldingsByAccountWithHttpInfo(String accountGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate) throws ApiException {
+        okhttp3.Call localVarCall = listHoldingsByAccountValidateBeforeCall(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate, null);
+        Type localVarReturnType = new TypeToken<HoldingsResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List holdings by account (asynchronously)
+     * This endpoint returns all holdings associated with the specified &#x60;account&#x60;.
+     * @param accountGuid The unique id for the &#x60;account&#x60;. (required)
+     * @param userGuid The unique id for the &#x60;user&#x60;. (required)
+     * @param fromDate Filter holdings from this date. (optional)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param toDate Filter holdings to this date. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listHoldingsByAccountAsync(String accountGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback<HoldingsResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listHoldingsByAccountValidateBeforeCall(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate, _callback);
+        Type localVarReturnType = new TypeToken<HoldingsResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listHoldingsByMember
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)

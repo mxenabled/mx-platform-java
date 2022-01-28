@@ -5,7 +5,7 @@
     <artifactId>mx-platform-java</artifactId>
     <packaging>jar</packaging>
     <name>mx-platform-java</name>
-    <version>0.5.2</version>
+    <version>0.5.3</version>
     <url>https://github.com/mxenabled/mx-platform-java</url>
     <description>A Java library for the MX Platform API</description>
     <scm>

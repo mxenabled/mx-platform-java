@@ -632,6 +632,26 @@ public class MxPlatformApiTest {
     }
     
     /**
+     * List holdings by account
+     *
+     * This endpoint returns all holdings associated with the specified &#x60;account&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listHoldingsByAccountTest() throws ApiException {
+        String accountGuid = null;
+        String userGuid = null;
+        String fromDate = null;
+        Integer page = null;
+        Integer recordsPerPage = null;
+        String toDate = null;
+                HoldingsResponseBody response = api.listHoldingsByAccount(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate);
+        // TODO: test validations
+    }
+    
+    /**
      * List holdings by member
      *
      * This endpoint returns all holdings associated with the specified &#x60;member&#x60; across all accounts.
