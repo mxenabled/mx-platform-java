@@ -37,6 +37,7 @@ Method | HTTP request | Description
 [**listDefaultCategoriesByUser**](MxPlatformApi.md#listDefaultCategoriesByUser) | **GET** /users/{user_guid}/categories/default | List default categories by user
 [**listFavoriteInstitutions**](MxPlatformApi.md#listFavoriteInstitutions) | **GET** /institutions/favorites | List favorite institutions
 [**listHoldings**](MxPlatformApi.md#listHoldings) | **GET** /users/{user_guid}/holdings | List holdings
+[**listHoldingsByAccount**](MxPlatformApi.md#listHoldingsByAccount) | **GET** /users/{user_guid}/accounts/{account_guid}/holdings | List holdings by account
 [**listHoldingsByMember**](MxPlatformApi.md#listHoldingsByMember) | **GET** /users/{user_guid}/members/{member_guid}/holdings | List holdings by member
 [**listInstitutionCredentials**](MxPlatformApi.md#listInstitutionCredentials) | **GET** /institutions/{institution_code}/credentials | List institution credentials
 [**listInstitutions**](MxPlatformApi.md#listInstitutions) | **GET** /institutions | List institutions
@@ -2398,6 +2399,84 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+ **fromDate** | **String**| Filter holdings from this date. | [optional]
+ **page** | **Integer**| Specify current page. | [optional]
+ **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+ **toDate** | **String**| Filter holdings to this date. | [optional]
+
+### Return type
+
+[**HoldingsResponseBody**](HoldingsResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+<a name="listHoldingsByAccount"></a>
+# **listHoldingsByAccount**
+> HoldingsResponseBody listHoldingsByAccount(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate)
+
+List holdings by account
+
+This endpoint returns all holdings associated with the specified &#x60;account&#x60;.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String accountGuid = "ACT-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for the `account`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for the `user`.
+    String fromDate = "2015-09-20"; // String | Filter holdings from this date.
+    Integer page = 1; // Integer | Specify current page.
+    Integer recordsPerPage = 10; // Integer | Specify records per page.
+    String toDate = "2019-10-20"; // String | Filter holdings to this date.
+    try {
+      HoldingsResponseBody result = apiInstance.listHoldingsByAccount(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#listHoldingsByAccount");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountGuid** | **String**| The unique id for the &#x60;account&#x60;. |
+ **userGuid** | **String**| The unique id for the &#x60;user&#x60;. |
  **fromDate** | **String**| Filter holdings from this date. | [optional]
  **page** | **Integer**| Specify current page. | [optional]
  **recordsPerPage** | **Integer**| Specify records per page. | [optional]
