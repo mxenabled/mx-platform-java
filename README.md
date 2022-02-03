@@ -24,7 +24,7 @@ mvn clean package
 ```
 
 Then manually install the following JARs:
-  - `target/mx-platform-java-0.5.4.jar`
+  - `target/mx-platform-java-0.5.5.jar`
   - `target/lib/*.jar`
 
 ### Maven users
@@ -35,7 +35,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.mx</groupId>
   <artifactId>mx-platform-java</artifactId>
-  <version>0.5.4</version>
+  <version>0.5.5</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -59,8 +59,10 @@ import java.util.*;
 
 public class Example {
     public static void main(String[] args) {
-        // Configure environment. https://int-api.mx.com for development, https://api.mx.com for production
         ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.addDefaultHeader("Accept", "application/vnd.mx.api.v1+json");
+
+        // Configure environment. https://int-api.mx.com for development, https://api.mx.com for production
         defaultClient.setBasePath("https://int-api.mx.com");
 
         // Configure with your Client ID/API Key from https://dashboard.mx.com
