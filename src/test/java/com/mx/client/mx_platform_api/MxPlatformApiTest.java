@@ -1071,8 +1071,7 @@ public class MxPlatformApiTest {
     @Test
     public void readDefaultCategoryTest() throws ApiException {
         String categoryGuid = null;
-        String userGuid = null;
-                CategoryResponseBody response = api.readDefaultCategory(categoryGuid, userGuid);
+                CategoryResponseBody response = api.readDefaultCategory(categoryGuid);
         // TODO: test validations
     }
     

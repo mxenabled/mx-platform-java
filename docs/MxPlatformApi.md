@@ -4194,7 +4194,7 @@ Name | Type | Description  | Notes
 
 <a name="readDefaultCategory"></a>
 # **readDefaultCategory**
-> CategoryResponseBody readDefaultCategory(categoryGuid, userGuid)
+> CategoryResponseBody readDefaultCategory(categoryGuid)
 
 Read a default category
 
@@ -4222,9 +4222,8 @@ public class Example {
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
     String categoryGuid = "CAT-7829f71c-2e8c-afa5-2f55-fa3634b89874"; // String | The unique id for a `category`.
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     try {
-      CategoryResponseBody result = apiInstance.readDefaultCategory(categoryGuid, userGuid);
+      CategoryResponseBody result = apiInstance.readDefaultCategory(categoryGuid);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#readDefaultCategory");
@@ -4242,7 +4241,6 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **categoryGuid** | **String**| The unique id for a &#x60;category&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
 
 ### Return type
 
@@ -5360,7 +5358,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **connectWidgetRequestBody** | [**ConnectWidgetRequestBody**](ConnectWidgetRequestBody.md)| Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials) | [optional]
+ **connectWidgetRequestBody** | [**ConnectWidgetRequestBody**](ConnectWidgetRequestBody.md)| Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials) |
 
 ### Return type
 

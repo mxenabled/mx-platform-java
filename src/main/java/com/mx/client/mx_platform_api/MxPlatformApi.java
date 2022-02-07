@@ -8375,7 +8375,6 @@ public class MxPlatformApi {
     /**
      * Build call for readDefaultCategory
      * @param categoryGuid The unique id for a &#x60;category&#x60;. (required)
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -8385,7 +8384,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call readDefaultCategoryCall(String categoryGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call readDefaultCategoryCall(String categoryGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -8404,8 +8403,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/categories/{category_guid}"
-            .replaceAll("\\{" + "category_guid" + "\\}", localVarApiClient.escapeString(categoryGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replaceAll("\\{" + "category_guid" + "\\}", localVarApiClient.escapeString(categoryGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8434,20 +8432,15 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readDefaultCategoryValidateBeforeCall(String categoryGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readDefaultCategoryValidateBeforeCall(String categoryGuid, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'categoryGuid' is set
         if (categoryGuid == null) {
             throw new ApiException("Missing the required parameter 'categoryGuid' when calling readDefaultCategory(Async)");
         }
         
-        // verify the required parameter 'userGuid' is set
-        if (userGuid == null) {
-            throw new ApiException("Missing the required parameter 'userGuid' when calling readDefaultCategory(Async)");
-        }
-        
 
-        okhttp3.Call localVarCall = readDefaultCategoryCall(categoryGuid, userGuid, _callback);
+        okhttp3.Call localVarCall = readDefaultCategoryCall(categoryGuid, _callback);
         return localVarCall;
 
     }
@@ -8456,7 +8449,6 @@ public class MxPlatformApi {
      * Read a default category
      * Use this endpoint to read the attributes of a default category.
      * @param categoryGuid The unique id for a &#x60;category&#x60;. (required)
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @return CategoryResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8465,8 +8457,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public CategoryResponseBody readDefaultCategory(String categoryGuid, String userGuid) throws ApiException {
-        ApiResponse<CategoryResponseBody> localVarResp = readDefaultCategoryWithHttpInfo(categoryGuid, userGuid);
+    public CategoryResponseBody readDefaultCategory(String categoryGuid) throws ApiException {
+        ApiResponse<CategoryResponseBody> localVarResp = readDefaultCategoryWithHttpInfo(categoryGuid);
         return localVarResp.getData();
     }
 
@@ -8474,7 +8466,6 @@ public class MxPlatformApi {
      * Read a default category
      * Use this endpoint to read the attributes of a default category.
      * @param categoryGuid The unique id for a &#x60;category&#x60;. (required)
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @return ApiResponse&lt;CategoryResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8483,8 +8474,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CategoryResponseBody> readDefaultCategoryWithHttpInfo(String categoryGuid, String userGuid) throws ApiException {
-        okhttp3.Call localVarCall = readDefaultCategoryValidateBeforeCall(categoryGuid, userGuid, null);
+    public ApiResponse<CategoryResponseBody> readDefaultCategoryWithHttpInfo(String categoryGuid) throws ApiException {
+        okhttp3.Call localVarCall = readDefaultCategoryValidateBeforeCall(categoryGuid, null);
         Type localVarReturnType = new TypeToken<CategoryResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -8493,7 +8484,6 @@ public class MxPlatformApi {
      * Read a default category (asynchronously)
      * Use this endpoint to read the attributes of a default category.
      * @param categoryGuid The unique id for a &#x60;category&#x60;. (required)
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8503,9 +8493,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call readDefaultCategoryAsync(String categoryGuid, String userGuid, final ApiCallback<CategoryResponseBody> _callback) throws ApiException {
+    public okhttp3.Call readDefaultCategoryAsync(String categoryGuid, final ApiCallback<CategoryResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = readDefaultCategoryValidateBeforeCall(categoryGuid, userGuid, _callback);
+        okhttp3.Call localVarCall = readDefaultCategoryValidateBeforeCall(categoryGuid, _callback);
         Type localVarReturnType = new TypeToken<CategoryResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -10573,7 +10563,7 @@ public class MxPlatformApi {
     /**
      * Build call for requestConnectWidgetURL
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param connectWidgetRequestBody Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials) (optional)
+     * @param connectWidgetRequestBody Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials) (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -10638,6 +10628,11 @@ public class MxPlatformApi {
             throw new ApiException("Missing the required parameter 'userGuid' when calling requestConnectWidgetURL(Async)");
         }
         
+        // verify the required parameter 'connectWidgetRequestBody' is set
+        if (connectWidgetRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'connectWidgetRequestBody' when calling requestConnectWidgetURL(Async)");
+        }
+        
 
         okhttp3.Call localVarCall = requestConnectWidgetURLCall(userGuid, connectWidgetRequestBody, _callback);
         return localVarCall;
@@ -10648,7 +10643,7 @@ public class MxPlatformApi {
      * Request connect widget url
      * This endpoint will return a URL for an embeddable version of MX Connect.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param connectWidgetRequestBody Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials) (optional)
+     * @param connectWidgetRequestBody Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials) (required)
      * @return ConnectWidgetResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -10666,7 +10661,7 @@ public class MxPlatformApi {
      * Request connect widget url
      * This endpoint will return a URL for an embeddable version of MX Connect.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param connectWidgetRequestBody Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials) (optional)
+     * @param connectWidgetRequestBody Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials) (required)
      * @return ApiResponse&lt;ConnectWidgetResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -10685,7 +10680,7 @@ public class MxPlatformApi {
      * Request connect widget url (asynchronously)
      * This endpoint will return a URL for an embeddable version of MX Connect.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param connectWidgetRequestBody Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials) (optional)
+     * @param connectWidgetRequestBody Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
