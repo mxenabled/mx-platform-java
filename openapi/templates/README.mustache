@@ -58,36 +58,36 @@ import com.mx.client.mx_platform_api.MxPlatformApi;
 import java.util.*;
 
 public class Example {
-    public static void main(String[] args) {
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.addDefaultHeader("Accept", "application/vnd.mx.api.v1+json");
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.addDefaultHeader("Accept", "application/vnd.mx.api.v1+json");
 
-        // Configure environment. https://int-api.mx.com for development, https://api.mx.com for production
-        defaultClient.setBasePath("https://int-api.mx.com");
+    // Configure environment. https://int-api.mx.com for development, https://api.mx.com for production
+    defaultClient.setBasePath("https://int-api.mx.com");
 
-        // Configure with your Client ID/API Key from https://dashboard.mx.com
-        HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
-        basicAuth.setUsername("Your Client ID");
-        basicAuth.setPassword("Your API Key");
+    // Configure with your Client ID/API Key from https://dashboard.mx.com
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("Your Client ID");
+    basicAuth.setPassword("Your API Key");
 
-        MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
 
-        UserCreateRequestBody userCreateRequestBody = new UserCreateRequestBody();
-        UserCreateRequest userCreateRequest = new UserCreateRequest();
-        userCreateRequest.setMetadata("Creating a user!");
-        userCreateRequestBody.setUser(userCreateRequest);
+    UserCreateRequestBody userCreateRequestBody = new UserCreateRequestBody();
+    UserCreateRequest userCreateRequest = new UserCreateRequest();
+    userCreateRequest.setMetadata("Creating a user!");
+    userCreateRequestBody.setUser(userCreateRequest);
 
-        try {
-            UserResponseBody response = apiInstance.createUser(userCreateRequestBody);
-            System.out.println(response);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling MxPlatformApi#createUser");
-            System.err.println("Status code: " + e.getCode());
-            System.err.println("Reason: " + e.getResponseBody());
-            System.err.println("Response headers: " + e.getResponseHeaders());
-            e.printStackTrace();
-        }
+    try {
+      UserResponseBody response = apiInstance.createUser(userCreateRequestBody);
+      System.out.println(response);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#createUser");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
     }
+  }
 }
 ```
 
