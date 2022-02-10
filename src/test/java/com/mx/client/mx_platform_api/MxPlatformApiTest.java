@@ -148,10 +148,10 @@ public class MxPlatformApiTest {
      */
     @Test
     public void createManagedAccountTest() throws ApiException {
-        String userGuid = null;
         String memberGuid = null;
+        String userGuid = null;
         ManagedAccountCreateRequestBody managedAccountCreateRequestBody = null;
-                AccountResponseBody response = api.createManagedAccount(userGuid, memberGuid, managedAccountCreateRequestBody);
+                AccountResponseBody response = api.createManagedAccount(memberGuid, userGuid, managedAccountCreateRequestBody);
         // TODO: test validations
     }
     
@@ -181,10 +181,11 @@ public class MxPlatformApiTest {
      */
     @Test
     public void createManagedTransactionTest() throws ApiException {
-        String userGuid = null;
+        String accountGuid = null;
         String memberGuid = null;
+        String userGuid = null;
         ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody = null;
-                TransactionResponseBody response = api.createManagedTransaction(userGuid, memberGuid, managedTransactionCreateRequestBody);
+                TransactionResponseBody response = api.createManagedTransaction(accountGuid, memberGuid, userGuid, managedTransactionCreateRequestBody);
         // TODO: test validations
     }
     
@@ -293,10 +294,10 @@ public class MxPlatformApiTest {
      */
     @Test
     public void deleteManagedAccountTest() throws ApiException {
+        String accountGuid = null;
         String memberGuid = null;
         String userGuid = null;
-        String accountGuid = null;
-                api.deleteManagedAccount(memberGuid, userGuid, accountGuid);
+                api.deleteManagedAccount(accountGuid, memberGuid, userGuid);
         // TODO: test validations
     }
     
@@ -326,10 +327,11 @@ public class MxPlatformApiTest {
      */
     @Test
     public void deleteManagedTransactionTest() throws ApiException {
+        String accountGuid = null;
         String memberGuid = null;
-        String userGuid = null;
         String transactionGuid = null;
-                api.deleteManagedTransaction(memberGuid, userGuid, transactionGuid);
+        String userGuid = null;
+                api.deleteManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid);
         // TODO: test validations
     }
     
@@ -719,11 +721,11 @@ public class MxPlatformApiTest {
      */
     @Test
     public void listManagedAccountsTest() throws ApiException {
-        String userGuid = null;
         String memberGuid = null;
+        String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                AccountsResponseBody response = api.listManagedAccounts(userGuid, memberGuid, page, recordsPerPage);
+                AccountsResponseBody response = api.listManagedAccounts(memberGuid, userGuid, page, recordsPerPage);
         // TODO: test validations
     }
     
@@ -770,11 +772,12 @@ public class MxPlatformApiTest {
      */
     @Test
     public void listManagedTransactionsTest() throws ApiException {
-        String userGuid = null;
+        String accountGuid = null;
         String memberGuid = null;
+        String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                TransactionsResponseBody response = api.listManagedTransactions(userGuid, memberGuid, page, recordsPerPage);
+                TransactionsResponseBody response = api.listManagedTransactions(accountGuid, memberGuid, userGuid, page, recordsPerPage);
         // TODO: test validations
     }
     
@@ -1116,10 +1119,10 @@ public class MxPlatformApiTest {
      */
     @Test
     public void readManagedAccountTest() throws ApiException {
+        String accountGuid = null;
         String memberGuid = null;
         String userGuid = null;
-        String accountGuid = null;
-                AccountResponseBody response = api.readManagedAccount(memberGuid, userGuid, accountGuid);
+                AccountResponseBody response = api.readManagedAccount(accountGuid, memberGuid, userGuid);
         // TODO: test validations
     }
     
@@ -1149,10 +1152,11 @@ public class MxPlatformApiTest {
      */
     @Test
     public void readManagedTransactionTest() throws ApiException {
+        String accountGuid = null;
         String memberGuid = null;
-        String userGuid = null;
         String transactionGuid = null;
-                TransactionResponseBody response = api.readManagedTransaction(memberGuid, userGuid, transactionGuid);
+        String userGuid = null;
+                TransactionResponseBody response = api.readManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid);
         // TODO: test validations
     }
     
@@ -1343,9 +1347,9 @@ public class MxPlatformApiTest {
         String memberGuid = null;
         String userGuid = null;
         String referralSource = null;
-        String uiMessageWebviewUrlScheme = null;
         Boolean skipAggregation = null;
-                OAuthWindowResponseBody response = api.requestOAuthWindowURI(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme, skipAggregation);
+        String uiMessageWebviewUrlScheme = null;
+                OAuthWindowResponseBody response = api.requestOAuthWindowURI(memberGuid, userGuid, referralSource, skipAggregation, uiMessageWebviewUrlScheme);
         // TODO: test validations
     }
     
@@ -1393,11 +1397,11 @@ public class MxPlatformApiTest {
      */
     @Test
     public void updateAccountByMemberTest() throws ApiException {
-        String userGuid = null;
-        String memberGuid = null;
         String accountGuid = null;
+        String memberGuid = null;
+        String userGuid = null;
         AccountUpdateRequestBody accountUpdateRequestBody = null;
-                AccountResponseBody response = api.updateAccountByMember(userGuid, memberGuid, accountGuid, accountUpdateRequestBody);
+                AccountResponseBody response = api.updateAccountByMember(accountGuid, memberGuid, userGuid, accountUpdateRequestBody);
         // TODO: test validations
     }
     
@@ -1428,11 +1432,11 @@ public class MxPlatformApiTest {
      */
     @Test
     public void updateManagedAccountTest() throws ApiException {
+        String accountGuid = null;
         String memberGuid = null;
         String userGuid = null;
-        String accountGuid = null;
         ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody = null;
-                AccountResponseBody response = api.updateManagedAccount(memberGuid, userGuid, accountGuid, managedAccountUpdateRequestBody);
+                AccountResponseBody response = api.updateManagedAccount(accountGuid, memberGuid, userGuid, managedAccountUpdateRequestBody);
         // TODO: test validations
     }
     
@@ -1463,11 +1467,12 @@ public class MxPlatformApiTest {
      */
     @Test
     public void updateManagedTransactionTest() throws ApiException {
+        String accountGuid = null;
         String memberGuid = null;
-        String userGuid = null;
         String transactionGuid = null;
+        String userGuid = null;
         ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody = null;
-                TransactionResponseBody response = api.updateManagedTransaction(memberGuid, userGuid, transactionGuid, managedTransactionUpdateRequestBody);
+                TransactionResponseBody response = api.updateManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid, managedTransactionUpdateRequestBody);
         // TODO: test validations
     }
     

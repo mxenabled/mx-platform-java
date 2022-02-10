@@ -545,8 +545,8 @@ public class MxPlatformApi {
     }
     /**
      * Build call for createManagedAccount
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param managedAccountCreateRequestBody Managed account to be created. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -557,7 +557,7 @@ public class MxPlatformApi {
         <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createManagedAccountCall(String userGuid, String memberGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createManagedAccountCall(String memberGuid, String userGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -576,8 +576,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()));
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -606,16 +606,16 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createManagedAccountValidateBeforeCall(String userGuid, String memberGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'userGuid' is set
-        if (userGuid == null) {
-            throw new ApiException("Missing the required parameter 'userGuid' when calling createManagedAccount(Async)");
-        }
+    private okhttp3.Call createManagedAccountValidateBeforeCall(String memberGuid, String userGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling createManagedAccount(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling createManagedAccount(Async)");
         }
         
         // verify the required parameter 'managedAccountCreateRequestBody' is set
@@ -624,7 +624,7 @@ public class MxPlatformApi {
         }
         
 
-        okhttp3.Call localVarCall = createManagedAccountCall(userGuid, memberGuid, managedAccountCreateRequestBody, _callback);
+        okhttp3.Call localVarCall = createManagedAccountCall(memberGuid, userGuid, managedAccountCreateRequestBody, _callback);
         return localVarCall;
 
     }
@@ -632,8 +632,8 @@ public class MxPlatformApi {
     /**
      * Create managed account
      * Use this endpoint to create a partner-managed account.
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param managedAccountCreateRequestBody Managed account to be created. (required)
      * @return AccountResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -643,16 +643,16 @@ public class MxPlatformApi {
         <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AccountResponseBody createManagedAccount(String userGuid, String memberGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody) throws ApiException {
-        ApiResponse<AccountResponseBody> localVarResp = createManagedAccountWithHttpInfo(userGuid, memberGuid, managedAccountCreateRequestBody);
+    public AccountResponseBody createManagedAccount(String memberGuid, String userGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody) throws ApiException {
+        ApiResponse<AccountResponseBody> localVarResp = createManagedAccountWithHttpInfo(memberGuid, userGuid, managedAccountCreateRequestBody);
         return localVarResp.getData();
     }
 
     /**
      * Create managed account
      * Use this endpoint to create a partner-managed account.
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param managedAccountCreateRequestBody Managed account to be created. (required)
      * @return ApiResponse&lt;AccountResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -662,8 +662,8 @@ public class MxPlatformApi {
         <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountResponseBody> createManagedAccountWithHttpInfo(String userGuid, String memberGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody) throws ApiException {
-        okhttp3.Call localVarCall = createManagedAccountValidateBeforeCall(userGuid, memberGuid, managedAccountCreateRequestBody, null);
+    public ApiResponse<AccountResponseBody> createManagedAccountWithHttpInfo(String memberGuid, String userGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = createManagedAccountValidateBeforeCall(memberGuid, userGuid, managedAccountCreateRequestBody, null);
         Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -671,8 +671,8 @@ public class MxPlatformApi {
     /**
      * Create managed account (asynchronously)
      * Use this endpoint to create a partner-managed account.
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param managedAccountCreateRequestBody Managed account to be created. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -683,9 +683,9 @@ public class MxPlatformApi {
         <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createManagedAccountAsync(String userGuid, String memberGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody, final ApiCallback<AccountResponseBody> _callback) throws ApiException {
+    public okhttp3.Call createManagedAccountAsync(String memberGuid, String userGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody, final ApiCallback<AccountResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createManagedAccountValidateBeforeCall(userGuid, memberGuid, managedAccountCreateRequestBody, _callback);
+        okhttp3.Call localVarCall = createManagedAccountValidateBeforeCall(memberGuid, userGuid, managedAccountCreateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -829,8 +829,9 @@ public class MxPlatformApi {
     }
     /**
      * Build call for createManagedTransaction
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param managedTransactionCreateRequestBody Managed transaction to be created. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -841,7 +842,7 @@ public class MxPlatformApi {
         <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createManagedTransactionCall(String userGuid, String memberGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createManagedTransactionCall(String accountGuid, String memberGuid, String userGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -859,9 +860,10 @@ public class MxPlatformApi {
         Object localVarPostBody = managedTransactionCreateRequestBody;
 
         // create path and map variables
-        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/transactions"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()));
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions"
+            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -890,16 +892,21 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createManagedTransactionValidateBeforeCall(String userGuid, String memberGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createManagedTransactionValidateBeforeCall(String accountGuid, String memberGuid, String userGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'userGuid' is set
-        if (userGuid == null) {
-            throw new ApiException("Missing the required parameter 'userGuid' when calling createManagedTransaction(Async)");
+        // verify the required parameter 'accountGuid' is set
+        if (accountGuid == null) {
+            throw new ApiException("Missing the required parameter 'accountGuid' when calling createManagedTransaction(Async)");
         }
         
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling createManagedTransaction(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling createManagedTransaction(Async)");
         }
         
         // verify the required parameter 'managedTransactionCreateRequestBody' is set
@@ -908,7 +915,7 @@ public class MxPlatformApi {
         }
         
 
-        okhttp3.Call localVarCall = createManagedTransactionCall(userGuid, memberGuid, managedTransactionCreateRequestBody, _callback);
+        okhttp3.Call localVarCall = createManagedTransactionCall(accountGuid, memberGuid, userGuid, managedTransactionCreateRequestBody, _callback);
         return localVarCall;
 
     }
@@ -916,8 +923,9 @@ public class MxPlatformApi {
     /**
      * Create managed transaction
      * Use this endpoint to create a new partner-managed &#x60;transaction&#x60;.
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param managedTransactionCreateRequestBody Managed transaction to be created. (required)
      * @return TransactionResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -927,16 +935,17 @@ public class MxPlatformApi {
         <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TransactionResponseBody createManagedTransaction(String userGuid, String memberGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody) throws ApiException {
-        ApiResponse<TransactionResponseBody> localVarResp = createManagedTransactionWithHttpInfo(userGuid, memberGuid, managedTransactionCreateRequestBody);
+    public TransactionResponseBody createManagedTransaction(String accountGuid, String memberGuid, String userGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody) throws ApiException {
+        ApiResponse<TransactionResponseBody> localVarResp = createManagedTransactionWithHttpInfo(accountGuid, memberGuid, userGuid, managedTransactionCreateRequestBody);
         return localVarResp.getData();
     }
 
     /**
      * Create managed transaction
      * Use this endpoint to create a new partner-managed &#x60;transaction&#x60;.
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param managedTransactionCreateRequestBody Managed transaction to be created. (required)
      * @return ApiResponse&lt;TransactionResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -946,8 +955,8 @@ public class MxPlatformApi {
         <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TransactionResponseBody> createManagedTransactionWithHttpInfo(String userGuid, String memberGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody) throws ApiException {
-        okhttp3.Call localVarCall = createManagedTransactionValidateBeforeCall(userGuid, memberGuid, managedTransactionCreateRequestBody, null);
+    public ApiResponse<TransactionResponseBody> createManagedTransactionWithHttpInfo(String accountGuid, String memberGuid, String userGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = createManagedTransactionValidateBeforeCall(accountGuid, memberGuid, userGuid, managedTransactionCreateRequestBody, null);
         Type localVarReturnType = new TypeToken<TransactionResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -955,8 +964,9 @@ public class MxPlatformApi {
     /**
      * Create managed transaction (asynchronously)
      * Use this endpoint to create a new partner-managed &#x60;transaction&#x60;.
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param managedTransactionCreateRequestBody Managed transaction to be created. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -967,9 +977,9 @@ public class MxPlatformApi {
         <tr><td> 202 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createManagedTransactionAsync(String userGuid, String memberGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody, final ApiCallback<TransactionResponseBody> _callback) throws ApiException {
+    public okhttp3.Call createManagedTransactionAsync(String accountGuid, String memberGuid, String userGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody, final ApiCallback<TransactionResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createManagedTransactionValidateBeforeCall(userGuid, memberGuid, managedTransactionCreateRequestBody, _callback);
+        okhttp3.Call localVarCall = createManagedTransactionValidateBeforeCall(accountGuid, memberGuid, userGuid, managedTransactionCreateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<TransactionResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1785,9 +1795,9 @@ public class MxPlatformApi {
     }
     /**
      * Build call for deleteManagedAccount
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1797,7 +1807,7 @@ public class MxPlatformApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteManagedAccountCall(String memberGuid, String userGuid, String accountGuid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteManagedAccountCall(String accountGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -1816,9 +1826,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}"
+            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
             .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()));
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1847,7 +1857,12 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteManagedAccountValidateBeforeCall(String memberGuid, String userGuid, String accountGuid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteManagedAccountValidateBeforeCall(String accountGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'accountGuid' is set
+        if (accountGuid == null) {
+            throw new ApiException("Missing the required parameter 'accountGuid' when calling deleteManagedAccount(Async)");
+        }
         
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
@@ -1859,13 +1874,8 @@ public class MxPlatformApi {
             throw new ApiException("Missing the required parameter 'userGuid' when calling deleteManagedAccount(Async)");
         }
         
-        // verify the required parameter 'accountGuid' is set
-        if (accountGuid == null) {
-            throw new ApiException("Missing the required parameter 'accountGuid' when calling deleteManagedAccount(Async)");
-        }
-        
 
-        okhttp3.Call localVarCall = deleteManagedAccountCall(memberGuid, userGuid, accountGuid, _callback);
+        okhttp3.Call localVarCall = deleteManagedAccountCall(accountGuid, memberGuid, userGuid, _callback);
         return localVarCall;
 
     }
@@ -1873,9 +1883,9 @@ public class MxPlatformApi {
     /**
      * Delete managed account
      * Use this endpoint to delete a partner-managed account according to its unique GUID. If successful, the API will respond with a status of &#x60;204 No Content&#x60;.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1883,16 +1893,16 @@ public class MxPlatformApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteManagedAccount(String memberGuid, String userGuid, String accountGuid) throws ApiException {
-        deleteManagedAccountWithHttpInfo(memberGuid, userGuid, accountGuid);
+    public void deleteManagedAccount(String accountGuid, String memberGuid, String userGuid) throws ApiException {
+        deleteManagedAccountWithHttpInfo(accountGuid, memberGuid, userGuid);
     }
 
     /**
      * Delete managed account
      * Use this endpoint to delete a partner-managed account according to its unique GUID. If successful, the API will respond with a status of &#x60;204 No Content&#x60;.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1901,17 +1911,17 @@ public class MxPlatformApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteManagedAccountWithHttpInfo(String memberGuid, String userGuid, String accountGuid) throws ApiException {
-        okhttp3.Call localVarCall = deleteManagedAccountValidateBeforeCall(memberGuid, userGuid, accountGuid, null);
+    public ApiResponse<Void> deleteManagedAccountWithHttpInfo(String accountGuid, String memberGuid, String userGuid) throws ApiException {
+        okhttp3.Call localVarCall = deleteManagedAccountValidateBeforeCall(accountGuid, memberGuid, userGuid, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete managed account (asynchronously)
      * Use this endpoint to delete a partner-managed account according to its unique GUID. If successful, the API will respond with a status of &#x60;204 No Content&#x60;.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1921,9 +1931,9 @@ public class MxPlatformApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteManagedAccountAsync(String memberGuid, String userGuid, String accountGuid, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteManagedAccountAsync(String accountGuid, String memberGuid, String userGuid, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteManagedAccountValidateBeforeCall(memberGuid, userGuid, accountGuid, _callback);
+        okhttp3.Call localVarCall = deleteManagedAccountValidateBeforeCall(accountGuid, memberGuid, userGuid, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -2063,9 +2073,10 @@ public class MxPlatformApi {
     }
     /**
      * Build call for deleteManagedTransaction
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2075,7 +2086,7 @@ public class MxPlatformApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteManagedTransactionCall(String memberGuid, String userGuid, String transactionGuid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteManagedTransactionCall(String accountGuid, String memberGuid, String transactionGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -2093,10 +2104,11 @@ public class MxPlatformApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid}"
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid}"
+            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
             .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "transaction_guid" + "\\}", localVarApiClient.escapeString(transactionGuid.toString()));
+            .replaceAll("\\{" + "transaction_guid" + "\\}", localVarApiClient.escapeString(transactionGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2125,16 +2137,16 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteManagedTransactionValidateBeforeCall(String memberGuid, String userGuid, String transactionGuid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteManagedTransactionValidateBeforeCall(String accountGuid, String memberGuid, String transactionGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'accountGuid' is set
+        if (accountGuid == null) {
+            throw new ApiException("Missing the required parameter 'accountGuid' when calling deleteManagedTransaction(Async)");
+        }
         
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling deleteManagedTransaction(Async)");
-        }
-        
-        // verify the required parameter 'userGuid' is set
-        if (userGuid == null) {
-            throw new ApiException("Missing the required parameter 'userGuid' when calling deleteManagedTransaction(Async)");
         }
         
         // verify the required parameter 'transactionGuid' is set
@@ -2142,8 +2154,13 @@ public class MxPlatformApi {
             throw new ApiException("Missing the required parameter 'transactionGuid' when calling deleteManagedTransaction(Async)");
         }
         
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling deleteManagedTransaction(Async)");
+        }
+        
 
-        okhttp3.Call localVarCall = deleteManagedTransactionCall(memberGuid, userGuid, transactionGuid, _callback);
+        okhttp3.Call localVarCall = deleteManagedTransactionCall(accountGuid, memberGuid, transactionGuid, userGuid, _callback);
         return localVarCall;
 
     }
@@ -2151,9 +2168,10 @@ public class MxPlatformApi {
     /**
      * Delete managed transaction
      * Use this endpoint to delete the specified partner-managed &#x60;transaction&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2161,16 +2179,17 @@ public class MxPlatformApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public void deleteManagedTransaction(String memberGuid, String userGuid, String transactionGuid) throws ApiException {
-        deleteManagedTransactionWithHttpInfo(memberGuid, userGuid, transactionGuid);
+    public void deleteManagedTransaction(String accountGuid, String memberGuid, String transactionGuid, String userGuid) throws ApiException {
+        deleteManagedTransactionWithHttpInfo(accountGuid, memberGuid, transactionGuid, userGuid);
     }
 
     /**
      * Delete managed transaction
      * Use this endpoint to delete the specified partner-managed &#x60;transaction&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2179,17 +2198,18 @@ public class MxPlatformApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> deleteManagedTransactionWithHttpInfo(String memberGuid, String userGuid, String transactionGuid) throws ApiException {
-        okhttp3.Call localVarCall = deleteManagedTransactionValidateBeforeCall(memberGuid, userGuid, transactionGuid, null);
+    public ApiResponse<Void> deleteManagedTransactionWithHttpInfo(String accountGuid, String memberGuid, String transactionGuid, String userGuid) throws ApiException {
+        okhttp3.Call localVarCall = deleteManagedTransactionValidateBeforeCall(accountGuid, memberGuid, transactionGuid, userGuid, null);
         return localVarApiClient.execute(localVarCall);
     }
 
     /**
      * Delete managed transaction (asynchronously)
      * Use this endpoint to delete the specified partner-managed &#x60;transaction&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2199,9 +2219,9 @@ public class MxPlatformApi {
         <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteManagedTransactionAsync(String memberGuid, String userGuid, String transactionGuid, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call deleteManagedTransactionAsync(String accountGuid, String memberGuid, String transactionGuid, String userGuid, final ApiCallback<Void> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteManagedTransactionValidateBeforeCall(memberGuid, userGuid, transactionGuid, _callback);
+        okhttp3.Call localVarCall = deleteManagedTransactionValidateBeforeCall(accountGuid, memberGuid, transactionGuid, userGuid, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -5392,8 +5412,8 @@ public class MxPlatformApi {
     }
     /**
      * Build call for listManagedAccounts
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
      * @param _callback Callback for upload/download progress
@@ -5405,7 +5425,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listManagedAccountsCall(String userGuid, String memberGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listManagedAccountsCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -5424,8 +5444,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()));
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5462,20 +5482,20 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listManagedAccountsValidateBeforeCall(String userGuid, String memberGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
-        // verify the required parameter 'userGuid' is set
-        if (userGuid == null) {
-            throw new ApiException("Missing the required parameter 'userGuid' when calling listManagedAccounts(Async)");
-        }
+    private okhttp3.Call listManagedAccountsValidateBeforeCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling listManagedAccounts(Async)");
         }
         
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling listManagedAccounts(Async)");
+        }
+        
 
-        okhttp3.Call localVarCall = listManagedAccountsCall(userGuid, memberGuid, page, recordsPerPage, _callback);
+        okhttp3.Call localVarCall = listManagedAccountsCall(memberGuid, userGuid, page, recordsPerPage, _callback);
         return localVarCall;
 
     }
@@ -5483,8 +5503,8 @@ public class MxPlatformApi {
     /**
      * List managed accounts
      * Use this endpoint to retrieve a list of all the partner-managed accounts associated with the given partner-manage member.
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
      * @return AccountsResponseBody
@@ -5495,16 +5515,16 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AccountsResponseBody listManagedAccounts(String userGuid, String memberGuid, Integer page, Integer recordsPerPage) throws ApiException {
-        ApiResponse<AccountsResponseBody> localVarResp = listManagedAccountsWithHttpInfo(userGuid, memberGuid, page, recordsPerPage);
+    public AccountsResponseBody listManagedAccounts(String memberGuid, String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<AccountsResponseBody> localVarResp = listManagedAccountsWithHttpInfo(memberGuid, userGuid, page, recordsPerPage);
         return localVarResp.getData();
     }
 
     /**
      * List managed accounts
      * Use this endpoint to retrieve a list of all the partner-managed accounts associated with the given partner-manage member.
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
      * @return ApiResponse&lt;AccountsResponseBody&gt;
@@ -5515,8 +5535,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountsResponseBody> listManagedAccountsWithHttpInfo(String userGuid, String memberGuid, Integer page, Integer recordsPerPage) throws ApiException {
-        okhttp3.Call localVarCall = listManagedAccountsValidateBeforeCall(userGuid, memberGuid, page, recordsPerPage, null);
+    public ApiResponse<AccountsResponseBody> listManagedAccountsWithHttpInfo(String memberGuid, String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listManagedAccountsValidateBeforeCall(memberGuid, userGuid, page, recordsPerPage, null);
         Type localVarReturnType = new TypeToken<AccountsResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5524,8 +5544,8 @@ public class MxPlatformApi {
     /**
      * List managed accounts (asynchronously)
      * Use this endpoint to retrieve a list of all the partner-managed accounts associated with the given partner-manage member.
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -5537,9 +5557,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listManagedAccountsAsync(String userGuid, String memberGuid, Integer page, Integer recordsPerPage, final ApiCallback<AccountsResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listManagedAccountsAsync(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback<AccountsResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listManagedAccountsValidateBeforeCall(userGuid, memberGuid, page, recordsPerPage, _callback);
+        okhttp3.Call localVarCall = listManagedAccountsValidateBeforeCall(memberGuid, userGuid, page, recordsPerPage, _callback);
         Type localVarReturnType = new TypeToken<AccountsResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5824,8 +5844,9 @@ public class MxPlatformApi {
     }
     /**
      * Build call for listManagedTransactions
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
      * @param _callback Callback for upload/download progress
@@ -5837,7 +5858,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listManagedTransactionsCall(String userGuid, String memberGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listManagedTransactionsCall(String accountGuid, String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -5855,9 +5876,10 @@ public class MxPlatformApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/transactions"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()));
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions"
+            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5894,11 +5916,11 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listManagedTransactionsValidateBeforeCall(String userGuid, String memberGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listManagedTransactionsValidateBeforeCall(String accountGuid, String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'userGuid' is set
-        if (userGuid == null) {
-            throw new ApiException("Missing the required parameter 'userGuid' when calling listManagedTransactions(Async)");
+        // verify the required parameter 'accountGuid' is set
+        if (accountGuid == null) {
+            throw new ApiException("Missing the required parameter 'accountGuid' when calling listManagedTransactions(Async)");
         }
         
         // verify the required parameter 'memberGuid' is set
@@ -5906,8 +5928,13 @@ public class MxPlatformApi {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling listManagedTransactions(Async)");
         }
         
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling listManagedTransactions(Async)");
+        }
+        
 
-        okhttp3.Call localVarCall = listManagedTransactionsCall(userGuid, memberGuid, page, recordsPerPage, _callback);
+        okhttp3.Call localVarCall = listManagedTransactionsCall(accountGuid, memberGuid, userGuid, page, recordsPerPage, _callback);
         return localVarCall;
 
     }
@@ -5915,8 +5942,9 @@ public class MxPlatformApi {
     /**
      * List managed transactions
      * This endpoint returns a list of all the partner-managed transactions associated with the specified &#x60;account&#x60;, scoped through a &#x60;user&#x60; and a &#x60;member&#x60;.
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
      * @return TransactionsResponseBody
@@ -5927,16 +5955,17 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TransactionsResponseBody listManagedTransactions(String userGuid, String memberGuid, Integer page, Integer recordsPerPage) throws ApiException {
-        ApiResponse<TransactionsResponseBody> localVarResp = listManagedTransactionsWithHttpInfo(userGuid, memberGuid, page, recordsPerPage);
+    public TransactionsResponseBody listManagedTransactions(String accountGuid, String memberGuid, String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<TransactionsResponseBody> localVarResp = listManagedTransactionsWithHttpInfo(accountGuid, memberGuid, userGuid, page, recordsPerPage);
         return localVarResp.getData();
     }
 
     /**
      * List managed transactions
      * This endpoint returns a list of all the partner-managed transactions associated with the specified &#x60;account&#x60;, scoped through a &#x60;user&#x60; and a &#x60;member&#x60;.
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
      * @return ApiResponse&lt;TransactionsResponseBody&gt;
@@ -5947,8 +5976,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TransactionsResponseBody> listManagedTransactionsWithHttpInfo(String userGuid, String memberGuid, Integer page, Integer recordsPerPage) throws ApiException {
-        okhttp3.Call localVarCall = listManagedTransactionsValidateBeforeCall(userGuid, memberGuid, page, recordsPerPage, null);
+    public ApiResponse<TransactionsResponseBody> listManagedTransactionsWithHttpInfo(String accountGuid, String memberGuid, String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listManagedTransactionsValidateBeforeCall(accountGuid, memberGuid, userGuid, page, recordsPerPage, null);
         Type localVarReturnType = new TypeToken<TransactionsResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5956,8 +5985,9 @@ public class MxPlatformApi {
     /**
      * List managed transactions (asynchronously)
      * This endpoint returns a list of all the partner-managed transactions associated with the specified &#x60;account&#x60;, scoped through a &#x60;user&#x60; and a &#x60;member&#x60;.
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -5969,9 +5999,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listManagedTransactionsAsync(String userGuid, String memberGuid, Integer page, Integer recordsPerPage, final ApiCallback<TransactionsResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listManagedTransactionsAsync(String accountGuid, String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback<TransactionsResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listManagedTransactionsValidateBeforeCall(userGuid, memberGuid, page, recordsPerPage, _callback);
+        okhttp3.Call localVarCall = listManagedTransactionsValidateBeforeCall(accountGuid, memberGuid, userGuid, page, recordsPerPage, _callback);
         Type localVarReturnType = new TypeToken<TransactionsResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -8768,9 +8798,9 @@ public class MxPlatformApi {
     }
     /**
      * Build call for readManagedAccount
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -8780,7 +8810,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call readManagedAccountCall(String memberGuid, String userGuid, String accountGuid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call readManagedAccountCall(String accountGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -8799,9 +8829,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}"
+            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
             .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()));
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8830,7 +8860,12 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readManagedAccountValidateBeforeCall(String memberGuid, String userGuid, String accountGuid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readManagedAccountValidateBeforeCall(String accountGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'accountGuid' is set
+        if (accountGuid == null) {
+            throw new ApiException("Missing the required parameter 'accountGuid' when calling readManagedAccount(Async)");
+        }
         
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
@@ -8842,13 +8877,8 @@ public class MxPlatformApi {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readManagedAccount(Async)");
         }
         
-        // verify the required parameter 'accountGuid' is set
-        if (accountGuid == null) {
-            throw new ApiException("Missing the required parameter 'accountGuid' when calling readManagedAccount(Async)");
-        }
-        
 
-        okhttp3.Call localVarCall = readManagedAccountCall(memberGuid, userGuid, accountGuid, _callback);
+        okhttp3.Call localVarCall = readManagedAccountCall(accountGuid, memberGuid, userGuid, _callback);
         return localVarCall;
 
     }
@@ -8856,9 +8886,9 @@ public class MxPlatformApi {
     /**
      * Read managed account
      * Use this endpoint to read the attributes of a partner-managed account according to its unique guid.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @return AccountResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8867,17 +8897,17 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AccountResponseBody readManagedAccount(String memberGuid, String userGuid, String accountGuid) throws ApiException {
-        ApiResponse<AccountResponseBody> localVarResp = readManagedAccountWithHttpInfo(memberGuid, userGuid, accountGuid);
+    public AccountResponseBody readManagedAccount(String accountGuid, String memberGuid, String userGuid) throws ApiException {
+        ApiResponse<AccountResponseBody> localVarResp = readManagedAccountWithHttpInfo(accountGuid, memberGuid, userGuid);
         return localVarResp.getData();
     }
 
     /**
      * Read managed account
      * Use this endpoint to read the attributes of a partner-managed account according to its unique guid.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @return ApiResponse&lt;AccountResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8886,8 +8916,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountResponseBody> readManagedAccountWithHttpInfo(String memberGuid, String userGuid, String accountGuid) throws ApiException {
-        okhttp3.Call localVarCall = readManagedAccountValidateBeforeCall(memberGuid, userGuid, accountGuid, null);
+    public ApiResponse<AccountResponseBody> readManagedAccountWithHttpInfo(String accountGuid, String memberGuid, String userGuid) throws ApiException {
+        okhttp3.Call localVarCall = readManagedAccountValidateBeforeCall(accountGuid, memberGuid, userGuid, null);
         Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -8895,9 +8925,9 @@ public class MxPlatformApi {
     /**
      * Read managed account (asynchronously)
      * Use this endpoint to read the attributes of a partner-managed account according to its unique guid.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8907,9 +8937,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call readManagedAccountAsync(String memberGuid, String userGuid, String accountGuid, final ApiCallback<AccountResponseBody> _callback) throws ApiException {
+    public okhttp3.Call readManagedAccountAsync(String accountGuid, String memberGuid, String userGuid, final ApiCallback<AccountResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = readManagedAccountValidateBeforeCall(memberGuid, userGuid, accountGuid, _callback);
+        okhttp3.Call localVarCall = readManagedAccountValidateBeforeCall(accountGuid, memberGuid, userGuid, _callback);
         Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -9054,9 +9084,10 @@ public class MxPlatformApi {
     }
     /**
      * Build call for readManagedTransaction
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -9066,7 +9097,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call readManagedTransactionCall(String memberGuid, String userGuid, String transactionGuid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call readManagedTransactionCall(String accountGuid, String memberGuid, String transactionGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -9084,10 +9115,11 @@ public class MxPlatformApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid}"
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid}"
+            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
             .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "transaction_guid" + "\\}", localVarApiClient.escapeString(transactionGuid.toString()));
+            .replaceAll("\\{" + "transaction_guid" + "\\}", localVarApiClient.escapeString(transactionGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9116,16 +9148,16 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call readManagedTransactionValidateBeforeCall(String memberGuid, String userGuid, String transactionGuid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call readManagedTransactionValidateBeforeCall(String accountGuid, String memberGuid, String transactionGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'accountGuid' is set
+        if (accountGuid == null) {
+            throw new ApiException("Missing the required parameter 'accountGuid' when calling readManagedTransaction(Async)");
+        }
         
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling readManagedTransaction(Async)");
-        }
-        
-        // verify the required parameter 'userGuid' is set
-        if (userGuid == null) {
-            throw new ApiException("Missing the required parameter 'userGuid' when calling readManagedTransaction(Async)");
         }
         
         // verify the required parameter 'transactionGuid' is set
@@ -9133,8 +9165,13 @@ public class MxPlatformApi {
             throw new ApiException("Missing the required parameter 'transactionGuid' when calling readManagedTransaction(Async)");
         }
         
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling readManagedTransaction(Async)");
+        }
+        
 
-        okhttp3.Call localVarCall = readManagedTransactionCall(memberGuid, userGuid, transactionGuid, _callback);
+        okhttp3.Call localVarCall = readManagedTransactionCall(accountGuid, memberGuid, transactionGuid, userGuid, _callback);
         return localVarCall;
 
     }
@@ -9142,9 +9179,10 @@ public class MxPlatformApi {
     /**
      * Read managed transaction
      * Requests to this endpoint will return the attributes of the specified partner-managed &#x60;transaction&#x60;.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @return TransactionResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -9153,17 +9191,18 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TransactionResponseBody readManagedTransaction(String memberGuid, String userGuid, String transactionGuid) throws ApiException {
-        ApiResponse<TransactionResponseBody> localVarResp = readManagedTransactionWithHttpInfo(memberGuid, userGuid, transactionGuid);
+    public TransactionResponseBody readManagedTransaction(String accountGuid, String memberGuid, String transactionGuid, String userGuid) throws ApiException {
+        ApiResponse<TransactionResponseBody> localVarResp = readManagedTransactionWithHttpInfo(accountGuid, memberGuid, transactionGuid, userGuid);
         return localVarResp.getData();
     }
 
     /**
      * Read managed transaction
      * Requests to this endpoint will return the attributes of the specified partner-managed &#x60;transaction&#x60;.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @return ApiResponse&lt;TransactionResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -9172,8 +9211,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TransactionResponseBody> readManagedTransactionWithHttpInfo(String memberGuid, String userGuid, String transactionGuid) throws ApiException {
-        okhttp3.Call localVarCall = readManagedTransactionValidateBeforeCall(memberGuid, userGuid, transactionGuid, null);
+    public ApiResponse<TransactionResponseBody> readManagedTransactionWithHttpInfo(String accountGuid, String memberGuid, String transactionGuid, String userGuid) throws ApiException {
+        okhttp3.Call localVarCall = readManagedTransactionValidateBeforeCall(accountGuid, memberGuid, transactionGuid, userGuid, null);
         Type localVarReturnType = new TypeToken<TransactionResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -9181,9 +9220,10 @@ public class MxPlatformApi {
     /**
      * Read managed transaction (asynchronously)
      * Requests to this endpoint will return the attributes of the specified partner-managed &#x60;transaction&#x60;.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -9193,9 +9233,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call readManagedTransactionAsync(String memberGuid, String userGuid, String transactionGuid, final ApiCallback<TransactionResponseBody> _callback) throws ApiException {
+    public okhttp3.Call readManagedTransactionAsync(String accountGuid, String memberGuid, String transactionGuid, String userGuid, final ApiCallback<TransactionResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = readManagedTransactionValidateBeforeCall(memberGuid, userGuid, transactionGuid, _callback);
+        okhttp3.Call localVarCall = readManagedTransactionValidateBeforeCall(accountGuid, memberGuid, transactionGuid, userGuid, _callback);
         Type localVarReturnType = new TypeToken<TransactionResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -10702,8 +10742,8 @@ public class MxPlatformApi {
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param referralSource Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. (optional)
-     * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. (optional)
      * @param skipAggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. (optional)
+     * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -10713,7 +10753,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestOAuthWindowURICall(String memberGuid, String userGuid, String referralSource, String uiMessageWebviewUrlScheme, Boolean skipAggregation, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call requestOAuthWindowURICall(String memberGuid, String userGuid, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -10745,12 +10785,12 @@ public class MxPlatformApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("referral_source", referralSource));
         }
 
-        if (uiMessageWebviewUrlScheme != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ui_message_webview_url_scheme", uiMessageWebviewUrlScheme));
-        }
-
         if (skipAggregation != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("skip_aggregation", skipAggregation));
+        }
+
+        if (uiMessageWebviewUrlScheme != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ui_message_webview_url_scheme", uiMessageWebviewUrlScheme));
         }
 
         final String[] localVarAccepts = {
@@ -10774,7 +10814,7 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call requestOAuthWindowURIValidateBeforeCall(String memberGuid, String userGuid, String referralSource, String uiMessageWebviewUrlScheme, Boolean skipAggregation, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call requestOAuthWindowURIValidateBeforeCall(String memberGuid, String userGuid, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
@@ -10787,7 +10827,7 @@ public class MxPlatformApi {
         }
         
 
-        okhttp3.Call localVarCall = requestOAuthWindowURICall(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme, skipAggregation, _callback);
+        okhttp3.Call localVarCall = requestOAuthWindowURICall(memberGuid, userGuid, referralSource, skipAggregation, uiMessageWebviewUrlScheme, _callback);
         return localVarCall;
 
     }
@@ -10798,8 +10838,8 @@ public class MxPlatformApi {
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param referralSource Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. (optional)
-     * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. (optional)
      * @param skipAggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. (optional)
+     * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. (optional)
      * @return OAuthWindowResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -10808,8 +10848,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public OAuthWindowResponseBody requestOAuthWindowURI(String memberGuid, String userGuid, String referralSource, String uiMessageWebviewUrlScheme, Boolean skipAggregation) throws ApiException {
-        ApiResponse<OAuthWindowResponseBody> localVarResp = requestOAuthWindowURIWithHttpInfo(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme, skipAggregation);
+    public OAuthWindowResponseBody requestOAuthWindowURI(String memberGuid, String userGuid, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme) throws ApiException {
+        ApiResponse<OAuthWindowResponseBody> localVarResp = requestOAuthWindowURIWithHttpInfo(memberGuid, userGuid, referralSource, skipAggregation, uiMessageWebviewUrlScheme);
         return localVarResp.getData();
     }
 
@@ -10819,8 +10859,8 @@ public class MxPlatformApi {
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param referralSource Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. (optional)
-     * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. (optional)
      * @param skipAggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. (optional)
+     * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. (optional)
      * @return ApiResponse&lt;OAuthWindowResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -10829,8 +10869,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OAuthWindowResponseBody> requestOAuthWindowURIWithHttpInfo(String memberGuid, String userGuid, String referralSource, String uiMessageWebviewUrlScheme, Boolean skipAggregation) throws ApiException {
-        okhttp3.Call localVarCall = requestOAuthWindowURIValidateBeforeCall(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme, skipAggregation, null);
+    public ApiResponse<OAuthWindowResponseBody> requestOAuthWindowURIWithHttpInfo(String memberGuid, String userGuid, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme) throws ApiException {
+        okhttp3.Call localVarCall = requestOAuthWindowURIValidateBeforeCall(memberGuid, userGuid, referralSource, skipAggregation, uiMessageWebviewUrlScheme, null);
         Type localVarReturnType = new TypeToken<OAuthWindowResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -10841,8 +10881,8 @@ public class MxPlatformApi {
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param referralSource Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. (optional)
-     * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. (optional)
      * @param skipAggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. (optional)
+     * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -10852,9 +10892,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestOAuthWindowURIAsync(String memberGuid, String userGuid, String referralSource, String uiMessageWebviewUrlScheme, Boolean skipAggregation, final ApiCallback<OAuthWindowResponseBody> _callback) throws ApiException {
+    public okhttp3.Call requestOAuthWindowURIAsync(String memberGuid, String userGuid, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme, final ApiCallback<OAuthWindowResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = requestOAuthWindowURIValidateBeforeCall(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme, skipAggregation, _callback);
+        okhttp3.Call localVarCall = requestOAuthWindowURIValidateBeforeCall(memberGuid, userGuid, referralSource, skipAggregation, uiMessageWebviewUrlScheme, _callback);
         Type localVarReturnType = new TypeToken<OAuthWindowResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -11153,9 +11193,9 @@ public class MxPlatformApi {
     }
     /**
      * Build call for updateAccountByMember
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param accountUpdateRequestBody Account object to be created with optional parameters (is_hidden) (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -11166,7 +11206,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAccountByMemberCall(String userGuid, String memberGuid, String accountGuid, AccountUpdateRequestBody accountUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateAccountByMemberCall(String accountGuid, String memberGuid, String userGuid, AccountUpdateRequestBody accountUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -11185,9 +11225,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/accounts/{account_guid}"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
             .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()));
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11216,11 +11256,11 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateAccountByMemberValidateBeforeCall(String userGuid, String memberGuid, String accountGuid, AccountUpdateRequestBody accountUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateAccountByMemberValidateBeforeCall(String accountGuid, String memberGuid, String userGuid, AccountUpdateRequestBody accountUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'userGuid' is set
-        if (userGuid == null) {
-            throw new ApiException("Missing the required parameter 'userGuid' when calling updateAccountByMember(Async)");
+        // verify the required parameter 'accountGuid' is set
+        if (accountGuid == null) {
+            throw new ApiException("Missing the required parameter 'accountGuid' when calling updateAccountByMember(Async)");
         }
         
         // verify the required parameter 'memberGuid' is set
@@ -11228,9 +11268,9 @@ public class MxPlatformApi {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling updateAccountByMember(Async)");
         }
         
-        // verify the required parameter 'accountGuid' is set
-        if (accountGuid == null) {
-            throw new ApiException("Missing the required parameter 'accountGuid' when calling updateAccountByMember(Async)");
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling updateAccountByMember(Async)");
         }
         
         // verify the required parameter 'accountUpdateRequestBody' is set
@@ -11239,7 +11279,7 @@ public class MxPlatformApi {
         }
         
 
-        okhttp3.Call localVarCall = updateAccountByMemberCall(userGuid, memberGuid, accountGuid, accountUpdateRequestBody, _callback);
+        okhttp3.Call localVarCall = updateAccountByMemberCall(accountGuid, memberGuid, userGuid, accountUpdateRequestBody, _callback);
         return localVarCall;
 
     }
@@ -11247,9 +11287,9 @@ public class MxPlatformApi {
     /**
      * Update account by member
      * This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource.
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param accountUpdateRequestBody Account object to be created with optional parameters (is_hidden) (required)
      * @return AccountResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11259,17 +11299,17 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AccountResponseBody updateAccountByMember(String userGuid, String memberGuid, String accountGuid, AccountUpdateRequestBody accountUpdateRequestBody) throws ApiException {
-        ApiResponse<AccountResponseBody> localVarResp = updateAccountByMemberWithHttpInfo(userGuid, memberGuid, accountGuid, accountUpdateRequestBody);
+    public AccountResponseBody updateAccountByMember(String accountGuid, String memberGuid, String userGuid, AccountUpdateRequestBody accountUpdateRequestBody) throws ApiException {
+        ApiResponse<AccountResponseBody> localVarResp = updateAccountByMemberWithHttpInfo(accountGuid, memberGuid, userGuid, accountUpdateRequestBody);
         return localVarResp.getData();
     }
 
     /**
      * Update account by member
      * This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource.
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param accountUpdateRequestBody Account object to be created with optional parameters (is_hidden) (required)
      * @return ApiResponse&lt;AccountResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11279,8 +11319,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountResponseBody> updateAccountByMemberWithHttpInfo(String userGuid, String memberGuid, String accountGuid, AccountUpdateRequestBody accountUpdateRequestBody) throws ApiException {
-        okhttp3.Call localVarCall = updateAccountByMemberValidateBeforeCall(userGuid, memberGuid, accountGuid, accountUpdateRequestBody, null);
+    public ApiResponse<AccountResponseBody> updateAccountByMemberWithHttpInfo(String accountGuid, String memberGuid, String userGuid, AccountUpdateRequestBody accountUpdateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = updateAccountByMemberValidateBeforeCall(accountGuid, memberGuid, userGuid, accountUpdateRequestBody, null);
         Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -11288,9 +11328,9 @@ public class MxPlatformApi {
     /**
      * Update account by member (asynchronously)
      * This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource.
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param accountUpdateRequestBody Account object to be created with optional parameters (is_hidden) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11301,9 +11341,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateAccountByMemberAsync(String userGuid, String memberGuid, String accountGuid, AccountUpdateRequestBody accountUpdateRequestBody, final ApiCallback<AccountResponseBody> _callback) throws ApiException {
+    public okhttp3.Call updateAccountByMemberAsync(String accountGuid, String memberGuid, String userGuid, AccountUpdateRequestBody accountUpdateRequestBody, final ApiCallback<AccountResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateAccountByMemberValidateBeforeCall(userGuid, memberGuid, accountGuid, accountUpdateRequestBody, _callback);
+        okhttp3.Call localVarCall = updateAccountByMemberValidateBeforeCall(accountGuid, memberGuid, userGuid, accountUpdateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -11457,9 +11497,9 @@ public class MxPlatformApi {
     }
     /**
      * Build call for updateManagedAccount
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param managedAccountUpdateRequestBody Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -11470,7 +11510,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateManagedAccountCall(String memberGuid, String userGuid, String accountGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateManagedAccountCall(String accountGuid, String memberGuid, String userGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -11489,9 +11529,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}"
+            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
             .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()));
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11520,7 +11560,12 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateManagedAccountValidateBeforeCall(String memberGuid, String userGuid, String accountGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateManagedAccountValidateBeforeCall(String accountGuid, String memberGuid, String userGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'accountGuid' is set
+        if (accountGuid == null) {
+            throw new ApiException("Missing the required parameter 'accountGuid' when calling updateManagedAccount(Async)");
+        }
         
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
@@ -11532,18 +11577,13 @@ public class MxPlatformApi {
             throw new ApiException("Missing the required parameter 'userGuid' when calling updateManagedAccount(Async)");
         }
         
-        // verify the required parameter 'accountGuid' is set
-        if (accountGuid == null) {
-            throw new ApiException("Missing the required parameter 'accountGuid' when calling updateManagedAccount(Async)");
-        }
-        
         // verify the required parameter 'managedAccountUpdateRequestBody' is set
         if (managedAccountUpdateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'managedAccountUpdateRequestBody' when calling updateManagedAccount(Async)");
         }
         
 
-        okhttp3.Call localVarCall = updateManagedAccountCall(memberGuid, userGuid, accountGuid, managedAccountUpdateRequestBody, _callback);
+        okhttp3.Call localVarCall = updateManagedAccountCall(accountGuid, memberGuid, userGuid, managedAccountUpdateRequestBody, _callback);
         return localVarCall;
 
     }
@@ -11551,9 +11591,9 @@ public class MxPlatformApi {
     /**
      * Update managed account
      * Use this endpoint to update the attributes of a partner-managed account according to its unique GUID.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param managedAccountUpdateRequestBody Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
      * @return AccountResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11563,17 +11603,17 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AccountResponseBody updateManagedAccount(String memberGuid, String userGuid, String accountGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody) throws ApiException {
-        ApiResponse<AccountResponseBody> localVarResp = updateManagedAccountWithHttpInfo(memberGuid, userGuid, accountGuid, managedAccountUpdateRequestBody);
+    public AccountResponseBody updateManagedAccount(String accountGuid, String memberGuid, String userGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody) throws ApiException {
+        ApiResponse<AccountResponseBody> localVarResp = updateManagedAccountWithHttpInfo(accountGuid, memberGuid, userGuid, managedAccountUpdateRequestBody);
         return localVarResp.getData();
     }
 
     /**
      * Update managed account
      * Use this endpoint to update the attributes of a partner-managed account according to its unique GUID.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param managedAccountUpdateRequestBody Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
      * @return ApiResponse&lt;AccountResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11583,8 +11623,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountResponseBody> updateManagedAccountWithHttpInfo(String memberGuid, String userGuid, String accountGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody) throws ApiException {
-        okhttp3.Call localVarCall = updateManagedAccountValidateBeforeCall(memberGuid, userGuid, accountGuid, managedAccountUpdateRequestBody, null);
+    public ApiResponse<AccountResponseBody> updateManagedAccountWithHttpInfo(String accountGuid, String memberGuid, String userGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = updateManagedAccountValidateBeforeCall(accountGuid, memberGuid, userGuid, managedAccountUpdateRequestBody, null);
         Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -11592,9 +11632,9 @@ public class MxPlatformApi {
     /**
      * Update managed account (asynchronously)
      * Use this endpoint to update the attributes of a partner-managed account according to its unique GUID.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param managedAccountUpdateRequestBody Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11605,9 +11645,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateManagedAccountAsync(String memberGuid, String userGuid, String accountGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody, final ApiCallback<AccountResponseBody> _callback) throws ApiException {
+    public okhttp3.Call updateManagedAccountAsync(String accountGuid, String memberGuid, String userGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody, final ApiCallback<AccountResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateManagedAccountValidateBeforeCall(memberGuid, userGuid, accountGuid, managedAccountUpdateRequestBody, _callback);
+        okhttp3.Call localVarCall = updateManagedAccountValidateBeforeCall(accountGuid, memberGuid, userGuid, managedAccountUpdateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -11761,9 +11801,10 @@ public class MxPlatformApi {
     }
     /**
      * Build call for updateManagedTransaction
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param managedTransactionUpdateRequestBody Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -11774,7 +11815,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateManagedTransactionCall(String memberGuid, String userGuid, String transactionGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call updateManagedTransactionCall(String accountGuid, String memberGuid, String transactionGuid, String userGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -11792,10 +11833,11 @@ public class MxPlatformApi {
         Object localVarPostBody = managedTransactionUpdateRequestBody;
 
         // create path and map variables
-        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid}"
+        String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid}"
+            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
             .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "transaction_guid" + "\\}", localVarApiClient.escapeString(transactionGuid.toString()));
+            .replaceAll("\\{" + "transaction_guid" + "\\}", localVarApiClient.escapeString(transactionGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11824,21 +11866,26 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateManagedTransactionValidateBeforeCall(String memberGuid, String userGuid, String transactionGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call updateManagedTransactionValidateBeforeCall(String accountGuid, String memberGuid, String transactionGuid, String userGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'accountGuid' is set
+        if (accountGuid == null) {
+            throw new ApiException("Missing the required parameter 'accountGuid' when calling updateManagedTransaction(Async)");
+        }
         
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling updateManagedTransaction(Async)");
         }
         
-        // verify the required parameter 'userGuid' is set
-        if (userGuid == null) {
-            throw new ApiException("Missing the required parameter 'userGuid' when calling updateManagedTransaction(Async)");
-        }
-        
         // verify the required parameter 'transactionGuid' is set
         if (transactionGuid == null) {
             throw new ApiException("Missing the required parameter 'transactionGuid' when calling updateManagedTransaction(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling updateManagedTransaction(Async)");
         }
         
         // verify the required parameter 'managedTransactionUpdateRequestBody' is set
@@ -11847,7 +11894,7 @@ public class MxPlatformApi {
         }
         
 
-        okhttp3.Call localVarCall = updateManagedTransactionCall(memberGuid, userGuid, transactionGuid, managedTransactionUpdateRequestBody, _callback);
+        okhttp3.Call localVarCall = updateManagedTransactionCall(accountGuid, memberGuid, transactionGuid, userGuid, managedTransactionUpdateRequestBody, _callback);
         return localVarCall;
 
     }
@@ -11855,9 +11902,10 @@ public class MxPlatformApi {
     /**
      * Update managed transaction
      * Use this endpoint to update the attributes of the specified partner_managed &#x60;transaction&#x60;.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param managedTransactionUpdateRequestBody Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
      * @return TransactionResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11867,17 +11915,18 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public TransactionResponseBody updateManagedTransaction(String memberGuid, String userGuid, String transactionGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody) throws ApiException {
-        ApiResponse<TransactionResponseBody> localVarResp = updateManagedTransactionWithHttpInfo(memberGuid, userGuid, transactionGuid, managedTransactionUpdateRequestBody);
+    public TransactionResponseBody updateManagedTransaction(String accountGuid, String memberGuid, String transactionGuid, String userGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody) throws ApiException {
+        ApiResponse<TransactionResponseBody> localVarResp = updateManagedTransactionWithHttpInfo(accountGuid, memberGuid, transactionGuid, userGuid, managedTransactionUpdateRequestBody);
         return localVarResp.getData();
     }
 
     /**
      * Update managed transaction
      * Use this endpoint to update the attributes of the specified partner_managed &#x60;transaction&#x60;.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param managedTransactionUpdateRequestBody Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
      * @return ApiResponse&lt;TransactionResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -11887,8 +11936,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<TransactionResponseBody> updateManagedTransactionWithHttpInfo(String memberGuid, String userGuid, String transactionGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody) throws ApiException {
-        okhttp3.Call localVarCall = updateManagedTransactionValidateBeforeCall(memberGuid, userGuid, transactionGuid, managedTransactionUpdateRequestBody, null);
+    public ApiResponse<TransactionResponseBody> updateManagedTransactionWithHttpInfo(String accountGuid, String memberGuid, String transactionGuid, String userGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = updateManagedTransactionValidateBeforeCall(accountGuid, memberGuid, transactionGuid, userGuid, managedTransactionUpdateRequestBody, null);
         Type localVarReturnType = new TypeToken<TransactionResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -11896,9 +11945,10 @@ public class MxPlatformApi {
     /**
      * Update managed transaction (asynchronously)
      * Use this endpoint to update the attributes of the specified partner_managed &#x60;transaction&#x60;.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
-     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param managedTransactionUpdateRequestBody Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11909,9 +11959,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call updateManagedTransactionAsync(String memberGuid, String userGuid, String transactionGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody, final ApiCallback<TransactionResponseBody> _callback) throws ApiException {
+    public okhttp3.Call updateManagedTransactionAsync(String accountGuid, String memberGuid, String transactionGuid, String userGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody, final ApiCallback<TransactionResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = updateManagedTransactionValidateBeforeCall(memberGuid, userGuid, transactionGuid, managedTransactionUpdateRequestBody, _callback);
+        okhttp3.Call localVarCall = updateManagedTransactionValidateBeforeCall(accountGuid, memberGuid, transactionGuid, userGuid, managedTransactionUpdateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<TransactionResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
