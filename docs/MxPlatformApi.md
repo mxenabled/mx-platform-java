@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**createCategory**](MxPlatformApi.md#createCategory) | **POST** /users/{user_guid}/categories | Create category
 [**createManagedAccount**](MxPlatformApi.md#createManagedAccount) | **POST** /users/{user_guid}/managed_members/{member_guid}/accounts | Create managed account
 [**createManagedMember**](MxPlatformApi.md#createManagedMember) | **POST** /users/{user_guid}/managed_members | Create managed member
-[**createManagedTransaction**](MxPlatformApi.md#createManagedTransaction) | **POST** /users/{user_guid}/managed_members/{member_guid}/transactions | Create managed transaction
+[**createManagedTransaction**](MxPlatformApi.md#createManagedTransaction) | **POST** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions | Create managed transaction
 [**createMember**](MxPlatformApi.md#createMember) | **POST** /users/{user_guid}/members | Create member
 [**createTag**](MxPlatformApi.md#createTag) | **POST** /users/{user_guid}/tags | Create tag
 [**createTagging**](MxPlatformApi.md#createTagging) | **POST** /users/{user_guid}/taggings | Create tagging
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**deleteCategory**](MxPlatformApi.md#deleteCategory) | **DELETE** /users/{user_guid}/categories/{category_guid} | Delete category
 [**deleteManagedAccount**](MxPlatformApi.md#deleteManagedAccount) | **DELETE** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Delete managed account
 [**deleteManagedMember**](MxPlatformApi.md#deleteManagedMember) | **DELETE** /users/{user_guid}/managed_members/{member_guid} | Delete managed member
-[**deleteManagedTransaction**](MxPlatformApi.md#deleteManagedTransaction) | **DELETE** /users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid} | Delete managed transaction
+[**deleteManagedTransaction**](MxPlatformApi.md#deleteManagedTransaction) | **DELETE** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid} | Delete managed transaction
 [**deleteMember**](MxPlatformApi.md#deleteMember) | **DELETE** /users/{user_guid}/members/{member_guid} | Delete member
 [**deleteTag**](MxPlatformApi.md#deleteTag) | **DELETE** /users/{user_guid}/tags/{tag_guid} | Delete tag
 [**deleteTagging**](MxPlatformApi.md#deleteTagging) | **DELETE** /users/{user_guid}/taggings/{tagging_guid} | Delete tagging
@@ -44,7 +44,7 @@ Method | HTTP request | Description
 [**listManagedAccounts**](MxPlatformApi.md#listManagedAccounts) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts | List managed accounts
 [**listManagedInstitutions**](MxPlatformApi.md#listManagedInstitutions) | **GET** /managed_institutions | List managed institutions
 [**listManagedMembers**](MxPlatformApi.md#listManagedMembers) | **GET** /users/{user_guid}/managed_members | List managed members
-[**listManagedTransactions**](MxPlatformApi.md#listManagedTransactions) | **GET** /users/{user_guid}/managed_members/{member_guid}/transactions | List managed transactions
+[**listManagedTransactions**](MxPlatformApi.md#listManagedTransactions) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions | List managed transactions
 [**listMemberChallenges**](MxPlatformApi.md#listMemberChallenges) | **GET** /users/{user_guid}/members/{member_guid}/challenges | List member challenges
 [**listMemberCredentials**](MxPlatformApi.md#listMemberCredentials) | **GET** /users/{user_guid}/members/{member_guid}/credentials | List member credentials
 [**listMembers**](MxPlatformApi.md#listMembers) | **GET** /users/{user_guid}/members | List members
@@ -66,7 +66,7 @@ Method | HTTP request | Description
 [**readInstitution**](MxPlatformApi.md#readInstitution) | **GET** /institutions/{institution_code} | Read institution
 [**readManagedAccount**](MxPlatformApi.md#readManagedAccount) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Read managed account
 [**readManagedMember**](MxPlatformApi.md#readManagedMember) | **GET** /users/{user_guid}/managed_members/{member_guid} | Read managed member
-[**readManagedTransaction**](MxPlatformApi.md#readManagedTransaction) | **GET** /users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid} | Read managed transaction
+[**readManagedTransaction**](MxPlatformApi.md#readManagedTransaction) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid} | Read managed transaction
 [**readMember**](MxPlatformApi.md#readMember) | **GET** /users/{user_guid}/members/{member_guid} | Read member
 [**readMemberStatus**](MxPlatformApi.md#readMemberStatus) | **GET** /users/{user_guid}/members/{member_guid}/status | Read member status
 [**readMerchant**](MxPlatformApi.md#readMerchant) | **GET** /merchants/{merchant_guid} | Read merchant
@@ -85,7 +85,7 @@ Method | HTTP request | Description
 [**updateCategory**](MxPlatformApi.md#updateCategory) | **PUT** /users/{user_guid}/categories/{category_guid} | Update category
 [**updateManagedAccount**](MxPlatformApi.md#updateManagedAccount) | **PUT** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Update managed account
 [**updateManagedMember**](MxPlatformApi.md#updateManagedMember) | **PUT** /users/{user_guid}/managed_members/{member_guid} | Update managed member
-[**updateManagedTransaction**](MxPlatformApi.md#updateManagedTransaction) | **PUT** /users/{user_guid}/managed_members/{member_guid}/transactions/{transaction_guid} | Update managed transaction
+[**updateManagedTransaction**](MxPlatformApi.md#updateManagedTransaction) | **PUT** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid} | Update managed transaction
 [**updateMember**](MxPlatformApi.md#updateMember) | **PUT** /users/{user_guid}/members/{member_guid} | Update member
 [**updateTag**](MxPlatformApi.md#updateTag) | **PUT** /users/{user_guid}/tags/{tag_guid} | Update tag
 [**updateTagging**](MxPlatformApi.md#updateTagging) | **PUT** /users/{user_guid}/taggings/{tagging_guid} | Update tagging
@@ -307,7 +307,7 @@ Name | Type | Description  | Notes
 
 <a name="createManagedAccount"></a>
 # **createManagedAccount**
-> AccountResponseBody createManagedAccount(userGuid, memberGuid, managedAccountCreateRequestBody)
+> AccountResponseBody createManagedAccount(memberGuid, userGuid, managedAccountCreateRequestBody)
 
 Create managed account
 
@@ -334,11 +334,11 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     ManagedAccountCreateRequestBody managedAccountCreateRequestBody = new ManagedAccountCreateRequestBody(); // ManagedAccountCreateRequestBody | Managed account to be created.
     try {
-      AccountResponseBody result = apiInstance.createManagedAccount(userGuid, memberGuid, managedAccountCreateRequestBody);
+      AccountResponseBody result = apiInstance.createManagedAccount(memberGuid, userGuid, managedAccountCreateRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#createManagedAccount");
@@ -355,8 +355,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
  **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
  **managedAccountCreateRequestBody** | [**ManagedAccountCreateRequestBody**](ManagedAccountCreateRequestBody.md)| Managed account to be created. |
 
 ### Return type
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 
 <a name="createManagedTransaction"></a>
 # **createManagedTransaction**
-> TransactionResponseBody createManagedTransaction(userGuid, memberGuid, managedTransactionCreateRequestBody)
+> TransactionResponseBody createManagedTransaction(accountGuid, memberGuid, userGuid, managedTransactionCreateRequestBody)
 
 Create managed transaction
 
@@ -476,11 +476,12 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String accountGuid = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1"; // String | The unique id for an `account`.
     String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody = new ManagedTransactionCreateRequestBody(); // ManagedTransactionCreateRequestBody | Managed transaction to be created.
     try {
-      TransactionResponseBody result = apiInstance.createManagedTransaction(userGuid, memberGuid, managedTransactionCreateRequestBody);
+      TransactionResponseBody result = apiInstance.createManagedTransaction(accountGuid, memberGuid, userGuid, managedTransactionCreateRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#createManagedTransaction");
@@ -497,8 +498,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+ **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
  **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
  **managedTransactionCreateRequestBody** | [**ManagedTransactionCreateRequestBody**](ManagedTransactionCreateRequestBody.md)| Managed transaction to be created. |
 
 ### Return type
@@ -938,7 +940,7 @@ null (empty response body)
 
 <a name="deleteManagedAccount"></a>
 # **deleteManagedAccount**
-> deleteManagedAccount(memberGuid, userGuid, accountGuid)
+> deleteManagedAccount(accountGuid, memberGuid, userGuid)
 
 Delete managed account
 
@@ -965,11 +967,11 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String accountGuid = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1"; // String | The unique id for an `account`.
     String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
     String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
-    String accountGuid = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1"; // String | The unique id for an `account`.
     try {
-      apiInstance.deleteManagedAccount(memberGuid, userGuid, accountGuid);
+      apiInstance.deleteManagedAccount(accountGuid, memberGuid, userGuid);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#deleteManagedAccount");
       System.err.println("Status code: " + e.getCode());
@@ -985,9 +987,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
  **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
  **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
 
 ### Return type
 
@@ -1078,7 +1080,7 @@ null (empty response body)
 
 <a name="deleteManagedTransaction"></a>
 # **deleteManagedTransaction**
-> deleteManagedTransaction(memberGuid, userGuid, transactionGuid)
+> deleteManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid)
 
 Delete managed transaction
 
@@ -1105,11 +1107,12 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String accountGuid = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1"; // String | The unique id for an `account`.
     String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     String transactionGuid = "TRN-810828b0-5210-4878-9bd3-f4ce514f90c4"; // String | The unique id for a `transaction`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     try {
-      apiInstance.deleteManagedTransaction(memberGuid, userGuid, transactionGuid);
+      apiInstance.deleteManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#deleteManagedTransaction");
       System.err.println("Status code: " + e.getCode());
@@ -1125,9 +1128,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
  **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
  **transactionGuid** | **String**| The unique id for a &#x60;transaction&#x60;. |
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
 
 ### Return type
 
@@ -2732,7 +2736,7 @@ Name | Type | Description  | Notes
 
 <a name="listManagedAccounts"></a>
 # **listManagedAccounts**
-> AccountsResponseBody listManagedAccounts(userGuid, memberGuid, page, recordsPerPage)
+> AccountsResponseBody listManagedAccounts(memberGuid, userGuid, page, recordsPerPage)
 
 List managed accounts
 
@@ -2759,12 +2763,12 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     Integer page = 1; // Integer | Specify current page.
     Integer recordsPerPage = 10; // Integer | Specify records per page.
     try {
-      AccountsResponseBody result = apiInstance.listManagedAccounts(userGuid, memberGuid, page, recordsPerPage);
+      AccountsResponseBody result = apiInstance.listManagedAccounts(memberGuid, userGuid, page, recordsPerPage);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#listManagedAccounts");
@@ -2781,8 +2785,8 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
  **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
  **page** | **Integer**| Specify current page. | [optional]
  **recordsPerPage** | **Integer**| Specify records per page. | [optional]
 
@@ -2948,7 +2952,7 @@ Name | Type | Description  | Notes
 
 <a name="listManagedTransactions"></a>
 # **listManagedTransactions**
-> TransactionsResponseBody listManagedTransactions(userGuid, memberGuid, page, recordsPerPage)
+> TransactionsResponseBody listManagedTransactions(accountGuid, memberGuid, userGuid, page, recordsPerPage)
 
 List managed transactions
 
@@ -2975,12 +2979,13 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String accountGuid = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1"; // String | The unique id for an `account`.
     String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     Integer page = 1; // Integer | Specify current page.
     Integer recordsPerPage = 10; // Integer | Specify records per page.
     try {
-      TransactionsResponseBody result = apiInstance.listManagedTransactions(userGuid, memberGuid, page, recordsPerPage);
+      TransactionsResponseBody result = apiInstance.listManagedTransactions(accountGuid, memberGuid, userGuid, page, recordsPerPage);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#listManagedTransactions");
@@ -2997,8 +3002,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+ **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
  **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
  **page** | **Integer**| Specify current page. | [optional]
  **recordsPerPage** | **Integer**| Specify records per page. | [optional]
 
@@ -4400,7 +4406,7 @@ Name | Type | Description  | Notes
 
 <a name="readManagedAccount"></a>
 # **readManagedAccount**
-> AccountResponseBody readManagedAccount(memberGuid, userGuid, accountGuid)
+> AccountResponseBody readManagedAccount(accountGuid, memberGuid, userGuid)
 
 Read managed account
 
@@ -4427,11 +4433,11 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String accountGuid = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1"; // String | The unique id for an `account`.
     String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
     String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
-    String accountGuid = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1"; // String | The unique id for an `account`.
     try {
-      AccountResponseBody result = apiInstance.readManagedAccount(memberGuid, userGuid, accountGuid);
+      AccountResponseBody result = apiInstance.readManagedAccount(accountGuid, memberGuid, userGuid);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#readManagedAccount");
@@ -4448,9 +4454,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
  **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
  **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
 
 ### Return type
 
@@ -4542,7 +4548,7 @@ Name | Type | Description  | Notes
 
 <a name="readManagedTransaction"></a>
 # **readManagedTransaction**
-> TransactionResponseBody readManagedTransaction(memberGuid, userGuid, transactionGuid)
+> TransactionResponseBody readManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid)
 
 Read managed transaction
 
@@ -4569,11 +4575,12 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String accountGuid = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1"; // String | The unique id for an `account`.
     String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     String transactionGuid = "TRN-810828b0-5210-4878-9bd3-f4ce514f90c4"; // String | The unique id for a `transaction`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     try {
-      TransactionResponseBody result = apiInstance.readManagedTransaction(memberGuid, userGuid, transactionGuid);
+      TransactionResponseBody result = apiInstance.readManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#readManagedTransaction");
@@ -4590,9 +4597,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
  **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
  **transactionGuid** | **String**| The unique id for a &#x60;transaction&#x60;. |
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
 
 ### Return type
 
@@ -5380,7 +5388,7 @@ Name | Type | Description  | Notes
 
 <a name="requestOAuthWindowURI"></a>
 # **requestOAuthWindowURI**
-> OAuthWindowResponseBody requestOAuthWindowURI(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme, skipAggregation)
+> OAuthWindowResponseBody requestOAuthWindowURI(memberGuid, userGuid, referralSource, skipAggregation, uiMessageWebviewUrlScheme)
 
 Request oauth window uri
 
@@ -5410,10 +5418,10 @@ public class Example {
     String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
     String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     String referralSource = "APP"; // String | Must be either `BROWSER` or `APP` depending on the implementation. Defaults to `BROWSER`.
-    String uiMessageWebviewUrlScheme = "mx"; // String | A scheme for routing the user back to the application state they were previously in.
     Boolean skipAggregation = false; // Boolean | Setting this parameter to `true` will prevent the member from automatically aggregating after being redirected from the authorization page.
+    String uiMessageWebviewUrlScheme = "mx"; // String | A scheme for routing the user back to the application state they were previously in.
     try {
-      OAuthWindowResponseBody result = apiInstance.requestOAuthWindowURI(memberGuid, userGuid, referralSource, uiMessageWebviewUrlScheme, skipAggregation);
+      OAuthWindowResponseBody result = apiInstance.requestOAuthWindowURI(memberGuid, userGuid, referralSource, skipAggregation, uiMessageWebviewUrlScheme);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#requestOAuthWindowURI");
@@ -5433,8 +5441,8 @@ Name | Type | Description  | Notes
  **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
  **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
  **referralSource** | **String**| Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. | [optional]
- **uiMessageWebviewUrlScheme** | **String**| A scheme for routing the user back to the application state they were previously in. | [optional]
  **skipAggregation** | **Boolean**| Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. | [optional]
+ **uiMessageWebviewUrlScheme** | **String**| A scheme for routing the user back to the application state they were previously in. | [optional]
 
 ### Return type
 
@@ -5600,7 +5608,7 @@ Name | Type | Description  | Notes
 
 <a name="updateAccountByMember"></a>
 # **updateAccountByMember**
-> AccountResponseBody updateAccountByMember(userGuid, memberGuid, accountGuid, accountUpdateRequestBody)
+> AccountResponseBody updateAccountByMember(accountGuid, memberGuid, userGuid, accountUpdateRequestBody)
 
 Update account by member
 
@@ -5627,12 +5635,12 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
-    String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
     String accountGuid = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1"; // String | The unique id for an `account`.
+    String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     AccountUpdateRequestBody accountUpdateRequestBody = new AccountUpdateRequestBody(); // AccountUpdateRequestBody | Account object to be created with optional parameters (is_hidden)
     try {
-      AccountResponseBody result = apiInstance.updateAccountByMember(userGuid, memberGuid, accountGuid, accountUpdateRequestBody);
+      AccountResponseBody result = apiInstance.updateAccountByMember(accountGuid, memberGuid, userGuid, accountUpdateRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#updateAccountByMember");
@@ -5649,9 +5657,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
  **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
+ **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
  **accountUpdateRequestBody** | [**AccountUpdateRequestBody**](AccountUpdateRequestBody.md)| Account object to be created with optional parameters (is_hidden) |
 
 ### Return type
@@ -5746,7 +5754,7 @@ Name | Type | Description  | Notes
 
 <a name="updateManagedAccount"></a>
 # **updateManagedAccount**
-> AccountResponseBody updateManagedAccount(memberGuid, userGuid, accountGuid, managedAccountUpdateRequestBody)
+> AccountResponseBody updateManagedAccount(accountGuid, memberGuid, userGuid, managedAccountUpdateRequestBody)
 
 Update managed account
 
@@ -5773,12 +5781,12 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String accountGuid = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1"; // String | The unique id for an `account`.
     String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
     String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
-    String accountGuid = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1"; // String | The unique id for an `account`.
     ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody = new ManagedAccountUpdateRequestBody(); // ManagedAccountUpdateRequestBody | Managed account object to be updated (While no single parameter is required, the request body can't be empty)
     try {
-      AccountResponseBody result = apiInstance.updateManagedAccount(memberGuid, userGuid, accountGuid, managedAccountUpdateRequestBody);
+      AccountResponseBody result = apiInstance.updateManagedAccount(accountGuid, memberGuid, userGuid, managedAccountUpdateRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#updateManagedAccount");
@@ -5795,9 +5803,9 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
  **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
  **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
  **managedAccountUpdateRequestBody** | [**ManagedAccountUpdateRequestBody**](ManagedAccountUpdateRequestBody.md)| Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty) |
 
 ### Return type
@@ -5892,7 +5900,7 @@ Name | Type | Description  | Notes
 
 <a name="updateManagedTransaction"></a>
 # **updateManagedTransaction**
-> TransactionResponseBody updateManagedTransaction(memberGuid, userGuid, transactionGuid, managedTransactionUpdateRequestBody)
+> TransactionResponseBody updateManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid, managedTransactionUpdateRequestBody)
 
 Update managed transaction
 
@@ -5919,12 +5927,13 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String accountGuid = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1"; // String | The unique id for an `account`.
     String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     String transactionGuid = "TRN-810828b0-5210-4878-9bd3-f4ce514f90c4"; // String | The unique id for a `transaction`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody = new ManagedTransactionUpdateRequestBody(); // ManagedTransactionUpdateRequestBody | Managed transaction object to be updated (While no single parameter is required, the request body can't be empty)
     try {
-      TransactionResponseBody result = apiInstance.updateManagedTransaction(memberGuid, userGuid, transactionGuid, managedTransactionUpdateRequestBody);
+      TransactionResponseBody result = apiInstance.updateManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid, managedTransactionUpdateRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#updateManagedTransaction");
@@ -5941,9 +5950,10 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
  **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
  **transactionGuid** | **String**| The unique id for a &#x60;transaction&#x60;. |
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
  **managedTransactionUpdateRequestBody** | [**ManagedTransactionUpdateRequestBody**](ManagedTransactionUpdateRequestBody.md)| Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty) |
 
 ### Return type
