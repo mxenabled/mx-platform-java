@@ -1610,7 +1610,7 @@ public class MxPlatformApi {
 
     /**
      * Create user
-     * Call this endpoint to create a new user. The MX Platform API will respond with the newly-created user object if successful. This endpoint accepts several parameters - id, metadata, and is_disabled. Disabling a user means that accounts and transactions associated with it will not be updated in the background by MX. It will also restrict access to that users data until they are no longer disabled. Users who are disabled for the entirety of an MX Platform API billing period will not be factored into that months bill.
+     * Use this endpoint to create a new user. The API will respond with the newly-created user object if successful. Disabling a user means that accounts and transactions associated with it will not be updated in the background by MX. It will also restrict access to that user’s data until they are no longer disabled.
      * @param userCreateRequestBody User object to be created. (None of these parameters are required, but the user object cannot be empty) (required)
      * @return UserResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1627,7 +1627,7 @@ public class MxPlatformApi {
 
     /**
      * Create user
-     * Call this endpoint to create a new user. The MX Platform API will respond with the newly-created user object if successful. This endpoint accepts several parameters - id, metadata, and is_disabled. Disabling a user means that accounts and transactions associated with it will not be updated in the background by MX. It will also restrict access to that users data until they are no longer disabled. Users who are disabled for the entirety of an MX Platform API billing period will not be factored into that months bill.
+     * Use this endpoint to create a new user. The API will respond with the newly-created user object if successful. Disabling a user means that accounts and transactions associated with it will not be updated in the background by MX. It will also restrict access to that user’s data until they are no longer disabled.
      * @param userCreateRequestBody User object to be created. (None of these parameters are required, but the user object cannot be empty) (required)
      * @return ApiResponse&lt;UserResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1645,7 +1645,7 @@ public class MxPlatformApi {
 
     /**
      * Create user (asynchronously)
-     * Call this endpoint to create a new user. The MX Platform API will respond with the newly-created user object if successful. This endpoint accepts several parameters - id, metadata, and is_disabled. Disabling a user means that accounts and transactions associated with it will not be updated in the background by MX. It will also restrict access to that users data until they are no longer disabled. Users who are disabled for the entirety of an MX Platform API billing period will not be factored into that months bill.
+     * Use this endpoint to create a new user. The API will respond with the newly-created user object if successful. Disabling a user means that accounts and transactions associated with it will not be updated in the background by MX. It will also restrict access to that user’s data until they are no longer disabled.
      * @param userCreateRequestBody User object to be created. (None of these parameters are required, but the user object cannot be empty) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -13165,7 +13165,7 @@ public class MxPlatformApi {
 
     /**
      * Update user
-     * Use this endpoint to update the attributes of a specific user. The MX Platform API will respond with the updated user object. Disabling a user means that accounts and transactions associated with it will not be updated in the background by MX. It will also restrict access to that users data until they are no longer disabled. Users who are disabled for the entirety of an MX Platform API billing period will not be factored into that months bill. To disable a user, update it and set the is_disabled parameter to true. Set it to false to re-enable the user.
+     * Use this endpoint to update the attributes of the specified user.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param userUpdateRequestBody User object to be updated (None of these parameters are required, but the user object cannot be empty.) (required)
      * @return UserResponseBody
@@ -13183,7 +13183,7 @@ public class MxPlatformApi {
 
     /**
      * Update user
-     * Use this endpoint to update the attributes of a specific user. The MX Platform API will respond with the updated user object. Disabling a user means that accounts and transactions associated with it will not be updated in the background by MX. It will also restrict access to that users data until they are no longer disabled. Users who are disabled for the entirety of an MX Platform API billing period will not be factored into that months bill. To disable a user, update it and set the is_disabled parameter to true. Set it to false to re-enable the user.
+     * Use this endpoint to update the attributes of the specified user.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param userUpdateRequestBody User object to be updated (None of these parameters are required, but the user object cannot be empty.) (required)
      * @return ApiResponse&lt;UserResponseBody&gt;
@@ -13202,7 +13202,7 @@ public class MxPlatformApi {
 
     /**
      * Update user (asynchronously)
-     * Use this endpoint to update the attributes of a specific user. The MX Platform API will respond with the updated user object. Disabling a user means that accounts and transactions associated with it will not be updated in the background by MX. It will also restrict access to that users data until they are no longer disabled. Users who are disabled for the entirety of an MX Platform API billing period will not be factored into that months bill. To disable a user, update it and set the is_disabled parameter to true. Set it to false to re-enable the user.
+     * Use this endpoint to update the attributes of the specified user.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param userUpdateRequestBody User object to be updated (None of these parameters are required, but the user object cannot be empty.) (required)
      * @param _callback The callback to be executed when the API call finishes
