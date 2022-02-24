@@ -50,6 +50,10 @@ import com.mx.client.model.MerchantLocationResponseBody;
 import com.mx.client.model.MerchantResponseBody;
 import com.mx.client.model.MerchantsResponseBody;
 import com.mx.client.model.OAuthWindowResponseBody;
+import com.mx.client.model.PaymentAccountResponseBody;
+import com.mx.client.model.PaymentProcessorAuthorizationCodeRequestBody;
+import com.mx.client.model.PaymentProcessorAuthorizationCodeResponseBody;
+import com.mx.client.model.PaymentProcessorTokenResponseBody;
 import com.mx.client.model.StatementResponseBody;
 import com.mx.client.model.StatementsResponseBody;
 import com.mx.client.model.TagCreateRequestBody;
@@ -1350,6 +1354,51 @@ public class MxPlatformApiTest {
         Boolean skipAggregation = null;
         String uiMessageWebviewUrlScheme = null;
                 OAuthWindowResponseBody response = api.requestOAuthWindowURI(memberGuid, userGuid, referralSource, skipAggregation, uiMessageWebviewUrlScheme);
+        // TODO: test validations
+    }
+    
+    /**
+     * Request payment account
+     *
+     * Use this endpoint to request a payment account.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void requestPaymentAccountTest() throws ApiException {
+                PaymentAccountResponseBody response = api.requestPaymentAccount();
+        // TODO: test validations
+    }
+    
+    /**
+     * Request payment processor authorization code
+     *
+     * Use this endpoint to request a payment processor authorization code.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void requestPaymentProcessorAuthorizationCodeTest() throws ApiException {
+        PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody = null;
+                PaymentProcessorAuthorizationCodeResponseBody response = api.requestPaymentProcessorAuthorizationCode(paymentProcessorAuthorizationCodeRequestBody);
+        // TODO: test validations
+    }
+    
+    /**
+     * Request payment processor token
+     *
+     * Use this endpoint to request a payment processor token.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void requestPaymentProcessorTokenTest() throws ApiException {
+        String code = null;
+        String grantType = null;
+                PaymentProcessorTokenResponseBody response = api.requestPaymentProcessorToken(code, grantType);
         // TODO: test validations
     }
     
