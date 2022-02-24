@@ -79,6 +79,9 @@ Method | HTTP request | Description
 [**readUser**](MxPlatformApi.md#readUser) | **GET** /users/{user_guid} | Read user
 [**requestConnectWidgetURL**](MxPlatformApi.md#requestConnectWidgetURL) | **POST** /users/{user_guid}/connect_widget_url | Request connect widget url
 [**requestOAuthWindowURI**](MxPlatformApi.md#requestOAuthWindowURI) | **GET** /users/{user_guid}/members/{member_guid}/oauth_window_uri | Request oauth window uri
+[**requestPaymentAccount**](MxPlatformApi.md#requestPaymentAccount) | **GET** /payment_account | Request payment account
+[**requestPaymentProcessorAuthorizationCode**](MxPlatformApi.md#requestPaymentProcessorAuthorizationCode) | **POST** /payment_processor_authorization_code | Request payment processor authorization code
+[**requestPaymentProcessorToken**](MxPlatformApi.md#requestPaymentProcessorToken) | **POST** /payment_processor_token | Request payment processor token
 [**requestWidgetURL**](MxPlatformApi.md#requestWidgetURL) | **POST** /users/{user_guid}/widget_urls | Request widget url
 [**resumeAggregation**](MxPlatformApi.md#resumeAggregation) | **PUT** /users/{user_guid}/members/{member_guid}/resume | Resume aggregation
 [**updateAccountByMember**](MxPlatformApi.md#updateAccountByMember) | **PUT** /users/{user_guid}/members/{member_guid}/accounts/{account_guid} | Update account by member
@@ -5447,6 +5450,207 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**OAuthWindowResponseBody**](OAuthWindowResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+<a name="requestPaymentAccount"></a>
+# **requestPaymentAccount**
+> PaymentAccountResponseBody requestPaymentAccount()
+
+Request payment account
+
+Use this endpoint to request a payment account.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP bearer authorization: bearerAuth
+    HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+    bearerAuth.setBearerToken("BEARER TOKEN");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    try {
+      PaymentAccountResponseBody result = apiInstance.requestPaymentAccount();
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#requestPaymentAccount");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**PaymentAccountResponseBody**](PaymentAccountResponseBody.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+<a name="requestPaymentProcessorAuthorizationCode"></a>
+# **requestPaymentProcessorAuthorizationCode**
+> PaymentProcessorAuthorizationCodeResponseBody requestPaymentProcessorAuthorizationCode(paymentProcessorAuthorizationCodeRequestBody)
+
+Request payment processor authorization code
+
+Use this endpoint to request a payment processor authorization code.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody = new PaymentProcessorAuthorizationCodeRequestBody(); // PaymentProcessorAuthorizationCodeRequestBody | Payment processor authorization code object containing account_guid, member_guid, and user_guid.
+    try {
+      PaymentProcessorAuthorizationCodeResponseBody result = apiInstance.requestPaymentProcessorAuthorizationCode(paymentProcessorAuthorizationCodeRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#requestPaymentProcessorAuthorizationCode");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **paymentProcessorAuthorizationCodeRequestBody** | [**PaymentProcessorAuthorizationCodeRequestBody**](PaymentProcessorAuthorizationCodeRequestBody.md)| Payment processor authorization code object containing account_guid, member_guid, and user_guid. |
+
+### Return type
+
+[**PaymentProcessorAuthorizationCodeResponseBody**](PaymentProcessorAuthorizationCodeResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+<a name="requestPaymentProcessorToken"></a>
+# **requestPaymentProcessorToken**
+> PaymentProcessorTokenResponseBody requestPaymentProcessorToken(code, grantType)
+
+Request payment processor token
+
+Use this endpoint to request a payment processor token.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String code = "sN3Ffd1nJg_iwEMuxcEo2Z5taC0RvMilfvYKsnM2XGM"; // String | Code to request processor token.
+    String grantType = "authorization_code"; // String | Specify grant type.
+    try {
+      PaymentProcessorTokenResponseBody result = apiInstance.requestPaymentProcessorToken(code, grantType);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#requestPaymentProcessorToken");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **code** | **String**| Code to request processor token. | [optional]
+ **grantType** | **String**| Specify grant type. | [optional]
+
+### Return type
+
+[**PaymentProcessorTokenResponseBody**](PaymentProcessorTokenResponseBody.md)
 
 ### Authorization
 

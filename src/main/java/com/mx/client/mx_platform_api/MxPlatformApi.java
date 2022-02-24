@@ -63,6 +63,10 @@ import com.mx.client.model.MerchantLocationResponseBody;
 import com.mx.client.model.MerchantResponseBody;
 import com.mx.client.model.MerchantsResponseBody;
 import com.mx.client.model.OAuthWindowResponseBody;
+import com.mx.client.model.PaymentAccountResponseBody;
+import com.mx.client.model.PaymentProcessorAuthorizationCodeRequestBody;
+import com.mx.client.model.PaymentProcessorAuthorizationCodeResponseBody;
+import com.mx.client.model.PaymentProcessorTokenResponseBody;
 import com.mx.client.model.StatementResponseBody;
 import com.mx.client.model.StatementsResponseBody;
 import com.mx.client.model.TagCreateRequestBody;
@@ -10896,6 +10900,385 @@ public class MxPlatformApi {
 
         okhttp3.Call localVarCall = requestOAuthWindowURIValidateBeforeCall(memberGuid, userGuid, referralSource, skipAggregation, uiMessageWebviewUrlScheme, _callback);
         Type localVarReturnType = new TypeToken<OAuthWindowResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for requestPaymentAccount
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call requestPaymentAccountCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/payment_account";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "bearerAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call requestPaymentAccountValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = requestPaymentAccountCall(_callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Request payment account
+     * Use this endpoint to request a payment account.
+     * @return PaymentAccountResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public PaymentAccountResponseBody requestPaymentAccount() throws ApiException {
+        ApiResponse<PaymentAccountResponseBody> localVarResp = requestPaymentAccountWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Request payment account
+     * Use this endpoint to request a payment account.
+     * @return ApiResponse&lt;PaymentAccountResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<PaymentAccountResponseBody> requestPaymentAccountWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = requestPaymentAccountValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<PaymentAccountResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Request payment account (asynchronously)
+     * Use this endpoint to request a payment account.
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call requestPaymentAccountAsync(final ApiCallback<PaymentAccountResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = requestPaymentAccountValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<PaymentAccountResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for requestPaymentProcessorAuthorizationCode
+     * @param paymentProcessorAuthorizationCodeRequestBody Payment processor authorization code object containing account_guid, member_guid, and user_guid. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call requestPaymentProcessorAuthorizationCodeCall(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = paymentProcessorAuthorizationCodeRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/payment_processor_authorization_code";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call requestPaymentProcessorAuthorizationCodeValidateBeforeCall(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'paymentProcessorAuthorizationCodeRequestBody' is set
+        if (paymentProcessorAuthorizationCodeRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'paymentProcessorAuthorizationCodeRequestBody' when calling requestPaymentProcessorAuthorizationCode(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = requestPaymentProcessorAuthorizationCodeCall(paymentProcessorAuthorizationCodeRequestBody, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Request payment processor authorization code
+     * Use this endpoint to request a payment processor authorization code.
+     * @param paymentProcessorAuthorizationCodeRequestBody Payment processor authorization code object containing account_guid, member_guid, and user_guid. (required)
+     * @return PaymentProcessorAuthorizationCodeResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public PaymentProcessorAuthorizationCodeResponseBody requestPaymentProcessorAuthorizationCode(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody) throws ApiException {
+        ApiResponse<PaymentProcessorAuthorizationCodeResponseBody> localVarResp = requestPaymentProcessorAuthorizationCodeWithHttpInfo(paymentProcessorAuthorizationCodeRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Request payment processor authorization code
+     * Use this endpoint to request a payment processor authorization code.
+     * @param paymentProcessorAuthorizationCodeRequestBody Payment processor authorization code object containing account_guid, member_guid, and user_guid. (required)
+     * @return ApiResponse&lt;PaymentProcessorAuthorizationCodeResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<PaymentProcessorAuthorizationCodeResponseBody> requestPaymentProcessorAuthorizationCodeWithHttpInfo(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = requestPaymentProcessorAuthorizationCodeValidateBeforeCall(paymentProcessorAuthorizationCodeRequestBody, null);
+        Type localVarReturnType = new TypeToken<PaymentProcessorAuthorizationCodeResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Request payment processor authorization code (asynchronously)
+     * Use this endpoint to request a payment processor authorization code.
+     * @param paymentProcessorAuthorizationCodeRequestBody Payment processor authorization code object containing account_guid, member_guid, and user_guid. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call requestPaymentProcessorAuthorizationCodeAsync(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody, final ApiCallback<PaymentProcessorAuthorizationCodeResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = requestPaymentProcessorAuthorizationCodeValidateBeforeCall(paymentProcessorAuthorizationCodeRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<PaymentProcessorAuthorizationCodeResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for requestPaymentProcessorToken
+     * @param code Code to request processor token. (optional)
+     * @param grantType Specify grant type. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call requestPaymentProcessorTokenCall(String code, String grantType, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/payment_processor_token";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (code != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("code", code));
+        }
+
+        if (grantType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("grant_type", grantType));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call requestPaymentProcessorTokenValidateBeforeCall(String code, String grantType, final ApiCallback _callback) throws ApiException {
+        
+
+        okhttp3.Call localVarCall = requestPaymentProcessorTokenCall(code, grantType, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Request payment processor token
+     * Use this endpoint to request a payment processor token.
+     * @param code Code to request processor token. (optional)
+     * @param grantType Specify grant type. (optional)
+     * @return PaymentProcessorTokenResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public PaymentProcessorTokenResponseBody requestPaymentProcessorToken(String code, String grantType) throws ApiException {
+        ApiResponse<PaymentProcessorTokenResponseBody> localVarResp = requestPaymentProcessorTokenWithHttpInfo(code, grantType);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Request payment processor token
+     * Use this endpoint to request a payment processor token.
+     * @param code Code to request processor token. (optional)
+     * @param grantType Specify grant type. (optional)
+     * @return ApiResponse&lt;PaymentProcessorTokenResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<PaymentProcessorTokenResponseBody> requestPaymentProcessorTokenWithHttpInfo(String code, String grantType) throws ApiException {
+        okhttp3.Call localVarCall = requestPaymentProcessorTokenValidateBeforeCall(code, grantType, null);
+        Type localVarReturnType = new TypeToken<PaymentProcessorTokenResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Request payment processor token (asynchronously)
+     * Use this endpoint to request a payment processor token.
+     * @param code Code to request processor token. (optional)
+     * @param grantType Specify grant type. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call requestPaymentProcessorTokenAsync(String code, String grantType, final ApiCallback<PaymentProcessorTokenResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = requestPaymentProcessorTokenValidateBeforeCall(code, grantType, _callback);
+        Type localVarReturnType = new TypeToken<PaymentProcessorTokenResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
