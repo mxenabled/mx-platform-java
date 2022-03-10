@@ -81,4 +81,12 @@ public class CredentialResponseTest {
         // TODO: test label
     }
 
+    /**
+     * Test the property 'type'
+     */
+    @Test
+    public void typeTest() {
+        // TODO: test type
+    }
+
 }

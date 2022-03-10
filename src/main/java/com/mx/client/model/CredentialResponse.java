@@ -50,6 +50,10 @@ public class CredentialResponse {
   @SerializedName(SERIALIZED_NAME_LABEL)
   private String label;
 
+  public static final String SERIALIZED_NAME_TYPE = "type";
+  @SerializedName(SERIALIZED_NAME_TYPE)
+  private String type;
+
   public CredentialResponse() { 
   }
 
@@ -168,6 +172,29 @@ public class CredentialResponse {
   }
 
 
+  public CredentialResponse type(String type) {
+    
+    this.type = type;
+    return this;
+  }
+
+   /**
+   * Get type
+   * @return type
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "TEXT", value = "")
+
+  public String getType() {
+    return type;
+  }
+
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -181,7 +208,8 @@ public class CredentialResponse {
         Objects.equals(this.fieldName, credentialResponse.fieldName) &&
         Objects.equals(this.fieldType, credentialResponse.fieldType) &&
         Objects.equals(this.guid, credentialResponse.guid) &&
-        Objects.equals(this.label, credentialResponse.label);
+        Objects.equals(this.label, credentialResponse.label) &&
+        Objects.equals(this.type, credentialResponse.type);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -190,7 +218,7 @@ public class CredentialResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(displayOrder, fieldName, fieldType, guid, label);
+    return Objects.hash(displayOrder, fieldName, fieldType, guid, label, type);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -209,6 +237,7 @@ public class CredentialResponse {
     sb.append("    fieldType: ").append(toIndentedString(fieldType)).append("\n");
     sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();
   }

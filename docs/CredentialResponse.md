@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **fieldType** | **String** |  |  [optional]
 **guid** | **String** |  |  [optional]
 **label** | **String** |  |  [optional]
+**type** | **String** |  |  [optional]
 
 
 
