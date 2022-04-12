@@ -1,6 +1,6 @@
 
 
-# PaymentProcessorTokenResponseBody
+# PartnerTokenResponseBody
 
 
 ## Properties

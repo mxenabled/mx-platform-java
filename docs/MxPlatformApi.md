@@ -79,9 +79,9 @@ Method | HTTP request | Description
 [**readUser**](MxPlatformApi.md#readUser) | **GET** /users/{user_guid} | Read user
 [**requestConnectWidgetURL**](MxPlatformApi.md#requestConnectWidgetURL) | **POST** /users/{user_guid}/connect_widget_url | Request connect widget url
 [**requestOAuthWindowURI**](MxPlatformApi.md#requestOAuthWindowURI) | **GET** /users/{user_guid}/members/{member_guid}/oauth_window_uri | Request oauth window uri
-[**requestPaymentAccount**](MxPlatformApi.md#requestPaymentAccount) | **GET** /payment_account | Request payment account
-[**requestPaymentProcessorAuthorizationCode**](MxPlatformApi.md#requestPaymentProcessorAuthorizationCode) | **POST** /payment_processor_authorization_code | Request payment processor authorization code
-[**requestPaymentProcessorToken**](MxPlatformApi.md#requestPaymentProcessorToken) | **POST** /payment_processor_token | Request payment processor token
+[**requestPartnerAccount**](MxPlatformApi.md#requestPartnerAccount) | **GET** /partner_account | Request partner account
+[**requestPartnerAuthorizationCode**](MxPlatformApi.md#requestPartnerAuthorizationCode) | **POST** /partner_authorization_code | Request partner authorization code
+[**requestPartnerToken**](MxPlatformApi.md#requestPartnerToken) | **POST** /partner_token | Request partner token
 [**requestWidgetURL**](MxPlatformApi.md#requestWidgetURL) | **POST** /users/{user_guid}/widget_urls | Request widget url
 [**resumeAggregation**](MxPlatformApi.md#resumeAggregation) | **PUT** /users/{user_guid}/members/{member_guid}/resume | Resume aggregation
 [**updateAccountByMember**](MxPlatformApi.md#updateAccountByMember) | **PUT** /users/{user_guid}/members/{member_guid}/accounts/{account_guid} | Update account by member
@@ -5465,13 +5465,13 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 
-<a name="requestPaymentAccount"></a>
-# **requestPaymentAccount**
-> PaymentAccountResponseBody requestPaymentAccount()
+<a name="requestPartnerAccount"></a>
+# **requestPartnerAccount**
+> PartnerAccountResponseBody requestPartnerAccount()
 
-Request payment account
+Request partner account
 
-Use this endpoint to request a payment account.
+Use this endpoint to request a partner account.
 
 ### Example
 ```java
@@ -5494,10 +5494,10 @@ public class Example {
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
     try {
-      PaymentAccountResponseBody result = apiInstance.requestPaymentAccount();
+      PartnerAccountResponseBody result = apiInstance.requestPartnerAccount();
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling MxPlatformApi#requestPaymentAccount");
+      System.err.println("Exception when calling MxPlatformApi#requestPartnerAccount");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -5512,7 +5512,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**PaymentAccountResponseBody**](PaymentAccountResponseBody.md)
+[**PartnerAccountResponseBody**](PartnerAccountResponseBody.md)
 
 ### Authorization
 
@@ -5528,13 +5528,13 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 
-<a name="requestPaymentProcessorAuthorizationCode"></a>
-# **requestPaymentProcessorAuthorizationCode**
-> PaymentProcessorAuthorizationCodeResponseBody requestPaymentProcessorAuthorizationCode(paymentProcessorAuthorizationCodeRequestBody)
+<a name="requestPartnerAuthorizationCode"></a>
+# **requestPartnerAuthorizationCode**
+> PartnerAuthorizationCodeResponseBody requestPartnerAuthorizationCode(partnerAuthorizationCodeRequestBody)
 
-Request payment processor authorization code
+Request partner authorization code
 
-Use this endpoint to request a payment processor authorization code.
+Use this endpoint to request a partner authorization code.
 
 ### Example
 ```java
@@ -5557,12 +5557,12 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
-    PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody = new PaymentProcessorAuthorizationCodeRequestBody(); // PaymentProcessorAuthorizationCodeRequestBody | Payment processor authorization code object containing account_guid, member_guid, and user_guid.
+    PartnerAuthorizationCodeRequestBody partnerAuthorizationCodeRequestBody = new PartnerAuthorizationCodeRequestBody(); // PartnerAuthorizationCodeRequestBody | Partner authorization code object containing account_guid, member_guid, and user_guid.
     try {
-      PaymentProcessorAuthorizationCodeResponseBody result = apiInstance.requestPaymentProcessorAuthorizationCode(paymentProcessorAuthorizationCodeRequestBody);
+      PartnerAuthorizationCodeResponseBody result = apiInstance.requestPartnerAuthorizationCode(partnerAuthorizationCodeRequestBody);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling MxPlatformApi#requestPaymentProcessorAuthorizationCode");
+      System.err.println("Exception when calling MxPlatformApi#requestPartnerAuthorizationCode");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -5576,11 +5576,11 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **paymentProcessorAuthorizationCodeRequestBody** | [**PaymentProcessorAuthorizationCodeRequestBody**](PaymentProcessorAuthorizationCodeRequestBody.md)| Payment processor authorization code object containing account_guid, member_guid, and user_guid. |
+ **partnerAuthorizationCodeRequestBody** | [**PartnerAuthorizationCodeRequestBody**](PartnerAuthorizationCodeRequestBody.md)| Partner authorization code object containing account_guid, member_guid, and user_guid. |
 
 ### Return type
 
-[**PaymentProcessorAuthorizationCodeResponseBody**](PaymentProcessorAuthorizationCodeResponseBody.md)
+[**PartnerAuthorizationCodeResponseBody**](PartnerAuthorizationCodeResponseBody.md)
 
 ### Authorization
 
@@ -5596,13 +5596,13 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 
-<a name="requestPaymentProcessorToken"></a>
-# **requestPaymentProcessorToken**
-> PaymentProcessorTokenResponseBody requestPaymentProcessorToken(code, grantType)
+<a name="requestPartnerToken"></a>
+# **requestPartnerToken**
+> PartnerTokenResponseBody requestPartnerToken(code, grantType)
 
-Request payment processor token
+Request partner token
 
-Use this endpoint to request a payment processor token.
+Use this endpoint to request a partner token.
 
 ### Example
 ```java
@@ -5625,13 +5625,13 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
-    String code = "sN3Ffd1nJg_iwEMuxcEo2Z5taC0RvMilfvYKsnM2XGM"; // String | Code to request processor token.
+    String code = "sN3Ffd1nJg_iwEMuxcEo2Z5taC0RvMilfvYKsnM2XGM"; // String | Code to request partner token.
     String grantType = "authorization_code"; // String | Specify grant type.
     try {
-      PaymentProcessorTokenResponseBody result = apiInstance.requestPaymentProcessorToken(code, grantType);
+      PartnerTokenResponseBody result = apiInstance.requestPartnerToken(code, grantType);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling MxPlatformApi#requestPaymentProcessorToken");
+      System.err.println("Exception when calling MxPlatformApi#requestPartnerToken");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -5645,12 +5645,12 @@ public class Example {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **String**| Code to request processor token. | [optional]
+ **code** | **String**| Code to request partner token. | [optional]
  **grantType** | **String**| Specify grant type. | [optional]
 
 ### Return type
 
-[**PaymentProcessorTokenResponseBody**](PaymentProcessorTokenResponseBody.md)
+[**PartnerTokenResponseBody**](PartnerTokenResponseBody.md)
 
 ### Authorization
 

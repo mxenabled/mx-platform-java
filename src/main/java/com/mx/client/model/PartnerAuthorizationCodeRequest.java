@@ -25,10 +25,10 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * PaymentProcessorAuthorizationCodeRequest
+ * PartnerAuthorizationCodeRequest
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class PaymentProcessorAuthorizationCodeRequest {
+public class PartnerAuthorizationCodeRequest {
   public static final String SERIALIZED_NAME_ACCOUNT_GUID = "account_guid";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_GUID)
   private String accountGuid;
@@ -41,10 +41,10 @@ public class PaymentProcessorAuthorizationCodeRequest {
   @SerializedName(SERIALIZED_NAME_USER_GUID)
   private String userGuid;
 
-  public PaymentProcessorAuthorizationCodeRequest() { 
+  public PartnerAuthorizationCodeRequest() { 
   }
 
-  public PaymentProcessorAuthorizationCodeRequest accountGuid(String accountGuid) {
+  public PartnerAuthorizationCodeRequest accountGuid(String accountGuid) {
     
     this.accountGuid = accountGuid;
     return this;
@@ -67,7 +67,7 @@ public class PaymentProcessorAuthorizationCodeRequest {
   }
 
 
-  public PaymentProcessorAuthorizationCodeRequest memberGuid(String memberGuid) {
+  public PartnerAuthorizationCodeRequest memberGuid(String memberGuid) {
     
     this.memberGuid = memberGuid;
     return this;
@@ -90,7 +90,7 @@ public class PaymentProcessorAuthorizationCodeRequest {
   }
 
 
-  public PaymentProcessorAuthorizationCodeRequest userGuid(String userGuid) {
+  public PartnerAuthorizationCodeRequest userGuid(String userGuid) {
     
     this.userGuid = userGuid;
     return this;
@@ -121,10 +121,10 @@ public class PaymentProcessorAuthorizationCodeRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentProcessorAuthorizationCodeRequest paymentProcessorAuthorizationCodeRequest = (PaymentProcessorAuthorizationCodeRequest) o;
-    return Objects.equals(this.accountGuid, paymentProcessorAuthorizationCodeRequest.accountGuid) &&
-        Objects.equals(this.memberGuid, paymentProcessorAuthorizationCodeRequest.memberGuid) &&
-        Objects.equals(this.userGuid, paymentProcessorAuthorizationCodeRequest.userGuid);
+    PartnerAuthorizationCodeRequest partnerAuthorizationCodeRequest = (PartnerAuthorizationCodeRequest) o;
+    return Objects.equals(this.accountGuid, partnerAuthorizationCodeRequest.accountGuid) &&
+        Objects.equals(this.memberGuid, partnerAuthorizationCodeRequest.memberGuid) &&
+        Objects.equals(this.userGuid, partnerAuthorizationCodeRequest.userGuid);
   }
 
   @Override
@@ -135,7 +135,7 @@ public class PaymentProcessorAuthorizationCodeRequest {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentProcessorAuthorizationCodeRequest {\n");
+    sb.append("class PartnerAuthorizationCodeRequest {\n");
     sb.append("    accountGuid: ").append(toIndentedString(accountGuid)).append("\n");
     sb.append("    memberGuid: ").append(toIndentedString(memberGuid)).append("\n");
     sb.append("    userGuid: ").append(toIndentedString(userGuid)).append("\n");

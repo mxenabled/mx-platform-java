@@ -18,7 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.mx.client.model.PaymentAccountResponse;
+import com.mx.client.model.PartnerAccountResponse;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -28,25 +28,25 @@ import org.junit.Test;
 
 
 /**
- * Model tests for PaymentAccountResponseBody
+ * Model tests for PartnerAccountResponseBody
  */
-public class PaymentAccountResponseBodyTest {
-    private final PaymentAccountResponseBody model = new PaymentAccountResponseBody();
+public class PartnerAccountResponseBodyTest {
+    private final PartnerAccountResponseBody model = new PartnerAccountResponseBody();
 
     /**
-     * Model tests for PaymentAccountResponseBody
+     * Model tests for PartnerAccountResponseBody
      */
     @Test
-    public void testPaymentAccountResponseBody() {
-        // TODO: test PaymentAccountResponseBody
+    public void testPartnerAccountResponseBody() {
+        // TODO: test PartnerAccountResponseBody
     }
 
     /**
-     * Test the property 'paymentAccount'
+     * Test the property 'partnerAccount'
      */
     @Test
-    public void paymentAccountTest() {
-        // TODO: test paymentAccount
+    public void partnerAccountTest() {
+        // TODO: test partnerAccount
     }
 
 }

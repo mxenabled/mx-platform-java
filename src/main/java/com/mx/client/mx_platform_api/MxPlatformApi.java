@@ -63,10 +63,10 @@ import com.mx.client.model.MerchantLocationResponseBody;
 import com.mx.client.model.MerchantResponseBody;
 import com.mx.client.model.MerchantsResponseBody;
 import com.mx.client.model.OAuthWindowResponseBody;
-import com.mx.client.model.PaymentAccountResponseBody;
-import com.mx.client.model.PaymentProcessorAuthorizationCodeRequestBody;
-import com.mx.client.model.PaymentProcessorAuthorizationCodeResponseBody;
-import com.mx.client.model.PaymentProcessorTokenResponseBody;
+import com.mx.client.model.PartnerAccountResponseBody;
+import com.mx.client.model.PartnerAuthorizationCodeRequestBody;
+import com.mx.client.model.PartnerAuthorizationCodeResponseBody;
+import com.mx.client.model.PartnerTokenResponseBody;
 import com.mx.client.model.StatementResponseBody;
 import com.mx.client.model.StatementsResponseBody;
 import com.mx.client.model.TagCreateRequestBody;
@@ -10904,7 +10904,7 @@ public class MxPlatformApi {
         return localVarCall;
     }
     /**
-     * Build call for requestPaymentAccount
+     * Build call for requestPartnerAccount
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -10914,7 +10914,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestPaymentAccountCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call requestPartnerAccountCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -10932,7 +10932,7 @@ public class MxPlatformApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/payment_account";
+        String localVarPath = "/partner_account";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10961,18 +10961,18 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call requestPaymentAccountValidateBeforeCall(final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call requestPartnerAccountValidateBeforeCall(final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = requestPaymentAccountCall(_callback);
+        okhttp3.Call localVarCall = requestPartnerAccountCall(_callback);
         return localVarCall;
 
     }
 
     /**
-     * Request payment account
-     * Use this endpoint to request a payment account.
-     * @return PaymentAccountResponseBody
+     * Request partner account
+     * Use this endpoint to request a partner account.
+     * @return PartnerAccountResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -10980,15 +10980,15 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentAccountResponseBody requestPaymentAccount() throws ApiException {
-        ApiResponse<PaymentAccountResponseBody> localVarResp = requestPaymentAccountWithHttpInfo();
+    public PartnerAccountResponseBody requestPartnerAccount() throws ApiException {
+        ApiResponse<PartnerAccountResponseBody> localVarResp = requestPartnerAccountWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
-     * Request payment account
-     * Use this endpoint to request a payment account.
-     * @return ApiResponse&lt;PaymentAccountResponseBody&gt;
+     * Request partner account
+     * Use this endpoint to request a partner account.
+     * @return ApiResponse&lt;PartnerAccountResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -10996,15 +10996,15 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentAccountResponseBody> requestPaymentAccountWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = requestPaymentAccountValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<PaymentAccountResponseBody>(){}.getType();
+    public ApiResponse<PartnerAccountResponseBody> requestPartnerAccountWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = requestPartnerAccountValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<PartnerAccountResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Request payment account (asynchronously)
-     * Use this endpoint to request a payment account.
+     * Request partner account (asynchronously)
+     * Use this endpoint to request a partner account.
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -11014,16 +11014,16 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestPaymentAccountAsync(final ApiCallback<PaymentAccountResponseBody> _callback) throws ApiException {
+    public okhttp3.Call requestPartnerAccountAsync(final ApiCallback<PartnerAccountResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = requestPaymentAccountValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<PaymentAccountResponseBody>(){}.getType();
+        okhttp3.Call localVarCall = requestPartnerAccountValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<PartnerAccountResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for requestPaymentProcessorAuthorizationCode
-     * @param paymentProcessorAuthorizationCodeRequestBody Payment processor authorization code object containing account_guid, member_guid, and user_guid. (required)
+     * Build call for requestPartnerAuthorizationCode
+     * @param partnerAuthorizationCodeRequestBody Partner authorization code object containing account_guid, member_guid, and user_guid. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -11033,7 +11033,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestPaymentProcessorAuthorizationCodeCall(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call requestPartnerAuthorizationCodeCall(PartnerAuthorizationCodeRequestBody partnerAuthorizationCodeRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -11048,10 +11048,10 @@ public class MxPlatformApi {
             basePath = null;
         }
 
-        Object localVarPostBody = paymentProcessorAuthorizationCodeRequestBody;
+        Object localVarPostBody = partnerAuthorizationCodeRequestBody;
 
         // create path and map variables
-        String localVarPath = "/payment_processor_authorization_code";
+        String localVarPath = "/partner_authorization_code";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11080,24 +11080,24 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call requestPaymentProcessorAuthorizationCodeValidateBeforeCall(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call requestPartnerAuthorizationCodeValidateBeforeCall(PartnerAuthorizationCodeRequestBody partnerAuthorizationCodeRequestBody, final ApiCallback _callback) throws ApiException {
         
-        // verify the required parameter 'paymentProcessorAuthorizationCodeRequestBody' is set
-        if (paymentProcessorAuthorizationCodeRequestBody == null) {
-            throw new ApiException("Missing the required parameter 'paymentProcessorAuthorizationCodeRequestBody' when calling requestPaymentProcessorAuthorizationCode(Async)");
+        // verify the required parameter 'partnerAuthorizationCodeRequestBody' is set
+        if (partnerAuthorizationCodeRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'partnerAuthorizationCodeRequestBody' when calling requestPartnerAuthorizationCode(Async)");
         }
         
 
-        okhttp3.Call localVarCall = requestPaymentProcessorAuthorizationCodeCall(paymentProcessorAuthorizationCodeRequestBody, _callback);
+        okhttp3.Call localVarCall = requestPartnerAuthorizationCodeCall(partnerAuthorizationCodeRequestBody, _callback);
         return localVarCall;
 
     }
 
     /**
-     * Request payment processor authorization code
-     * Use this endpoint to request a payment processor authorization code.
-     * @param paymentProcessorAuthorizationCodeRequestBody Payment processor authorization code object containing account_guid, member_guid, and user_guid. (required)
-     * @return PaymentProcessorAuthorizationCodeResponseBody
+     * Request partner authorization code
+     * Use this endpoint to request a partner authorization code.
+     * @param partnerAuthorizationCodeRequestBody Partner authorization code object containing account_guid, member_guid, and user_guid. (required)
+     * @return PartnerAuthorizationCodeResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -11105,16 +11105,16 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentProcessorAuthorizationCodeResponseBody requestPaymentProcessorAuthorizationCode(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody) throws ApiException {
-        ApiResponse<PaymentProcessorAuthorizationCodeResponseBody> localVarResp = requestPaymentProcessorAuthorizationCodeWithHttpInfo(paymentProcessorAuthorizationCodeRequestBody);
+    public PartnerAuthorizationCodeResponseBody requestPartnerAuthorizationCode(PartnerAuthorizationCodeRequestBody partnerAuthorizationCodeRequestBody) throws ApiException {
+        ApiResponse<PartnerAuthorizationCodeResponseBody> localVarResp = requestPartnerAuthorizationCodeWithHttpInfo(partnerAuthorizationCodeRequestBody);
         return localVarResp.getData();
     }
 
     /**
-     * Request payment processor authorization code
-     * Use this endpoint to request a payment processor authorization code.
-     * @param paymentProcessorAuthorizationCodeRequestBody Payment processor authorization code object containing account_guid, member_guid, and user_guid. (required)
-     * @return ApiResponse&lt;PaymentProcessorAuthorizationCodeResponseBody&gt;
+     * Request partner authorization code
+     * Use this endpoint to request a partner authorization code.
+     * @param partnerAuthorizationCodeRequestBody Partner authorization code object containing account_guid, member_guid, and user_guid. (required)
+     * @return ApiResponse&lt;PartnerAuthorizationCodeResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -11122,16 +11122,16 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentProcessorAuthorizationCodeResponseBody> requestPaymentProcessorAuthorizationCodeWithHttpInfo(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody) throws ApiException {
-        okhttp3.Call localVarCall = requestPaymentProcessorAuthorizationCodeValidateBeforeCall(paymentProcessorAuthorizationCodeRequestBody, null);
-        Type localVarReturnType = new TypeToken<PaymentProcessorAuthorizationCodeResponseBody>(){}.getType();
+    public ApiResponse<PartnerAuthorizationCodeResponseBody> requestPartnerAuthorizationCodeWithHttpInfo(PartnerAuthorizationCodeRequestBody partnerAuthorizationCodeRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = requestPartnerAuthorizationCodeValidateBeforeCall(partnerAuthorizationCodeRequestBody, null);
+        Type localVarReturnType = new TypeToken<PartnerAuthorizationCodeResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Request payment processor authorization code (asynchronously)
-     * Use this endpoint to request a payment processor authorization code.
-     * @param paymentProcessorAuthorizationCodeRequestBody Payment processor authorization code object containing account_guid, member_guid, and user_guid. (required)
+     * Request partner authorization code (asynchronously)
+     * Use this endpoint to request a partner authorization code.
+     * @param partnerAuthorizationCodeRequestBody Partner authorization code object containing account_guid, member_guid, and user_guid. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -11141,16 +11141,16 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestPaymentProcessorAuthorizationCodeAsync(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody, final ApiCallback<PaymentProcessorAuthorizationCodeResponseBody> _callback) throws ApiException {
+    public okhttp3.Call requestPartnerAuthorizationCodeAsync(PartnerAuthorizationCodeRequestBody partnerAuthorizationCodeRequestBody, final ApiCallback<PartnerAuthorizationCodeResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = requestPaymentProcessorAuthorizationCodeValidateBeforeCall(paymentProcessorAuthorizationCodeRequestBody, _callback);
-        Type localVarReturnType = new TypeToken<PaymentProcessorAuthorizationCodeResponseBody>(){}.getType();
+        okhttp3.Call localVarCall = requestPartnerAuthorizationCodeValidateBeforeCall(partnerAuthorizationCodeRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<PartnerAuthorizationCodeResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for requestPaymentProcessorToken
-     * @param code Code to request processor token. (optional)
+     * Build call for requestPartnerToken
+     * @param code Code to request partner token. (optional)
      * @param grantType Specify grant type. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -11161,7 +11161,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestPaymentProcessorTokenCall(String code, String grantType, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call requestPartnerTokenCall(String code, String grantType, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -11179,7 +11179,7 @@ public class MxPlatformApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/payment_processor_token";
+        String localVarPath = "/partner_token";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11216,20 +11216,20 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call requestPaymentProcessorTokenValidateBeforeCall(String code, String grantType, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call requestPartnerTokenValidateBeforeCall(String code, String grantType, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = requestPaymentProcessorTokenCall(code, grantType, _callback);
+        okhttp3.Call localVarCall = requestPartnerTokenCall(code, grantType, _callback);
         return localVarCall;
 
     }
 
     /**
-     * Request payment processor token
-     * Use this endpoint to request a payment processor token.
-     * @param code Code to request processor token. (optional)
+     * Request partner token
+     * Use this endpoint to request a partner token.
+     * @param code Code to request partner token. (optional)
      * @param grantType Specify grant type. (optional)
-     * @return PaymentProcessorTokenResponseBody
+     * @return PartnerTokenResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -11237,17 +11237,17 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public PaymentProcessorTokenResponseBody requestPaymentProcessorToken(String code, String grantType) throws ApiException {
-        ApiResponse<PaymentProcessorTokenResponseBody> localVarResp = requestPaymentProcessorTokenWithHttpInfo(code, grantType);
+    public PartnerTokenResponseBody requestPartnerToken(String code, String grantType) throws ApiException {
+        ApiResponse<PartnerTokenResponseBody> localVarResp = requestPartnerTokenWithHttpInfo(code, grantType);
         return localVarResp.getData();
     }
 
     /**
-     * Request payment processor token
-     * Use this endpoint to request a payment processor token.
-     * @param code Code to request processor token. (optional)
+     * Request partner token
+     * Use this endpoint to request a partner token.
+     * @param code Code to request partner token. (optional)
      * @param grantType Specify grant type. (optional)
-     * @return ApiResponse&lt;PaymentProcessorTokenResponseBody&gt;
+     * @return ApiResponse&lt;PartnerTokenResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -11255,16 +11255,16 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<PaymentProcessorTokenResponseBody> requestPaymentProcessorTokenWithHttpInfo(String code, String grantType) throws ApiException {
-        okhttp3.Call localVarCall = requestPaymentProcessorTokenValidateBeforeCall(code, grantType, null);
-        Type localVarReturnType = new TypeToken<PaymentProcessorTokenResponseBody>(){}.getType();
+    public ApiResponse<PartnerTokenResponseBody> requestPartnerTokenWithHttpInfo(String code, String grantType) throws ApiException {
+        okhttp3.Call localVarCall = requestPartnerTokenValidateBeforeCall(code, grantType, null);
+        Type localVarReturnType = new TypeToken<PartnerTokenResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Request payment processor token (asynchronously)
-     * Use this endpoint to request a payment processor token.
-     * @param code Code to request processor token. (optional)
+     * Request partner token (asynchronously)
+     * Use this endpoint to request a partner token.
+     * @param code Code to request partner token. (optional)
      * @param grantType Specify grant type. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -11275,10 +11275,10 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestPaymentProcessorTokenAsync(String code, String grantType, final ApiCallback<PaymentProcessorTokenResponseBody> _callback) throws ApiException {
+    public okhttp3.Call requestPartnerTokenAsync(String code, String grantType, final ApiCallback<PartnerTokenResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = requestPaymentProcessorTokenValidateBeforeCall(code, grantType, _callback);
-        Type localVarReturnType = new TypeToken<PaymentProcessorTokenResponseBody>(){}.getType();
+        okhttp3.Call localVarCall = requestPartnerTokenValidateBeforeCall(code, grantType, _callback);
+        Type localVarReturnType = new TypeToken<PartnerTokenResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

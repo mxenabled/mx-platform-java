@@ -26,18 +26,18 @@ import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
- * PaymentProcessorAuthorizationCodeResponse
+ * PartnerAuthorizationCodeResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class PaymentProcessorAuthorizationCodeResponse {
+public class PartnerAuthorizationCodeResponse {
   public static final String SERIALIZED_NAME_AUTHORIZATION_CODE = "authorization_code";
   @SerializedName(SERIALIZED_NAME_AUTHORIZATION_CODE)
   private String authorizationCode;
 
-  public PaymentProcessorAuthorizationCodeResponse() { 
+  public PartnerAuthorizationCodeResponse() { 
   }
 
-  public PaymentProcessorAuthorizationCodeResponse authorizationCode(String authorizationCode) {
+  public PartnerAuthorizationCodeResponse authorizationCode(String authorizationCode) {
     
     this.authorizationCode = authorizationCode;
     return this;
@@ -68,8 +68,8 @@ public class PaymentProcessorAuthorizationCodeResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentProcessorAuthorizationCodeResponse paymentProcessorAuthorizationCodeResponse = (PaymentProcessorAuthorizationCodeResponse) o;
-    return Objects.equals(this.authorizationCode, paymentProcessorAuthorizationCodeResponse.authorizationCode);
+    PartnerAuthorizationCodeResponse partnerAuthorizationCodeResponse = (PartnerAuthorizationCodeResponse) o;
+    return Objects.equals(this.authorizationCode, partnerAuthorizationCodeResponse.authorizationCode);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -91,7 +91,7 @@ public class PaymentProcessorAuthorizationCodeResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentProcessorAuthorizationCodeResponse {\n");
+    sb.append("class PartnerAuthorizationCodeResponse {\n");
     sb.append("    authorizationCode: ").append(toIndentedString(authorizationCode)).append("\n");
     sb.append("}");
     return sb.toString();
