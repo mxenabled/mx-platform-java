@@ -18,35 +18,51 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.mx.client.model.PaymentProcessorAuthorizationCodeRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for PaymentProcessorAuthorizationCodeRequestBody
+ * Model tests for PartnerTokenResponseBody
  */
-public class PaymentProcessorAuthorizationCodeRequestBodyTest {
-    private final PaymentProcessorAuthorizationCodeRequestBody model = new PaymentProcessorAuthorizationCodeRequestBody();
+public class PartnerTokenResponseBodyTest {
+    private final PartnerTokenResponseBody model = new PartnerTokenResponseBody();
 
     /**
-     * Model tests for PaymentProcessorAuthorizationCodeRequestBody
+     * Model tests for PartnerTokenResponseBody
      */
     @Test
-    public void testPaymentProcessorAuthorizationCodeRequestBody() {
-        // TODO: test PaymentProcessorAuthorizationCodeRequestBody
+    public void testPartnerTokenResponseBody() {
+        // TODO: test PartnerTokenResponseBody
     }
 
     /**
-     * Test the property 'paymentProcessorAuthorizationCode'
+     * Test the property 'accessToken'
      */
     @Test
-    public void paymentProcessorAuthorizationCodeTest() {
-        // TODO: test paymentProcessorAuthorizationCode
+    public void accessTokenTest() {
+        // TODO: test accessToken
+    }
+
+    /**
+     * Test the property 'scope'
+     */
+    @Test
+    public void scopeTest() {
+        // TODO: test scope
+    }
+
+    /**
+     * Test the property 'tokenType'
+     */
+    @Test
+    public void tokenTypeTest() {
+        // TODO: test tokenType
     }
 
 }

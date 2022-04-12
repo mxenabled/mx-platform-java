@@ -26,10 +26,10 @@ import java.io.IOException;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
- * PaymentProcessorTokenResponseBody
+ * PartnerTokenResponseBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class PaymentProcessorTokenResponseBody {
+public class PartnerTokenResponseBody {
   public static final String SERIALIZED_NAME_ACCESS_TOKEN = "access_token";
   @SerializedName(SERIALIZED_NAME_ACCESS_TOKEN)
   private String accessToken;
@@ -42,10 +42,10 @@ public class PaymentProcessorTokenResponseBody {
   @SerializedName(SERIALIZED_NAME_TOKEN_TYPE)
   private String tokenType;
 
-  public PaymentProcessorTokenResponseBody() { 
+  public PartnerTokenResponseBody() { 
   }
 
-  public PaymentProcessorTokenResponseBody accessToken(String accessToken) {
+  public PartnerTokenResponseBody accessToken(String accessToken) {
     
     this.accessToken = accessToken;
     return this;
@@ -68,7 +68,7 @@ public class PaymentProcessorTokenResponseBody {
   }
 
 
-  public PaymentProcessorTokenResponseBody scope(String scope) {
+  public PartnerTokenResponseBody scope(String scope) {
     
     this.scope = scope;
     return this;
@@ -79,7 +79,7 @@ public class PaymentProcessorTokenResponseBody {
    * @return scope
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "payment_accounts", value = "")
+  @ApiModelProperty(example = "Platform#partner_accounts", value = "")
 
   public String getScope() {
     return scope;
@@ -91,7 +91,7 @@ public class PaymentProcessorTokenResponseBody {
   }
 
 
-  public PaymentProcessorTokenResponseBody tokenType(String tokenType) {
+  public PartnerTokenResponseBody tokenType(String tokenType) {
     
     this.tokenType = tokenType;
     return this;
@@ -122,10 +122,10 @@ public class PaymentProcessorTokenResponseBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentProcessorTokenResponseBody paymentProcessorTokenResponseBody = (PaymentProcessorTokenResponseBody) o;
-    return Objects.equals(this.accessToken, paymentProcessorTokenResponseBody.accessToken) &&
-        Objects.equals(this.scope, paymentProcessorTokenResponseBody.scope) &&
-        Objects.equals(this.tokenType, paymentProcessorTokenResponseBody.tokenType);
+    PartnerTokenResponseBody partnerTokenResponseBody = (PartnerTokenResponseBody) o;
+    return Objects.equals(this.accessToken, partnerTokenResponseBody.accessToken) &&
+        Objects.equals(this.scope, partnerTokenResponseBody.scope) &&
+        Objects.equals(this.tokenType, partnerTokenResponseBody.tokenType);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -147,7 +147,7 @@ public class PaymentProcessorTokenResponseBody {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentProcessorTokenResponseBody {\n");
+    sb.append("class PartnerTokenResponseBody {\n");
     sb.append("    accessToken: ").append(toIndentedString(accessToken)).append("\n");
     sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
     sb.append("    tokenType: ").append(toIndentedString(tokenType)).append("\n");

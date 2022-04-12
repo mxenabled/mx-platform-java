@@ -20,43 +20,43 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import com.mx.client.model.PaymentAccountResponse;
+import com.mx.client.model.PartnerAuthorizationCodeRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * PaymentAccountResponseBody
+ * PartnerAuthorizationCodeRequestBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class PaymentAccountResponseBody {
-  public static final String SERIALIZED_NAME_PAYMENT_ACCOUNT = "payment_account";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_ACCOUNT)
-  private PaymentAccountResponse paymentAccount;
+public class PartnerAuthorizationCodeRequestBody {
+  public static final String SERIALIZED_NAME_PARTNER_AUTHORIZATION_CODE = "partner_authorization_code";
+  @SerializedName(SERIALIZED_NAME_PARTNER_AUTHORIZATION_CODE)
+  private PartnerAuthorizationCodeRequest partnerAuthorizationCode;
 
-  public PaymentAccountResponseBody() { 
+  public PartnerAuthorizationCodeRequestBody() { 
   }
 
-  public PaymentAccountResponseBody paymentAccount(PaymentAccountResponse paymentAccount) {
+  public PartnerAuthorizationCodeRequestBody partnerAuthorizationCode(PartnerAuthorizationCodeRequest partnerAuthorizationCode) {
     
-    this.paymentAccount = paymentAccount;
+    this.partnerAuthorizationCode = partnerAuthorizationCode;
     return this;
   }
 
    /**
-   * Get paymentAccount
-   * @return paymentAccount
+   * Get partnerAuthorizationCode
+   * @return partnerAuthorizationCode
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public PaymentAccountResponse getPaymentAccount() {
-    return paymentAccount;
+  public PartnerAuthorizationCodeRequest getPartnerAuthorizationCode() {
+    return partnerAuthorizationCode;
   }
 
 
-  public void setPaymentAccount(PaymentAccountResponse paymentAccount) {
-    this.paymentAccount = paymentAccount;
+  public void setPartnerAuthorizationCode(PartnerAuthorizationCodeRequest partnerAuthorizationCode) {
+    this.partnerAuthorizationCode = partnerAuthorizationCode;
   }
 
 
@@ -68,20 +68,20 @@ public class PaymentAccountResponseBody {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentAccountResponseBody paymentAccountResponseBody = (PaymentAccountResponseBody) o;
-    return Objects.equals(this.paymentAccount, paymentAccountResponseBody.paymentAccount);
+    PartnerAuthorizationCodeRequestBody partnerAuthorizationCodeRequestBody = (PartnerAuthorizationCodeRequestBody) o;
+    return Objects.equals(this.partnerAuthorizationCode, partnerAuthorizationCodeRequestBody.partnerAuthorizationCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(paymentAccount);
+    return Objects.hash(partnerAuthorizationCode);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentAccountResponseBody {\n");
-    sb.append("    paymentAccount: ").append(toIndentedString(paymentAccount)).append("\n");
+    sb.append("class PartnerAuthorizationCodeRequestBody {\n");
+    sb.append("    partnerAuthorizationCode: ").append(toIndentedString(partnerAuthorizationCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

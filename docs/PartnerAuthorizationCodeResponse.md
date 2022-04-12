@@ -1,6 +1,6 @@
 
 
-# PaymentProcessorAuthorizationCodeResponse
+# PartnerAuthorizationCodeResponse
 
 
 ## Properties

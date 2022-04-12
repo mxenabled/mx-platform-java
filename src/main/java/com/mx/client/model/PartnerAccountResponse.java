@@ -27,10 +27,10 @@ import java.math.BigDecimal;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
- * PaymentAccountResponse
+ * PartnerAccountResponse
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
-public class PaymentAccountResponse {
+public class PartnerAccountResponse {
   public static final String SERIALIZED_NAME_ACCOUNT_NAME = "account_name";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_NAME)
   private String accountName;
@@ -59,10 +59,10 @@ public class PaymentAccountResponse {
   @SerializedName(SERIALIZED_NAME_TRANSIT_NUMBER)
   private String transitNumber;
 
-  public PaymentAccountResponse() { 
+  public PartnerAccountResponse() { 
   }
 
-  public PaymentAccountResponse accountName(String accountName) {
+  public PartnerAccountResponse accountName(String accountName) {
     
     this.accountName = accountName;
     return this;
@@ -85,7 +85,7 @@ public class PaymentAccountResponse {
   }
 
 
-  public PaymentAccountResponse accountNumber(String accountNumber) {
+  public PartnerAccountResponse accountNumber(String accountNumber) {
     
     this.accountNumber = accountNumber;
     return this;
@@ -108,7 +108,7 @@ public class PaymentAccountResponse {
   }
 
 
-  public PaymentAccountResponse accountType(String accountType) {
+  public PartnerAccountResponse accountType(String accountType) {
     
     this.accountType = accountType;
     return this;
@@ -131,7 +131,7 @@ public class PaymentAccountResponse {
   }
 
 
-  public PaymentAccountResponse availableBalance(BigDecimal availableBalance) {
+  public PartnerAccountResponse availableBalance(BigDecimal availableBalance) {
     
     this.availableBalance = availableBalance;
     return this;
@@ -154,7 +154,7 @@ public class PaymentAccountResponse {
   }
 
 
-  public PaymentAccountResponse balance(BigDecimal balance) {
+  public PartnerAccountResponse balance(BigDecimal balance) {
     
     this.balance = balance;
     return this;
@@ -177,7 +177,7 @@ public class PaymentAccountResponse {
   }
 
 
-  public PaymentAccountResponse routingNumber(String routingNumber) {
+  public PartnerAccountResponse routingNumber(String routingNumber) {
     
     this.routingNumber = routingNumber;
     return this;
@@ -200,7 +200,7 @@ public class PaymentAccountResponse {
   }
 
 
-  public PaymentAccountResponse transitNumber(String transitNumber) {
+  public PartnerAccountResponse transitNumber(String transitNumber) {
     
     this.transitNumber = transitNumber;
     return this;
@@ -231,14 +231,14 @@ public class PaymentAccountResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaymentAccountResponse paymentAccountResponse = (PaymentAccountResponse) o;
-    return Objects.equals(this.accountName, paymentAccountResponse.accountName) &&
-        Objects.equals(this.accountNumber, paymentAccountResponse.accountNumber) &&
-        Objects.equals(this.accountType, paymentAccountResponse.accountType) &&
-        Objects.equals(this.availableBalance, paymentAccountResponse.availableBalance) &&
-        Objects.equals(this.balance, paymentAccountResponse.balance) &&
-        Objects.equals(this.routingNumber, paymentAccountResponse.routingNumber) &&
-        Objects.equals(this.transitNumber, paymentAccountResponse.transitNumber);
+    PartnerAccountResponse partnerAccountResponse = (PartnerAccountResponse) o;
+    return Objects.equals(this.accountName, partnerAccountResponse.accountName) &&
+        Objects.equals(this.accountNumber, partnerAccountResponse.accountNumber) &&
+        Objects.equals(this.accountType, partnerAccountResponse.accountType) &&
+        Objects.equals(this.availableBalance, partnerAccountResponse.availableBalance) &&
+        Objects.equals(this.balance, partnerAccountResponse.balance) &&
+        Objects.equals(this.routingNumber, partnerAccountResponse.routingNumber) &&
+        Objects.equals(this.transitNumber, partnerAccountResponse.transitNumber);
   }
 
   private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -260,7 +260,7 @@ public class PaymentAccountResponse {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaymentAccountResponse {\n");
+    sb.append("class PartnerAccountResponse {\n");
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");

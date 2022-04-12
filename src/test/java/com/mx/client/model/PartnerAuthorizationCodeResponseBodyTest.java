@@ -18,6 +18,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.mx.client.model.PartnerAuthorizationCodeResponse;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -27,41 +28,25 @@ import org.junit.Test;
 
 
 /**
- * Model tests for PaymentProcessorAuthorizationCodeRequest
+ * Model tests for PartnerAuthorizationCodeResponseBody
  */
-public class PaymentProcessorAuthorizationCodeRequestTest {
-    private final PaymentProcessorAuthorizationCodeRequest model = new PaymentProcessorAuthorizationCodeRequest();
+public class PartnerAuthorizationCodeResponseBodyTest {
+    private final PartnerAuthorizationCodeResponseBody model = new PartnerAuthorizationCodeResponseBody();
 
     /**
-     * Model tests for PaymentProcessorAuthorizationCodeRequest
+     * Model tests for PartnerAuthorizationCodeResponseBody
      */
     @Test
-    public void testPaymentProcessorAuthorizationCodeRequest() {
-        // TODO: test PaymentProcessorAuthorizationCodeRequest
+    public void testPartnerAuthorizationCodeResponseBody() {
+        // TODO: test PartnerAuthorizationCodeResponseBody
     }
 
     /**
-     * Test the property 'accountGuid'
+     * Test the property 'partnerAuthorizationCode'
      */
     @Test
-    public void accountGuidTest() {
-        // TODO: test accountGuid
-    }
-
-    /**
-     * Test the property 'memberGuid'
-     */
-    @Test
-    public void memberGuidTest() {
-        // TODO: test memberGuid
-    }
-
-    /**
-     * Test the property 'userGuid'
-     */
-    @Test
-    public void userGuidTest() {
-        // TODO: test userGuid
+    public void partnerAuthorizationCodeTest() {
+        // TODO: test partnerAuthorizationCode
     }
 
 }

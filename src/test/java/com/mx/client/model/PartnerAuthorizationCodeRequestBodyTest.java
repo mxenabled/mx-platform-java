@@ -18,35 +18,35 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import com.mx.client.model.PartnerAuthorizationCodeRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for PaymentProcessorAuthorizationCodeResponse
+ * Model tests for PartnerAuthorizationCodeRequestBody
  */
-public class PaymentProcessorAuthorizationCodeResponseTest {
-    private final PaymentProcessorAuthorizationCodeResponse model = new PaymentProcessorAuthorizationCodeResponse();
+public class PartnerAuthorizationCodeRequestBodyTest {
+    private final PartnerAuthorizationCodeRequestBody model = new PartnerAuthorizationCodeRequestBody();
 
     /**
-     * Model tests for PaymentProcessorAuthorizationCodeResponse
+     * Model tests for PartnerAuthorizationCodeRequestBody
      */
     @Test
-    public void testPaymentProcessorAuthorizationCodeResponse() {
-        // TODO: test PaymentProcessorAuthorizationCodeResponse
+    public void testPartnerAuthorizationCodeRequestBody() {
+        // TODO: test PartnerAuthorizationCodeRequestBody
     }
 
     /**
-     * Test the property 'authorizationCode'
+     * Test the property 'partnerAuthorizationCode'
      */
     @Test
-    public void authorizationCodeTest() {
-        // TODO: test authorizationCode
+    public void partnerAuthorizationCodeTest() {
+        // TODO: test partnerAuthorizationCode
     }
 
 }

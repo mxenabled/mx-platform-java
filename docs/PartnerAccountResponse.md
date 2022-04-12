@@ -1,6 +1,6 @@
 
 
-# PaymentAccountResponse
+# PartnerAccountResponse
 
 
 ## Properties

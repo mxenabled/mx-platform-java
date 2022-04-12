@@ -29,17 +29,17 @@ import org.junit.Test;
 
 
 /**
- * Model tests for PaymentAccountResponse
+ * Model tests for PartnerAccountResponse
  */
-public class PaymentAccountResponseTest {
-    private final PaymentAccountResponse model = new PaymentAccountResponse();
+public class PartnerAccountResponseTest {
+    private final PartnerAccountResponse model = new PartnerAccountResponse();
 
     /**
-     * Model tests for PaymentAccountResponse
+     * Model tests for PartnerAccountResponse
      */
     @Test
-    public void testPaymentAccountResponse() {
-        // TODO: test PaymentAccountResponse
+    public void testPartnerAccountResponse() {
+        // TODO: test PartnerAccountResponse
     }
 
     /**

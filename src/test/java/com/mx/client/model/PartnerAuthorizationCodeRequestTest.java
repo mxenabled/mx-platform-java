@@ -21,48 +21,47 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for PaymentProcessorTokenResponseBody
+ * Model tests for PartnerAuthorizationCodeRequest
  */
-public class PaymentProcessorTokenResponseBodyTest {
-    private final PaymentProcessorTokenResponseBody model = new PaymentProcessorTokenResponseBody();
+public class PartnerAuthorizationCodeRequestTest {
+    private final PartnerAuthorizationCodeRequest model = new PartnerAuthorizationCodeRequest();
 
     /**
-     * Model tests for PaymentProcessorTokenResponseBody
+     * Model tests for PartnerAuthorizationCodeRequest
      */
     @Test
-    public void testPaymentProcessorTokenResponseBody() {
-        // TODO: test PaymentProcessorTokenResponseBody
+    public void testPartnerAuthorizationCodeRequest() {
+        // TODO: test PartnerAuthorizationCodeRequest
     }
 
     /**
-     * Test the property 'accessToken'
+     * Test the property 'accountGuid'
      */
     @Test
-    public void accessTokenTest() {
-        // TODO: test accessToken
+    public void accountGuidTest() {
+        // TODO: test accountGuid
     }
 
     /**
-     * Test the property 'scope'
+     * Test the property 'memberGuid'
      */
     @Test
-    public void scopeTest() {
-        // TODO: test scope
+    public void memberGuidTest() {
+        // TODO: test memberGuid
     }
 
     /**
-     * Test the property 'tokenType'
+     * Test the property 'userGuid'
      */
     @Test
-    public void tokenTypeTest() {
-        // TODO: test tokenType
+    public void userGuidTest() {
+        // TODO: test userGuid
     }
 
 }
