@@ -50,10 +50,6 @@ import com.mx.client.model.MerchantLocationResponseBody;
 import com.mx.client.model.MerchantResponseBody;
 import com.mx.client.model.MerchantsResponseBody;
 import com.mx.client.model.OAuthWindowResponseBody;
-import com.mx.client.model.PartnerAccountResponseBody;
-import com.mx.client.model.PartnerAuthorizationCodeRequestBody;
-import com.mx.client.model.PartnerAuthorizationCodeResponseBody;
-import com.mx.client.model.PartnerTokenResponseBody;
 import com.mx.client.model.StatementResponseBody;
 import com.mx.client.model.StatementsResponseBody;
 import com.mx.client.model.TagCreateRequestBody;
@@ -1354,51 +1350,6 @@ public class MxPlatformApiTest {
         Boolean skipAggregation = null;
         String uiMessageWebviewUrlScheme = null;
                 OAuthWindowResponseBody response = api.requestOAuthWindowURI(memberGuid, userGuid, referralSource, skipAggregation, uiMessageWebviewUrlScheme);
-        // TODO: test validations
-    }
-    
-    /**
-     * Request partner account
-     *
-     * Use this endpoint to request a partner account.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void requestPartnerAccountTest() throws ApiException {
-                PartnerAccountResponseBody response = api.requestPartnerAccount();
-        // TODO: test validations
-    }
-    
-    /**
-     * Request partner authorization code
-     *
-     * Use this endpoint to request a partner authorization code.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void requestPartnerAuthorizationCodeTest() throws ApiException {
-        PartnerAuthorizationCodeRequestBody partnerAuthorizationCodeRequestBody = null;
-                PartnerAuthorizationCodeResponseBody response = api.requestPartnerAuthorizationCode(partnerAuthorizationCodeRequestBody);
-        // TODO: test validations
-    }
-    
-    /**
-     * Request partner token
-     *
-     * Use this endpoint to request a partner token.
-     *
-     * @throws ApiException
-     *          if the Api call fails
-     */
-    @Test
-    public void requestPartnerTokenTest() throws ApiException {
-        String code = null;
-        String grantType = null;
-                PartnerTokenResponseBody response = api.requestPartnerToken(code, grantType);
         // TODO: test validations
     }
     
