@@ -34,6 +34,10 @@ public class InstitutionResponse {
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
 
+  public static final String SERIALIZED_NAME_INSTRUCTIONAL_TEXT = "instructional_text";
+  @SerializedName(SERIALIZED_NAME_INSTRUCTIONAL_TEXT)
+  private String instructionalText;
+
   public static final String SERIALIZED_NAME_MEDIUM_LOGO_URL = "medium_logo_url";
   @SerializedName(SERIALIZED_NAME_MEDIUM_LOGO_URL)
   private String mediumLogoUrl;
@@ -93,6 +97,29 @@ public class InstitutionResponse {
 
   public void setCode(String code) {
     this.code = code;
+  }
+
+
+  public InstitutionResponse instructionalText(String instructionalText) {
+    
+    this.instructionalText = instructionalText;
+    return this;
+  }
+
+   /**
+   * Get instructionalText
+   * @return instructionalText
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Some instructional text <a href=\"https://example.url.chase.com/instructions\" id=\"instructional_text\">for end users</a>.", value = "")
+
+  public String getInstructionalText() {
+    return instructionalText;
+  }
+
+
+  public void setInstructionalText(String instructionalText) {
+    this.instructionalText = instructionalText;
   }
 
 
@@ -313,6 +340,7 @@ public class InstitutionResponse {
     }
     InstitutionResponse institutionResponse = (InstitutionResponse) o;
     return Objects.equals(this.code, institutionResponse.code) &&
+        Objects.equals(this.instructionalText, institutionResponse.instructionalText) &&
         Objects.equals(this.mediumLogoUrl, institutionResponse.mediumLogoUrl) &&
         Objects.equals(this.name, institutionResponse.name) &&
         Objects.equals(this.smallLogoUrl, institutionResponse.smallLogoUrl) &&
@@ -330,7 +358,7 @@ public class InstitutionResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, mediumLogoUrl, name, smallLogoUrl, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsOauth, supportsTransactionHistory, url);
+    return Objects.hash(code, instructionalText, mediumLogoUrl, name, smallLogoUrl, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsOauth, supportsTransactionHistory, url);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -345,6 +373,7 @@ public class InstitutionResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstitutionResponse {\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    instructionalText: ").append(toIndentedString(instructionalText)).append("\n");
     sb.append("    mediumLogoUrl: ").append(toIndentedString(mediumLogoUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    smallLogoUrl: ").append(toIndentedString(smallLogoUrl)).append("\n");

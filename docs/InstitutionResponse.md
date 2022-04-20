@@ -8,6 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **String** |  |  [optional]
+**instructionalText** | **String** |  |  [optional]
 **mediumLogoUrl** | **String** |  |  [optional]
 **name** | **String** |  |  [optional]
 **smallLogoUrl** | **String** |  |  [optional]
