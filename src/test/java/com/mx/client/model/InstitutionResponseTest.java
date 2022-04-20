@@ -50,6 +50,14 @@ public class InstitutionResponseTest {
     }
 
     /**
+     * Test the property 'instructionalText'
+     */
+    @Test
+    public void instructionalTextTest() {
+        // TODO: test instructionalText
+    }
+
+    /**
      * Test the property 'mediumLogoUrl'
      */
     @Test
