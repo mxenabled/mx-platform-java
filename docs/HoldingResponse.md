@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **description** | **String** |  |  [optional]
 **guid** | **String** |  |  [optional]
 **holdingType** | **String** |  |  [optional]
+**holdingTypeId** | **Integer** |  |  [optional]
 **id** | **String** |  |  [optional]
 **marketValue** | **BigDecimal** |  |  [optional]
 **memberGuid** | **String** |  |  [optional]

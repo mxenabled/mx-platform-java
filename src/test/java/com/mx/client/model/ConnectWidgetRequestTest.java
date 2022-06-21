@@ -41,6 +41,14 @@ public class ConnectWidgetRequestTest {
     }
 
     /**
+     * Test the property 'clientRedirectUrl'
+     */
+    @Test
+    public void clientRedirectUrlTest() {
+        // TODO: test clientRedirectUrl
+    }
+
+    /**
      * Test the property 'colorScheme'
      */
     @Test
@@ -118,14 +126,6 @@ public class ConnectWidgetRequestTest {
     @Test
     public void updateCredentialsTest() {
         // TODO: test updateCredentials
-    }
-
-    /**
-     * Test the property 'waitForFullAggregation'
-     */
-    @Test
-    public void waitForFullAggregationTest() {
-        // TODO: test waitForFullAggregation
     }
 
 }

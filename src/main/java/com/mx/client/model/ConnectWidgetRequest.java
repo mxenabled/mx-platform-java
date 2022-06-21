@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class ConnectWidgetRequest {
+  public static final String SERIALIZED_NAME_CLIENT_REDIRECT_URL = "client_redirect_url";
+  @SerializedName(SERIALIZED_NAME_CLIENT_REDIRECT_URL)
+  private String clientRedirectUrl;
+
   public static final String SERIALIZED_NAME_COLOR_SCHEME = "color_scheme";
   @SerializedName(SERIALIZED_NAME_COLOR_SCHEME)
   private String colorScheme;
@@ -69,12 +73,31 @@ public class ConnectWidgetRequest {
   @SerializedName(SERIALIZED_NAME_UPDATE_CREDENTIALS)
   private Boolean updateCredentials;
 
-  public static final String SERIALIZED_NAME_WAIT_FOR_FULL_AGGREGATION = "wait_for_full_aggregation";
-  @SerializedName(SERIALIZED_NAME_WAIT_FOR_FULL_AGGREGATION)
-  private Boolean waitForFullAggregation;
-
   public ConnectWidgetRequest() { 
   }
+
+  public ConnectWidgetRequest clientRedirectUrl(String clientRedirectUrl) {
+    
+    this.clientRedirectUrl = clientRedirectUrl;
+    return this;
+  }
+
+   /**
+   * Get clientRedirectUrl
+   * @return clientRedirectUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "https://mx.com", value = "")
+
+  public String getClientRedirectUrl() {
+    return clientRedirectUrl;
+  }
+
+
+  public void setClientRedirectUrl(String clientRedirectUrl) {
+    this.clientRedirectUrl = clientRedirectUrl;
+  }
+
 
   public ConnectWidgetRequest colorScheme(String colorScheme) {
     
@@ -306,29 +329,6 @@ public class ConnectWidgetRequest {
   }
 
 
-  public ConnectWidgetRequest waitForFullAggregation(Boolean waitForFullAggregation) {
-    
-    this.waitForFullAggregation = waitForFullAggregation;
-    return this;
-  }
-
-   /**
-   * Get waitForFullAggregation
-   * @return waitForFullAggregation
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
-  public Boolean getWaitForFullAggregation() {
-    return waitForFullAggregation;
-  }
-
-
-  public void setWaitForFullAggregation(Boolean waitForFullAggregation) {
-    this.waitForFullAggregation = waitForFullAggregation;
-  }
-
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -338,7 +338,8 @@ public class ConnectWidgetRequest {
       return false;
     }
     ConnectWidgetRequest connectWidgetRequest = (ConnectWidgetRequest) o;
-    return Objects.equals(this.colorScheme, connectWidgetRequest.colorScheme) &&
+    return Objects.equals(this.clientRedirectUrl, connectWidgetRequest.clientRedirectUrl) &&
+        Objects.equals(this.colorScheme, connectWidgetRequest.colorScheme) &&
         Objects.equals(this.currentInstitutionCode, connectWidgetRequest.currentInstitutionCode) &&
         Objects.equals(this.currentMemberGuid, connectWidgetRequest.currentMemberGuid) &&
         Objects.equals(this.disableInstitutionSearch, connectWidgetRequest.disableInstitutionSearch) &&
@@ -347,19 +348,19 @@ public class ConnectWidgetRequest {
         Objects.equals(this.mode, connectWidgetRequest.mode) &&
         Objects.equals(this.uiMessageVersion, connectWidgetRequest.uiMessageVersion) &&
         Objects.equals(this.uiMessageWebviewUrlScheme, connectWidgetRequest.uiMessageWebviewUrlScheme) &&
-        Objects.equals(this.updateCredentials, connectWidgetRequest.updateCredentials) &&
-        Objects.equals(this.waitForFullAggregation, connectWidgetRequest.waitForFullAggregation);
+        Objects.equals(this.updateCredentials, connectWidgetRequest.updateCredentials);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(colorScheme, currentInstitutionCode, currentMemberGuid, disableInstitutionSearch, includeTransactions, isMobileWebview, mode, uiMessageVersion, uiMessageWebviewUrlScheme, updateCredentials, waitForFullAggregation);
+    return Objects.hash(clientRedirectUrl, colorScheme, currentInstitutionCode, currentMemberGuid, disableInstitutionSearch, includeTransactions, isMobileWebview, mode, uiMessageVersion, uiMessageWebviewUrlScheme, updateCredentials);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConnectWidgetRequest {\n");
+    sb.append("    clientRedirectUrl: ").append(toIndentedString(clientRedirectUrl)).append("\n");
     sb.append("    colorScheme: ").append(toIndentedString(colorScheme)).append("\n");
     sb.append("    currentInstitutionCode: ").append(toIndentedString(currentInstitutionCode)).append("\n");
     sb.append("    currentMemberGuid: ").append(toIndentedString(currentMemberGuid)).append("\n");
@@ -370,7 +371,6 @@ public class ConnectWidgetRequest {
     sb.append("    uiMessageVersion: ").append(toIndentedString(uiMessageVersion)).append("\n");
     sb.append("    uiMessageWebviewUrlScheme: ").append(toIndentedString(uiMessageWebviewUrlScheme)).append("\n");
     sb.append("    updateCredentials: ").append(toIndentedString(updateCredentials)).append("\n");
-    sb.append("    waitForFullAggregation: ").append(toIndentedString(waitForFullAggregation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -1346,10 +1346,11 @@ public class MxPlatformApiTest {
     public void requestOAuthWindowURITest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
+        String clientRedirectUrl = null;
         String referralSource = null;
         Boolean skipAggregation = null;
         String uiMessageWebviewUrlScheme = null;
-                OAuthWindowResponseBody response = api.requestOAuthWindowURI(memberGuid, userGuid, referralSource, skipAggregation, uiMessageWebviewUrlScheme);
+                OAuthWindowResponseBody response = api.requestOAuthWindowURI(memberGuid, userGuid, clientRedirectUrl, referralSource, skipAggregation, uiMessageWebviewUrlScheme);
         // TODO: test validations
     }
     

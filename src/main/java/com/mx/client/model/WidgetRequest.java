@@ -29,6 +29,10 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class WidgetRequest {
+  public static final String SERIALIZED_NAME_CLIENT_REDIRECT_URL = "client_redirect_url";
+  @SerializedName(SERIALIZED_NAME_CLIENT_REDIRECT_URL)
+  private String clientRedirectUrl;
+
   public static final String SERIALIZED_NAME_COLOR_SCHEME = "color_scheme";
   @SerializedName(SERIALIZED_NAME_COLOR_SCHEME)
   private String colorScheme;
@@ -73,16 +77,35 @@ public class WidgetRequest {
   @SerializedName(SERIALIZED_NAME_UPDATE_CREDENTIALS)
   private Boolean updateCredentials;
 
-  public static final String SERIALIZED_NAME_WAIT_FOR_FULL_AGGREGATION = "wait_for_full_aggregation";
-  @SerializedName(SERIALIZED_NAME_WAIT_FOR_FULL_AGGREGATION)
-  private Boolean waitForFullAggregation;
-
   public static final String SERIALIZED_NAME_WIDGET_TYPE = "widget_type";
   @SerializedName(SERIALIZED_NAME_WIDGET_TYPE)
   private String widgetType;
 
   public WidgetRequest() { 
   }
+
+  public WidgetRequest clientRedirectUrl(String clientRedirectUrl) {
+    
+    this.clientRedirectUrl = clientRedirectUrl;
+    return this;
+  }
+
+   /**
+   * Get clientRedirectUrl
+   * @return clientRedirectUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "https://mx.com", value = "")
+
+  public String getClientRedirectUrl() {
+    return clientRedirectUrl;
+  }
+
+
+  public void setClientRedirectUrl(String clientRedirectUrl) {
+    this.clientRedirectUrl = clientRedirectUrl;
+  }
+
 
   public WidgetRequest colorScheme(String colorScheme) {
     
@@ -337,29 +360,6 @@ public class WidgetRequest {
   }
 
 
-  public WidgetRequest waitForFullAggregation(Boolean waitForFullAggregation) {
-    
-    this.waitForFullAggregation = waitForFullAggregation;
-    return this;
-  }
-
-   /**
-   * Get waitForFullAggregation
-   * @return waitForFullAggregation
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
-  public Boolean getWaitForFullAggregation() {
-    return waitForFullAggregation;
-  }
-
-
-  public void setWaitForFullAggregation(Boolean waitForFullAggregation) {
-    this.waitForFullAggregation = waitForFullAggregation;
-  }
-
-
   public WidgetRequest widgetType(String widgetType) {
     
     this.widgetType = widgetType;
@@ -392,7 +392,8 @@ public class WidgetRequest {
       return false;
     }
     WidgetRequest widgetRequest = (WidgetRequest) o;
-    return Objects.equals(this.colorScheme, widgetRequest.colorScheme) &&
+    return Objects.equals(this.clientRedirectUrl, widgetRequest.clientRedirectUrl) &&
+        Objects.equals(this.colorScheme, widgetRequest.colorScheme) &&
         Objects.equals(this.currentInstitutionCode, widgetRequest.currentInstitutionCode) &&
         Objects.equals(this.currentInstitutionGuid, widgetRequest.currentInstitutionGuid) &&
         Objects.equals(this.currentMemberGuid, widgetRequest.currentMemberGuid) &&
@@ -403,19 +404,19 @@ public class WidgetRequest {
         Objects.equals(this.uiMessageVersion, widgetRequest.uiMessageVersion) &&
         Objects.equals(this.uiMessageWebviewUrlScheme, widgetRequest.uiMessageWebviewUrlScheme) &&
         Objects.equals(this.updateCredentials, widgetRequest.updateCredentials) &&
-        Objects.equals(this.waitForFullAggregation, widgetRequest.waitForFullAggregation) &&
         Objects.equals(this.widgetType, widgetRequest.widgetType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(colorScheme, currentInstitutionCode, currentInstitutionGuid, currentMemberGuid, disableInstitutionSearch, includeTransactions, isMobileWebview, mode, uiMessageVersion, uiMessageWebviewUrlScheme, updateCredentials, waitForFullAggregation, widgetType);
+    return Objects.hash(clientRedirectUrl, colorScheme, currentInstitutionCode, currentInstitutionGuid, currentMemberGuid, disableInstitutionSearch, includeTransactions, isMobileWebview, mode, uiMessageVersion, uiMessageWebviewUrlScheme, updateCredentials, widgetType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class WidgetRequest {\n");
+    sb.append("    clientRedirectUrl: ").append(toIndentedString(clientRedirectUrl)).append("\n");
     sb.append("    colorScheme: ").append(toIndentedString(colorScheme)).append("\n");
     sb.append("    currentInstitutionCode: ").append(toIndentedString(currentInstitutionCode)).append("\n");
     sb.append("    currentInstitutionGuid: ").append(toIndentedString(currentInstitutionGuid)).append("\n");
@@ -427,7 +428,6 @@ public class WidgetRequest {
     sb.append("    uiMessageVersion: ").append(toIndentedString(uiMessageVersion)).append("\n");
     sb.append("    uiMessageWebviewUrlScheme: ").append(toIndentedString(uiMessageWebviewUrlScheme)).append("\n");
     sb.append("    updateCredentials: ").append(toIndentedString(updateCredentials)).append("\n");
-    sb.append("    waitForFullAggregation: ").append(toIndentedString(waitForFullAggregation)).append("\n");
     sb.append("    widgetType: ").append(toIndentedString(widgetType)).append("\n");
     sb.append("}");
     return sb.toString();

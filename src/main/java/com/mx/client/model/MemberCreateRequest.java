@@ -36,6 +36,10 @@ public class MemberCreateRequest {
   @SerializedName(SERIALIZED_NAME_BACKGROUND_AGGREGATION_IS_DISABLED)
   private Boolean backgroundAggregationIsDisabled;
 
+  public static final String SERIALIZED_NAME_CLIENT_REDIRECT_URL = "client_redirect_url";
+  @SerializedName(SERIALIZED_NAME_CLIENT_REDIRECT_URL)
+  private String clientRedirectUrl;
+
   public static final String SERIALIZED_NAME_CREDENTIALS = "credentials";
   @SerializedName(SERIALIZED_NAME_CREDENTIALS)
   private List<CredentialRequest> credentials = new ArrayList<CredentialRequest>();
@@ -83,6 +87,29 @@ public class MemberCreateRequest {
 
   public void setBackgroundAggregationIsDisabled(Boolean backgroundAggregationIsDisabled) {
     this.backgroundAggregationIsDisabled = backgroundAggregationIsDisabled;
+  }
+
+
+  public MemberCreateRequest clientRedirectUrl(String clientRedirectUrl) {
+    
+    this.clientRedirectUrl = clientRedirectUrl;
+    return this;
+  }
+
+   /**
+   * Get clientRedirectUrl
+   * @return clientRedirectUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "https://mx.com", value = "")
+
+  public String getClientRedirectUrl() {
+    return clientRedirectUrl;
+  }
+
+
+  public void setClientRedirectUrl(String clientRedirectUrl) {
+    this.clientRedirectUrl = clientRedirectUrl;
   }
 
 
@@ -239,6 +266,7 @@ public class MemberCreateRequest {
     }
     MemberCreateRequest memberCreateRequest = (MemberCreateRequest) o;
     return Objects.equals(this.backgroundAggregationIsDisabled, memberCreateRequest.backgroundAggregationIsDisabled) &&
+        Objects.equals(this.clientRedirectUrl, memberCreateRequest.clientRedirectUrl) &&
         Objects.equals(this.credentials, memberCreateRequest.credentials) &&
         Objects.equals(this.id, memberCreateRequest.id) &&
         Objects.equals(this.institutionCode, memberCreateRequest.institutionCode) &&
@@ -249,7 +277,7 @@ public class MemberCreateRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backgroundAggregationIsDisabled, credentials, id, institutionCode, isOauth, metadata, skipAggregation);
+    return Objects.hash(backgroundAggregationIsDisabled, clientRedirectUrl, credentials, id, institutionCode, isOauth, metadata, skipAggregation);
   }
 
   @Override
@@ -257,6 +285,7 @@ public class MemberCreateRequest {
     StringBuilder sb = new StringBuilder();
     sb.append("class MemberCreateRequest {\n");
     sb.append("    backgroundAggregationIsDisabled: ").append(toIndentedString(backgroundAggregationIsDisabled)).append("\n");
+    sb.append("    clientRedirectUrl: ").append(toIndentedString(clientRedirectUrl)).append("\n");
     sb.append("    credentials: ").append(toIndentedString(credentials)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    institutionCode: ").append(toIndentedString(institutionCode)).append("\n");

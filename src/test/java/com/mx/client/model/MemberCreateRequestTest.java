@@ -52,6 +52,14 @@ public class MemberCreateRequestTest {
     }
 
     /**
+     * Test the property 'clientRedirectUrl'
+     */
+    @Test
+    public void clientRedirectUrlTest() {
+        // TODO: test clientRedirectUrl
+    }
+
+    /**
      * Test the property 'credentials'
      */
     @Test
