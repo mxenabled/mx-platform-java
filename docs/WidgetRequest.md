@@ -7,6 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**clientRedirectUrl** | **String** |  |  [optional]
 **colorScheme** | **String** |  |  [optional]
 **currentInstitutionCode** | **String** |  |  [optional]
 **currentInstitutionGuid** | **String** |  |  [optional]
@@ -18,7 +19,6 @@ Name | Type | Description | Notes
 **uiMessageVersion** | **Integer** |  |  [optional]
 **uiMessageWebviewUrlScheme** | **String** |  |  [optional]
 **updateCredentials** | **Boolean** |  |  [optional]
-**waitForFullAggregation** | **Boolean** |  |  [optional]
 **widgetType** | **String** |  | 
 
 

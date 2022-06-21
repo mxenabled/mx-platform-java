@@ -67,6 +67,10 @@ public class HoldingResponse {
   @SerializedName(SERIALIZED_NAME_HOLDING_TYPE)
   private String holdingType;
 
+  public static final String SERIALIZED_NAME_HOLDING_TYPE_ID = "holding_type_id";
+  @SerializedName(SERIALIZED_NAME_HOLDING_TYPE_ID)
+  private Integer holdingTypeId;
+
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id;
@@ -313,6 +317,29 @@ public class HoldingResponse {
   }
 
 
+  public HoldingResponse holdingTypeId(Integer holdingTypeId) {
+    
+    this.holdingTypeId = holdingTypeId;
+    return this;
+  }
+
+   /**
+   * Get holdingTypeId
+   * @return holdingTypeId
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "1", value = "")
+
+  public Integer getHoldingTypeId() {
+    return holdingTypeId;
+  }
+
+
+  public void setHoldingTypeId(Integer holdingTypeId) {
+    this.holdingTypeId = holdingTypeId;
+  }
+
+
   public HoldingResponse id(String id) {
     
     this.id = id;
@@ -538,6 +565,7 @@ public class HoldingResponse {
         Objects.equals(this.description, holdingResponse.description) &&
         Objects.equals(this.guid, holdingResponse.guid) &&
         Objects.equals(this.holdingType, holdingResponse.holdingType) &&
+        Objects.equals(this.holdingTypeId, holdingResponse.holdingTypeId) &&
         Objects.equals(this.id, holdingResponse.id) &&
         Objects.equals(this.marketValue, holdingResponse.marketValue) &&
         Objects.equals(this.memberGuid, holdingResponse.memberGuid) &&
@@ -555,7 +583,7 @@ public class HoldingResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountGuid, costBasis, createdAt, currencyCode, cusip, dailyChange, description, guid, holdingType, id, marketValue, memberGuid, metadata, purchasePrice, shares, symbol, updatedAt, userGuid);
+    return Objects.hash(accountGuid, costBasis, createdAt, currencyCode, cusip, dailyChange, description, guid, holdingType, holdingTypeId, id, marketValue, memberGuid, metadata, purchasePrice, shares, symbol, updatedAt, userGuid);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -578,6 +606,7 @@ public class HoldingResponse {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    holdingType: ").append(toIndentedString(holdingType)).append("\n");
+    sb.append("    holdingTypeId: ").append(toIndentedString(holdingTypeId)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    marketValue: ").append(toIndentedString(marketValue)).append("\n");
     sb.append("    memberGuid: ").append(toIndentedString(memberGuid)).append("\n");

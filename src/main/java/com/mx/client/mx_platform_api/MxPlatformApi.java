@@ -10741,9 +10741,10 @@ public class MxPlatformApi {
      * Build call for requestOAuthWindowURI
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param clientRedirectUrl A URL that MX will redirect to at the end of OAuth with additional query parameters. Only available with &#x60;referral_source&#x3D;APP&#x60;. (optional)
      * @param referralSource Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. (optional)
      * @param skipAggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. (optional)
-     * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. (optional)
+     * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. Only available with &#x60;referral_source&#x3D;APP&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -10753,7 +10754,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestOAuthWindowURICall(String memberGuid, String userGuid, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call requestOAuthWindowURICall(String memberGuid, String userGuid, String clientRedirectUrl, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -10780,6 +10781,10 @@ public class MxPlatformApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (clientRedirectUrl != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("client_redirect_url", clientRedirectUrl));
+        }
 
         if (referralSource != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("referral_source", referralSource));
@@ -10814,7 +10819,7 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call requestOAuthWindowURIValidateBeforeCall(String memberGuid, String userGuid, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call requestOAuthWindowURIValidateBeforeCall(String memberGuid, String userGuid, String clientRedirectUrl, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
@@ -10827,7 +10832,7 @@ public class MxPlatformApi {
         }
         
 
-        okhttp3.Call localVarCall = requestOAuthWindowURICall(memberGuid, userGuid, referralSource, skipAggregation, uiMessageWebviewUrlScheme, _callback);
+        okhttp3.Call localVarCall = requestOAuthWindowURICall(memberGuid, userGuid, clientRedirectUrl, referralSource, skipAggregation, uiMessageWebviewUrlScheme, _callback);
         return localVarCall;
 
     }
@@ -10837,9 +10842,10 @@ public class MxPlatformApi {
      * This endpoint will generate an &#x60;oauth_window_uri&#x60; for the specified &#x60;member&#x60;.
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param clientRedirectUrl A URL that MX will redirect to at the end of OAuth with additional query parameters. Only available with &#x60;referral_source&#x3D;APP&#x60;. (optional)
      * @param referralSource Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. (optional)
      * @param skipAggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. (optional)
-     * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. (optional)
+     * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. Only available with &#x60;referral_source&#x3D;APP&#x60;. (optional)
      * @return OAuthWindowResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -10848,8 +10854,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public OAuthWindowResponseBody requestOAuthWindowURI(String memberGuid, String userGuid, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme) throws ApiException {
-        ApiResponse<OAuthWindowResponseBody> localVarResp = requestOAuthWindowURIWithHttpInfo(memberGuid, userGuid, referralSource, skipAggregation, uiMessageWebviewUrlScheme);
+    public OAuthWindowResponseBody requestOAuthWindowURI(String memberGuid, String userGuid, String clientRedirectUrl, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme) throws ApiException {
+        ApiResponse<OAuthWindowResponseBody> localVarResp = requestOAuthWindowURIWithHttpInfo(memberGuid, userGuid, clientRedirectUrl, referralSource, skipAggregation, uiMessageWebviewUrlScheme);
         return localVarResp.getData();
     }
 
@@ -10858,9 +10864,10 @@ public class MxPlatformApi {
      * This endpoint will generate an &#x60;oauth_window_uri&#x60; for the specified &#x60;member&#x60;.
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param clientRedirectUrl A URL that MX will redirect to at the end of OAuth with additional query parameters. Only available with &#x60;referral_source&#x3D;APP&#x60;. (optional)
      * @param referralSource Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. (optional)
      * @param skipAggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. (optional)
-     * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. (optional)
+     * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. Only available with &#x60;referral_source&#x3D;APP&#x60;. (optional)
      * @return ApiResponse&lt;OAuthWindowResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -10869,8 +10876,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<OAuthWindowResponseBody> requestOAuthWindowURIWithHttpInfo(String memberGuid, String userGuid, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme) throws ApiException {
-        okhttp3.Call localVarCall = requestOAuthWindowURIValidateBeforeCall(memberGuid, userGuid, referralSource, skipAggregation, uiMessageWebviewUrlScheme, null);
+    public ApiResponse<OAuthWindowResponseBody> requestOAuthWindowURIWithHttpInfo(String memberGuid, String userGuid, String clientRedirectUrl, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme) throws ApiException {
+        okhttp3.Call localVarCall = requestOAuthWindowURIValidateBeforeCall(memberGuid, userGuid, clientRedirectUrl, referralSource, skipAggregation, uiMessageWebviewUrlScheme, null);
         Type localVarReturnType = new TypeToken<OAuthWindowResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -10880,9 +10887,10 @@ public class MxPlatformApi {
      * This endpoint will generate an &#x60;oauth_window_uri&#x60; for the specified &#x60;member&#x60;.
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param clientRedirectUrl A URL that MX will redirect to at the end of OAuth with additional query parameters. Only available with &#x60;referral_source&#x3D;APP&#x60;. (optional)
      * @param referralSource Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. (optional)
      * @param skipAggregation Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. (optional)
-     * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. (optional)
+     * @param uiMessageWebviewUrlScheme A scheme for routing the user back to the application state they were previously in. Only available with &#x60;referral_source&#x3D;APP&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -10892,9 +10900,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call requestOAuthWindowURIAsync(String memberGuid, String userGuid, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme, final ApiCallback<OAuthWindowResponseBody> _callback) throws ApiException {
+    public okhttp3.Call requestOAuthWindowURIAsync(String memberGuid, String userGuid, String clientRedirectUrl, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme, final ApiCallback<OAuthWindowResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = requestOAuthWindowURIValidateBeforeCall(memberGuid, userGuid, referralSource, skipAggregation, uiMessageWebviewUrlScheme, _callback);
+        okhttp3.Call localVarCall = requestOAuthWindowURIValidateBeforeCall(memberGuid, userGuid, clientRedirectUrl, referralSource, skipAggregation, uiMessageWebviewUrlScheme, _callback);
         Type localVarReturnType = new TypeToken<OAuthWindowResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

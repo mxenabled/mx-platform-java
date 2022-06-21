@@ -115,6 +115,14 @@ public class HoldingResponseTest {
     }
 
     /**
+     * Test the property 'holdingTypeId'
+     */
+    @Test
+    public void holdingTypeIdTest() {
+        // TODO: test holdingTypeId
+    }
+
+    /**
      * Test the property 'id'
      */
     @Test
