@@ -42,6 +42,14 @@ public class MemberCreateRequestBodyTest {
     }
 
     /**
+     * Test the property 'clientRedirectUrl'
+     */
+    @Test
+    public void clientRedirectUrlTest() {
+        // TODO: test clientRedirectUrl
+    }
+
+    /**
      * Test the property 'member'
      */
     @Test

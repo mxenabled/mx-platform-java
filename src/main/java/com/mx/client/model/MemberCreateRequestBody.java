@@ -30,6 +30,10 @@ import java.io.IOException;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MemberCreateRequestBody {
+  public static final String SERIALIZED_NAME_CLIENT_REDIRECT_URL = "client_redirect_url";
+  @SerializedName(SERIALIZED_NAME_CLIENT_REDIRECT_URL)
+  private String clientRedirectUrl;
+
   public static final String SERIALIZED_NAME_MEMBER = "member";
   @SerializedName(SERIALIZED_NAME_MEMBER)
   private MemberCreateRequest member;
@@ -44,6 +48,29 @@ public class MemberCreateRequestBody {
 
   public MemberCreateRequestBody() { 
   }
+
+  public MemberCreateRequestBody clientRedirectUrl(String clientRedirectUrl) {
+    
+    this.clientRedirectUrl = clientRedirectUrl;
+    return this;
+  }
+
+   /**
+   * Get clientRedirectUrl
+   * @return clientRedirectUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "https://mx.com", value = "")
+
+  public String getClientRedirectUrl() {
+    return clientRedirectUrl;
+  }
+
+
+  public void setClientRedirectUrl(String clientRedirectUrl) {
+    this.clientRedirectUrl = clientRedirectUrl;
+  }
+
 
   public MemberCreateRequestBody member(MemberCreateRequest member) {
     
@@ -123,20 +150,22 @@ public class MemberCreateRequestBody {
       return false;
     }
     MemberCreateRequestBody memberCreateRequestBody = (MemberCreateRequestBody) o;
-    return Objects.equals(this.member, memberCreateRequestBody.member) &&
+    return Objects.equals(this.clientRedirectUrl, memberCreateRequestBody.clientRedirectUrl) &&
+        Objects.equals(this.member, memberCreateRequestBody.member) &&
         Objects.equals(this.referralSource, memberCreateRequestBody.referralSource) &&
         Objects.equals(this.uiMessageWebviewUrlScheme, memberCreateRequestBody.uiMessageWebviewUrlScheme);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(member, referralSource, uiMessageWebviewUrlScheme);
+    return Objects.hash(clientRedirectUrl, member, referralSource, uiMessageWebviewUrlScheme);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MemberCreateRequestBody {\n");
+    sb.append("    clientRedirectUrl: ").append(toIndentedString(clientRedirectUrl)).append("\n");
     sb.append("    member: ").append(toIndentedString(member)).append("\n");
     sb.append("    referralSource: ").append(toIndentedString(referralSource)).append("\n");
     sb.append("    uiMessageWebviewUrlScheme: ").append(toIndentedString(uiMessageWebviewUrlScheme)).append("\n");

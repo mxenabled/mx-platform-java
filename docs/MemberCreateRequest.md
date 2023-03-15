@@ -8,7 +8,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **backgroundAggregationIsDisabled** | **Boolean** |  |  [optional]
-**clientRedirectUrl** | **String** |  |  [optional]
 **credentials** | [**List&lt;CredentialRequest&gt;**](CredentialRequest.md) |  | 
 **id** | **String** |  |  [optional]
 **institutionCode** | **String** |  | 

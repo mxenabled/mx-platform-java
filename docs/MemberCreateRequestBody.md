@@ -7,6 +7,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**clientRedirectUrl** | **String** |  |  [optional]
 **member** | [**MemberCreateRequest**](MemberCreateRequest.md) |  |  [optional]
 **referralSource** | **String** |  |  [optional]
 **uiMessageWebviewUrlScheme** | **String** |  |  [optional]

@@ -128,7 +128,7 @@ public class UserCreateRequest {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "{\\\"first_name\\\": \\\"Steven\\\", \\\"last_name\\\": \\\"Universe\\\"}", value = "")
+  @ApiModelProperty(example = "{\\\"type\\\": \\\"individual\\\", \\\"status\\\": \\\"preferred\\\"}", value = "")
 
   public String getMetadata() {
     return metadata;

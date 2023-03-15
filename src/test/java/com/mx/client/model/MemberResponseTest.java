@@ -50,6 +50,14 @@ public class MemberResponseTest {
     }
 
     /**
+     * Test the property 'backgroundAggregationIsDisabled'
+     */
+    @Test
+    public void backgroundAggregationIsDisabledTest() {
+        // TODO: test backgroundAggregationIsDisabled
+    }
+
+    /**
      * Test the property 'connectionStatus'
      */
     @Test

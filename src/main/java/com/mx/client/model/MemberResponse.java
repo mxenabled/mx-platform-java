@@ -34,6 +34,10 @@ public class MemberResponse {
   @SerializedName(SERIALIZED_NAME_AGGREGATED_AT)
   private String aggregatedAt;
 
+  public static final String SERIALIZED_NAME_BACKGROUND_AGGREGATION_IS_DISABLED = "background_aggregation_is_disabled";
+  @SerializedName(SERIALIZED_NAME_BACKGROUND_AGGREGATION_IS_DISABLED)
+  private Boolean backgroundAggregationIsDisabled;
+
   public static final String SERIALIZED_NAME_CONNECTION_STATUS = "connection_status";
   @SerializedName(SERIALIZED_NAME_CONNECTION_STATUS)
   private String connectionStatus;
@@ -109,6 +113,29 @@ public class MemberResponse {
 
   public void setAggregatedAt(String aggregatedAt) {
     this.aggregatedAt = aggregatedAt;
+  }
+
+
+  public MemberResponse backgroundAggregationIsDisabled(Boolean backgroundAggregationIsDisabled) {
+    
+    this.backgroundAggregationIsDisabled = backgroundAggregationIsDisabled;
+    return this;
+  }
+
+   /**
+   * Get backgroundAggregationIsDisabled
+   * @return backgroundAggregationIsDisabled
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "")
+
+  public Boolean getBackgroundAggregationIsDisabled() {
+    return backgroundAggregationIsDisabled;
+  }
+
+
+  public void setBackgroundAggregationIsDisabled(Boolean backgroundAggregationIsDisabled) {
+    this.backgroundAggregationIsDisabled = backgroundAggregationIsDisabled;
   }
 
 
@@ -330,7 +357,7 @@ public class MemberResponse {
    * @return oauthWindowUri
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "int-widgets.moneydesktop.com/oauth/predirect_to/MBR-df96fd60-7122-4464-b3c2-ff11d8c74f6f/p8v7rxpxg3pdAsfgwxcrwxwhz3Zbygxfr6wAb931qv91hpb57k6bkr6t6m9djrfrfd467p8xkgqp6w7k1r9g8k8bfxqbfw2lq5tdwjq2sngAx76fm0jrw0dpmbtlkxchgjsw3r7r0hhq6A8sshqptfxql2rt123shfpkyhhpfvy67yvprbkb7lmlyrpwsd9yj0s22pmsyjhcw7d2q44d9fsxn5kfsmr2zqc79c2AxAx5gkjgbczf22A1sjx70t2pvnggzyh55s7bh62dd5wq7f1r4x90mcxn1tfhhrq5b09mjkt5hg66cjn700pcf6fgA42lbsp7v1pdch85mswycrp21c6j2sxffm14Asg3?skip_aggregation=false&referral_source=APP&ui_message_webview_url_scheme=myapp", value = "")
+  @ApiModelProperty(example = "https://mxbank.mx.com/oauth/authorize?client_id=b8OikQ4Ep3NuSUrQ13DdvFuwpNx-qqoAsJDVAQCyLkQ&redirect_uri=https%3A%2F%2Fint-app.moneydesktop.com%2Foauth%2Fredirect_from&response_type=code&scope=openid&state=d745bd4ee6f0f9c184757f574bcc2df2", value = "")
 
   public String getOauthWindowUri() {
     return oauthWindowUri;
@@ -421,6 +448,7 @@ public class MemberResponse {
     }
     MemberResponse memberResponse = (MemberResponse) o;
     return Objects.equals(this.aggregatedAt, memberResponse.aggregatedAt) &&
+        Objects.equals(this.backgroundAggregationIsDisabled, memberResponse.backgroundAggregationIsDisabled) &&
         Objects.equals(this.connectionStatus, memberResponse.connectionStatus) &&
         Objects.equals(this.guid, memberResponse.guid) &&
         Objects.equals(this.id, memberResponse.id) &&
@@ -442,7 +470,7 @@ public class MemberResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregatedAt, connectionStatus, guid, id, institutionCode, isBeingAggregated, isManagedByUser, isOauth, metadata, name, oauthWindowUri, successfullyAggregatedAt, userGuid, userId);
+    return Objects.hash(aggregatedAt, backgroundAggregationIsDisabled, connectionStatus, guid, id, institutionCode, isBeingAggregated, isManagedByUser, isOauth, metadata, name, oauthWindowUri, successfullyAggregatedAt, userGuid, userId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -457,6 +485,7 @@ public class MemberResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class MemberResponse {\n");
     sb.append("    aggregatedAt: ").append(toIndentedString(aggregatedAt)).append("\n");
+    sb.append("    backgroundAggregationIsDisabled: ").append(toIndentedString(backgroundAggregationIsDisabled)).append("\n");
     sb.append("    connectionStatus: ").append(toIndentedString(connectionStatus)).append("\n");
     sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

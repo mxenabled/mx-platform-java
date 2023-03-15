@@ -50,9 +50,17 @@ public class AccountOwnerResponse {
   @SerializedName(SERIALIZED_NAME_EMAIL)
   private String email;
 
+  public static final String SERIALIZED_NAME_FIRST_NAME = "first_name";
+  @SerializedName(SERIALIZED_NAME_FIRST_NAME)
+  private String firstName;
+
   public static final String SERIALIZED_NAME_GUID = "guid";
   @SerializedName(SERIALIZED_NAME_GUID)
   private String guid;
+
+  public static final String SERIALIZED_NAME_LAST_NAME = "last_name";
+  @SerializedName(SERIALIZED_NAME_LAST_NAME)
+  private String lastName;
 
   public static final String SERIALIZED_NAME_MEMBER_GUID = "member_guid";
   @SerializedName(SERIALIZED_NAME_MEMBER_GUID)
@@ -196,6 +204,29 @@ public class AccountOwnerResponse {
   }
 
 
+  public AccountOwnerResponse firstName(String firstName) {
+    
+    this.firstName = firstName;
+    return this;
+  }
+
+   /**
+   * Get firstName
+   * @return firstName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Donnie", value = "")
+
+  public String getFirstName() {
+    return firstName;
+  }
+
+
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
+
   public AccountOwnerResponse guid(String guid) {
     
     this.guid = guid;
@@ -216,6 +247,29 @@ public class AccountOwnerResponse {
 
   public void setGuid(String guid) {
     this.guid = guid;
+  }
+
+
+  public AccountOwnerResponse lastName(String lastName) {
+    
+    this.lastName = lastName;
+    return this;
+  }
+
+   /**
+   * Get lastName
+   * @return lastName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "Darko", value = "")
+
+  public String getLastName() {
+    return lastName;
+  }
+
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
   }
 
 
@@ -371,7 +425,9 @@ public class AccountOwnerResponse {
         Objects.equals(this.city, accountOwnerResponse.city) &&
         Objects.equals(this.country, accountOwnerResponse.country) &&
         Objects.equals(this.email, accountOwnerResponse.email) &&
+        Objects.equals(this.firstName, accountOwnerResponse.firstName) &&
         Objects.equals(this.guid, accountOwnerResponse.guid) &&
+        Objects.equals(this.lastName, accountOwnerResponse.lastName) &&
         Objects.equals(this.memberGuid, accountOwnerResponse.memberGuid) &&
         Objects.equals(this.ownerName, accountOwnerResponse.ownerName) &&
         Objects.equals(this.phone, accountOwnerResponse.phone) &&
@@ -386,7 +442,7 @@ public class AccountOwnerResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountGuid, address, city, country, email, guid, memberGuid, ownerName, phone, postalCode, state, userGuid);
+    return Objects.hash(accountGuid, address, city, country, email, firstName, guid, lastName, memberGuid, ownerName, phone, postalCode, state, userGuid);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -405,7 +461,9 @@ public class AccountOwnerResponse {
     sb.append("    city: ").append(toIndentedString(city)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
+    sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    memberGuid: ").append(toIndentedString(memberGuid)).append("\n");
     sb.append("    ownerName: ").append(toIndentedString(ownerName)).append("\n");
     sb.append("    phone: ").append(toIndentedString(phone)).append("\n");
