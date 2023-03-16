@@ -82,6 +82,14 @@ public class AccountNumberResponseTest {
     }
 
     /**
+     * Test the property 'passedValidation'
+     */
+    @Test
+    public void passedValidationTest() {
+        // TODO: test passedValidation
+    }
+
+    /**
      * Test the property 'routingNumber'
      */
     @Test

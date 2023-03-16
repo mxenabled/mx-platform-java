@@ -6007,6 +6007,168 @@ public class MxPlatformApi {
         return localVarCall;
     }
     /**
+     * Build call for listMemberAccounts
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param memberIsManagedByUser List only accounts whose member is managed by the user. (optional)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listMemberAccountsCall(String userGuid, String memberGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/members/{member_guid}/accounts"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (memberIsManagedByUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("member_is_managed_by_user", memberIsManagedByUser));
+        }
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listMemberAccountsValidateBeforeCall(String userGuid, String memberGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling listMemberAccounts(Async)");
+        }
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling listMemberAccounts(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listMemberAccountsCall(userGuid, memberGuid, memberIsManagedByUser, page, recordsPerPage, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List accounts by member
+     * This endpoint returns a list of all the accounts associated with the specified &#x60;member&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param memberIsManagedByUser List only accounts whose member is managed by the user. (optional)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return AccountsResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public AccountsResponseBody listMemberAccounts(String userGuid, String memberGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<AccountsResponseBody> localVarResp = listMemberAccountsWithHttpInfo(userGuid, memberGuid, memberIsManagedByUser, page, recordsPerPage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List accounts by member
+     * This endpoint returns a list of all the accounts associated with the specified &#x60;member&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param memberIsManagedByUser List only accounts whose member is managed by the user. (optional)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return ApiResponse&lt;AccountsResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AccountsResponseBody> listMemberAccountsWithHttpInfo(String userGuid, String memberGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listMemberAccountsValidateBeforeCall(userGuid, memberGuid, memberIsManagedByUser, page, recordsPerPage, null);
+        Type localVarReturnType = new TypeToken<AccountsResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List accounts by member (asynchronously)
+     * This endpoint returns a list of all the accounts associated with the specified &#x60;member&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param memberIsManagedByUser List only accounts whose member is managed by the user. (optional)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listMemberAccountsAsync(String userGuid, String memberGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage, final ApiCallback<AccountsResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listMemberAccountsValidateBeforeCall(userGuid, memberGuid, memberIsManagedByUser, page, recordsPerPage, _callback);
+        Type localVarReturnType = new TypeToken<AccountsResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listMemberChallenges
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
@@ -7851,6 +8013,7 @@ public class MxPlatformApi {
     /**
      * Build call for listUserAccounts
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberIsManagedByUser List only accounts whose member is managed by the user. (optional)
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
      * @param _callback Callback for upload/download progress
@@ -7862,7 +8025,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listUserAccountsCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listUserAccountsCall(String userGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -7888,6 +8051,10 @@ public class MxPlatformApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (memberIsManagedByUser != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("member_is_managed_by_user", memberIsManagedByUser));
+        }
 
         if (page != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
@@ -7918,7 +8085,7 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listUserAccountsValidateBeforeCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listUserAccountsValidateBeforeCall(String userGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
@@ -7926,7 +8093,7 @@ public class MxPlatformApi {
         }
         
 
-        okhttp3.Call localVarCall = listUserAccountsCall(userGuid, page, recordsPerPage, _callback);
+        okhttp3.Call localVarCall = listUserAccountsCall(userGuid, memberIsManagedByUser, page, recordsPerPage, _callback);
         return localVarCall;
 
     }
@@ -7935,6 +8102,7 @@ public class MxPlatformApi {
      * List accounts
      * This endpoint returns a list of all the accounts associated with the specified &#x60;user&#x60;.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberIsManagedByUser List only accounts whose member is managed by the user. (optional)
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
      * @return AccountsResponseBody
@@ -7945,8 +8113,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AccountsResponseBody listUserAccounts(String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
-        ApiResponse<AccountsResponseBody> localVarResp = listUserAccountsWithHttpInfo(userGuid, page, recordsPerPage);
+    public AccountsResponseBody listUserAccounts(String userGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<AccountsResponseBody> localVarResp = listUserAccountsWithHttpInfo(userGuid, memberIsManagedByUser, page, recordsPerPage);
         return localVarResp.getData();
     }
 
@@ -7954,6 +8122,7 @@ public class MxPlatformApi {
      * List accounts
      * This endpoint returns a list of all the accounts associated with the specified &#x60;user&#x60;.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberIsManagedByUser List only accounts whose member is managed by the user. (optional)
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
      * @return ApiResponse&lt;AccountsResponseBody&gt;
@@ -7964,8 +8133,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountsResponseBody> listUserAccountsWithHttpInfo(String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
-        okhttp3.Call localVarCall = listUserAccountsValidateBeforeCall(userGuid, page, recordsPerPage, null);
+    public ApiResponse<AccountsResponseBody> listUserAccountsWithHttpInfo(String userGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listUserAccountsValidateBeforeCall(userGuid, memberIsManagedByUser, page, recordsPerPage, null);
         Type localVarReturnType = new TypeToken<AccountsResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -7974,6 +8143,7 @@ public class MxPlatformApi {
      * List accounts (asynchronously)
      * This endpoint returns a list of all the accounts associated with the specified &#x60;user&#x60;.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberIsManagedByUser List only accounts whose member is managed by the user. (optional)
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -7985,9 +8155,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listUserAccountsAsync(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback<AccountsResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listUserAccountsAsync(String userGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage, final ApiCallback<AccountsResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listUserAccountsValidateBeforeCall(userGuid, page, recordsPerPage, _callback);
+        okhttp3.Call localVarCall = listUserAccountsValidateBeforeCall(userGuid, memberIsManagedByUser, page, recordsPerPage, _callback);
         Type localVarReturnType = new TypeToken<AccountsResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7996,6 +8166,9 @@ public class MxPlatformApi {
      * Build call for listUsers
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
+     * @param id The user &#x60;id&#x60; to search for. (optional)
+     * @param email The user &#x60;email&#x60; to search for. (optional)
+     * @param isDisabled Search for users that are diabled. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -8005,7 +8178,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listUsersCall(Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listUsersCall(Integer page, Integer recordsPerPage, String id, String email, Boolean isDisabled, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -8039,6 +8212,18 @@ public class MxPlatformApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
         }
 
+        if (id != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("id", id));
+        }
+
+        if (email != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("email", email));
+        }
+
+        if (isDisabled != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_disabled", isDisabled));
+        }
+
         final String[] localVarAccepts = {
             "application/vnd.mx.api.v1+json"
         };
@@ -8060,10 +8245,10 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listUsersValidateBeforeCall(Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listUsersValidateBeforeCall(Integer page, Integer recordsPerPage, String id, String email, Boolean isDisabled, final ApiCallback _callback) throws ApiException {
         
 
-        okhttp3.Call localVarCall = listUsersCall(page, recordsPerPage, _callback);
+        okhttp3.Call localVarCall = listUsersCall(page, recordsPerPage, id, email, isDisabled, _callback);
         return localVarCall;
 
     }
@@ -8073,6 +8258,9 @@ public class MxPlatformApi {
      * Use this endpoint to list every user you&#39;ve created in the MX Platform API.
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
+     * @param id The user &#x60;id&#x60; to search for. (optional)
+     * @param email The user &#x60;email&#x60; to search for. (optional)
+     * @param isDisabled Search for users that are diabled. (optional)
      * @return UsersResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8081,8 +8269,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public UsersResponseBody listUsers(Integer page, Integer recordsPerPage) throws ApiException {
-        ApiResponse<UsersResponseBody> localVarResp = listUsersWithHttpInfo(page, recordsPerPage);
+    public UsersResponseBody listUsers(Integer page, Integer recordsPerPage, String id, String email, Boolean isDisabled) throws ApiException {
+        ApiResponse<UsersResponseBody> localVarResp = listUsersWithHttpInfo(page, recordsPerPage, id, email, isDisabled);
         return localVarResp.getData();
     }
 
@@ -8091,6 +8279,9 @@ public class MxPlatformApi {
      * Use this endpoint to list every user you&#39;ve created in the MX Platform API.
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
+     * @param id The user &#x60;id&#x60; to search for. (optional)
+     * @param email The user &#x60;email&#x60; to search for. (optional)
+     * @param isDisabled Search for users that are diabled. (optional)
      * @return ApiResponse&lt;UsersResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8099,8 +8290,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UsersResponseBody> listUsersWithHttpInfo(Integer page, Integer recordsPerPage) throws ApiException {
-        okhttp3.Call localVarCall = listUsersValidateBeforeCall(page, recordsPerPage, null);
+    public ApiResponse<UsersResponseBody> listUsersWithHttpInfo(Integer page, Integer recordsPerPage, String id, String email, Boolean isDisabled) throws ApiException {
+        okhttp3.Call localVarCall = listUsersValidateBeforeCall(page, recordsPerPage, id, email, isDisabled, null);
         Type localVarReturnType = new TypeToken<UsersResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -8110,6 +8301,9 @@ public class MxPlatformApi {
      * Use this endpoint to list every user you&#39;ve created in the MX Platform API.
      * @param page Specify current page. (optional)
      * @param recordsPerPage Specify records per page. (optional)
+     * @param id The user &#x60;id&#x60; to search for. (optional)
+     * @param email The user &#x60;email&#x60; to search for. (optional)
+     * @param isDisabled Search for users that are diabled. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8119,9 +8313,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listUsersAsync(Integer page, Integer recordsPerPage, final ApiCallback<UsersResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listUsersAsync(Integer page, Integer recordsPerPage, String id, String email, Boolean isDisabled, final ApiCallback<UsersResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listUsersValidateBeforeCall(page, recordsPerPage, _callback);
+        okhttp3.Call localVarCall = listUsersValidateBeforeCall(page, recordsPerPage, id, email, isDisabled, _callback);
         Type localVarReturnType = new TypeToken<UsersResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -8260,6 +8454,154 @@ public class MxPlatformApi {
     public okhttp3.Call readAccountAsync(String accountGuid, String userGuid, final ApiCallback<AccountResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = readAccountValidateBeforeCall(accountGuid, userGuid, _callback);
+        Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for readAccountByMember
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readAccountByMemberCall(String accountGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/members/{member_guid}/accounts/{account_guid}"
+            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call readAccountByMemberValidateBeforeCall(String accountGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'accountGuid' is set
+        if (accountGuid == null) {
+            throw new ApiException("Missing the required parameter 'accountGuid' when calling readAccountByMember(Async)");
+        }
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling readAccountByMember(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling readAccountByMember(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = readAccountByMemberCall(accountGuid, memberGuid, userGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read account by member
+     * This endpoint allows you to read the attributes of an &#x60;account&#x60; resource.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return AccountResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public AccountResponseBody readAccountByMember(String accountGuid, String memberGuid, String userGuid) throws ApiException {
+        ApiResponse<AccountResponseBody> localVarResp = readAccountByMemberWithHttpInfo(accountGuid, memberGuid, userGuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read account by member
+     * This endpoint allows you to read the attributes of an &#x60;account&#x60; resource.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return ApiResponse&lt;AccountResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AccountResponseBody> readAccountByMemberWithHttpInfo(String accountGuid, String memberGuid, String userGuid) throws ApiException {
+        okhttp3.Call localVarCall = readAccountByMemberValidateBeforeCall(accountGuid, memberGuid, userGuid, null);
+        Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read account by member (asynchronously)
+     * This endpoint allows you to read the attributes of an &#x60;account&#x60; resource.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readAccountByMemberAsync(String accountGuid, String memberGuid, String userGuid, final ApiCallback<AccountResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = readAccountByMemberValidateBeforeCall(accountGuid, memberGuid, userGuid, _callback);
         Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

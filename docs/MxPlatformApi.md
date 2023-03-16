@@ -45,6 +45,7 @@ Method | HTTP request | Description
 [**listManagedInstitutions**](MxPlatformApi.md#listManagedInstitutions) | **GET** /managed_institutions | List managed institutions
 [**listManagedMembers**](MxPlatformApi.md#listManagedMembers) | **GET** /users/{user_guid}/managed_members | List managed members
 [**listManagedTransactions**](MxPlatformApi.md#listManagedTransactions) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions | List managed transactions
+[**listMemberAccounts**](MxPlatformApi.md#listMemberAccounts) | **GET** /users/{user_guid}/members/{member_guid}/accounts | List accounts by member
 [**listMemberChallenges**](MxPlatformApi.md#listMemberChallenges) | **GET** /users/{user_guid}/members/{member_guid}/challenges | List member challenges
 [**listMemberCredentials**](MxPlatformApi.md#listMemberCredentials) | **GET** /users/{user_guid}/members/{member_guid}/credentials | List member credentials
 [**listMembers**](MxPlatformApi.md#listMembers) | **GET** /users/{user_guid}/members | List members
@@ -60,6 +61,7 @@ Method | HTTP request | Description
 [**listUserAccounts**](MxPlatformApi.md#listUserAccounts) | **GET** /users/{user_guid}/accounts | List accounts
 [**listUsers**](MxPlatformApi.md#listUsers) | **GET** /users | List users
 [**readAccount**](MxPlatformApi.md#readAccount) | **GET** /users/{user_guid}/accounts/{account_guid} | Read account
+[**readAccountByMember**](MxPlatformApi.md#readAccountByMember) | **GET** /users/{user_guid}/members/{member_guid}/accounts/{account_guid} | Read account by member
 [**readCategory**](MxPlatformApi.md#readCategory) | **GET** /users/{user_guid}/categories/{category_guid} | Read a custom category
 [**readDefaultCategory**](MxPlatformApi.md#readDefaultCategory) | **GET** /categories/{category_guid} | Read a default category
 [**readHolding**](MxPlatformApi.md#readHolding) | **GET** /users/{user_guid}/holdings/{holding_guid} | Read holding
@@ -3026,6 +3028,82 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 
+<a name="listMemberAccounts"></a>
+# **listMemberAccounts**
+> AccountsResponseBody listMemberAccounts(userGuid, memberGuid, memberIsManagedByUser, page, recordsPerPage)
+
+List accounts by member
+
+This endpoint returns a list of all the accounts associated with the specified &#x60;member&#x60;.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
+    Boolean memberIsManagedByUser = true; // Boolean | List only accounts whose member is managed by the user.
+    Integer page = 1; // Integer | Specify current page.
+    Integer recordsPerPage = 10; // Integer | Specify records per page.
+    try {
+      AccountsResponseBody result = apiInstance.listMemberAccounts(userGuid, memberGuid, memberIsManagedByUser, page, recordsPerPage);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#listMemberAccounts");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+ **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
+ **memberIsManagedByUser** | **Boolean**| List only accounts whose member is managed by the user. | [optional]
+ **page** | **Integer**| Specify current page. | [optional]
+ **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+
+### Return type
+
+[**AccountsResponseBody**](AccountsResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 <a name="listMemberChallenges"></a>
 # **listMemberChallenges**
 > ChallengesResponseBody listMemberChallenges(memberGuid, userGuid, page, recordsPerPage)
@@ -3918,7 +3996,7 @@ Name | Type | Description  | Notes
 
 <a name="listUserAccounts"></a>
 # **listUserAccounts**
-> AccountsResponseBody listUserAccounts(userGuid, page, recordsPerPage)
+> AccountsResponseBody listUserAccounts(userGuid, memberIsManagedByUser, page, recordsPerPage)
 
 List accounts
 
@@ -3946,10 +4024,11 @@ public class Example {
 
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
     String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    Boolean memberIsManagedByUser = true; // Boolean | List only accounts whose member is managed by the user.
     Integer page = 1; // Integer | Specify current page.
     Integer recordsPerPage = 10; // Integer | Specify records per page.
     try {
-      AccountsResponseBody result = apiInstance.listUserAccounts(userGuid, page, recordsPerPage);
+      AccountsResponseBody result = apiInstance.listUserAccounts(userGuid, memberIsManagedByUser, page, recordsPerPage);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#listUserAccounts");
@@ -3967,6 +4046,7 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+ **memberIsManagedByUser** | **Boolean**| List only accounts whose member is managed by the user. | [optional]
  **page** | **Integer**| Specify current page. | [optional]
  **recordsPerPage** | **Integer**| Specify records per page. | [optional]
 
@@ -3990,7 +4070,7 @@ Name | Type | Description  | Notes
 
 <a name="listUsers"></a>
 # **listUsers**
-> UsersResponseBody listUsers(page, recordsPerPage)
+> UsersResponseBody listUsers(page, recordsPerPage, id, email, isDisabled)
 
 List users
 
@@ -4019,8 +4099,11 @@ public class Example {
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
     Integer page = 1; // Integer | Specify current page.
     Integer recordsPerPage = 10; // Integer | Specify records per page.
+    String id = "u-12324-abdc"; // String | The user `id` to search for.
+    String email = "example@example.com"; // String | The user `email` to search for.
+    Boolean isDisabled = true; // Boolean | Search for users that are diabled.
     try {
-      UsersResponseBody result = apiInstance.listUsers(page, recordsPerPage);
+      UsersResponseBody result = apiInstance.listUsers(page, recordsPerPage, id, email, isDisabled);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#listUsers");
@@ -4039,6 +4122,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **Integer**| Specify current page. | [optional]
  **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+ **id** | **String**| The user &#x60;id&#x60; to search for. | [optional]
+ **email** | **String**| The user &#x60;email&#x60; to search for. | [optional]
+ **isDisabled** | **Boolean**| Search for users that are diabled. | [optional]
 
 ### Return type
 
@@ -4108,6 +4194,78 @@ public class Example {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+
+### Return type
+
+[**AccountResponseBody**](AccountResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+<a name="readAccountByMember"></a>
+# **readAccountByMember**
+> AccountResponseBody readAccountByMember(accountGuid, memberGuid, userGuid)
+
+Read account by member
+
+This endpoint allows you to read the attributes of an &#x60;account&#x60; resource.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String accountGuid = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1"; // String | The unique id for an `account`.
+    String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    try {
+      AccountResponseBody result = apiInstance.readAccountByMember(accountGuid, memberGuid, userGuid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#readAccountByMember");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
+ **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
  **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
 
 ### Return type

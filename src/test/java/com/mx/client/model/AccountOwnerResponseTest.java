@@ -82,11 +82,27 @@ public class AccountOwnerResponseTest {
     }
 
     /**
+     * Test the property 'firstName'
+     */
+    @Test
+    public void firstNameTest() {
+        // TODO: test firstName
+    }
+
+    /**
      * Test the property 'guid'
      */
     @Test
     public void guidTest() {
         // TODO: test guid
+    }
+
+    /**
+     * Test the property 'lastName'
+     */
+    @Test
+    public void lastNameTest() {
+        // TODO: test lastName
     }
 
     /**

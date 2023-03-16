@@ -53,6 +53,10 @@ public class WidgetRequest {
   @SerializedName(SERIALIZED_NAME_DISABLE_INSTITUTION_SEARCH)
   private Boolean disableInstitutionSearch;
 
+  public static final String SERIALIZED_NAME_INCLUDE_IDENTITY = "include_identity";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_IDENTITY)
+  private Boolean includeIdentity;
+
   public static final String SERIALIZED_NAME_INCLUDE_TRANSACTIONS = "include_transactions";
   @SerializedName(SERIALIZED_NAME_INCLUDE_TRANSACTIONS)
   private Boolean includeTransactions;
@@ -64,6 +68,10 @@ public class WidgetRequest {
   public static final String SERIALIZED_NAME_MODE = "mode";
   @SerializedName(SERIALIZED_NAME_MODE)
   private String mode;
+
+  public static final String SERIALIZED_NAME_OAUTH_REFERRAL_SOURCE = "oauth_referral_source";
+  @SerializedName(SERIALIZED_NAME_OAUTH_REFERRAL_SOURCE)
+  private String oauthReferralSource;
 
   public static final String SERIALIZED_NAME_UI_MESSAGE_VERSION = "ui_message_version";
   @SerializedName(SERIALIZED_NAME_UI_MESSAGE_VERSION)
@@ -222,6 +230,29 @@ public class WidgetRequest {
   }
 
 
+  public WidgetRequest includeIdentity(Boolean includeIdentity) {
+    
+    this.includeIdentity = includeIdentity;
+    return this;
+  }
+
+   /**
+   * Get includeIdentity
+   * @return includeIdentity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "")
+
+  public Boolean getIncludeIdentity() {
+    return includeIdentity;
+  }
+
+
+  public void setIncludeIdentity(Boolean includeIdentity) {
+    this.includeIdentity = includeIdentity;
+  }
+
+
   public WidgetRequest includeTransactions(Boolean includeTransactions) {
     
     this.includeTransactions = includeTransactions;
@@ -256,7 +287,7 @@ public class WidgetRequest {
    * @return isMobileWebview
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
+  @ApiModelProperty(example = "false", value = "")
 
   public Boolean getIsMobileWebview() {
     return isMobileWebview;
@@ -288,6 +319,29 @@ public class WidgetRequest {
 
   public void setMode(String mode) {
     this.mode = mode;
+  }
+
+
+  public WidgetRequest oauthReferralSource(String oauthReferralSource) {
+    
+    this.oauthReferralSource = oauthReferralSource;
+    return this;
+  }
+
+   /**
+   * Get oauthReferralSource
+   * @return oauthReferralSource
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "BROWSER", value = "")
+
+  public String getOauthReferralSource() {
+    return oauthReferralSource;
+  }
+
+
+  public void setOauthReferralSource(String oauthReferralSource) {
+    this.oauthReferralSource = oauthReferralSource;
   }
 
 
@@ -398,9 +452,11 @@ public class WidgetRequest {
         Objects.equals(this.currentInstitutionGuid, widgetRequest.currentInstitutionGuid) &&
         Objects.equals(this.currentMemberGuid, widgetRequest.currentMemberGuid) &&
         Objects.equals(this.disableInstitutionSearch, widgetRequest.disableInstitutionSearch) &&
+        Objects.equals(this.includeIdentity, widgetRequest.includeIdentity) &&
         Objects.equals(this.includeTransactions, widgetRequest.includeTransactions) &&
         Objects.equals(this.isMobileWebview, widgetRequest.isMobileWebview) &&
         Objects.equals(this.mode, widgetRequest.mode) &&
+        Objects.equals(this.oauthReferralSource, widgetRequest.oauthReferralSource) &&
         Objects.equals(this.uiMessageVersion, widgetRequest.uiMessageVersion) &&
         Objects.equals(this.uiMessageWebviewUrlScheme, widgetRequest.uiMessageWebviewUrlScheme) &&
         Objects.equals(this.updateCredentials, widgetRequest.updateCredentials) &&
@@ -409,7 +465,7 @@ public class WidgetRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientRedirectUrl, colorScheme, currentInstitutionCode, currentInstitutionGuid, currentMemberGuid, disableInstitutionSearch, includeTransactions, isMobileWebview, mode, uiMessageVersion, uiMessageWebviewUrlScheme, updateCredentials, widgetType);
+    return Objects.hash(clientRedirectUrl, colorScheme, currentInstitutionCode, currentInstitutionGuid, currentMemberGuid, disableInstitutionSearch, includeIdentity, includeTransactions, isMobileWebview, mode, oauthReferralSource, uiMessageVersion, uiMessageWebviewUrlScheme, updateCredentials, widgetType);
   }
 
   @Override
@@ -422,9 +478,11 @@ public class WidgetRequest {
     sb.append("    currentInstitutionGuid: ").append(toIndentedString(currentInstitutionGuid)).append("\n");
     sb.append("    currentMemberGuid: ").append(toIndentedString(currentMemberGuid)).append("\n");
     sb.append("    disableInstitutionSearch: ").append(toIndentedString(disableInstitutionSearch)).append("\n");
+    sb.append("    includeIdentity: ").append(toIndentedString(includeIdentity)).append("\n");
     sb.append("    includeTransactions: ").append(toIndentedString(includeTransactions)).append("\n");
     sb.append("    isMobileWebview: ").append(toIndentedString(isMobileWebview)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
+    sb.append("    oauthReferralSource: ").append(toIndentedString(oauthReferralSource)).append("\n");
     sb.append("    uiMessageVersion: ").append(toIndentedString(uiMessageVersion)).append("\n");
     sb.append("    uiMessageWebviewUrlScheme: ").append(toIndentedString(uiMessageWebviewUrlScheme)).append("\n");
     sb.append("    updateCredentials: ").append(toIndentedString(updateCredentials)).append("\n");

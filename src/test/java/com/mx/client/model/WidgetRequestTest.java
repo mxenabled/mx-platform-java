@@ -89,6 +89,14 @@ public class WidgetRequestTest {
     }
 
     /**
+     * Test the property 'includeIdentity'
+     */
+    @Test
+    public void includeIdentityTest() {
+        // TODO: test includeIdentity
+    }
+
+    /**
      * Test the property 'includeTransactions'
      */
     @Test
@@ -110,6 +118,14 @@ public class WidgetRequestTest {
     @Test
     public void modeTest() {
         // TODO: test mode
+    }
+
+    /**
+     * Test the property 'oauthReferralSource'
+     */
+    @Test
+    public void oauthReferralSourceTest() {
+        // TODO: test oauthReferralSource
     }
 
     /**

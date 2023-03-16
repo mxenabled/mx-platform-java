@@ -45,9 +45,17 @@ public class ConnectWidgetRequest {
   @SerializedName(SERIALIZED_NAME_CURRENT_MEMBER_GUID)
   private String currentMemberGuid;
 
+  public static final String SERIALIZED_NAME_DISABLE_BACKGROUND_AGG = "disable_background_agg";
+  @SerializedName(SERIALIZED_NAME_DISABLE_BACKGROUND_AGG)
+  private Boolean disableBackgroundAgg;
+
   public static final String SERIALIZED_NAME_DISABLE_INSTITUTION_SEARCH = "disable_institution_search";
   @SerializedName(SERIALIZED_NAME_DISABLE_INSTITUTION_SEARCH)
   private Boolean disableInstitutionSearch;
+
+  public static final String SERIALIZED_NAME_INCLUDE_IDENTITY = "include_identity";
+  @SerializedName(SERIALIZED_NAME_INCLUDE_IDENTITY)
+  private Boolean includeIdentity;
 
   public static final String SERIALIZED_NAME_INCLUDE_TRANSACTIONS = "include_transactions";
   @SerializedName(SERIALIZED_NAME_INCLUDE_TRANSACTIONS)
@@ -60,6 +68,10 @@ public class ConnectWidgetRequest {
   public static final String SERIALIZED_NAME_MODE = "mode";
   @SerializedName(SERIALIZED_NAME_MODE)
   private String mode;
+
+  public static final String SERIALIZED_NAME_OAUTH_REFERRAL_SOURCE = "oauth_referral_source";
+  @SerializedName(SERIALIZED_NAME_OAUTH_REFERRAL_SOURCE)
+  private String oauthReferralSource;
 
   public static final String SERIALIZED_NAME_UI_MESSAGE_VERSION = "ui_message_version";
   @SerializedName(SERIALIZED_NAME_UI_MESSAGE_VERSION)
@@ -168,6 +180,29 @@ public class ConnectWidgetRequest {
   }
 
 
+  public ConnectWidgetRequest disableBackgroundAgg(Boolean disableBackgroundAgg) {
+    
+    this.disableBackgroundAgg = disableBackgroundAgg;
+    return this;
+  }
+
+   /**
+   * Get disableBackgroundAgg
+   * @return disableBackgroundAgg
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "")
+
+  public Boolean getDisableBackgroundAgg() {
+    return disableBackgroundAgg;
+  }
+
+
+  public void setDisableBackgroundAgg(Boolean disableBackgroundAgg) {
+    this.disableBackgroundAgg = disableBackgroundAgg;
+  }
+
+
   public ConnectWidgetRequest disableInstitutionSearch(Boolean disableInstitutionSearch) {
     
     this.disableInstitutionSearch = disableInstitutionSearch;
@@ -188,6 +223,29 @@ public class ConnectWidgetRequest {
 
   public void setDisableInstitutionSearch(Boolean disableInstitutionSearch) {
     this.disableInstitutionSearch = disableInstitutionSearch;
+  }
+
+
+  public ConnectWidgetRequest includeIdentity(Boolean includeIdentity) {
+    
+    this.includeIdentity = includeIdentity;
+    return this;
+  }
+
+   /**
+   * Get includeIdentity
+   * @return includeIdentity
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "")
+
+  public Boolean getIncludeIdentity() {
+    return includeIdentity;
+  }
+
+
+  public void setIncludeIdentity(Boolean includeIdentity) {
+    this.includeIdentity = includeIdentity;
   }
 
 
@@ -225,7 +283,7 @@ public class ConnectWidgetRequest {
    * @return isMobileWebview
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
+  @ApiModelProperty(example = "false", value = "")
 
   public Boolean getIsMobileWebview() {
     return isMobileWebview;
@@ -257,6 +315,29 @@ public class ConnectWidgetRequest {
 
   public void setMode(String mode) {
     this.mode = mode;
+  }
+
+
+  public ConnectWidgetRequest oauthReferralSource(String oauthReferralSource) {
+    
+    this.oauthReferralSource = oauthReferralSource;
+    return this;
+  }
+
+   /**
+   * Get oauthReferralSource
+   * @return oauthReferralSource
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "BROWSER", value = "")
+
+  public String getOauthReferralSource() {
+    return oauthReferralSource;
+  }
+
+
+  public void setOauthReferralSource(String oauthReferralSource) {
+    this.oauthReferralSource = oauthReferralSource;
   }
 
 
@@ -342,10 +423,13 @@ public class ConnectWidgetRequest {
         Objects.equals(this.colorScheme, connectWidgetRequest.colorScheme) &&
         Objects.equals(this.currentInstitutionCode, connectWidgetRequest.currentInstitutionCode) &&
         Objects.equals(this.currentMemberGuid, connectWidgetRequest.currentMemberGuid) &&
+        Objects.equals(this.disableBackgroundAgg, connectWidgetRequest.disableBackgroundAgg) &&
         Objects.equals(this.disableInstitutionSearch, connectWidgetRequest.disableInstitutionSearch) &&
+        Objects.equals(this.includeIdentity, connectWidgetRequest.includeIdentity) &&
         Objects.equals(this.includeTransactions, connectWidgetRequest.includeTransactions) &&
         Objects.equals(this.isMobileWebview, connectWidgetRequest.isMobileWebview) &&
         Objects.equals(this.mode, connectWidgetRequest.mode) &&
+        Objects.equals(this.oauthReferralSource, connectWidgetRequest.oauthReferralSource) &&
         Objects.equals(this.uiMessageVersion, connectWidgetRequest.uiMessageVersion) &&
         Objects.equals(this.uiMessageWebviewUrlScheme, connectWidgetRequest.uiMessageWebviewUrlScheme) &&
         Objects.equals(this.updateCredentials, connectWidgetRequest.updateCredentials);
@@ -353,7 +437,7 @@ public class ConnectWidgetRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientRedirectUrl, colorScheme, currentInstitutionCode, currentMemberGuid, disableInstitutionSearch, includeTransactions, isMobileWebview, mode, uiMessageVersion, uiMessageWebviewUrlScheme, updateCredentials);
+    return Objects.hash(clientRedirectUrl, colorScheme, currentInstitutionCode, currentMemberGuid, disableBackgroundAgg, disableInstitutionSearch, includeIdentity, includeTransactions, isMobileWebview, mode, oauthReferralSource, uiMessageVersion, uiMessageWebviewUrlScheme, updateCredentials);
   }
 
   @Override
@@ -364,10 +448,13 @@ public class ConnectWidgetRequest {
     sb.append("    colorScheme: ").append(toIndentedString(colorScheme)).append("\n");
     sb.append("    currentInstitutionCode: ").append(toIndentedString(currentInstitutionCode)).append("\n");
     sb.append("    currentMemberGuid: ").append(toIndentedString(currentMemberGuid)).append("\n");
+    sb.append("    disableBackgroundAgg: ").append(toIndentedString(disableBackgroundAgg)).append("\n");
     sb.append("    disableInstitutionSearch: ").append(toIndentedString(disableInstitutionSearch)).append("\n");
+    sb.append("    includeIdentity: ").append(toIndentedString(includeIdentity)).append("\n");
     sb.append("    includeTransactions: ").append(toIndentedString(includeTransactions)).append("\n");
     sb.append("    isMobileWebview: ").append(toIndentedString(isMobileWebview)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
+    sb.append("    oauthReferralSource: ").append(toIndentedString(oauthReferralSource)).append("\n");
     sb.append("    uiMessageVersion: ").append(toIndentedString(uiMessageVersion)).append("\n");
     sb.append("    uiMessageWebviewUrlScheme: ").append(toIndentedString(uiMessageWebviewUrlScheme)).append("\n");
     sb.append("    updateCredentials: ").append(toIndentedString(updateCredentials)).append("\n");

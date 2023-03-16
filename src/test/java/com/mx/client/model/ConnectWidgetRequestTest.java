@@ -73,11 +73,27 @@ public class ConnectWidgetRequestTest {
     }
 
     /**
+     * Test the property 'disableBackgroundAgg'
+     */
+    @Test
+    public void disableBackgroundAggTest() {
+        // TODO: test disableBackgroundAgg
+    }
+
+    /**
      * Test the property 'disableInstitutionSearch'
      */
     @Test
     public void disableInstitutionSearchTest() {
         // TODO: test disableInstitutionSearch
+    }
+
+    /**
+     * Test the property 'includeIdentity'
+     */
+    @Test
+    public void includeIdentityTest() {
+        // TODO: test includeIdentity
     }
 
     /**
@@ -102,6 +118,14 @@ public class ConnectWidgetRequestTest {
     @Test
     public void modeTest() {
         // TODO: test mode
+    }
+
+    /**
+     * Test the property 'oauthReferralSource'
+     */
+    @Test
+    public void oauthReferralSourceTest() {
+        // TODO: test oauthReferralSource
     }
 
     /**

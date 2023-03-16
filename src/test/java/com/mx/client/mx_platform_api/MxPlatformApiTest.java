@@ -782,6 +782,25 @@ public class MxPlatformApiTest {
     }
     
     /**
+     * List accounts by member
+     *
+     * This endpoint returns a list of all the accounts associated with the specified &#x60;member&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listMemberAccountsTest() throws ApiException {
+        String userGuid = null;
+        String memberGuid = null;
+        Boolean memberIsManagedByUser = null;
+        Integer page = null;
+        Integer recordsPerPage = null;
+                AccountsResponseBody response = api.listMemberAccounts(userGuid, memberGuid, memberIsManagedByUser, page, recordsPerPage);
+        // TODO: test validations
+    }
+    
+    /**
      * List member challenges
      *
      * Use this endpoint for information on what multi-factor authentication challenges need to be answered in order to aggregate a member. If the aggregation is not challenged, i.e., the member does not have a connection status of &#x60;CHALLENGED&#x60;, then code &#x60;204 No Content&#x60; will be returned. If the aggregation has been challenged, i.e., the member does have a connection status of &#x60;CHALLENGED&#x60;, then code &#x60;200 OK&#x60; will be returned - along with the corresponding credentials.
@@ -1009,9 +1028,10 @@ public class MxPlatformApiTest {
     @Test
     public void listUserAccountsTest() throws ApiException {
         String userGuid = null;
+        Boolean memberIsManagedByUser = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                AccountsResponseBody response = api.listUserAccounts(userGuid, page, recordsPerPage);
+                AccountsResponseBody response = api.listUserAccounts(userGuid, memberIsManagedByUser, page, recordsPerPage);
         // TODO: test validations
     }
     
@@ -1027,7 +1047,10 @@ public class MxPlatformApiTest {
     public void listUsersTest() throws ApiException {
         Integer page = null;
         Integer recordsPerPage = null;
-                UsersResponseBody response = api.listUsers(page, recordsPerPage);
+        String id = null;
+        String email = null;
+        Boolean isDisabled = null;
+                UsersResponseBody response = api.listUsers(page, recordsPerPage, id, email, isDisabled);
         // TODO: test validations
     }
     
@@ -1044,6 +1067,23 @@ public class MxPlatformApiTest {
         String accountGuid = null;
         String userGuid = null;
                 AccountResponseBody response = api.readAccount(accountGuid, userGuid);
+        // TODO: test validations
+    }
+    
+    /**
+     * Read account by member
+     *
+     * This endpoint allows you to read the attributes of an &#x60;account&#x60; resource.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void readAccountByMemberTest() throws ApiException {
+        String accountGuid = null;
+        String memberGuid = null;
+        String userGuid = null;
+                AccountResponseBody response = api.readAccountByMember(accountGuid, memberGuid, userGuid);
         // TODO: test validations
     }
     

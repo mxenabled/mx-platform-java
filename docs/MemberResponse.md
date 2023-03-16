@@ -8,6 +8,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **aggregatedAt** | **String** |  |  [optional]
+**backgroundAggregationIsDisabled** | **Boolean** |  |  [optional]
 **connectionStatus** | **String** |  |  [optional]
 **guid** | **String** |  |  [optional]
 **id** | **String** |  |  [optional]

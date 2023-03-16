@@ -50,6 +50,10 @@ public class AccountNumberResponse {
   @SerializedName(SERIALIZED_NAME_MEMBER_GUID)
   private String memberGuid;
 
+  public static final String SERIALIZED_NAME_PASSED_VALIDATION = "passed_validation";
+  @SerializedName(SERIALIZED_NAME_PASSED_VALIDATION)
+  private Boolean passedValidation;
+
   public static final String SERIALIZED_NAME_ROUTING_NUMBER = "routing_number";
   @SerializedName(SERIALIZED_NAME_ROUTING_NUMBER)
   private String routingNumber;
@@ -180,6 +184,29 @@ public class AccountNumberResponse {
   }
 
 
+  public AccountNumberResponse passedValidation(Boolean passedValidation) {
+    
+    this.passedValidation = passedValidation;
+    return this;
+  }
+
+   /**
+   * Get passedValidation
+   * @return passedValidation
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "true", value = "")
+
+  public Boolean getPassedValidation() {
+    return passedValidation;
+  }
+
+
+  public void setPassedValidation(Boolean passedValidation) {
+    this.passedValidation = passedValidation;
+  }
+
+
   public AccountNumberResponse routingNumber(String routingNumber) {
     
     this.routingNumber = routingNumber;
@@ -263,6 +290,7 @@ public class AccountNumberResponse {
         Objects.equals(this.guid, accountNumberResponse.guid) &&
         Objects.equals(this.institutionNumber, accountNumberResponse.institutionNumber) &&
         Objects.equals(this.memberGuid, accountNumberResponse.memberGuid) &&
+        Objects.equals(this.passedValidation, accountNumberResponse.passedValidation) &&
         Objects.equals(this.routingNumber, accountNumberResponse.routingNumber) &&
         Objects.equals(this.transitNumber, accountNumberResponse.transitNumber) &&
         Objects.equals(this.userGuid, accountNumberResponse.userGuid);
@@ -274,7 +302,7 @@ public class AccountNumberResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountGuid, accountNumber, guid, institutionNumber, memberGuid, routingNumber, transitNumber, userGuid);
+    return Objects.hash(accountGuid, accountNumber, guid, institutionNumber, memberGuid, passedValidation, routingNumber, transitNumber, userGuid);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -293,6 +321,7 @@ public class AccountNumberResponse {
     sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    institutionNumber: ").append(toIndentedString(institutionNumber)).append("\n");
     sb.append("    memberGuid: ").append(toIndentedString(memberGuid)).append("\n");
+    sb.append("    passedValidation: ").append(toIndentedString(passedValidation)).append("\n");
     sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
     sb.append("    transitNumber: ").append(toIndentedString(transitNumber)).append("\n");
     sb.append("    userGuid: ").append(toIndentedString(userGuid)).append("\n");
