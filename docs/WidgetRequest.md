@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **currentInstitutionCode** | **String** |  |  [optional]
 **currentInstitutionGuid** | **String** |  |  [optional]
 **currentMemberGuid** | **String** |  |  [optional]
+**disableBackgroundAgg** | **Boolean** |  |  [optional]
 **disableInstitutionSearch** | **Boolean** |  |  [optional]
 **includeIdentity** | **Boolean** |  |  [optional]
 **includeTransactions** | **Boolean** |  |  [optional]

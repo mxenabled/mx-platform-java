@@ -49,6 +49,10 @@ public class WidgetRequest {
   @SerializedName(SERIALIZED_NAME_CURRENT_MEMBER_GUID)
   private String currentMemberGuid;
 
+  public static final String SERIALIZED_NAME_DISABLE_BACKGROUND_AGG = "disable_background_agg";
+  @SerializedName(SERIALIZED_NAME_DISABLE_BACKGROUND_AGG)
+  private Boolean disableBackgroundAgg;
+
   public static final String SERIALIZED_NAME_DISABLE_INSTITUTION_SEARCH = "disable_institution_search";
   @SerializedName(SERIALIZED_NAME_DISABLE_INSTITUTION_SEARCH)
   private Boolean disableInstitutionSearch;
@@ -207,9 +211,39 @@ public class WidgetRequest {
   }
 
 
+  public WidgetRequest disableBackgroundAgg(Boolean disableBackgroundAgg) {
+    
+    this.disableBackgroundAgg = disableBackgroundAgg;
+    return this;
+  }
+
+
   public WidgetRequest disableInstitutionSearch(Boolean disableInstitutionSearch) {
     
     this.disableInstitutionSearch = disableInstitutionSearch;
+    return this;
+  }
+
+   /**
+   * Get disableBackgroundAgg
+   * @return disableBackgroundAgg
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "")
+
+  public Boolean getDisableBackgroundAgg() {
+    return disableBackgroundAgg;
+  }
+
+
+  public void setDisableBackgroundAgg(Boolean disableBackgroundAgg) {
+    this.disableBackgroundAgg = disableBackgroundAgg;
+  }
+
+
+  public WidgetRequest includeIdentity(Boolean includeIdentity) {
+    
+    this.includeIdentity = includeIdentity;
     return this;
   }
 
@@ -451,6 +485,7 @@ public class WidgetRequest {
         Objects.equals(this.currentInstitutionCode, widgetRequest.currentInstitutionCode) &&
         Objects.equals(this.currentInstitutionGuid, widgetRequest.currentInstitutionGuid) &&
         Objects.equals(this.currentMemberGuid, widgetRequest.currentMemberGuid) &&
+        Objects.equals(this.disableBackgroundAgg, widgetRequest.disableBackgroundAgg) &&
         Objects.equals(this.disableInstitutionSearch, widgetRequest.disableInstitutionSearch) &&
         Objects.equals(this.includeIdentity, widgetRequest.includeIdentity) &&
         Objects.equals(this.includeTransactions, widgetRequest.includeTransactions) &&
@@ -465,7 +500,7 @@ public class WidgetRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientRedirectUrl, colorScheme, currentInstitutionCode, currentInstitutionGuid, currentMemberGuid, disableInstitutionSearch, includeIdentity, includeTransactions, isMobileWebview, mode, oauthReferralSource, uiMessageVersion, uiMessageWebviewUrlScheme, updateCredentials, widgetType);
+    return Objects.hash(clientRedirectUrl, colorScheme, currentInstitutionCode, currentInstitutionGuid, currentMemberGuid, disableBackgroundAgg, disableInstitutionSearch, includeIdentity, includeTransactions, isMobileWebview, mode, oauthReferralSource, uiMessageVersion, uiMessageWebviewUrlScheme, updateCredentials, widgetType);
   }
 
   @Override
@@ -477,6 +512,7 @@ public class WidgetRequest {
     sb.append("    currentInstitutionCode: ").append(toIndentedString(currentInstitutionCode)).append("\n");
     sb.append("    currentInstitutionGuid: ").append(toIndentedString(currentInstitutionGuid)).append("\n");
     sb.append("    currentMemberGuid: ").append(toIndentedString(currentMemberGuid)).append("\n");
+    sb.append("    disableBackgroundAgg: ").append(toIndentedString(disableBackgroundAgg)).append("\n");
     sb.append("    disableInstitutionSearch: ").append(toIndentedString(disableInstitutionSearch)).append("\n");
     sb.append("    includeIdentity: ").append(toIndentedString(includeIdentity)).append("\n");
     sb.append("    includeTransactions: ").append(toIndentedString(includeTransactions)).append("\n");
