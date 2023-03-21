@@ -81,6 +81,14 @@ public class WidgetRequestTest {
     }
 
     /**
+     * Test the property 'disableBackgroundAgg'
+     */
+    @Test
+    public void disableBackgroundAggTest() {
+        // TODO: test disableBackgroundAgg
+    }
+
+    /**
      * Test the property 'disableInstitutionSearch'
      */
     @Test
