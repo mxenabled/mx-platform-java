@@ -9,6 +9,10 @@ docs/AccountResponseBody.md
 docs/AccountUpdateRequest.md
 docs/AccountUpdateRequestBody.md
 docs/AccountsResponseBody.md
+docs/AuthorizationCodeRequest.md
+docs/AuthorizationCodeRequestBody.md
+docs/AuthorizationCodeResponse.md
+docs/AuthorizationCodeResponseBody.md
 docs/CategoriesResponseBody.md
 docs/CategoryCreateRequest.md
 docs/CategoryCreateRequestBody.md
@@ -69,6 +73,10 @@ docs/OAuthWindowResponse.md
 docs/OAuthWindowResponseBody.md
 docs/OptionResponse.md
 docs/PaginationResponse.md
+docs/PaymentProcessorAuthorizationCodeRequest.md
+docs/PaymentProcessorAuthorizationCodeRequestBody.md
+docs/PaymentProcessorAuthorizationCodeResponse.md
+docs/PaymentProcessorAuthorizationCodeResponseBody.md
 docs/StatementResponse.md
 docs/StatementResponseBody.md
 docs/StatementsResponseBody.md
@@ -137,6 +145,10 @@ src/main/java/com/mx/client/model/AccountResponseBody.java
 src/main/java/com/mx/client/model/AccountUpdateRequest.java
 src/main/java/com/mx/client/model/AccountUpdateRequestBody.java
 src/main/java/com/mx/client/model/AccountsResponseBody.java
+src/main/java/com/mx/client/model/AuthorizationCodeRequest.java
+src/main/java/com/mx/client/model/AuthorizationCodeRequestBody.java
+src/main/java/com/mx/client/model/AuthorizationCodeResponse.java
+src/main/java/com/mx/client/model/AuthorizationCodeResponseBody.java
 src/main/java/com/mx/client/model/CategoriesResponseBody.java
 src/main/java/com/mx/client/model/CategoryCreateRequest.java
 src/main/java/com/mx/client/model/CategoryCreateRequestBody.java
@@ -196,6 +208,10 @@ src/main/java/com/mx/client/model/OAuthWindowResponse.java
 src/main/java/com/mx/client/model/OAuthWindowResponseBody.java
 src/main/java/com/mx/client/model/OptionResponse.java
 src/main/java/com/mx/client/model/PaginationResponse.java
+src/main/java/com/mx/client/model/PaymentProcessorAuthorizationCodeRequest.java
+src/main/java/com/mx/client/model/PaymentProcessorAuthorizationCodeRequestBody.java
+src/main/java/com/mx/client/model/PaymentProcessorAuthorizationCodeResponse.java
+src/main/java/com/mx/client/model/PaymentProcessorAuthorizationCodeResponseBody.java
 src/main/java/com/mx/client/model/StatementResponse.java
 src/main/java/com/mx/client/model/StatementResponseBody.java
 src/main/java/com/mx/client/model/StatementsResponseBody.java
@@ -246,6 +262,10 @@ src/test/java/com/mx/client/model/AccountResponseTest.java
 src/test/java/com/mx/client/model/AccountUpdateRequestBodyTest.java
 src/test/java/com/mx/client/model/AccountUpdateRequestTest.java
 src/test/java/com/mx/client/model/AccountsResponseBodyTest.java
+src/test/java/com/mx/client/model/AuthorizationCodeRequestBodyTest.java
+src/test/java/com/mx/client/model/AuthorizationCodeRequestTest.java
+src/test/java/com/mx/client/model/AuthorizationCodeResponseBodyTest.java
+src/test/java/com/mx/client/model/AuthorizationCodeResponseTest.java
 src/test/java/com/mx/client/model/CategoriesResponseBodyTest.java
 src/test/java/com/mx/client/model/CategoryCreateRequestBodyTest.java
 src/test/java/com/mx/client/model/CategoryCreateRequestTest.java
@@ -305,6 +325,10 @@ src/test/java/com/mx/client/model/OAuthWindowResponseBodyTest.java
 src/test/java/com/mx/client/model/OAuthWindowResponseTest.java
 src/test/java/com/mx/client/model/OptionResponseTest.java
 src/test/java/com/mx/client/model/PaginationResponseTest.java
+src/test/java/com/mx/client/model/PaymentProcessorAuthorizationCodeRequestBodyTest.java
+src/test/java/com/mx/client/model/PaymentProcessorAuthorizationCodeRequestTest.java
+src/test/java/com/mx/client/model/PaymentProcessorAuthorizationCodeResponseBodyTest.java
+src/test/java/com/mx/client/model/PaymentProcessorAuthorizationCodeResponseTest.java
 src/test/java/com/mx/client/model/StatementResponseBodyTest.java
 src/test/java/com/mx/client/model/StatementResponseTest.java
 src/test/java/com/mx/client/model/StatementsResponseBodyTest.java

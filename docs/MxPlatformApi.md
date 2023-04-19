@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**deleteTagging**](MxPlatformApi.md#deleteTagging) | **DELETE** /users/{user_guid}/taggings/{tagging_guid} | Delete tagging
 [**deleteTransactionRule**](MxPlatformApi.md#deleteTransactionRule) | **DELETE** /users/{user_guid}/transaction_rules/{transaction_rule_guid} | Delete transaction rule
 [**deleteUser**](MxPlatformApi.md#deleteUser) | **DELETE** /users/{user_guid} | Delete user
+[**deprecatedRequestPaymentProcessorAuthorizationCode**](MxPlatformApi.md#deprecatedRequestPaymentProcessorAuthorizationCode) | **POST** /payment_processor_authorization_code | (Deprecated) Request an authorization code.
 [**downloadStatementPDF**](MxPlatformApi.md#downloadStatementPDF) | **GET** /users/{user_guid}/members/{member_guid}/statements/{statement_guid}.pdf | Download statement pdf
 [**enhanceTransactions**](MxPlatformApi.md#enhanceTransactions) | **POST** /transactions/enhance | Enhance transactions
 [**extendHistory**](MxPlatformApi.md#extendHistory) | **POST** /users/{user_guid}/members/{member_guid}/extend_history | Extend history
@@ -79,6 +80,7 @@ Method | HTTP request | Description
 [**readTransaction**](MxPlatformApi.md#readTransaction) | **GET** /users/{user_guid}/transactions/{transaction_guid} | Read transaction
 [**readTransactionRule**](MxPlatformApi.md#readTransactionRule) | **GET** /users/{user_guid}/transaction_rules/{transaction_rule_guid} | Read transaction rule
 [**readUser**](MxPlatformApi.md#readUser) | **GET** /users/{user_guid} | Read user
+[**requestAuthorizationCode**](MxPlatformApi.md#requestAuthorizationCode) | **POST** /authorization_code | Request an authorization code.
 [**requestConnectWidgetURL**](MxPlatformApi.md#requestConnectWidgetURL) | **POST** /users/{user_guid}/connect_widget_url | Request connect widget url
 [**requestOAuthWindowURI**](MxPlatformApi.md#requestOAuthWindowURI) | **GET** /users/{user_guid}/members/{member_guid}/oauth_window_uri | Request oauth window uri
 [**requestWidgetURL**](MxPlatformApi.md#requestWidgetURL) | **POST** /users/{user_guid}/widget_urls | Request widget url
@@ -1495,6 +1497,74 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
+
+<a name="deprecatedRequestPaymentProcessorAuthorizationCode"></a>
+# **deprecatedRequestPaymentProcessorAuthorizationCode**
+> PaymentProcessorAuthorizationCodeResponseBody deprecatedRequestPaymentProcessorAuthorizationCode(paymentProcessorAuthorizationCodeRequestBody)
+
+(Deprecated) Request an authorization code.
+
+(This endpoint is deprecated. Clients should use &#x60;/authorization_code&#x60;.) Clients use this endpoint to request an authorization_code according to a user, member, and account specified in the request body. Clients then pass this code to processors. Processor access is scoped only to the user/member/account specified in this request. Before requesting an authorization_code, clients must have verified the specified member.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody = new PaymentProcessorAuthorizationCodeRequestBody(); // PaymentProcessorAuthorizationCodeRequestBody | The scope for the authorization code.
+    try {
+      PaymentProcessorAuthorizationCodeResponseBody result = apiInstance.deprecatedRequestPaymentProcessorAuthorizationCode(paymentProcessorAuthorizationCodeRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#deprecatedRequestPaymentProcessorAuthorizationCode");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **paymentProcessorAuthorizationCodeRequestBody** | [**PaymentProcessorAuthorizationCodeRequestBody**](PaymentProcessorAuthorizationCodeRequestBody.md)| The scope for the authorization code. |
+
+### Return type
+
+[**PaymentProcessorAuthorizationCodeResponseBody**](PaymentProcessorAuthorizationCodeResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 <a name="downloadStatementPDF"></a>
 # **downloadStatementPDF**
@@ -5467,6 +5537,74 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+<a name="requestAuthorizationCode"></a>
+# **requestAuthorizationCode**
+> AuthorizationCodeResponseBody requestAuthorizationCode(authorizationCodeRequestBody)
+
+Request an authorization code.
+
+Clients use this endpoint to request an authorization code according to the parameters specified in the scope. Clients then pass this code to processors. Processor access is scoped only to the GUIDs and features specified in this request. Before requesting an authorization code which includes a member in the scope, clients must have verified that member.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    AuthorizationCodeRequestBody authorizationCodeRequestBody = new AuthorizationCodeRequestBody(); // AuthorizationCodeRequestBody | The scope for the authorization code.
+    try {
+      AuthorizationCodeResponseBody result = apiInstance.requestAuthorizationCode(authorizationCodeRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#requestAuthorizationCode");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorizationCodeRequestBody** | [**AuthorizationCodeRequestBody**](AuthorizationCodeRequestBody.md)| The scope for the authorization code. |
+
+### Return type
+
+[**AuthorizationCodeResponseBody**](AuthorizationCodeResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/vnd.mx.api.v1+json
 
 ### HTTP response details

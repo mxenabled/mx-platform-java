@@ -32,6 +32,8 @@ import com.mx.client.model.AccountOwnersResponseBody;
 import com.mx.client.model.AccountResponseBody;
 import com.mx.client.model.AccountUpdateRequestBody;
 import com.mx.client.model.AccountsResponseBody;
+import com.mx.client.model.AuthorizationCodeRequestBody;
+import com.mx.client.model.AuthorizationCodeResponseBody;
 import com.mx.client.model.CategoriesResponseBody;
 import com.mx.client.model.CategoryCreateRequestBody;
 import com.mx.client.model.CategoryResponseBody;
@@ -63,6 +65,8 @@ import com.mx.client.model.MerchantLocationResponseBody;
 import com.mx.client.model.MerchantResponseBody;
 import com.mx.client.model.MerchantsResponseBody;
 import com.mx.client.model.OAuthWindowResponseBody;
+import com.mx.client.model.PaymentProcessorAuthorizationCodeRequestBody;
+import com.mx.client.model.PaymentProcessorAuthorizationCodeResponseBody;
 import com.mx.client.model.StatementResponseBody;
 import com.mx.client.model.StatementsResponseBody;
 import com.mx.client.model.TagCreateRequestBody;
@@ -2883,6 +2887,133 @@ public class MxPlatformApi {
 
         okhttp3.Call localVarCall = deleteUserValidateBeforeCall(userGuid, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deprecatedRequestPaymentProcessorAuthorizationCode
+     * @param paymentProcessorAuthorizationCodeRequestBody The scope for the authorization code. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deprecatedRequestPaymentProcessorAuthorizationCodeCall(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = paymentProcessorAuthorizationCodeRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/payment_processor_authorization_code";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deprecatedRequestPaymentProcessorAuthorizationCodeValidateBeforeCall(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'paymentProcessorAuthorizationCodeRequestBody' is set
+        if (paymentProcessorAuthorizationCodeRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'paymentProcessorAuthorizationCodeRequestBody' when calling deprecatedRequestPaymentProcessorAuthorizationCode(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deprecatedRequestPaymentProcessorAuthorizationCodeCall(paymentProcessorAuthorizationCodeRequestBody, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * (Deprecated) Request an authorization code.
+     * (This endpoint is deprecated. Clients should use &#x60;/authorization_code&#x60;.) Clients use this endpoint to request an authorization_code according to a user, member, and account specified in the request body. Clients then pass this code to processors. Processor access is scoped only to the user/member/account specified in this request. Before requesting an authorization_code, clients must have verified the specified member.
+     * @param paymentProcessorAuthorizationCodeRequestBody The scope for the authorization code. (required)
+     * @return PaymentProcessorAuthorizationCodeResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public PaymentProcessorAuthorizationCodeResponseBody deprecatedRequestPaymentProcessorAuthorizationCode(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody) throws ApiException {
+        ApiResponse<PaymentProcessorAuthorizationCodeResponseBody> localVarResp = deprecatedRequestPaymentProcessorAuthorizationCodeWithHttpInfo(paymentProcessorAuthorizationCodeRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * (Deprecated) Request an authorization code.
+     * (This endpoint is deprecated. Clients should use &#x60;/authorization_code&#x60;.) Clients use this endpoint to request an authorization_code according to a user, member, and account specified in the request body. Clients then pass this code to processors. Processor access is scoped only to the user/member/account specified in this request. Before requesting an authorization_code, clients must have verified the specified member.
+     * @param paymentProcessorAuthorizationCodeRequestBody The scope for the authorization code. (required)
+     * @return ApiResponse&lt;PaymentProcessorAuthorizationCodeResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<PaymentProcessorAuthorizationCodeResponseBody> deprecatedRequestPaymentProcessorAuthorizationCodeWithHttpInfo(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = deprecatedRequestPaymentProcessorAuthorizationCodeValidateBeforeCall(paymentProcessorAuthorizationCodeRequestBody, null);
+        Type localVarReturnType = new TypeToken<PaymentProcessorAuthorizationCodeResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * (Deprecated) Request an authorization code. (asynchronously)
+     * (This endpoint is deprecated. Clients should use &#x60;/authorization_code&#x60;.) Clients use this endpoint to request an authorization_code according to a user, member, and account specified in the request body. Clients then pass this code to processors. Processor access is scoped only to the user/member/account specified in this request. Before requesting an authorization_code, clients must have verified the specified member.
+     * @param paymentProcessorAuthorizationCodeRequestBody The scope for the authorization code. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deprecatedRequestPaymentProcessorAuthorizationCodeAsync(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody, final ApiCallback<PaymentProcessorAuthorizationCodeResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deprecatedRequestPaymentProcessorAuthorizationCodeValidateBeforeCall(paymentProcessorAuthorizationCodeRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<PaymentProcessorAuthorizationCodeResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
@@ -10939,6 +11070,133 @@ public class MxPlatformApi {
 
         okhttp3.Call localVarCall = readUserValidateBeforeCall(userGuid, _callback);
         Type localVarReturnType = new TypeToken<UserResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for requestAuthorizationCode
+     * @param authorizationCodeRequestBody The scope for the authorization code. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call requestAuthorizationCodeCall(AuthorizationCodeRequestBody authorizationCodeRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = authorizationCodeRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/authorization_code";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call requestAuthorizationCodeValidateBeforeCall(AuthorizationCodeRequestBody authorizationCodeRequestBody, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'authorizationCodeRequestBody' is set
+        if (authorizationCodeRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'authorizationCodeRequestBody' when calling requestAuthorizationCode(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = requestAuthorizationCodeCall(authorizationCodeRequestBody, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Request an authorization code.
+     * Clients use this endpoint to request an authorization code according to the parameters specified in the scope. Clients then pass this code to processors. Processor access is scoped only to the GUIDs and features specified in this request. Before requesting an authorization code which includes a member in the scope, clients must have verified that member.
+     * @param authorizationCodeRequestBody The scope for the authorization code. (required)
+     * @return AuthorizationCodeResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public AuthorizationCodeResponseBody requestAuthorizationCode(AuthorizationCodeRequestBody authorizationCodeRequestBody) throws ApiException {
+        ApiResponse<AuthorizationCodeResponseBody> localVarResp = requestAuthorizationCodeWithHttpInfo(authorizationCodeRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Request an authorization code.
+     * Clients use this endpoint to request an authorization code according to the parameters specified in the scope. Clients then pass this code to processors. Processor access is scoped only to the GUIDs and features specified in this request. Before requesting an authorization code which includes a member in the scope, clients must have verified that member.
+     * @param authorizationCodeRequestBody The scope for the authorization code. (required)
+     * @return ApiResponse&lt;AuthorizationCodeResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AuthorizationCodeResponseBody> requestAuthorizationCodeWithHttpInfo(AuthorizationCodeRequestBody authorizationCodeRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = requestAuthorizationCodeValidateBeforeCall(authorizationCodeRequestBody, null);
+        Type localVarReturnType = new TypeToken<AuthorizationCodeResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Request an authorization code. (asynchronously)
+     * Clients use this endpoint to request an authorization code according to the parameters specified in the scope. Clients then pass this code to processors. Processor access is scoped only to the GUIDs and features specified in this request. Before requesting an authorization code which includes a member in the scope, clients must have verified that member.
+     * @param authorizationCodeRequestBody The scope for the authorization code. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call requestAuthorizationCodeAsync(AuthorizationCodeRequestBody authorizationCodeRequestBody, final ApiCallback<AuthorizationCodeResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = requestAuthorizationCodeValidateBeforeCall(authorizationCodeRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<AuthorizationCodeResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
