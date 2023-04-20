@@ -19,6 +19,8 @@ import com.mx.client.model.AccountOwnersResponseBody;
 import com.mx.client.model.AccountResponseBody;
 import com.mx.client.model.AccountUpdateRequestBody;
 import com.mx.client.model.AccountsResponseBody;
+import com.mx.client.model.AuthorizationCodeRequestBody;
+import com.mx.client.model.AuthorizationCodeResponseBody;
 import com.mx.client.model.CategoriesResponseBody;
 import com.mx.client.model.CategoryCreateRequestBody;
 import com.mx.client.model.CategoryResponseBody;
@@ -50,6 +52,8 @@ import com.mx.client.model.MerchantLocationResponseBody;
 import com.mx.client.model.MerchantResponseBody;
 import com.mx.client.model.MerchantsResponseBody;
 import com.mx.client.model.OAuthWindowResponseBody;
+import com.mx.client.model.PaymentProcessorAuthorizationCodeRequestBody;
+import com.mx.client.model.PaymentProcessorAuthorizationCodeResponseBody;
 import com.mx.client.model.StatementResponseBody;
 import com.mx.client.model.StatementsResponseBody;
 import com.mx.client.model.TagCreateRequestBody;
@@ -411,6 +415,21 @@ public class MxPlatformApiTest {
     public void deleteUserTest() throws ApiException {
         String userGuid = null;
                 api.deleteUser(userGuid);
+        // TODO: test validations
+    }
+    
+    /**
+     * (Deprecated) Request an authorization code.
+     *
+     * (This endpoint is deprecated. Clients should use &#x60;/authorization_code&#x60;.) Clients use this endpoint to request an authorization_code according to a user, member, and account specified in the request body. Clients then pass this code to processors. Processor access is scoped only to the user/member/account specified in this request. Before requesting an authorization_code, clients must have verified the specified member.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deprecatedRequestPaymentProcessorAuthorizationCodeTest() throws ApiException {
+        PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody = null;
+                PaymentProcessorAuthorizationCodeResponseBody response = api.deprecatedRequestPaymentProcessorAuthorizationCode(paymentProcessorAuthorizationCodeRequestBody);
         // TODO: test validations
     }
     
@@ -1355,6 +1374,21 @@ public class MxPlatformApiTest {
     public void readUserTest() throws ApiException {
         String userGuid = null;
                 UserResponseBody response = api.readUser(userGuid);
+        // TODO: test validations
+    }
+    
+    /**
+     * Request an authorization code.
+     *
+     * Clients use this endpoint to request an authorization code according to the parameters specified in the scope. Clients then pass this code to processors. Processor access is scoped only to the GUIDs and features specified in this request. Before requesting an authorization code which includes a member in the scope, clients must have verified that member.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void requestAuthorizationCodeTest() throws ApiException {
+        AuthorizationCodeRequestBody authorizationCodeRequestBody = null;
+                AuthorizationCodeResponseBody response = api.requestAuthorizationCode(authorizationCodeRequestBody);
         // TODO: test validations
     }
     
