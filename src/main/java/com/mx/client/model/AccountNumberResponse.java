@@ -80,7 +80,7 @@ public class AccountNumberResponse {
    * @return accountGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1", value = "")
+  @ApiModelProperty(example = "ACT-06d7f45b-caae-0f6e-1384-01f52e75dcb1", value = "")
 
   public String getAccountGuid() {
     return accountGuid;

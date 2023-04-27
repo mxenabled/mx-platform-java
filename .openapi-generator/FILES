@@ -94,6 +94,9 @@ docs/TaggingUpdateRequest.md
 docs/TaggingUpdateRequestBody.md
 docs/TaggingsResponseBody.md
 docs/TagsResponseBody.md
+docs/TaxDocumentResponse.md
+docs/TaxDocumentResponseBody.md
+docs/TaxDocumentsResponseBody.md
 docs/TransactionResponse.md
 docs/TransactionResponseBody.md
 docs/TransactionRuleCreateRequest.md
@@ -229,6 +232,9 @@ src/main/java/com/mx/client/model/TaggingUpdateRequest.java
 src/main/java/com/mx/client/model/TaggingUpdateRequestBody.java
 src/main/java/com/mx/client/model/TaggingsResponseBody.java
 src/main/java/com/mx/client/model/TagsResponseBody.java
+src/main/java/com/mx/client/model/TaxDocumentResponse.java
+src/main/java/com/mx/client/model/TaxDocumentResponseBody.java
+src/main/java/com/mx/client/model/TaxDocumentsResponseBody.java
 src/main/java/com/mx/client/model/TransactionResponse.java
 src/main/java/com/mx/client/model/TransactionResponseBody.java
 src/main/java/com/mx/client/model/TransactionRuleCreateRequest.java
@@ -346,6 +352,9 @@ src/test/java/com/mx/client/model/TaggingUpdateRequestBodyTest.java
 src/test/java/com/mx/client/model/TaggingUpdateRequestTest.java
 src/test/java/com/mx/client/model/TaggingsResponseBodyTest.java
 src/test/java/com/mx/client/model/TagsResponseBodyTest.java
+src/test/java/com/mx/client/model/TaxDocumentResponseBodyTest.java
+src/test/java/com/mx/client/model/TaxDocumentResponseTest.java
+src/test/java/com/mx/client/model/TaxDocumentsResponseBodyTest.java
 src/test/java/com/mx/client/model/TransactionResponseBodyTest.java
 src/test/java/com/mx/client/model/TransactionResponseTest.java
 src/test/java/com/mx/client/model/TransactionRuleCreateRequestBodyTest.java

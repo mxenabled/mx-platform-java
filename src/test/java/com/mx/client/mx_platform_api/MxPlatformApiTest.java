@@ -64,6 +64,8 @@ import com.mx.client.model.TaggingResponseBody;
 import com.mx.client.model.TaggingUpdateRequestBody;
 import com.mx.client.model.TaggingsResponseBody;
 import com.mx.client.model.TagsResponseBody;
+import com.mx.client.model.TaxDocumentResponseBody;
+import com.mx.client.model.TaxDocumentsResponseBody;
 import com.mx.client.model.TransactionResponseBody;
 import com.mx.client.model.TransactionRuleCreateRequestBody;
 import com.mx.client.model.TransactionRuleResponseBody;
@@ -451,6 +453,23 @@ public class MxPlatformApiTest {
     }
     
     /**
+     * Download a Tax Document PDF
+     *
+     * Use this endpoint to download a PDF version of the specified tax document. The endpoint URL is the base URL appended with the uri of the tax_document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void downloadTaxDocumentTest() throws ApiException {
+        String taxDocumentGuid = null;
+        String memberGuid = null;
+        String userGuid = null;
+                File response = api.downloadTaxDocument(taxDocumentGuid, memberGuid, userGuid);
+        // TODO: test validations
+    }
+    
+    /**
      * Enhance transactions
      *
      * Use this endpoint to categorize, cleanse, and classify transactions. These transactions are not persisted or stored on the MX platform.
@@ -494,6 +513,22 @@ public class MxPlatformApiTest {
         String memberGuid = null;
         String userGuid = null;
                 MemberResponseBody response = api.fetchStatements(memberGuid, userGuid);
+        // TODO: test validations
+    }
+    
+    /**
+     * Fetch Tax Documents
+     *
+     * Use this endpoint to fetch (aggregate) the tax documents associated with the specified member. This request **does not** return the latest tax documents. It just starts the document aggregation process and returns the initial state of the process. You must interact with the newly aggregated data using the other document endpoints in this reference. This request may also trigger multi-factor authentication which requires end-user input and a specific process for answering authentication challenges.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void fetchTaxDocumentsTest() throws ApiException {
+        String memberGuid = null;
+        String userGuid = null;
+                MemberResponseBody response = api.fetchTaxDocuments(memberGuid, userGuid);
         // TODO: test validations
     }
     
@@ -941,6 +976,24 @@ public class MxPlatformApiTest {
     }
     
     /**
+     * List Tax Documents
+     *
+     * Use this endpoint to get a paginated list of tax documents.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listTaxDocumentsTest() throws ApiException {
+        String memberGuid = null;
+        String userGuid = null;
+        Integer page = null;
+        Integer recordsPerPage = null;
+                TaxDocumentsResponseBody response = api.listTaxDocuments(memberGuid, userGuid, page, recordsPerPage);
+        // TODO: test validations
+    }
+    
+    /**
      * List transaction rules
      *
      * Use this endpoint to read the attributes of all existing transaction rules belonging to the user.
@@ -1327,6 +1380,23 @@ public class MxPlatformApiTest {
         String taggingGuid = null;
         String userGuid = null;
                 TaggingResponseBody response = api.readTagging(taggingGuid, userGuid);
+        // TODO: test validations
+    }
+    
+    /**
+     * Read a Tax Document
+     *
+     * Use this endpoint to read the attributes of the specified tax document.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void readTaxDocumentTest() throws ApiException {
+        String taxDocumentGuid = null;
+        String memberGuid = null;
+        String userGuid = null;
+                TaxDocumentResponseBody response = api.readTaxDocument(taxDocumentGuid, memberGuid, userGuid);
         // TODO: test validations
     }
     
