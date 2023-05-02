@@ -26,9 +26,11 @@ Method | HTTP request | Description
 [**deleteUser**](MxPlatformApi.md#deleteUser) | **DELETE** /users/{user_guid} | Delete user
 [**deprecatedRequestPaymentProcessorAuthorizationCode**](MxPlatformApi.md#deprecatedRequestPaymentProcessorAuthorizationCode) | **POST** /payment_processor_authorization_code | (Deprecated) Request an authorization code.
 [**downloadStatementPDF**](MxPlatformApi.md#downloadStatementPDF) | **GET** /users/{user_guid}/members/{member_guid}/statements/{statement_guid}.pdf | Download statement pdf
+[**downloadTaxDocument**](MxPlatformApi.md#downloadTaxDocument) | **GET** /users/{user_guid}/members/{member_guid}/tax_documents/{tax_document_guid}.pdf | Download a Tax Document PDF
 [**enhanceTransactions**](MxPlatformApi.md#enhanceTransactions) | **POST** /transactions/enhance | Enhance transactions
 [**extendHistory**](MxPlatformApi.md#extendHistory) | **POST** /users/{user_guid}/members/{member_guid}/extend_history | Extend history
 [**fetchStatements**](MxPlatformApi.md#fetchStatements) | **POST** /users/{user_guid}/members/{member_guid}/fetch_statements | Fetch statements
+[**fetchTaxDocuments**](MxPlatformApi.md#fetchTaxDocuments) | **POST** /users/{user_guid}/members/{member_guid}/fetch_tax_documents | Fetch Tax Documents
 [**identifyMember**](MxPlatformApi.md#identifyMember) | **POST** /users/{user_guid}/members/{member_guid}/identify | Identify member
 [**listAccountNumbersByAccount**](MxPlatformApi.md#listAccountNumbersByAccount) | **GET** /users/{user_guid}/accounts/{account_guid}/account_numbers | List account numbers by account
 [**listAccountNumbersByMember**](MxPlatformApi.md#listAccountNumbersByMember) | **GET** /users/{user_guid}/members/{member_guid}/account_numbers | List account numbers by member
@@ -54,6 +56,7 @@ Method | HTTP request | Description
 [**listStatementsByMember**](MxPlatformApi.md#listStatementsByMember) | **GET** /users/{user_guid}/members/{member_guid}/statements | List statements by member
 [**listTaggings**](MxPlatformApi.md#listTaggings) | **GET** /users/{user_guid}/taggings | List taggings
 [**listTags**](MxPlatformApi.md#listTags) | **GET** /users/{user_guid}/tags | List tags
+[**listTaxDocuments**](MxPlatformApi.md#listTaxDocuments) | **GET** /users/{user_guid}/members/{member_guid}/tax_documents | List Tax Documents
 [**listTransactionRules**](MxPlatformApi.md#listTransactionRules) | **GET** /users/{user_guid}/transaction_rules | List transaction rules
 [**listTransactions**](MxPlatformApi.md#listTransactions) | **GET** /users/{user_guid}/transactions | List transactions
 [**listTransactionsByAccount**](MxPlatformApi.md#listTransactionsByAccount) | **GET** /users/{user_guid}/accounts/{account_guid}/transactions | List transactions by account
@@ -77,6 +80,7 @@ Method | HTTP request | Description
 [**readStatementByMember**](MxPlatformApi.md#readStatementByMember) | **GET** /users/{user_guid}/members/{member_guid}/statements/{statement_guid} | Read statement by member
 [**readTag**](MxPlatformApi.md#readTag) | **GET** /users/{user_guid}/tags/{tag_guid} | Read tag
 [**readTagging**](MxPlatformApi.md#readTagging) | **GET** /users/{user_guid}/taggings/{tagging_guid} | Read tagging
+[**readTaxDocument**](MxPlatformApi.md#readTaxDocument) | **GET** /users/{user_guid}/members/{member_guid}/tax_documents/{tax_document_guid} | Read a Tax Document
 [**readTransaction**](MxPlatformApi.md#readTransaction) | **GET** /users/{user_guid}/transactions/{transaction_guid} | Read transaction
 [**readTransactionRule**](MxPlatformApi.md#readTransactionRule) | **GET** /users/{user_guid}/transaction_rules/{transaction_rule_guid} | Read transaction rule
 [**readUser**](MxPlatformApi.md#readUser) | **GET** /users/{user_guid} | Read user
@@ -1638,6 +1642,78 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 
+<a name="downloadTaxDocument"></a>
+# **downloadTaxDocument**
+> File downloadTaxDocument(taxDocumentGuid, memberGuid, userGuid)
+
+Download a Tax Document PDF
+
+Use this endpoint to download a PDF version of the specified tax document. The endpoint URL is the base URL appended with the uri of the tax_document.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String taxDocumentGuid = "TAX-987dfds1b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `tax_document`.
+    String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    try {
+      File result = apiInstance.downloadTaxDocument(taxDocumentGuid, memberGuid, userGuid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#downloadTaxDocument");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **taxDocumentGuid** | **String**| The unique id for a &#x60;tax_document&#x60;. |
+ **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+
+### Return type
+
+[**File**](File.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.mx.api.v1+pdf
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 <a name="enhanceTransactions"></a>
 # **enhanceTransactions**
 > EnhanceTransactionsResponseBody enhanceTransactions(enhanceTransactionsRequestBody)
@@ -1812,6 +1888,76 @@ public class Example {
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#fetchStatements");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+
+### Return type
+
+[**MemberResponseBody**](MemberResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Accepted |  -  |
+
+<a name="fetchTaxDocuments"></a>
+# **fetchTaxDocuments**
+> MemberResponseBody fetchTaxDocuments(memberGuid, userGuid)
+
+Fetch Tax Documents
+
+Use this endpoint to fetch (aggregate) the tax documents associated with the specified member. This request **does not** return the latest tax documents. It just starts the document aggregation process and returns the initial state of the process. You must interact with the newly aggregated data using the other document endpoints in this reference. This request may also trigger multi-factor authentication which requires end-user input and a specific process for answering authentication challenges.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    try {
+      MemberResponseBody result = apiInstance.fetchTaxDocuments(memberGuid, userGuid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#fetchTaxDocuments");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -3682,6 +3828,80 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | OK |  -  |
 
+<a name="listTaxDocuments"></a>
+# **listTaxDocuments**
+> TaxDocumentsResponseBody listTaxDocuments(memberGuid, userGuid, page, recordsPerPage)
+
+List Tax Documents
+
+Use this endpoint to get a paginated list of tax documents.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    Integer page = 1; // Integer | Specify current page.
+    Integer recordsPerPage = 10; // Integer | Specify records per page.
+    try {
+      TaxDocumentsResponseBody result = apiInstance.listTaxDocuments(memberGuid, userGuid, page, recordsPerPage);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#listTaxDocuments");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+ **page** | **Integer**| Specify current page. | [optional]
+ **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+
+### Return type
+
+[**TaxDocumentsResponseBody**](TaxDocumentsResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
 <a name="listTransactionRules"></a>
 # **listTransactionRules**
 > TransactionRulesResponseBody listTransactionRules(userGuid, page, recordsPerPage)
@@ -5321,6 +5541,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**TaggingResponseBody**](TaggingResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+<a name="readTaxDocument"></a>
+# **readTaxDocument**
+> TaxDocumentResponseBody readTaxDocument(taxDocumentGuid, memberGuid, userGuid)
+
+Read a Tax Document
+
+Use this endpoint to read the attributes of the specified tax document.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String taxDocumentGuid = "TAX-987dfds1b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `tax_document`.
+    String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    try {
+      TaxDocumentResponseBody result = apiInstance.readTaxDocument(taxDocumentGuid, memberGuid, userGuid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#readTaxDocument");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **taxDocumentGuid** | **String**| The unique id for a &#x60;tax_document&#x60;. |
+ **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+
+### Return type
+
+[**TaxDocumentResponseBody**](TaxDocumentResponseBody.md)
 
 ### Authorization
 

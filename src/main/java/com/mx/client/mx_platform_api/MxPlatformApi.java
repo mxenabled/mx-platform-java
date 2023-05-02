@@ -77,6 +77,8 @@ import com.mx.client.model.TaggingResponseBody;
 import com.mx.client.model.TaggingUpdateRequestBody;
 import com.mx.client.model.TaggingsResponseBody;
 import com.mx.client.model.TagsResponseBody;
+import com.mx.client.model.TaxDocumentResponseBody;
+import com.mx.client.model.TaxDocumentsResponseBody;
 import com.mx.client.model.TransactionResponseBody;
 import com.mx.client.model.TransactionRuleCreateRequestBody;
 import com.mx.client.model.TransactionRuleResponseBody;
@@ -3165,6 +3167,154 @@ public class MxPlatformApi {
         return localVarCall;
     }
     /**
+     * Build call for downloadTaxDocument
+     * @param taxDocumentGuid The unique id for a &#x60;tax_document&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call downloadTaxDocumentCall(String taxDocumentGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/members/{member_guid}/tax_documents/{tax_document_guid}.pdf"
+            .replaceAll("\\{" + "tax_document_guid" + "\\}", localVarApiClient.escapeString(taxDocumentGuid.toString()))
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+pdf"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call downloadTaxDocumentValidateBeforeCall(String taxDocumentGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'taxDocumentGuid' is set
+        if (taxDocumentGuid == null) {
+            throw new ApiException("Missing the required parameter 'taxDocumentGuid' when calling downloadTaxDocument(Async)");
+        }
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling downloadTaxDocument(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling downloadTaxDocument(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = downloadTaxDocumentCall(taxDocumentGuid, memberGuid, userGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Download a Tax Document PDF
+     * Use this endpoint to download a PDF version of the specified tax document. The endpoint URL is the base URL appended with the uri of the tax_document.
+     * @param taxDocumentGuid The unique id for a &#x60;tax_document&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return File
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public File downloadTaxDocument(String taxDocumentGuid, String memberGuid, String userGuid) throws ApiException {
+        ApiResponse<File> localVarResp = downloadTaxDocumentWithHttpInfo(taxDocumentGuid, memberGuid, userGuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Download a Tax Document PDF
+     * Use this endpoint to download a PDF version of the specified tax document. The endpoint URL is the base URL appended with the uri of the tax_document.
+     * @param taxDocumentGuid The unique id for a &#x60;tax_document&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return ApiResponse&lt;File&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<File> downloadTaxDocumentWithHttpInfo(String taxDocumentGuid, String memberGuid, String userGuid) throws ApiException {
+        okhttp3.Call localVarCall = downloadTaxDocumentValidateBeforeCall(taxDocumentGuid, memberGuid, userGuid, null);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Download a Tax Document PDF (asynchronously)
+     * Use this endpoint to download a PDF version of the specified tax document. The endpoint URL is the base URL appended with the uri of the tax_document.
+     * @param taxDocumentGuid The unique id for a &#x60;tax_document&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call downloadTaxDocumentAsync(String taxDocumentGuid, String memberGuid, String userGuid, final ApiCallback<File> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = downloadTaxDocumentValidateBeforeCall(taxDocumentGuid, memberGuid, userGuid, _callback);
+        Type localVarReturnType = new TypeToken<File>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for enhanceTransactions
      * @param enhanceTransactionsRequestBody Transaction object to be enhanced (required)
      * @param _callback Callback for upload/download progress
@@ -3563,6 +3713,144 @@ public class MxPlatformApi {
     public okhttp3.Call fetchStatementsAsync(String memberGuid, String userGuid, final ApiCallback<MemberResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = fetchStatementsValidateBeforeCall(memberGuid, userGuid, _callback);
+        Type localVarReturnType = new TypeToken<MemberResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for fetchTaxDocuments
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchTaxDocumentsCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/members/{member_guid}/fetch_tax_documents"
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call fetchTaxDocumentsValidateBeforeCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling fetchTaxDocuments(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling fetchTaxDocuments(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = fetchTaxDocumentsCall(memberGuid, userGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Fetch Tax Documents
+     * Use this endpoint to fetch (aggregate) the tax documents associated with the specified member. This request **does not** return the latest tax documents. It just starts the document aggregation process and returns the initial state of the process. You must interact with the newly aggregated data using the other document endpoints in this reference. This request may also trigger multi-factor authentication which requires end-user input and a specific process for answering authentication challenges.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return MemberResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+     </table>
+     */
+    public MemberResponseBody fetchTaxDocuments(String memberGuid, String userGuid) throws ApiException {
+        ApiResponse<MemberResponseBody> localVarResp = fetchTaxDocumentsWithHttpInfo(memberGuid, userGuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Fetch Tax Documents
+     * Use this endpoint to fetch (aggregate) the tax documents associated with the specified member. This request **does not** return the latest tax documents. It just starts the document aggregation process and returns the initial state of the process. You must interact with the newly aggregated data using the other document endpoints in this reference. This request may also trigger multi-factor authentication which requires end-user input and a specific process for answering authentication challenges.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return ApiResponse&lt;MemberResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<MemberResponseBody> fetchTaxDocumentsWithHttpInfo(String memberGuid, String userGuid) throws ApiException {
+        okhttp3.Call localVarCall = fetchTaxDocumentsValidateBeforeCall(memberGuid, userGuid, null);
+        Type localVarReturnType = new TypeToken<MemberResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Fetch Tax Documents (asynchronously)
+     * Use this endpoint to fetch (aggregate) the tax documents associated with the specified member. This request **does not** return the latest tax documents. It just starts the document aggregation process and returns the initial state of the process. You must interact with the newly aggregated data using the other document endpoints in this reference. This request may also trigger multi-factor authentication which requires end-user input and a specific process for answering authentication challenges.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchTaxDocumentsAsync(String memberGuid, String userGuid, final ApiCallback<MemberResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = fetchTaxDocumentsValidateBeforeCall(memberGuid, userGuid, _callback);
         Type localVarReturnType = new TypeToken<MemberResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7328,6 +7616,160 @@ public class MxPlatformApi {
         return localVarCall;
     }
     /**
+     * Build call for listTaxDocuments
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTaxDocumentsCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/members/{member_guid}/tax_documents"
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listTaxDocumentsValidateBeforeCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling listTaxDocuments(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling listTaxDocuments(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listTaxDocumentsCall(memberGuid, userGuid, page, recordsPerPage, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List Tax Documents
+     * Use this endpoint to get a paginated list of tax documents.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return TaxDocumentsResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public TaxDocumentsResponseBody listTaxDocuments(String memberGuid, String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<TaxDocumentsResponseBody> localVarResp = listTaxDocumentsWithHttpInfo(memberGuid, userGuid, page, recordsPerPage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Tax Documents
+     * Use this endpoint to get a paginated list of tax documents.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return ApiResponse&lt;TaxDocumentsResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TaxDocumentsResponseBody> listTaxDocumentsWithHttpInfo(String memberGuid, String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listTaxDocumentsValidateBeforeCall(memberGuid, userGuid, page, recordsPerPage, null);
+        Type localVarReturnType = new TypeToken<TaxDocumentsResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Tax Documents (asynchronously)
+     * Use this endpoint to get a paginated list of tax documents.
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listTaxDocumentsAsync(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback<TaxDocumentsResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listTaxDocumentsValidateBeforeCall(memberGuid, userGuid, page, recordsPerPage, _callback);
+        Type localVarReturnType = new TypeToken<TaxDocumentsResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listTransactionRules
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param page Specify current page. (optional)
@@ -10666,6 +11108,154 @@ public class MxPlatformApi {
 
         okhttp3.Call localVarCall = readTaggingValidateBeforeCall(taggingGuid, userGuid, _callback);
         Type localVarReturnType = new TypeToken<TaggingResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for readTaxDocument
+     * @param taxDocumentGuid The unique id for a &#x60;tax_document&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readTaxDocumentCall(String taxDocumentGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/members/{member_guid}/tax_documents/{tax_document_guid}"
+            .replaceAll("\\{" + "tax_document_guid" + "\\}", localVarApiClient.escapeString(taxDocumentGuid.toString()))
+            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call readTaxDocumentValidateBeforeCall(String taxDocumentGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'taxDocumentGuid' is set
+        if (taxDocumentGuid == null) {
+            throw new ApiException("Missing the required parameter 'taxDocumentGuid' when calling readTaxDocument(Async)");
+        }
+        
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling readTaxDocument(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling readTaxDocument(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = readTaxDocumentCall(taxDocumentGuid, memberGuid, userGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read a Tax Document
+     * Use this endpoint to read the attributes of the specified tax document.
+     * @param taxDocumentGuid The unique id for a &#x60;tax_document&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return TaxDocumentResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public TaxDocumentResponseBody readTaxDocument(String taxDocumentGuid, String memberGuid, String userGuid) throws ApiException {
+        ApiResponse<TaxDocumentResponseBody> localVarResp = readTaxDocumentWithHttpInfo(taxDocumentGuid, memberGuid, userGuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read a Tax Document
+     * Use this endpoint to read the attributes of the specified tax document.
+     * @param taxDocumentGuid The unique id for a &#x60;tax_document&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return ApiResponse&lt;TaxDocumentResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<TaxDocumentResponseBody> readTaxDocumentWithHttpInfo(String taxDocumentGuid, String memberGuid, String userGuid) throws ApiException {
+        okhttp3.Call localVarCall = readTaxDocumentValidateBeforeCall(taxDocumentGuid, memberGuid, userGuid, null);
+        Type localVarReturnType = new TypeToken<TaxDocumentResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read a Tax Document (asynchronously)
+     * Use this endpoint to read the attributes of the specified tax document.
+     * @param taxDocumentGuid The unique id for a &#x60;tax_document&#x60;. (required)
+     * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readTaxDocumentAsync(String taxDocumentGuid, String memberGuid, String userGuid, final ApiCallback<TaxDocumentResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = readTaxDocumentValidateBeforeCall(taxDocumentGuid, memberGuid, userGuid, _callback);
+        Type localVarReturnType = new TypeToken<TaxDocumentResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
