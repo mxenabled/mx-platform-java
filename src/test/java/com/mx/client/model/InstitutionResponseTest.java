@@ -50,6 +50,22 @@ public class InstitutionResponseTest {
     }
 
     /**
+     * Test the property 'forgotPasswordUrl'
+     */
+    @Test
+    public void forgotPasswordUrlTest() {
+        // TODO: test forgotPasswordUrl
+    }
+
+    /**
+     * Test the property 'forgotUsernameUrl'
+     */
+    @Test
+    public void forgotUsernameUrlTest() {
+        // TODO: test forgotUsernameUrl
+    }
+
+    /**
      * Test the property 'instructionalText'
      */
     @Test
@@ -119,6 +135,14 @@ public class InstitutionResponseTest {
     @Test
     public void supportsTransactionHistoryTest() {
         // TODO: test supportsTransactionHistory
+    }
+
+    /**
+     * Test the property 'troubleSigningInUrl'
+     */
+    @Test
+    public void troubleSigningInUrlTest() {
+        // TODO: test troubleSigningInUrl
     }
 
     /**

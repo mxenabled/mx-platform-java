@@ -34,6 +34,14 @@ public class InstitutionResponse {
   @SerializedName(SERIALIZED_NAME_CODE)
   private String code;
 
+  public static final String SERIALIZED_NAME_FORGOT_PASSWORD_URL = "forgot_password_url";
+  @SerializedName(SERIALIZED_NAME_FORGOT_PASSWORD_URL)
+  private String forgotPasswordUrl;
+
+  public static final String SERIALIZED_NAME_FORGOT_USERNAME_URL = "forgot_username_url";
+  @SerializedName(SERIALIZED_NAME_FORGOT_USERNAME_URL)
+  private String forgotUsernameUrl;
+
   public static final String SERIALIZED_NAME_INSTRUCTIONAL_TEXT = "instructional_text";
   @SerializedName(SERIALIZED_NAME_INSTRUCTIONAL_TEXT)
   private String instructionalText;
@@ -70,6 +78,10 @@ public class InstitutionResponse {
   @SerializedName(SERIALIZED_NAME_SUPPORTS_TRANSACTION_HISTORY)
   private Boolean supportsTransactionHistory;
 
+  public static final String SERIALIZED_NAME_TROUBLE_SIGNING_IN_URL = "trouble_signing_in_url";
+  @SerializedName(SERIALIZED_NAME_TROUBLE_SIGNING_IN_URL)
+  private String troubleSigningInUrl;
+
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
@@ -97,6 +109,52 @@ public class InstitutionResponse {
 
   public void setCode(String code) {
     this.code = code;
+  }
+
+
+  public InstitutionResponse forgotPasswordUrl(String forgotPasswordUrl) {
+    
+    this.forgotPasswordUrl = forgotPasswordUrl;
+    return this;
+  }
+
+   /**
+   * Get forgotPasswordUrl
+   * @return forgotPasswordUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "https://example.url.chase.com/forgot-password", value = "")
+
+  public String getForgotPasswordUrl() {
+    return forgotPasswordUrl;
+  }
+
+
+  public void setForgotPasswordUrl(String forgotPasswordUrl) {
+    this.forgotPasswordUrl = forgotPasswordUrl;
+  }
+
+
+  public InstitutionResponse forgotUsernameUrl(String forgotUsernameUrl) {
+    
+    this.forgotUsernameUrl = forgotUsernameUrl;
+    return this;
+  }
+
+   /**
+   * Get forgotUsernameUrl
+   * @return forgotUsernameUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "https://example.url.chase.com/forgot-username", value = "")
+
+  public String getForgotUsernameUrl() {
+    return forgotUsernameUrl;
+  }
+
+
+  public void setForgotUsernameUrl(String forgotUsernameUrl) {
+    this.forgotUsernameUrl = forgotUsernameUrl;
   }
 
 
@@ -307,6 +365,29 @@ public class InstitutionResponse {
   }
 
 
+  public InstitutionResponse troubleSigningInUrl(String troubleSigningInUrl) {
+    
+    this.troubleSigningInUrl = troubleSigningInUrl;
+    return this;
+  }
+
+   /**
+   * Get troubleSigningInUrl
+   * @return troubleSigningInUrl
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "https://example.url.chase.com/login-trouble", value = "")
+
+  public String getTroubleSigningInUrl() {
+    return troubleSigningInUrl;
+  }
+
+
+  public void setTroubleSigningInUrl(String troubleSigningInUrl) {
+    this.troubleSigningInUrl = troubleSigningInUrl;
+  }
+
+
   public InstitutionResponse url(String url) {
     
     this.url = url;
@@ -340,6 +421,8 @@ public class InstitutionResponse {
     }
     InstitutionResponse institutionResponse = (InstitutionResponse) o;
     return Objects.equals(this.code, institutionResponse.code) &&
+        Objects.equals(this.forgotPasswordUrl, institutionResponse.forgotPasswordUrl) &&
+        Objects.equals(this.forgotUsernameUrl, institutionResponse.forgotUsernameUrl) &&
         Objects.equals(this.instructionalText, institutionResponse.instructionalText) &&
         Objects.equals(this.mediumLogoUrl, institutionResponse.mediumLogoUrl) &&
         Objects.equals(this.name, institutionResponse.name) &&
@@ -349,6 +432,7 @@ public class InstitutionResponse {
         Objects.equals(this.supportsAccountVerification, institutionResponse.supportsAccountVerification) &&
         Objects.equals(this.supportsOauth, institutionResponse.supportsOauth) &&
         Objects.equals(this.supportsTransactionHistory, institutionResponse.supportsTransactionHistory) &&
+        Objects.equals(this.troubleSigningInUrl, institutionResponse.troubleSigningInUrl) &&
         Objects.equals(this.url, institutionResponse.url);
   }
 
@@ -358,7 +442,7 @@ public class InstitutionResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, instructionalText, mediumLogoUrl, name, smallLogoUrl, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsOauth, supportsTransactionHistory, url);
+    return Objects.hash(code, forgotPasswordUrl, forgotUsernameUrl, instructionalText, mediumLogoUrl, name, smallLogoUrl, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsOauth, supportsTransactionHistory, troubleSigningInUrl, url);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -373,6 +457,8 @@ public class InstitutionResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstitutionResponse {\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
+    sb.append("    forgotPasswordUrl: ").append(toIndentedString(forgotPasswordUrl)).append("\n");
+    sb.append("    forgotUsernameUrl: ").append(toIndentedString(forgotUsernameUrl)).append("\n");
     sb.append("    instructionalText: ").append(toIndentedString(instructionalText)).append("\n");
     sb.append("    mediumLogoUrl: ").append(toIndentedString(mediumLogoUrl)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -382,6 +468,7 @@ public class InstitutionResponse {
     sb.append("    supportsAccountVerification: ").append(toIndentedString(supportsAccountVerification)).append("\n");
     sb.append("    supportsOauth: ").append(toIndentedString(supportsOauth)).append("\n");
     sb.append("    supportsTransactionHistory: ").append(toIndentedString(supportsTransactionHistory)).append("\n");
+    sb.append("    troubleSigningInUrl: ").append(toIndentedString(troubleSigningInUrl)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
