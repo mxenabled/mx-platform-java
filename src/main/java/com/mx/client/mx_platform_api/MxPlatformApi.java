@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import com.mx.client.model.AccountCreateRequestBody;
 import com.mx.client.model.AccountNumbersResponseBody;
 import com.mx.client.model.AccountOwnersResponseBody;
 import com.mx.client.model.AccountResponseBody;
@@ -987,6 +988,143 @@ public class MxPlatformApi {
 
         okhttp3.Call localVarCall = createManagedTransactionValidateBeforeCall(accountGuid, memberGuid, userGuid, managedTransactionCreateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<TransactionResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createManualAccount
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountCreateRequestBody Manual account object to be created. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createManualAccountCall(String userGuid, AccountCreateRequestBody accountCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = accountCreateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/accounts"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createManualAccountValidateBeforeCall(String userGuid, AccountCreateRequestBody accountCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling createManualAccount(Async)");
+        }
+        
+        // verify the required parameter 'accountCreateRequestBody' is set
+        if (accountCreateRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'accountCreateRequestBody' when calling createManualAccount(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createManualAccountCall(userGuid, accountCreateRequestBody, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create manual account
+     * This endpoint can only be used to create manual accounts. Creating a manual account will automatically create it under the Manual Institution member. Since a manual account has no credentials tied to the member, the account will never aggregate or include data from a data feed..
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountCreateRequestBody Manual account object to be created. (required)
+     * @return AccountResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public AccountResponseBody createManualAccount(String userGuid, AccountCreateRequestBody accountCreateRequestBody) throws ApiException {
+        ApiResponse<AccountResponseBody> localVarResp = createManualAccountWithHttpInfo(userGuid, accountCreateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create manual account
+     * This endpoint can only be used to create manual accounts. Creating a manual account will automatically create it under the Manual Institution member. Since a manual account has no credentials tied to the member, the account will never aggregate or include data from a data feed..
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountCreateRequestBody Manual account object to be created. (required)
+     * @return ApiResponse&lt;AccountResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<AccountResponseBody> createManualAccountWithHttpInfo(String userGuid, AccountCreateRequestBody accountCreateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = createManualAccountValidateBeforeCall(userGuid, accountCreateRequestBody, null);
+        Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create manual account (asynchronously)
+     * This endpoint can only be used to create manual accounts. Creating a manual account will automatically create it under the Manual Institution member. Since a manual account has no credentials tied to the member, the account will never aggregate or include data from a data feed..
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param accountCreateRequestBody Manual account object to be created. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createManualAccountAsync(String userGuid, AccountCreateRequestBody accountCreateRequestBody, final ApiCallback<AccountResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createManualAccountValidateBeforeCall(userGuid, accountCreateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<AccountResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2228,6 +2366,140 @@ public class MxPlatformApi {
     public okhttp3.Call deleteManagedTransactionAsync(String accountGuid, String memberGuid, String transactionGuid, String userGuid, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteManagedTransactionValidateBeforeCall(accountGuid, memberGuid, transactionGuid, userGuid, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteManualAccount
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteManualAccountCall(String accountGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/accounts/{account_guid}"
+            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteManualAccountValidateBeforeCall(String accountGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'accountGuid' is set
+        if (accountGuid == null) {
+            throw new ApiException("Missing the required parameter 'accountGuid' when calling deleteManualAccount(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling deleteManualAccount(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteManualAccountCall(accountGuid, userGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete manual account
+     * This endpoint deletes accounts that were manually created. The API will respond with an empty object and a status of &#x60;204 No Content&#x60;.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteManualAccount(String accountGuid, String userGuid) throws ApiException {
+        deleteManualAccountWithHttpInfo(accountGuid, userGuid);
+    }
+
+    /**
+     * Delete manual account
+     * This endpoint deletes accounts that were manually created. The API will respond with an empty object and a status of &#x60;204 No Content&#x60;.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteManualAccountWithHttpInfo(String accountGuid, String userGuid) throws ApiException {
+        okhttp3.Call localVarCall = deleteManualAccountValidateBeforeCall(accountGuid, userGuid, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete manual account (asynchronously)
+     * This endpoint deletes accounts that were manually created. The API will respond with an empty object and a status of &#x60;204 No Content&#x60;.
+     * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No content. </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteManualAccountAsync(String accountGuid, String userGuid, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteManualAccountValidateBeforeCall(accountGuid, userGuid, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }

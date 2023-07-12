@@ -22,24 +22,23 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
-import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
 
 /**
- * Model tests for AccountResponse
+ * Model tests for AccountCreateRequest
  */
-public class AccountResponseTest {
-    private final AccountResponse model = new AccountResponse();
+public class AccountCreateRequestTest {
+    private final AccountCreateRequest model = new AccountCreateRequest();
 
     /**
-     * Model tests for AccountResponse
+     * Model tests for AccountCreateRequest
      */
     @Test
-    public void testAccountResponse() {
-        // TODO: test AccountResponse
+    public void testAccountCreateRequest() {
+        // TODO: test AccountCreateRequest
     }
 
     /**
@@ -91,27 +90,11 @@ public class AccountResponseTest {
     }
 
     /**
-     * Test the property 'cashBalance'
-     */
-    @Test
-    public void cashBalanceTest() {
-        // TODO: test cashBalance
-    }
-
-    /**
      * Test the property 'cashSurrenderValue'
      */
     @Test
     public void cashSurrenderValueTest() {
         // TODO: test cashSurrenderValue
-    }
-
-    /**
-     * Test the property 'createdAt'
-     */
-    @Test
-    public void createdAtTest() {
-        // TODO: test createdAt
     }
 
     /**
@@ -147,22 +130,6 @@ public class AccountResponseTest {
     }
 
     /**
-     * Test the property 'guid'
-     */
-    @Test
-    public void guidTest() {
-        // TODO: test guid
-    }
-
-    /**
-     * Test the property 'holdingsValue'
-     */
-    @Test
-    public void holdingsValueTest() {
-        // TODO: test holdingsValue
-    }
-
-    /**
      * Test the property 'id'
      */
     @Test
@@ -171,43 +138,11 @@ public class AccountResponseTest {
     }
 
     /**
-     * Test the property 'importedAt'
-     */
-    @Test
-    public void importedAtTest() {
-        // TODO: test importedAt
-    }
-
-    /**
-     * Test the property 'institutionCode'
-     */
-    @Test
-    public void institutionCodeTest() {
-        // TODO: test institutionCode
-    }
-
-    /**
-     * Test the property 'insuredName'
-     */
-    @Test
-    public void insuredNameTest() {
-        // TODO: test insuredName
-    }
-
-    /**
      * Test the property 'interestRate'
      */
     @Test
     public void interestRateTest() {
         // TODO: test interestRate
-    }
-
-    /**
-     * Test the property 'isBusiness'
-     */
-    @Test
-    public void isBusinessTest() {
-        // TODO: test isBusiness
     }
 
     /**
@@ -224,14 +159,6 @@ public class AccountResponseTest {
     @Test
     public void isHiddenTest() {
         // TODO: test isHidden
-    }
-
-    /**
-     * Test the property 'isManual'
-     */
-    @Test
-    public void isManualTest() {
-        // TODO: test isManual
     }
 
     /**
@@ -264,30 +191,6 @@ public class AccountResponseTest {
     @Test
     public void maturesOnTest() {
         // TODO: test maturesOn
-    }
-
-    /**
-     * Test the property 'memberGuid'
-     */
-    @Test
-    public void memberGuidTest() {
-        // TODO: test memberGuid
-    }
-
-    /**
-     * Test the property 'memberId'
-     */
-    @Test
-    public void memberIdTest() {
-        // TODO: test memberId
-    }
-
-    /**
-     * Test the property 'memberIsManagedByUser'
-     */
-    @Test
-    public void memberIsManagedByUserTest() {
-        // TODO: test memberIsManagedByUser
     }
 
     /**
@@ -339,14 +242,6 @@ public class AccountResponseTest {
     }
 
     /**
-     * Test the property 'payOutAmount'
-     */
-    @Test
-    public void payOutAmountTest() {
-        // TODO: test payOutAmount
-    }
-
-    /**
      * Test the property 'paymentDueAt'
      */
     @Test
@@ -360,22 +255,6 @@ public class AccountResponseTest {
     @Test
     public void payoffBalanceTest() {
         // TODO: test payoffBalance
-    }
-
-    /**
-     * Test the property 'premiumAmount'
-     */
-    @Test
-    public void premiumAmountTest() {
-        // TODO: test premiumAmount
-    }
-
-    /**
-     * Test the property 'propertyType'
-     */
-    @Test
-    public void propertyTypeTest() {
-        // TODO: test propertyType
     }
 
     /**
@@ -403,43 +282,11 @@ public class AccountResponseTest {
     }
 
     /**
-     * Test the property 'totalAccountValue'
-     */
-    @Test
-    public void totalAccountValueTest() {
-        // TODO: test totalAccountValue
-    }
-
-    /**
      * Test the property 'type'
      */
     @Test
     public void typeTest() {
         // TODO: test type
-    }
-
-    /**
-     * Test the property 'updatedAt'
-     */
-    @Test
-    public void updatedAtTest() {
-        // TODO: test updatedAt
-    }
-
-    /**
-     * Test the property 'userGuid'
-     */
-    @Test
-    public void userGuidTest() {
-        // TODO: test userGuid
-    }
-
-    /**
-     * Test the property 'userId'
-     */
-    @Test
-    public void userIdTest() {
-        // TODO: test userId
     }
 
 }

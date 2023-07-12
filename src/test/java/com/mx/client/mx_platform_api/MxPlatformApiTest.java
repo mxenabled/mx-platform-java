@@ -14,6 +14,7 @@
 package com.mx.client.mx_platform_api;
 
 import com.mx.client.ApiException;
+import com.mx.client.model.AccountCreateRequestBody;
 import com.mx.client.model.AccountNumbersResponseBody;
 import com.mx.client.model.AccountOwnersResponseBody;
 import com.mx.client.model.AccountResponseBody;
@@ -196,6 +197,22 @@ public class MxPlatformApiTest {
     }
     
     /**
+     * Create manual account
+     *
+     * This endpoint can only be used to create manual accounts. Creating a manual account will automatically create it under the Manual Institution member. Since a manual account has no credentials tied to the member, the account will never aggregate or include data from a data feed..
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createManualAccountTest() throws ApiException {
+        String userGuid = null;
+        AccountCreateRequestBody accountCreateRequestBody = null;
+                AccountResponseBody response = api.createManualAccount(userGuid, accountCreateRequestBody);
+        // TODO: test validations
+    }
+    
+    /**
      * Create member
      *
      * This endpoint allows you to create a new member. Members are created with the required parameters credentials and institution_code, and the optional parameters id and metadata. When creating a member, youll need to include the correct type of credential required by the financial institution and provided by the user. You can find out which credential type is required with the &#x60;/institutions/{institution_code}/credentials&#x60; endpoint. If successful, the MX Platform API will respond with the newly-created member object. Once you successfully create a member, MX will immediately validate the provided credentials and attempt to aggregate data for accounts and transactions.
@@ -338,6 +355,22 @@ public class MxPlatformApiTest {
         String transactionGuid = null;
         String userGuid = null;
                 api.deleteManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid);
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete manual account
+     *
+     * This endpoint deletes accounts that were manually created. The API will respond with an empty object and a status of &#x60;204 No Content&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteManualAccountTest() throws ApiException {
+        String accountGuid = null;
+        String userGuid = null;
+                api.deleteManualAccount(accountGuid, userGuid);
         // TODO: test validations
     }
     

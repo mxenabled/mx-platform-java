@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**createManagedAccount**](MxPlatformApi.md#createManagedAccount) | **POST** /users/{user_guid}/managed_members/{member_guid}/accounts | Create managed account
 [**createManagedMember**](MxPlatformApi.md#createManagedMember) | **POST** /users/{user_guid}/managed_members | Create managed member
 [**createManagedTransaction**](MxPlatformApi.md#createManagedTransaction) | **POST** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions | Create managed transaction
+[**createManualAccount**](MxPlatformApi.md#createManualAccount) | **POST** /users/{user_guid}/accounts | Create manual account
 [**createMember**](MxPlatformApi.md#createMember) | **POST** /users/{user_guid}/members | Create member
 [**createTag**](MxPlatformApi.md#createTag) | **POST** /users/{user_guid}/tags | Create tag
 [**createTagging**](MxPlatformApi.md#createTagging) | **POST** /users/{user_guid}/taggings | Create tagging
@@ -19,6 +20,7 @@ Method | HTTP request | Description
 [**deleteManagedAccount**](MxPlatformApi.md#deleteManagedAccount) | **DELETE** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Delete managed account
 [**deleteManagedMember**](MxPlatformApi.md#deleteManagedMember) | **DELETE** /users/{user_guid}/managed_members/{member_guid} | Delete managed member
 [**deleteManagedTransaction**](MxPlatformApi.md#deleteManagedTransaction) | **DELETE** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid} | Delete managed transaction
+[**deleteManualAccount**](MxPlatformApi.md#deleteManualAccount) | **DELETE** /users/{user_guid}/accounts/{account_guid} | Delete manual account
 [**deleteMember**](MxPlatformApi.md#deleteMember) | **DELETE** /users/{user_guid}/members/{member_guid} | Delete member
 [**deleteTag**](MxPlatformApi.md#deleteTag) | **DELETE** /users/{user_guid}/tags/{tag_guid} | Delete tag
 [**deleteTagging**](MxPlatformApi.md#deleteTagging) | **DELETE** /users/{user_guid}/taggings/{tagging_guid} | Delete tagging
@@ -528,6 +530,76 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **202** | OK |  -  |
+
+<a name="createManualAccount"></a>
+# **createManualAccount**
+> AccountResponseBody createManualAccount(userGuid, accountCreateRequestBody)
+
+Create manual account
+
+This endpoint can only be used to create manual accounts. Creating a manual account will automatically create it under the Manual Institution member. Since a manual account has no credentials tied to the member, the account will never aggregate or include data from a data feed..
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    AccountCreateRequestBody accountCreateRequestBody = new AccountCreateRequestBody(); // AccountCreateRequestBody | Manual account object to be created.
+    try {
+      AccountResponseBody result = apiInstance.createManualAccount(userGuid, accountCreateRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#createManualAccount");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+ **accountCreateRequestBody** | [**AccountCreateRequestBody**](AccountCreateRequestBody.md)| Manual account object to be created. |
+
+### Return type
+
+[**AccountResponseBody**](AccountResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
 
 <a name="createMember"></a>
 # **createMember**
@@ -1158,6 +1230,75 @@ null (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
+
+<a name="deleteManualAccount"></a>
+# **deleteManualAccount**
+> deleteManualAccount(accountGuid, userGuid)
+
+Delete manual account
+
+This endpoint deletes accounts that were manually created. The API will respond with an empty object and a status of &#x60;204 No Content&#x60;.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String accountGuid = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1"; // String | The unique id for an `account`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    try {
+      apiInstance.deleteManualAccount(accountGuid, userGuid);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#deleteManualAccount");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
+ **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No content. |  -  |
 
 <a name="deleteMember"></a>
 # **deleteMember**

@@ -1,5 +1,7 @@
 .gitignore
 README.md
+docs/AccountCreateRequest.md
+docs/AccountCreateRequestBody.md
 docs/AccountNumberResponse.md
 docs/AccountNumbersResponseBody.md
 docs/AccountOwnerResponse.md
@@ -139,6 +141,8 @@ src/main/java/com/mx/client/auth/ApiKeyAuth.java
 src/main/java/com/mx/client/auth/Authentication.java
 src/main/java/com/mx/client/auth/HttpBasicAuth.java
 src/main/java/com/mx/client/auth/HttpBearerAuth.java
+src/main/java/com/mx/client/model/AccountCreateRequest.java
+src/main/java/com/mx/client/model/AccountCreateRequestBody.java
 src/main/java/com/mx/client/model/AccountNumberResponse.java
 src/main/java/com/mx/client/model/AccountNumbersResponseBody.java
 src/main/java/com/mx/client/model/AccountOwnerResponse.java
@@ -259,6 +263,8 @@ src/main/java/com/mx/client/model/WidgetRequestBody.java
 src/main/java/com/mx/client/model/WidgetResponse.java
 src/main/java/com/mx/client/model/WidgetResponseBody.java
 src/main/java/com/mx/client/mx_platform_api/MxPlatformApi.java
+src/test/java/com/mx/client/model/AccountCreateRequestBodyTest.java
+src/test/java/com/mx/client/model/AccountCreateRequestTest.java
 src/test/java/com/mx/client/model/AccountNumberResponseTest.java
 src/test/java/com/mx/client/model/AccountNumbersResponseBodyTest.java
 src/test/java/com/mx/client/model/AccountOwnerResponseTest.java
