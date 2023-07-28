@@ -30,9 +30,13 @@ import java.math.BigDecimal;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AccountCreateRequest {
-  public static final String SERIALIZED_NAME_ACCOUNT_NUMBER = "account_number";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
-  private String accountNumber;
+  public static final String SERIALIZED_NAME_ACCOUNT_SUBTYPE_NAME = "account_subtype_name";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_SUBTYPE_NAME)
+  private String accountSubtypeName;
+
+  public static final String SERIALIZED_NAME_ACCOUNT_TYPE = "account_type";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_TYPE)
+  private Integer accountType;
 
   public static final String SERIALIZED_NAME_APR = "apr";
   @SerializedName(SERIALIZED_NAME_APR)
@@ -45,10 +49,6 @@ public class AccountCreateRequest {
   public static final String SERIALIZED_NAME_AVAILABLE_BALANCE = "available_balance";
   @SerializedName(SERIALIZED_NAME_AVAILABLE_BALANCE)
   private BigDecimal availableBalance;
-
-  public static final String SERIALIZED_NAME_AVAILABLE_CREDIT = "available_credit";
-  @SerializedName(SERIALIZED_NAME_AVAILABLE_CREDIT)
-  private BigDecimal availableCredit;
 
   public static final String SERIALIZED_NAME_BALANCE = "balance";
   @SerializedName(SERIALIZED_NAME_BALANCE)
@@ -66,21 +66,17 @@ public class AccountCreateRequest {
   @SerializedName(SERIALIZED_NAME_CURRENCY_CODE)
   private String currencyCode;
 
-  public static final String SERIALIZED_NAME_DAY_PAYMENT_IS_DUE = "day_payment_is_due";
-  @SerializedName(SERIALIZED_NAME_DAY_PAYMENT_IS_DUE)
-  private Integer dayPaymentIsDue;
-
   public static final String SERIALIZED_NAME_DEATH_BENEFIT = "death_benefit";
   @SerializedName(SERIALIZED_NAME_DEATH_BENEFIT)
   private Integer deathBenefit;
 
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id;
-
   public static final String SERIALIZED_NAME_INTEREST_RATE = "interest_rate";
   @SerializedName(SERIALIZED_NAME_INTEREST_RATE)
   private BigDecimal interestRate;
+
+  public static final String SERIALIZED_NAME_IS_BUSINESS = "is_business";
+  @SerializedName(SERIALIZED_NAME_IS_BUSINESS)
+  private Boolean isBusiness;
 
   public static final String SERIALIZED_NAME_IS_CLOSED = "is_closed";
   @SerializedName(SERIALIZED_NAME_IS_CLOSED)
@@ -90,33 +86,13 @@ public class AccountCreateRequest {
   @SerializedName(SERIALIZED_NAME_IS_HIDDEN)
   private Boolean isHidden;
 
-  public static final String SERIALIZED_NAME_LAST_PAYMENT = "last_payment";
-  @SerializedName(SERIALIZED_NAME_LAST_PAYMENT)
-  private BigDecimal lastPayment;
-
-  public static final String SERIALIZED_NAME_LAST_PAYMENT_AT = "last_payment_at";
-  @SerializedName(SERIALIZED_NAME_LAST_PAYMENT_AT)
-  private String lastPaymentAt;
-
   public static final String SERIALIZED_NAME_LOAN_AMOUNT = "loan_amount";
   @SerializedName(SERIALIZED_NAME_LOAN_AMOUNT)
   private BigDecimal loanAmount;
 
-  public static final String SERIALIZED_NAME_MATURES_ON = "matures_on";
-  @SerializedName(SERIALIZED_NAME_MATURES_ON)
-  private String maturesOn;
-
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
-
-  public static final String SERIALIZED_NAME_MINIMUM_BALANCE = "minimum_balance";
-  @SerializedName(SERIALIZED_NAME_MINIMUM_BALANCE)
-  private BigDecimal minimumBalance;
-
-  public static final String SERIALIZED_NAME_MINIMUM_PAYMENT = "minimum_payment";
-  @SerializedName(SERIALIZED_NAME_MINIMUM_PAYMENT)
-  private BigDecimal minimumPayment;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -130,53 +106,64 @@ public class AccountCreateRequest {
   @SerializedName(SERIALIZED_NAME_ORIGINAL_BALANCE)
   private BigDecimal originalBalance;
 
-  public static final String SERIALIZED_NAME_PAYMENT_DUE_AT = "payment_due_at";
-  @SerializedName(SERIALIZED_NAME_PAYMENT_DUE_AT)
-  private String paymentDueAt;
+  public static final String SERIALIZED_NAME_PROPERTY_TYPE = "property_type";
+  @SerializedName(SERIALIZED_NAME_PROPERTY_TYPE)
+  private Integer propertyType;
 
-  public static final String SERIALIZED_NAME_PAYOFF_BALANCE = "payoff_balance";
-  @SerializedName(SERIALIZED_NAME_PAYOFF_BALANCE)
-  private BigDecimal payoffBalance;
+  public static final String SERIALIZED_NAME_PROPERTY_TYPE_NAME = "property_type_name";
+  @SerializedName(SERIALIZED_NAME_PROPERTY_TYPE_NAME)
+  private String propertyTypeName;
 
-  public static final String SERIALIZED_NAME_ROUTING_NUMBER = "routing_number";
-  @SerializedName(SERIALIZED_NAME_ROUTING_NUMBER)
-  private String routingNumber;
-
-  public static final String SERIALIZED_NAME_STARTED_ON = "started_on";
-  @SerializedName(SERIALIZED_NAME_STARTED_ON)
-  private String startedOn;
-
-  public static final String SERIALIZED_NAME_SUBTYPE = "subtype";
-  @SerializedName(SERIALIZED_NAME_SUBTYPE)
-  private String subtype;
-
-  public static final String SERIALIZED_NAME_TYPE = "type";
-  @SerializedName(SERIALIZED_NAME_TYPE)
-  private String type;
+  public static final String SERIALIZED_NAME_SKIP_WEBHOOK = "skip_webhook";
+  @SerializedName(SERIALIZED_NAME_SKIP_WEBHOOK)
+  private Boolean skipWebhook;
 
   public AccountCreateRequest() { 
   }
 
-  public AccountCreateRequest accountNumber(String accountNumber) {
+  public AccountCreateRequest accountSubtypeName(String accountSubtypeName) {
     
-    this.accountNumber = accountNumber;
+    this.accountSubtypeName = accountSubtypeName;
     return this;
   }
 
    /**
-   * Get accountNumber
-   * @return accountNumber
+   * Get accountSubtypeName
+   * @return accountSubtypeName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "5366", value = "")
+  @ApiModelProperty(example = "SAVINGS", value = "")
 
-  public String getAccountNumber() {
-    return accountNumber;
+  public String getAccountSubtypeName() {
+    return accountSubtypeName;
   }
 
 
-  public void setAccountNumber(String accountNumber) {
-    this.accountNumber = accountNumber;
+  public void setAccountSubtypeName(String accountSubtypeName) {
+    this.accountSubtypeName = accountSubtypeName;
+  }
+
+
+  public AccountCreateRequest accountType(Integer accountType) {
+    
+    this.accountType = accountType;
+    return this;
+  }
+
+   /**
+   * Get accountType
+   * @return accountType
+  **/
+  @javax.annotation.Nonnull
+  @ApiModelProperty(example = "2", required = true, value = "")
+
+  public Integer getAccountType() {
+    return accountType;
+  }
+
+
+  public void setAccountType(Integer accountType) {
+    this.accountType = accountType;
   }
 
 
@@ -249,29 +236,6 @@ public class AccountCreateRequest {
   }
 
 
-  public AccountCreateRequest availableCredit(BigDecimal availableCredit) {
-    
-    this.availableCredit = availableCredit;
-    return this;
-  }
-
-   /**
-   * Get availableCredit
-   * @return availableCredit
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000.0", value = "")
-
-  public BigDecimal getAvailableCredit() {
-    return availableCredit;
-  }
-
-
-  public void setAvailableCredit(BigDecimal availableCredit) {
-    this.availableCredit = availableCredit;
-  }
-
-
   public AccountCreateRequest balance(BigDecimal balance) {
     
     this.balance = balance;
@@ -282,8 +246,8 @@ public class AccountCreateRequest {
    * Get balance
    * @return balance
   **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "1000.0", required = true, value = "")
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "1000.0", value = "")
 
   public BigDecimal getBalance() {
     return balance;
@@ -364,29 +328,6 @@ public class AccountCreateRequest {
   }
 
 
-  public AccountCreateRequest dayPaymentIsDue(Integer dayPaymentIsDue) {
-    
-    this.dayPaymentIsDue = dayPaymentIsDue;
-    return this;
-  }
-
-   /**
-   * Get dayPaymentIsDue
-   * @return dayPaymentIsDue
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "20", value = "")
-
-  public Integer getDayPaymentIsDue() {
-    return dayPaymentIsDue;
-  }
-
-
-  public void setDayPaymentIsDue(Integer dayPaymentIsDue) {
-    this.dayPaymentIsDue = dayPaymentIsDue;
-  }
-
-
   public AccountCreateRequest deathBenefit(Integer deathBenefit) {
     
     this.deathBenefit = deathBenefit;
@@ -410,29 +351,6 @@ public class AccountCreateRequest {
   }
 
 
-  public AccountCreateRequest id(String id) {
-    
-    this.id = id;
-    return this;
-  }
-
-   /**
-   * Get id
-   * @return id
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "1040434698", value = "")
-
-  public String getId() {
-    return id;
-  }
-
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
   public AccountCreateRequest interestRate(BigDecimal interestRate) {
     
     this.interestRate = interestRate;
@@ -453,6 +371,29 @@ public class AccountCreateRequest {
 
   public void setInterestRate(BigDecimal interestRate) {
     this.interestRate = interestRate;
+  }
+
+
+  public AccountCreateRequest isBusiness(Boolean isBusiness) {
+    
+    this.isBusiness = isBusiness;
+    return this;
+  }
+
+   /**
+   * Get isBusiness
+   * @return isBusiness
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "")
+
+  public Boolean getIsBusiness() {
+    return isBusiness;
+  }
+
+
+  public void setIsBusiness(Boolean isBusiness) {
+    this.isBusiness = isBusiness;
   }
 
 
@@ -502,52 +443,6 @@ public class AccountCreateRequest {
   }
 
 
-  public AccountCreateRequest lastPayment(BigDecimal lastPayment) {
-    
-    this.lastPayment = lastPayment;
-    return this;
-  }
-
-   /**
-   * Get lastPayment
-   * @return lastPayment
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "100.0", value = "")
-
-  public BigDecimal getLastPayment() {
-    return lastPayment;
-  }
-
-
-  public void setLastPayment(BigDecimal lastPayment) {
-    this.lastPayment = lastPayment;
-  }
-
-
-  public AccountCreateRequest lastPaymentAt(String lastPaymentAt) {
-    
-    this.lastPaymentAt = lastPaymentAt;
-    return this;
-  }
-
-   /**
-   * Get lastPaymentAt
-   * @return lastPaymentAt
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "2015-10-13T17:57:37.000Z", value = "")
-
-  public String getLastPaymentAt() {
-    return lastPaymentAt;
-  }
-
-
-  public void setLastPaymentAt(String lastPaymentAt) {
-    this.lastPaymentAt = lastPaymentAt;
-  }
-
-
   public AccountCreateRequest loanAmount(BigDecimal loanAmount) {
     
     this.loanAmount = loanAmount;
@@ -571,29 +466,6 @@ public class AccountCreateRequest {
   }
 
 
-  public AccountCreateRequest maturesOn(String maturesOn) {
-    
-    this.maturesOn = maturesOn;
-    return this;
-  }
-
-   /**
-   * Get maturesOn
-   * @return maturesOn
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "2015-10-13T17:57:37.000Z", value = "")
-
-  public String getMaturesOn() {
-    return maturesOn;
-  }
-
-
-  public void setMaturesOn(String maturesOn) {
-    this.maturesOn = maturesOn;
-  }
-
-
   public AccountCreateRequest metadata(String metadata) {
     
     this.metadata = metadata;
@@ -614,52 +486,6 @@ public class AccountCreateRequest {
 
   public void setMetadata(String metadata) {
     this.metadata = metadata;
-  }
-
-
-  public AccountCreateRequest minimumBalance(BigDecimal minimumBalance) {
-    
-    this.minimumBalance = minimumBalance;
-    return this;
-  }
-
-   /**
-   * Get minimumBalance
-   * @return minimumBalance
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "100.0", value = "")
-
-  public BigDecimal getMinimumBalance() {
-    return minimumBalance;
-  }
-
-
-  public void setMinimumBalance(BigDecimal minimumBalance) {
-    this.minimumBalance = minimumBalance;
-  }
-
-
-  public AccountCreateRequest minimumPayment(BigDecimal minimumPayment) {
-    
-    this.minimumPayment = minimumPayment;
-    return this;
-  }
-
-   /**
-   * Get minimumPayment
-   * @return minimumPayment
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "10.0", value = "")
-
-  public BigDecimal getMinimumPayment() {
-    return minimumPayment;
-  }
-
-
-  public void setMinimumPayment(BigDecimal minimumPayment) {
-    this.minimumPayment = minimumPayment;
   }
 
 
@@ -732,141 +558,72 @@ public class AccountCreateRequest {
   }
 
 
-  public AccountCreateRequest paymentDueAt(String paymentDueAt) {
+  public AccountCreateRequest propertyType(Integer propertyType) {
     
-    this.paymentDueAt = paymentDueAt;
+    this.propertyType = propertyType;
     return this;
   }
 
    /**
-   * Get paymentDueAt
-   * @return paymentDueAt
+   * Get propertyType
+   * @return propertyType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2015-10-13T17:57:37.000Z", value = "")
+  @ApiModelProperty(example = "1", value = "")
 
-  public String getPaymentDueAt() {
-    return paymentDueAt;
+  public Integer getPropertyType() {
+    return propertyType;
   }
 
 
-  public void setPaymentDueAt(String paymentDueAt) {
-    this.paymentDueAt = paymentDueAt;
+  public void setPropertyType(Integer propertyType) {
+    this.propertyType = propertyType;
   }
 
 
-  public AccountCreateRequest payoffBalance(BigDecimal payoffBalance) {
+  public AccountCreateRequest propertyTypeName(String propertyTypeName) {
     
-    this.payoffBalance = payoffBalance;
+    this.propertyTypeName = propertyTypeName;
     return this;
   }
 
    /**
-   * Get payoffBalance
-   * @return payoffBalance
+   * Get propertyTypeName
+   * @return propertyTypeName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10.0", value = "")
+  @ApiModelProperty(example = "VEHICLE", value = "")
 
-  public BigDecimal getPayoffBalance() {
-    return payoffBalance;
+  public String getPropertyTypeName() {
+    return propertyTypeName;
   }
 
 
-  public void setPayoffBalance(BigDecimal payoffBalance) {
-    this.payoffBalance = payoffBalance;
+  public void setPropertyTypeName(String propertyTypeName) {
+    this.propertyTypeName = propertyTypeName;
   }
 
 
-  public AccountCreateRequest routingNumber(String routingNumber) {
+  public AccountCreateRequest skipWebhook(Boolean skipWebhook) {
     
-    this.routingNumber = routingNumber;
+    this.skipWebhook = skipWebhook;
     return this;
   }
 
    /**
-   * Get routingNumber
-   * @return routingNumber
+   * Get skipWebhook
+   * @return skipWebhook
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "68899990000000", value = "")
+  @ApiModelProperty(example = "false", value = "")
 
-  public String getRoutingNumber() {
-    return routingNumber;
+  public Boolean getSkipWebhook() {
+    return skipWebhook;
   }
 
 
-  public void setRoutingNumber(String routingNumber) {
-    this.routingNumber = routingNumber;
-  }
-
-
-  public AccountCreateRequest startedOn(String startedOn) {
-    
-    this.startedOn = startedOn;
-    return this;
-  }
-
-   /**
-   * Get startedOn
-   * @return startedOn
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "2015-10-13T17:57:37.000Z", value = "")
-
-  public String getStartedOn() {
-    return startedOn;
-  }
-
-
-  public void setStartedOn(String startedOn) {
-    this.startedOn = startedOn;
-  }
-
-
-  public AccountCreateRequest subtype(String subtype) {
-    
-    this.subtype = subtype;
-    return this;
-  }
-
-   /**
-   * Get subtype
-   * @return subtype
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "NONE", value = "")
-
-  public String getSubtype() {
-    return subtype;
-  }
-
-
-  public void setSubtype(String subtype) {
-    this.subtype = subtype;
-  }
-
-
-  public AccountCreateRequest type(String type) {
-    
-    this.type = type;
-    return this;
-  }
-
-   /**
-   * Get type
-   * @return type
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(example = "SAVINGS", required = true, value = "")
-
-  public String getType() {
-    return type;
-  }
-
-
-  public void setType(String type) {
-    this.type = type;
+  public void setSkipWebhook(Boolean skipWebhook) {
+    this.skipWebhook = skipWebhook;
   }
 
 
@@ -879,79 +636,61 @@ public class AccountCreateRequest {
       return false;
     }
     AccountCreateRequest accountCreateRequest = (AccountCreateRequest) o;
-    return Objects.equals(this.accountNumber, accountCreateRequest.accountNumber) &&
+    return Objects.equals(this.accountSubtypeName, accountCreateRequest.accountSubtypeName) &&
+        Objects.equals(this.accountType, accountCreateRequest.accountType) &&
         Objects.equals(this.apr, accountCreateRequest.apr) &&
         Objects.equals(this.apy, accountCreateRequest.apy) &&
         Objects.equals(this.availableBalance, accountCreateRequest.availableBalance) &&
-        Objects.equals(this.availableCredit, accountCreateRequest.availableCredit) &&
         Objects.equals(this.balance, accountCreateRequest.balance) &&
         Objects.equals(this.cashSurrenderValue, accountCreateRequest.cashSurrenderValue) &&
         Objects.equals(this.creditLimit, accountCreateRequest.creditLimit) &&
         Objects.equals(this.currencyCode, accountCreateRequest.currencyCode) &&
-        Objects.equals(this.dayPaymentIsDue, accountCreateRequest.dayPaymentIsDue) &&
         Objects.equals(this.deathBenefit, accountCreateRequest.deathBenefit) &&
-        Objects.equals(this.id, accountCreateRequest.id) &&
         Objects.equals(this.interestRate, accountCreateRequest.interestRate) &&
+        Objects.equals(this.isBusiness, accountCreateRequest.isBusiness) &&
         Objects.equals(this.isClosed, accountCreateRequest.isClosed) &&
         Objects.equals(this.isHidden, accountCreateRequest.isHidden) &&
-        Objects.equals(this.lastPayment, accountCreateRequest.lastPayment) &&
-        Objects.equals(this.lastPaymentAt, accountCreateRequest.lastPaymentAt) &&
         Objects.equals(this.loanAmount, accountCreateRequest.loanAmount) &&
-        Objects.equals(this.maturesOn, accountCreateRequest.maturesOn) &&
         Objects.equals(this.metadata, accountCreateRequest.metadata) &&
-        Objects.equals(this.minimumBalance, accountCreateRequest.minimumBalance) &&
-        Objects.equals(this.minimumPayment, accountCreateRequest.minimumPayment) &&
         Objects.equals(this.name, accountCreateRequest.name) &&
         Objects.equals(this.nickname, accountCreateRequest.nickname) &&
         Objects.equals(this.originalBalance, accountCreateRequest.originalBalance) &&
-        Objects.equals(this.paymentDueAt, accountCreateRequest.paymentDueAt) &&
-        Objects.equals(this.payoffBalance, accountCreateRequest.payoffBalance) &&
-        Objects.equals(this.routingNumber, accountCreateRequest.routingNumber) &&
-        Objects.equals(this.startedOn, accountCreateRequest.startedOn) &&
-        Objects.equals(this.subtype, accountCreateRequest.subtype) &&
-        Objects.equals(this.type, accountCreateRequest.type);
+        Objects.equals(this.propertyType, accountCreateRequest.propertyType) &&
+        Objects.equals(this.propertyTypeName, accountCreateRequest.propertyTypeName) &&
+        Objects.equals(this.skipWebhook, accountCreateRequest.skipWebhook);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, apr, apy, availableBalance, availableCredit, balance, cashSurrenderValue, creditLimit, currencyCode, dayPaymentIsDue, deathBenefit, id, interestRate, isClosed, isHidden, lastPayment, lastPaymentAt, loanAmount, maturesOn, metadata, minimumBalance, minimumPayment, name, nickname, originalBalance, paymentDueAt, payoffBalance, routingNumber, startedOn, subtype, type);
+    return Objects.hash(accountSubtypeName, accountType, apr, apy, availableBalance, balance, cashSurrenderValue, creditLimit, currencyCode, deathBenefit, interestRate, isBusiness, isClosed, isHidden, loanAmount, metadata, name, nickname, originalBalance, propertyType, propertyTypeName, skipWebhook);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountCreateRequest {\n");
-    sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
+    sb.append("    accountSubtypeName: ").append(toIndentedString(accountSubtypeName)).append("\n");
+    sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
     sb.append("    apr: ").append(toIndentedString(apr)).append("\n");
     sb.append("    apy: ").append(toIndentedString(apy)).append("\n");
     sb.append("    availableBalance: ").append(toIndentedString(availableBalance)).append("\n");
-    sb.append("    availableCredit: ").append(toIndentedString(availableCredit)).append("\n");
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
     sb.append("    cashSurrenderValue: ").append(toIndentedString(cashSurrenderValue)).append("\n");
     sb.append("    creditLimit: ").append(toIndentedString(creditLimit)).append("\n");
     sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
-    sb.append("    dayPaymentIsDue: ").append(toIndentedString(dayPaymentIsDue)).append("\n");
     sb.append("    deathBenefit: ").append(toIndentedString(deathBenefit)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    interestRate: ").append(toIndentedString(interestRate)).append("\n");
+    sb.append("    isBusiness: ").append(toIndentedString(isBusiness)).append("\n");
     sb.append("    isClosed: ").append(toIndentedString(isClosed)).append("\n");
     sb.append("    isHidden: ").append(toIndentedString(isHidden)).append("\n");
-    sb.append("    lastPayment: ").append(toIndentedString(lastPayment)).append("\n");
-    sb.append("    lastPaymentAt: ").append(toIndentedString(lastPaymentAt)).append("\n");
     sb.append("    loanAmount: ").append(toIndentedString(loanAmount)).append("\n");
-    sb.append("    maturesOn: ").append(toIndentedString(maturesOn)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
-    sb.append("    minimumBalance: ").append(toIndentedString(minimumBalance)).append("\n");
-    sb.append("    minimumPayment: ").append(toIndentedString(minimumPayment)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    nickname: ").append(toIndentedString(nickname)).append("\n");
     sb.append("    originalBalance: ").append(toIndentedString(originalBalance)).append("\n");
-    sb.append("    paymentDueAt: ").append(toIndentedString(paymentDueAt)).append("\n");
-    sb.append("    payoffBalance: ").append(toIndentedString(payoffBalance)).append("\n");
-    sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
-    sb.append("    startedOn: ").append(toIndentedString(startedOn)).append("\n");
-    sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
-    sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    propertyType: ").append(toIndentedString(propertyType)).append("\n");
+    sb.append("    propertyTypeName: ").append(toIndentedString(propertyTypeName)).append("\n");
+    sb.append("    skipWebhook: ").append(toIndentedString(skipWebhook)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -51,6 +51,38 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'accountOwnership'
+     */
+    @Test
+    public void accountOwnershipTest() {
+        // TODO: test accountOwnership
+    }
+
+    /**
+     * Test the property 'annuityPolicyToDate'
+     */
+    @Test
+    public void annuityPolicyToDateTest() {
+        // TODO: test annuityPolicyToDate
+    }
+
+    /**
+     * Test the property 'annuityProvider'
+     */
+    @Test
+    public void annuityProviderTest() {
+        // TODO: test annuityProvider
+    }
+
+    /**
+     * Test the property 'annuityTermYear'
+     */
+    @Test
+    public void annuityTermYearTest() {
+        // TODO: test annuityTermYear
+    }
+
+    /**
      * Test the property 'apr'
      */
     @Test
@@ -179,6 +211,14 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'interestRate'
+     */
+    @Test
+    public void interestRateTest() {
+        // TODO: test interestRate
+    }
+
+    /**
      * Test the property 'institutionCode'
      */
     @Test
@@ -192,22 +232,6 @@ public class AccountResponseTest {
     @Test
     public void insuredNameTest() {
         // TODO: test insuredName
-    }
-
-    /**
-     * Test the property 'interestRate'
-     */
-    @Test
-    public void interestRateTest() {
-        // TODO: test interestRate
-    }
-
-    /**
-     * Test the property 'isBusiness'
-     */
-    @Test
-    public void isBusinessTest() {
-        // TODO: test isBusiness
     }
 
     /**
@@ -256,6 +280,14 @@ public class AccountResponseTest {
     @Test
     public void loanAmountTest() {
         // TODO: test loanAmount
+    }
+
+    /**
+     * Test the property 'marginBalance'
+     */
+    @Test
+    public void marginBalanceTest() {
+        // TODO: test marginBalance
     }
 
     /**
@@ -371,14 +403,6 @@ public class AccountResponseTest {
     }
 
     /**
-     * Test the property 'propertyType'
-     */
-    @Test
-    public void propertyTypeTest() {
-        // TODO: test propertyType
-    }
-
-    /**
      * Test the property 'routingNumber'
      */
     @Test
@@ -400,6 +424,22 @@ public class AccountResponseTest {
     @Test
     public void subtypeTest() {
         // TODO: test subtype
+    }
+
+    /**
+     * Test the property 'todayUglAmount'
+     */
+    @Test
+    public void todayUglAmountTest() {
+        // TODO: test todayUglAmount
+    }
+
+    /**
+     * Test the property 'todayUglPercentage'
+     */
+    @Test
+    public void todayUglPercentageTest() {
+        // TODO: test todayUglPercentage
     }
 
     /**

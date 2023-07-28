@@ -42,11 +42,19 @@ public class AccountCreateRequestTest {
     }
 
     /**
-     * Test the property 'accountNumber'
+     * Test the property 'accountSubtypeName'
      */
     @Test
-    public void accountNumberTest() {
-        // TODO: test accountNumber
+    public void accountSubtypeNameTest() {
+        // TODO: test accountSubtypeName
+    }
+
+    /**
+     * Test the property 'accountType'
+     */
+    @Test
+    public void accountTypeTest() {
+        // TODO: test accountType
     }
 
     /**
@@ -71,14 +79,6 @@ public class AccountCreateRequestTest {
     @Test
     public void availableBalanceTest() {
         // TODO: test availableBalance
-    }
-
-    /**
-     * Test the property 'availableCredit'
-     */
-    @Test
-    public void availableCreditTest() {
-        // TODO: test availableCredit
     }
 
     /**
@@ -114,14 +114,6 @@ public class AccountCreateRequestTest {
     }
 
     /**
-     * Test the property 'dayPaymentIsDue'
-     */
-    @Test
-    public void dayPaymentIsDueTest() {
-        // TODO: test dayPaymentIsDue
-    }
-
-    /**
      * Test the property 'deathBenefit'
      */
     @Test
@@ -130,19 +122,19 @@ public class AccountCreateRequestTest {
     }
 
     /**
-     * Test the property 'id'
-     */
-    @Test
-    public void idTest() {
-        // TODO: test id
-    }
-
-    /**
      * Test the property 'interestRate'
      */
     @Test
     public void interestRateTest() {
         // TODO: test interestRate
+    }
+
+    /**
+     * Test the property 'isBusiness'
+     */
+    @Test
+    public void isBusinessTest() {
+        // TODO: test isBusiness
     }
 
     /**
@@ -162,22 +154,6 @@ public class AccountCreateRequestTest {
     }
 
     /**
-     * Test the property 'lastPayment'
-     */
-    @Test
-    public void lastPaymentTest() {
-        // TODO: test lastPayment
-    }
-
-    /**
-     * Test the property 'lastPaymentAt'
-     */
-    @Test
-    public void lastPaymentAtTest() {
-        // TODO: test lastPaymentAt
-    }
-
-    /**
      * Test the property 'loanAmount'
      */
     @Test
@@ -186,35 +162,11 @@ public class AccountCreateRequestTest {
     }
 
     /**
-     * Test the property 'maturesOn'
-     */
-    @Test
-    public void maturesOnTest() {
-        // TODO: test maturesOn
-    }
-
-    /**
      * Test the property 'metadata'
      */
     @Test
     public void metadataTest() {
         // TODO: test metadata
-    }
-
-    /**
-     * Test the property 'minimumBalance'
-     */
-    @Test
-    public void minimumBalanceTest() {
-        // TODO: test minimumBalance
-    }
-
-    /**
-     * Test the property 'minimumPayment'
-     */
-    @Test
-    public void minimumPaymentTest() {
-        // TODO: test minimumPayment
     }
 
     /**
@@ -242,51 +194,27 @@ public class AccountCreateRequestTest {
     }
 
     /**
-     * Test the property 'paymentDueAt'
+     * Test the property 'propertyType'
      */
     @Test
-    public void paymentDueAtTest() {
-        // TODO: test paymentDueAt
+    public void propertyTypeTest() {
+        // TODO: test propertyType
     }
 
     /**
-     * Test the property 'payoffBalance'
+     * Test the property 'propertyTypeName'
      */
     @Test
-    public void payoffBalanceTest() {
-        // TODO: test payoffBalance
+    public void propertyTypeNameTest() {
+        // TODO: test propertyTypeName
     }
 
     /**
-     * Test the property 'routingNumber'
+     * Test the property 'skipWebhook'
      */
     @Test
-    public void routingNumberTest() {
-        // TODO: test routingNumber
-    }
-
-    /**
-     * Test the property 'startedOn'
-     */
-    @Test
-    public void startedOnTest() {
-        // TODO: test startedOn
-    }
-
-    /**
-     * Test the property 'subtype'
-     */
-    @Test
-    public void subtypeTest() {
-        // TODO: test subtype
-    }
-
-    /**
-     * Test the property 'type'
-     */
-    @Test
-    public void typeTest() {
-        // TODO: test type
+    public void skipWebhookTest() {
+        // TODO: test skipWebhook
     }
 
 }
