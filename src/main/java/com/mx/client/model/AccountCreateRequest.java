@@ -132,7 +132,7 @@ public class AccountCreateRequest {
    * @return accountSubtypeName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "SAVINGS", value = "")
+  @ApiModelProperty(example = "PERSONAL", value = "")
 
   public String getAccountSubtypeName() {
     return accountSubtypeName;

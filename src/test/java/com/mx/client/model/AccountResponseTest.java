@@ -403,6 +403,22 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'propertyType'
+     */
+    @Test
+    public void propertyTypeTest() {
+        // TODO: test propertyType
+    }
+
+    /**
+     * Test the property 'propertyTypeName'
+     */
+    @Test
+    public void propertyTypeNameTest() {
+        // TODO: test propertyTypeName
+    }
+
+    /**
      * Test the property 'routingNumber'
      */
     @Test

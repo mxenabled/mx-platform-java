@@ -24,46 +24,18 @@ import com.mx.client.model.AccountCreateRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * AccountCreateRequestBody
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AccountCreateRequestBody {
-  public static final String SERIALIZED_NAME_SKIP_WEBHOOK = "skip_webhook";
-  @SerializedName(SERIALIZED_NAME_SKIP_WEBHOOK)
-  private Boolean skipWebhook;
-
   public static final String SERIALIZED_NAME_ACCOUNT = "account";
   @SerializedName(SERIALIZED_NAME_ACCOUNT)
   private AccountCreateRequest account;
 
   public AccountCreateRequestBody() { 
   }
-
-  public AccountCreateRequestBody skipWebhook(Boolean skipWebhook) {
-    
-    this.skipWebhook = skipWebhook;
-    return this;
-  }
-
-   /**
-   * Get skipWebhook
-   * @return skipWebhook
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
-
-  public Boolean getSkipWebhook() {
-    return skipWebhook;
-  }
-
-
-  public void setSkipWebhook(Boolean skipWebhook) {
-    this.skipWebhook = skipWebhook;
-  }
-
 
   public AccountCreateRequestBody account(AccountCreateRequest account) {
     
@@ -97,31 +69,18 @@ public class AccountCreateRequestBody {
       return false;
     }
     AccountCreateRequestBody accountCreateRequestBody = (AccountCreateRequestBody) o;
-    return Objects.equals(this.skipWebhook, accountCreateRequestBody.skipWebhook) &&
-        Objects.equals(this.account, accountCreateRequestBody.account);
-  }
-
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+    return Objects.equals(this.account, accountCreateRequestBody.account);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(skipWebhook, account);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(account);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountCreateRequestBody {\n");
-    sb.append("    skipWebhook: ").append(toIndentedString(skipWebhook)).append("\n");
     sb.append("    account: ").append(toIndentedString(account)).append("\n");
     sb.append("}");
     return sb.toString();

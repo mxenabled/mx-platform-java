@@ -52,6 +52,8 @@ Name | Type | Description | Notes
 **paymentDueAt** | **String** |  |  [optional]
 **payoffBalance** | **BigDecimal** |  |  [optional]
 **premiumAmount** | **BigDecimal** |  |  [optional]
+**propertyType** | **Integer** |  |  [optional]
+**propertyTypeName** | **String** |  |  [optional]
 **routingNumber** | **String** |  |  [optional]
 **startedOn** | **String** |  |  [optional]
 **subtype** | **String** |  |  [optional]

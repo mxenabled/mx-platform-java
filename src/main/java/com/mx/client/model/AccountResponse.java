@@ -211,6 +211,14 @@ public class AccountResponse {
   @SerializedName(SERIALIZED_NAME_PREMIUM_AMOUNT)
   private BigDecimal premiumAmount;
 
+  public static final String SERIALIZED_NAME_PROPERTY_TYPE = "property_type";
+  @SerializedName(SERIALIZED_NAME_PROPERTY_TYPE)
+  private Integer propertyType;
+
+  public static final String SERIALIZED_NAME_PROPERTY_TYPE_NAME = "property_type_name";
+  @SerializedName(SERIALIZED_NAME_PROPERTY_TYPE_NAME)
+  private String propertyTypeName;
+
   public static final String SERIALIZED_NAME_ROUTING_NUMBER = "routing_number";
   @SerializedName(SERIALIZED_NAME_ROUTING_NUMBER)
   private String routingNumber;
@@ -1289,6 +1297,52 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse propertyType(Integer propertyType) {
+    
+    this.propertyType = propertyType;
+    return this;
+  }
+
+   /**
+   * Get propertyType
+   * @return propertyType
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "1", value = "")
+
+  public Integer getPropertyType() {
+    return propertyType;
+  }
+
+
+  public void setPropertyType(Integer propertyType) {
+    this.propertyType = propertyType;
+  }
+
+
+  public AccountResponse propertyTypeName(String propertyTypeName) {
+    
+    this.propertyTypeName = propertyTypeName;
+    return this;
+  }
+
+   /**
+   * Get propertyTypeName
+   * @return propertyTypeName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "VEHICLE", value = "")
+
+  public String getPropertyTypeName() {
+    return propertyTypeName;
+  }
+
+
+  public void setPropertyTypeName(String propertyTypeName) {
+    this.propertyTypeName = propertyTypeName;
+  }
+
+
   public AccountResponse routingNumber(String routingNumber) {
     
     this.routingNumber = routingNumber;
@@ -1573,6 +1627,8 @@ public class AccountResponse {
         Objects.equals(this.paymentDueAt, accountResponse.paymentDueAt) &&
         Objects.equals(this.payoffBalance, accountResponse.payoffBalance) &&
         Objects.equals(this.premiumAmount, accountResponse.premiumAmount) &&
+        Objects.equals(this.propertyType, accountResponse.propertyType) &&
+        Objects.equals(this.propertyTypeName, accountResponse.propertyTypeName) &&
         Objects.equals(this.routingNumber, accountResponse.routingNumber) &&
         Objects.equals(this.startedOn, accountResponse.startedOn) &&
         Objects.equals(this.subtype, accountResponse.subtype) &&
@@ -1591,7 +1647,7 @@ public class AccountResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, accountOwnership, annuityPolicyToDate, annuityProvider, annuityTermYear, apr, apy, availableBalance, availableCredit, balance, cashBalance, cashSurrenderValue, createdAt, creditLimit, currencyCode, dayPaymentIsDue, deathBenefit, guid, holdingsValue, id, importedAt, interestRate, institutionCode, insuredName, isClosed, isHidden, isManual, lastPayment, lastPaymentAt, loanAmount, marginBalance, maturesOn, memberGuid, memberId, memberIsManagedByUser, metadata, minimumBalance, minimumPayment, name, nickname, originalBalance, payOutAmount, paymentDueAt, payoffBalance, premiumAmount, routingNumber, startedOn, subtype, todayUglAmount, todayUglPercentage, totalAccountValue, type, updatedAt, userGuid, userId);
+    return Objects.hash(accountNumber, accountOwnership, annuityPolicyToDate, annuityProvider, annuityTermYear, apr, apy, availableBalance, availableCredit, balance, cashBalance, cashSurrenderValue, createdAt, creditLimit, currencyCode, dayPaymentIsDue, deathBenefit, guid, holdingsValue, id, importedAt, interestRate, institutionCode, insuredName, isClosed, isHidden, isManual, lastPayment, lastPaymentAt, loanAmount, marginBalance, maturesOn, memberGuid, memberId, memberIsManagedByUser, metadata, minimumBalance, minimumPayment, name, nickname, originalBalance, payOutAmount, paymentDueAt, payoffBalance, premiumAmount, propertyType, propertyTypeName, routingNumber, startedOn, subtype, todayUglAmount, todayUglPercentage, totalAccountValue, type, updatedAt, userGuid, userId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1650,6 +1706,8 @@ public class AccountResponse {
     sb.append("    paymentDueAt: ").append(toIndentedString(paymentDueAt)).append("\n");
     sb.append("    payoffBalance: ").append(toIndentedString(payoffBalance)).append("\n");
     sb.append("    premiumAmount: ").append(toIndentedString(premiumAmount)).append("\n");
+    sb.append("    propertyType: ").append(toIndentedString(propertyType)).append("\n");
+    sb.append("    propertyTypeName: ").append(toIndentedString(propertyTypeName)).append("\n");
     sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
     sb.append("    startedOn: ").append(toIndentedString(startedOn)).append("\n");
     sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
