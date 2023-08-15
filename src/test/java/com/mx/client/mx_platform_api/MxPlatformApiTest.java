@@ -1135,8 +1135,9 @@ public class MxPlatformApiTest {
         String userGuid = null;
         Boolean memberIsManagedByUser = null;
         Integer page = null;
+        Boolean isManual = null;
         Integer recordsPerPage = null;
-                AccountsResponseBody response = api.listUserAccounts(userGuid, memberIsManagedByUser, page, recordsPerPage);
+                AccountsResponseBody response = api.listUserAccounts(userGuid, memberIsManagedByUser, page, isManual, recordsPerPage);
         // TODO: test validations
     }
     

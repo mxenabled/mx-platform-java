@@ -30,13 +30,13 @@ import java.math.BigDecimal;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AccountCreateRequest {
-  public static final String SERIALIZED_NAME_ACCOUNT_SUBTYPE_NAME = "account_subtype_name";
-  @SerializedName(SERIALIZED_NAME_ACCOUNT_SUBTYPE_NAME)
-  private String accountSubtypeName;
+  public static final String SERIALIZED_NAME_ACCOUNT_SUBTYPE = "account_subtype";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_SUBTYPE)
+  private String accountSubtype;
 
   public static final String SERIALIZED_NAME_ACCOUNT_TYPE = "account_type";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_TYPE)
-  private Integer accountType;
+  private String accountType;
 
   public static final String SERIALIZED_NAME_APR = "apr";
   @SerializedName(SERIALIZED_NAME_APR)
@@ -108,11 +108,7 @@ public class AccountCreateRequest {
 
   public static final String SERIALIZED_NAME_PROPERTY_TYPE = "property_type";
   @SerializedName(SERIALIZED_NAME_PROPERTY_TYPE)
-  private Integer propertyType;
-
-  public static final String SERIALIZED_NAME_PROPERTY_TYPE_NAME = "property_type_name";
-  @SerializedName(SERIALIZED_NAME_PROPERTY_TYPE_NAME)
-  private String propertyTypeName;
+  private String propertyType;
 
   public static final String SERIALIZED_NAME_SKIP_WEBHOOK = "skip_webhook";
   @SerializedName(SERIALIZED_NAME_SKIP_WEBHOOK)
@@ -121,30 +117,30 @@ public class AccountCreateRequest {
   public AccountCreateRequest() { 
   }
 
-  public AccountCreateRequest accountSubtypeName(String accountSubtypeName) {
+  public AccountCreateRequest accountSubtype(String accountSubtype) {
     
-    this.accountSubtypeName = accountSubtypeName;
+    this.accountSubtype = accountSubtype;
     return this;
   }
 
    /**
-   * Get accountSubtypeName
-   * @return accountSubtypeName
+   * Get accountSubtype
+   * @return accountSubtype
   **/
   @javax.annotation.Nullable
   @ApiModelProperty(example = "PERSONAL", value = "")
 
-  public String getAccountSubtypeName() {
-    return accountSubtypeName;
+  public String getAccountSubtype() {
+    return accountSubtype;
   }
 
 
-  public void setAccountSubtypeName(String accountSubtypeName) {
-    this.accountSubtypeName = accountSubtypeName;
+  public void setAccountSubtype(String accountSubtype) {
+    this.accountSubtype = accountSubtype;
   }
 
 
-  public AccountCreateRequest accountType(Integer accountType) {
+  public AccountCreateRequest accountType(String accountType) {
     
     this.accountType = accountType;
     return this;
@@ -155,14 +151,14 @@ public class AccountCreateRequest {
    * @return accountType
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "2", required = true, value = "")
+  @ApiModelProperty(example = "SAVINGS", required = true, value = "")
 
-  public Integer getAccountType() {
+  public String getAccountType() {
     return accountType;
   }
 
 
-  public void setAccountType(Integer accountType) {
+  public void setAccountType(String accountType) {
     this.accountType = accountType;
   }
 
@@ -558,7 +554,7 @@ public class AccountCreateRequest {
   }
 
 
-  public AccountCreateRequest propertyType(Integer propertyType) {
+  public AccountCreateRequest propertyType(String propertyType) {
     
     this.propertyType = propertyType;
     return this;
@@ -569,38 +565,15 @@ public class AccountCreateRequest {
    * @return propertyType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "")
+  @ApiModelProperty(example = "VEHICLE", value = "")
 
-  public Integer getPropertyType() {
+  public String getPropertyType() {
     return propertyType;
   }
 
 
-  public void setPropertyType(Integer propertyType) {
+  public void setPropertyType(String propertyType) {
     this.propertyType = propertyType;
-  }
-
-
-  public AccountCreateRequest propertyTypeName(String propertyTypeName) {
-    
-    this.propertyTypeName = propertyTypeName;
-    return this;
-  }
-
-   /**
-   * Get propertyTypeName
-   * @return propertyTypeName
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(example = "VEHICLE", value = "")
-
-  public String getPropertyTypeName() {
-    return propertyTypeName;
-  }
-
-
-  public void setPropertyTypeName(String propertyTypeName) {
-    this.propertyTypeName = propertyTypeName;
   }
 
 
@@ -615,7 +588,7 @@ public class AccountCreateRequest {
    * @return skipWebhook
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
+  @ApiModelProperty(example = "true", value = "")
 
   public Boolean getSkipWebhook() {
     return skipWebhook;
@@ -636,7 +609,7 @@ public class AccountCreateRequest {
       return false;
     }
     AccountCreateRequest accountCreateRequest = (AccountCreateRequest) o;
-    return Objects.equals(this.accountSubtypeName, accountCreateRequest.accountSubtypeName) &&
+    return Objects.equals(this.accountSubtype, accountCreateRequest.accountSubtype) &&
         Objects.equals(this.accountType, accountCreateRequest.accountType) &&
         Objects.equals(this.apr, accountCreateRequest.apr) &&
         Objects.equals(this.apy, accountCreateRequest.apy) &&
@@ -656,20 +629,19 @@ public class AccountCreateRequest {
         Objects.equals(this.nickname, accountCreateRequest.nickname) &&
         Objects.equals(this.originalBalance, accountCreateRequest.originalBalance) &&
         Objects.equals(this.propertyType, accountCreateRequest.propertyType) &&
-        Objects.equals(this.propertyTypeName, accountCreateRequest.propertyTypeName) &&
         Objects.equals(this.skipWebhook, accountCreateRequest.skipWebhook);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountSubtypeName, accountType, apr, apy, availableBalance, balance, cashSurrenderValue, creditLimit, currencyCode, deathBenefit, interestRate, isBusiness, isClosed, isHidden, loanAmount, metadata, name, nickname, originalBalance, propertyType, propertyTypeName, skipWebhook);
+    return Objects.hash(accountSubtype, accountType, apr, apy, availableBalance, balance, cashSurrenderValue, creditLimit, currencyCode, deathBenefit, interestRate, isBusiness, isClosed, isHidden, loanAmount, metadata, name, nickname, originalBalance, propertyType, skipWebhook);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountCreateRequest {\n");
-    sb.append("    accountSubtypeName: ").append(toIndentedString(accountSubtypeName)).append("\n");
+    sb.append("    accountSubtype: ").append(toIndentedString(accountSubtype)).append("\n");
     sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
     sb.append("    apr: ").append(toIndentedString(apr)).append("\n");
     sb.append("    apy: ").append(toIndentedString(apy)).append("\n");
@@ -689,7 +661,6 @@ public class AccountCreateRequest {
     sb.append("    nickname: ").append(toIndentedString(nickname)).append("\n");
     sb.append("    originalBalance: ").append(toIndentedString(originalBalance)).append("\n");
     sb.append("    propertyType: ").append(toIndentedString(propertyType)).append("\n");
-    sb.append("    propertyTypeName: ").append(toIndentedString(propertyTypeName)).append("\n");
     sb.append("    skipWebhook: ").append(toIndentedString(skipWebhook)).append("\n");
     sb.append("}");
     return sb.toString();

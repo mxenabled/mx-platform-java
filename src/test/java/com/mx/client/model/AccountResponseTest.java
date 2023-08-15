@@ -411,14 +411,6 @@ public class AccountResponseTest {
     }
 
     /**
-     * Test the property 'propertyTypeName'
-     */
-    @Test
-    public void propertyTypeNameTest() {
-        // TODO: test propertyTypeName
-    }
-
-    /**
      * Test the property 'routingNumber'
      */
     @Test

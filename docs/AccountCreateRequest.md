@@ -7,8 +7,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**accountSubtypeName** | **String** |  |  [optional]
-**accountType** | **Integer** |  | 
+**accountSubtype** | **String** |  |  [optional]
+**accountType** | **String** |  | 
 **apr** | **BigDecimal** |  |  [optional]
 **apy** | **BigDecimal** |  |  [optional]
 **availableBalance** | **BigDecimal** |  |  [optional]
@@ -26,8 +26,7 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **nickname** | **String** |  |  [optional]
 **originalBalance** | **BigDecimal** |  |  [optional]
-**propertyType** | **Integer** |  |  [optional]
-**propertyTypeName** | **String** |  |  [optional]
+**propertyType** | **String** |  |  [optional]
 **skipWebhook** | **Boolean** |  |  [optional]
 
 

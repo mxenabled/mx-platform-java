@@ -4427,7 +4427,7 @@ Name | Type | Description  | Notes
 
 <a name="listUserAccounts"></a>
 # **listUserAccounts**
-> AccountsResponseBody listUserAccounts(userGuid, memberIsManagedByUser, page, recordsPerPage)
+> AccountsResponseBody listUserAccounts(userGuid, memberIsManagedByUser, page, isManual, recordsPerPage)
 
 List accounts
 
@@ -4457,9 +4457,10 @@ public class Example {
     String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     Boolean memberIsManagedByUser = true; // Boolean | List only accounts whose member is managed by the user.
     Integer page = 1; // Integer | Specify current page.
+    Boolean isManual = true; // Boolean | List only accounts that were manually created.
     Integer recordsPerPage = 10; // Integer | Specify records per page.
     try {
-      AccountsResponseBody result = apiInstance.listUserAccounts(userGuid, memberIsManagedByUser, page, recordsPerPage);
+      AccountsResponseBody result = apiInstance.listUserAccounts(userGuid, memberIsManagedByUser, page, isManual, recordsPerPage);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#listUserAccounts");
@@ -4479,6 +4480,7 @@ Name | Type | Description  | Notes
  **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
  **memberIsManagedByUser** | **Boolean**| List only accounts whose member is managed by the user. | [optional]
  **page** | **Integer**| Specify current page. | [optional]
+ **isManual** | **Boolean**| List only accounts that were manually created. | [optional]
  **recordsPerPage** | **Integer**| Specify records per page. | [optional]
 
 ### Return type

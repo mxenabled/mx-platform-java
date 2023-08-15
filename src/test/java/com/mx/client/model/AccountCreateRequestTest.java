@@ -42,11 +42,11 @@ public class AccountCreateRequestTest {
     }
 
     /**
-     * Test the property 'accountSubtypeName'
+     * Test the property 'accountSubtype'
      */
     @Test
-    public void accountSubtypeNameTest() {
-        // TODO: test accountSubtypeName
+    public void accountSubtypeTest() {
+        // TODO: test accountSubtype
     }
 
     /**
@@ -199,14 +199,6 @@ public class AccountCreateRequestTest {
     @Test
     public void propertyTypeTest() {
         // TODO: test propertyType
-    }
-
-    /**
-     * Test the property 'propertyTypeName'
-     */
-    @Test
-    public void propertyTypeNameTest() {
-        // TODO: test propertyTypeName
     }
 
     /**

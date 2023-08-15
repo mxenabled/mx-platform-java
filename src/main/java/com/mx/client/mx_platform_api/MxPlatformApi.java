@@ -8860,6 +8860,7 @@ public class MxPlatformApi {
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param memberIsManagedByUser List only accounts whose member is managed by the user. (optional)
      * @param page Specify current page. (optional)
+     * @param isManual List only accounts that were manually created. (optional)
      * @param recordsPerPage Specify records per page. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -8870,7 +8871,7 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listUserAccountsCall(String userGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listUserAccountsCall(String userGuid, Boolean memberIsManagedByUser, Integer page, Boolean isManual, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
 
         // Operation Servers
@@ -8905,6 +8906,10 @@ public class MxPlatformApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
         }
 
+        if (isManual != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_manual", isManual));
+        }
+
         if (recordsPerPage != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
         }
@@ -8930,7 +8935,7 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listUserAccountsValidateBeforeCall(String userGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call listUserAccountsValidateBeforeCall(String userGuid, Boolean memberIsManagedByUser, Integer page, Boolean isManual, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
@@ -8938,7 +8943,7 @@ public class MxPlatformApi {
         }
         
 
-        okhttp3.Call localVarCall = listUserAccountsCall(userGuid, memberIsManagedByUser, page, recordsPerPage, _callback);
+        okhttp3.Call localVarCall = listUserAccountsCall(userGuid, memberIsManagedByUser, page, isManual, recordsPerPage, _callback);
         return localVarCall;
 
     }
@@ -8949,6 +8954,7 @@ public class MxPlatformApi {
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param memberIsManagedByUser List only accounts whose member is managed by the user. (optional)
      * @param page Specify current page. (optional)
+     * @param isManual List only accounts that were manually created. (optional)
      * @param recordsPerPage Specify records per page. (optional)
      * @return AccountsResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8958,8 +8964,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public AccountsResponseBody listUserAccounts(String userGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage) throws ApiException {
-        ApiResponse<AccountsResponseBody> localVarResp = listUserAccountsWithHttpInfo(userGuid, memberIsManagedByUser, page, recordsPerPage);
+    public AccountsResponseBody listUserAccounts(String userGuid, Boolean memberIsManagedByUser, Integer page, Boolean isManual, Integer recordsPerPage) throws ApiException {
+        ApiResponse<AccountsResponseBody> localVarResp = listUserAccountsWithHttpInfo(userGuid, memberIsManagedByUser, page, isManual, recordsPerPage);
         return localVarResp.getData();
     }
 
@@ -8969,6 +8975,7 @@ public class MxPlatformApi {
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param memberIsManagedByUser List only accounts whose member is managed by the user. (optional)
      * @param page Specify current page. (optional)
+     * @param isManual List only accounts that were manually created. (optional)
      * @param recordsPerPage Specify records per page. (optional)
      * @return ApiResponse&lt;AccountsResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8978,8 +8985,8 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AccountsResponseBody> listUserAccountsWithHttpInfo(String userGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage) throws ApiException {
-        okhttp3.Call localVarCall = listUserAccountsValidateBeforeCall(userGuid, memberIsManagedByUser, page, recordsPerPage, null);
+    public ApiResponse<AccountsResponseBody> listUserAccountsWithHttpInfo(String userGuid, Boolean memberIsManagedByUser, Integer page, Boolean isManual, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listUserAccountsValidateBeforeCall(userGuid, memberIsManagedByUser, page, isManual, recordsPerPage, null);
         Type localVarReturnType = new TypeToken<AccountsResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -8990,6 +8997,7 @@ public class MxPlatformApi {
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param memberIsManagedByUser List only accounts whose member is managed by the user. (optional)
      * @param page Specify current page. (optional)
+     * @param isManual List only accounts that were manually created. (optional)
      * @param recordsPerPage Specify records per page. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9000,9 +9008,9 @@ public class MxPlatformApi {
         <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call listUserAccountsAsync(String userGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage, final ApiCallback<AccountsResponseBody> _callback) throws ApiException {
+    public okhttp3.Call listUserAccountsAsync(String userGuid, Boolean memberIsManagedByUser, Integer page, Boolean isManual, Integer recordsPerPage, final ApiCallback<AccountsResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = listUserAccountsValidateBeforeCall(userGuid, memberIsManagedByUser, page, recordsPerPage, _callback);
+        okhttp3.Call localVarCall = listUserAccountsValidateBeforeCall(userGuid, memberIsManagedByUser, page, isManual, recordsPerPage, _callback);
         Type localVarReturnType = new TypeToken<AccountsResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
