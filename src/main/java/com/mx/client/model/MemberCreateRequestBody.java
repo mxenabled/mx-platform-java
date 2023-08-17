@@ -34,6 +34,10 @@ public class MemberCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_CLIENT_REDIRECT_URL)
   private String clientRedirectUrl;
 
+  public static final String SERIALIZED_NAME_ENABLE_APP2APP = "enable_app2app";
+  @SerializedName(SERIALIZED_NAME_ENABLE_APP2APP)
+  private Boolean enableApp2app;
+
   public static final String SERIALIZED_NAME_MEMBER = "member";
   @SerializedName(SERIALIZED_NAME_MEMBER)
   private MemberCreateRequest member;
@@ -69,6 +73,29 @@ public class MemberCreateRequestBody {
 
   public void setClientRedirectUrl(String clientRedirectUrl) {
     this.clientRedirectUrl = clientRedirectUrl;
+  }
+
+
+  public MemberCreateRequestBody enableApp2app(Boolean enableApp2app) {
+    
+    this.enableApp2app = enableApp2app;
+    return this;
+  }
+
+   /**
+   * Get enableApp2app
+   * @return enableApp2app
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "false", value = "")
+
+  public Boolean getEnableApp2app() {
+    return enableApp2app;
+  }
+
+
+  public void setEnableApp2app(Boolean enableApp2app) {
+    this.enableApp2app = enableApp2app;
   }
 
 
@@ -151,6 +178,7 @@ public class MemberCreateRequestBody {
     }
     MemberCreateRequestBody memberCreateRequestBody = (MemberCreateRequestBody) o;
     return Objects.equals(this.clientRedirectUrl, memberCreateRequestBody.clientRedirectUrl) &&
+        Objects.equals(this.enableApp2app, memberCreateRequestBody.enableApp2app) &&
         Objects.equals(this.member, memberCreateRequestBody.member) &&
         Objects.equals(this.referralSource, memberCreateRequestBody.referralSource) &&
         Objects.equals(this.uiMessageWebviewUrlScheme, memberCreateRequestBody.uiMessageWebviewUrlScheme);
@@ -158,7 +186,7 @@ public class MemberCreateRequestBody {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientRedirectUrl, member, referralSource, uiMessageWebviewUrlScheme);
+    return Objects.hash(clientRedirectUrl, enableApp2app, member, referralSource, uiMessageWebviewUrlScheme);
   }
 
   @Override
@@ -166,6 +194,7 @@ public class MemberCreateRequestBody {
     StringBuilder sb = new StringBuilder();
     sb.append("class MemberCreateRequestBody {\n");
     sb.append("    clientRedirectUrl: ").append(toIndentedString(clientRedirectUrl)).append("\n");
+    sb.append("    enableApp2app: ").append(toIndentedString(enableApp2app)).append("\n");
     sb.append("    member: ").append(toIndentedString(member)).append("\n");
     sb.append("    referralSource: ").append(toIndentedString(referralSource)).append("\n");
     sb.append("    uiMessageWebviewUrlScheme: ").append(toIndentedString(uiMessageWebviewUrlScheme)).append("\n");

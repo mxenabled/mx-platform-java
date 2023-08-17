@@ -6119,7 +6119,7 @@ Name | Type | Description  | Notes
 
 <a name="requestOAuthWindowURI"></a>
 # **requestOAuthWindowURI**
-> OAuthWindowResponseBody requestOAuthWindowURI(memberGuid, userGuid, clientRedirectUrl, referralSource, skipAggregation, uiMessageWebviewUrlScheme)
+> OAuthWindowResponseBody requestOAuthWindowURI(memberGuid, userGuid, clientRedirectUrl, enableApp2app, referralSource, skipAggregation, uiMessageWebviewUrlScheme)
 
 Request oauth window uri
 
@@ -6149,11 +6149,12 @@ public class Example {
     String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
     String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     String clientRedirectUrl = "https://mx.com"; // String | A URL that MX will redirect to at the end of OAuth with additional query parameters. Only available with `referral_source=APP`.
+    String enableApp2app = "false"; // String | This indicates whether OAuth app2app behavior is enabled for institutions that support it. Defaults to `true`. This setting is not persistent.
     String referralSource = "APP"; // String | Must be either `BROWSER` or `APP` depending on the implementation. Defaults to `BROWSER`.
     Boolean skipAggregation = false; // Boolean | Setting this parameter to `true` will prevent the member from automatically aggregating after being redirected from the authorization page.
     String uiMessageWebviewUrlScheme = "mx"; // String | A scheme for routing the user back to the application state they were previously in. Only available with `referral_source=APP`.
     try {
-      OAuthWindowResponseBody result = apiInstance.requestOAuthWindowURI(memberGuid, userGuid, clientRedirectUrl, referralSource, skipAggregation, uiMessageWebviewUrlScheme);
+      OAuthWindowResponseBody result = apiInstance.requestOAuthWindowURI(memberGuid, userGuid, clientRedirectUrl, enableApp2app, referralSource, skipAggregation, uiMessageWebviewUrlScheme);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#requestOAuthWindowURI");
@@ -6173,6 +6174,7 @@ Name | Type | Description  | Notes
  **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
  **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
  **clientRedirectUrl** | **String**| A URL that MX will redirect to at the end of OAuth with additional query parameters. Only available with &#x60;referral_source&#x3D;APP&#x60;. | [optional]
+ **enableApp2app** | **String**| This indicates whether OAuth app2app behavior is enabled for institutions that support it. Defaults to &#x60;true&#x60;. This setting is not persistent. | [optional]
  **referralSource** | **String**| Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. | [optional]
  **skipAggregation** | **Boolean**| Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. | [optional]
  **uiMessageWebviewUrlScheme** | **String**| A scheme for routing the user back to the application state they were previously in. Only available with &#x60;referral_source&#x3D;APP&#x60;. | [optional]

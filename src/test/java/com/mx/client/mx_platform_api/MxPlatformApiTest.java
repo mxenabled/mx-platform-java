@@ -1525,10 +1525,11 @@ public class MxPlatformApiTest {
         String memberGuid = null;
         String userGuid = null;
         String clientRedirectUrl = null;
+        String enableApp2app = null;
         String referralSource = null;
         Boolean skipAggregation = null;
         String uiMessageWebviewUrlScheme = null;
-                OAuthWindowResponseBody response = api.requestOAuthWindowURI(memberGuid, userGuid, clientRedirectUrl, referralSource, skipAggregation, uiMessageWebviewUrlScheme);
+                OAuthWindowResponseBody response = api.requestOAuthWindowURI(memberGuid, userGuid, clientRedirectUrl, enableApp2app, referralSource, skipAggregation, uiMessageWebviewUrlScheme);
         // TODO: test validations
     }
     

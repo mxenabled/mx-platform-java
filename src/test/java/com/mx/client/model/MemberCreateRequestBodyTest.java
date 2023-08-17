@@ -50,6 +50,14 @@ public class MemberCreateRequestBodyTest {
     }
 
     /**
+     * Test the property 'enableApp2app'
+     */
+    @Test
+    public void enableApp2appTest() {
+        // TODO: test enableApp2app
+    }
+
+    /**
      * Test the property 'member'
      */
     @Test
