@@ -55,6 +55,15 @@ import com.mx.client.model.MerchantsResponseBody;
 import com.mx.client.model.OAuthWindowResponseBody;
 import com.mx.client.model.PaymentProcessorAuthorizationCodeRequestBody;
 import com.mx.client.model.PaymentProcessorAuthorizationCodeResponseBody;
+import com.mx.client.model.SpendingPlanAccountResponse;
+import com.mx.client.model.SpendingPlanAccountsResponse;
+import com.mx.client.model.SpendingPlanIterationItemCreateRequestBody;
+import com.mx.client.model.SpendingPlanIterationItemResponse;
+import com.mx.client.model.SpendingPlanIterationItemsResponseBody;
+import com.mx.client.model.SpendingPlanIterationResponse;
+import com.mx.client.model.SpendingPlanIterationsResponse;
+import com.mx.client.model.SpendingPlanResponse;
+import com.mx.client.model.SpendingPlansResponseBody;
 import com.mx.client.model.StatementResponseBody;
 import com.mx.client.model.StatementsResponseBody;
 import com.mx.client.model.TagCreateRequestBody;
@@ -229,6 +238,38 @@ public class MxPlatformApiTest {
     }
     
     /**
+     * Create spending plan
+     *
+     * This endpoint creates a new &#x60;spending_plan&#x60; for the user.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createSpendingPlanTest() throws ApiException {
+        String userGuid = null;
+                SpendingPlanResponse response = api.createSpendingPlan(userGuid);
+        // TODO: test validations
+    }
+    
+    /**
+     * Create spending plan iteration item
+     *
+     * This endpoint creates a new &#x60;spending_plan_iteration_item&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void createSpendingPlanIterationItemTest() throws ApiException {
+        String spendingPlanGuid = null;
+        String userGuid = null;
+        SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody = null;
+                SpendingPlanIterationItemResponse response = api.createSpendingPlanIterationItem(spendingPlanGuid, userGuid, spendingPlanIterationItemCreateRequestBody);
+        // TODO: test validations
+    }
+    
+    /**
      * Create tag
      *
      * Use this endpoint to create a new custom tag.
@@ -387,6 +428,56 @@ public class MxPlatformApiTest {
         String memberGuid = null;
         String userGuid = null;
                 api.deleteMember(memberGuid, userGuid);
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete spending plan
+     *
+     * Use this endpoint to delete a user&#39;s &#x60;spending_plan&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSpendingPlanTest() throws ApiException {
+        String userGuid = null;
+        String spendingPlanGuid = null;
+                api.deleteSpendingPlan(userGuid, spendingPlanGuid);
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete spending plan account
+     *
+     * Use this endpoint to delete a &#x60;spending_plan_account&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSpendingPlanAccountTest() throws ApiException {
+        String userGuid = null;
+        String spendingPlanGuid = null;
+        String spendingPlanAccountGuid = null;
+                api.deleteSpendingPlanAccount(userGuid, spendingPlanGuid, spendingPlanAccountGuid);
+        // TODO: test validations
+    }
+    
+    /**
+     * Delete spending plan iteration item
+     *
+     * Use this endpoint to delete a spending plan &#x60;iteration_item&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void deleteSpendingPlanIterationItemTest() throws ApiException {
+        String userGuid = null;
+        String spendingPlanGuid = null;
+        String iterationItemGuid = null;
+                api.deleteSpendingPlanIterationItem(userGuid, spendingPlanGuid, iterationItemGuid);
         // TODO: test validations
     }
     
@@ -957,6 +1048,77 @@ public class MxPlatformApiTest {
     }
     
     /**
+     * List spending plan accounts
+     *
+     * Use this endpoint to list all the spending plan accounts associated with the spending plan.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listSpendingPlanAccountsTest() throws ApiException {
+        String userGuid = null;
+        String spendingPlanGuid = null;
+        Integer page = null;
+        Integer recordsPerPage = null;
+                SpendingPlanAccountsResponse response = api.listSpendingPlanAccounts(userGuid, spendingPlanGuid, page, recordsPerPage);
+        // TODO: test validations
+    }
+    
+    /**
+     * List spending plan iteration items
+     *
+     * Use this endpoint to list all the spending plan &#x60;iteration_items&#x60; associated with the &#x60;iteration&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listSpendingPlanIterationItemsTest() throws ApiException {
+        String userGuid = null;
+        String spendingPlanGuid = null;
+        Integer page = null;
+        Integer recordsPerPage = null;
+                SpendingPlanIterationItemsResponseBody response = api.listSpendingPlanIterationItems(userGuid, spendingPlanGuid, page, recordsPerPage);
+        // TODO: test validations
+    }
+    
+    /**
+     * List spending plan iterations
+     *
+     * Use this endpoint to list all the spending plan &#x60;iterations&#x60; associated with the &#x60;spending_plan&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listSpendingPlanIterationsTest() throws ApiException {
+        String userGuid = null;
+        String spendingPlanGuid = null;
+        Integer page = null;
+        Integer recordsPerPage = null;
+                SpendingPlanIterationsResponse response = api.listSpendingPlanIterations(userGuid, spendingPlanGuid, page, recordsPerPage);
+        // TODO: test validations
+    }
+    
+    /**
+     * List spending plans
+     *
+     * Use this endpoint to list all the spending plans associated with the user.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void listSpendingPlansTest() throws ApiException {
+        String userGuid = null;
+        Integer page = null;
+        Integer recordsPerPage = null;
+                SpendingPlansResponseBody response = api.listSpendingPlans(userGuid, page, recordsPerPage);
+        // TODO: test validations
+    }
+    
+    /**
      * List statements by member
      *
      * Use this endpoint to get an array of available statements.
@@ -1369,6 +1531,81 @@ public class MxPlatformApiTest {
     }
     
     /**
+     * Read spending plan account
+     *
+     * Use this endpoint to read the attributes of a specific spending plan account according to its unique GUID.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void readSpendingPlanAccountTest() throws ApiException {
+        String userGuid = null;
+        String spendingPlanGuid = null;
+        String spendingPlanAccountGuid = null;
+        Integer page = null;
+        Integer recordsPerPage = null;
+                SpendingPlanAccountResponse response = api.readSpendingPlanAccount(userGuid, spendingPlanGuid, spendingPlanAccountGuid, page, recordsPerPage);
+        // TODO: test validations
+    }
+    
+    /**
+     * Read a spending plan iteration
+     *
+     * Use this endpoint to read the attributes of a specific spending plan &#x60;iteration&#x60; according to its &#x60;iteration_number&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void readSpendingPlanIterationTest() throws ApiException {
+        String userGuid = null;
+        String spendingPlanGuid = null;
+        Integer iterationNumber = null;
+        Integer page = null;
+        Integer recordsPerPage = null;
+                SpendingPlanIterationResponse response = api.readSpendingPlanIteration(userGuid, spendingPlanGuid, iterationNumber, page, recordsPerPage);
+        // TODO: test validations
+    }
+    
+    /**
+     * Read a spending plan iteration item
+     *
+     * Use this endpoint to read the attributes of a specific spending plan &#x60;iteration_item&#x60; according to its unique GUID.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void readSpendingPlanIterationItemTest() throws ApiException {
+        String userGuid = null;
+        String spendingPlanGuid = null;
+        String iterationItemGuid = null;
+        Integer page = null;
+        Integer recordsPerPage = null;
+                SpendingPlanIterationItemResponse response = api.readSpendingPlanIterationItem(userGuid, spendingPlanGuid, iterationItemGuid, page, recordsPerPage);
+        // TODO: test validations
+    }
+    
+    /**
+     * Read a spending plan for a user
+     *
+     * Use this endpoint to read the attributes of a specific spending plan according to its unique GUID.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void readSpendingPlanUserTest() throws ApiException {
+        String userGuid = null;
+        String spendingPlanGuid = null;
+        Integer page = null;
+        Integer recordsPerPage = null;
+                SpendingPlanResponse response = api.readSpendingPlanUser(userGuid, spendingPlanGuid, page, recordsPerPage);
+        // TODO: test validations
+    }
+    
+    /**
      * Read statement by member
      *
      * Use this endpoint to read a JSON representation of the statement.
@@ -1670,6 +1907,24 @@ public class MxPlatformApiTest {
         String userGuid = null;
         MemberUpdateRequestBody memberUpdateRequestBody = null;
                 MemberResponseBody response = api.updateMember(memberGuid, userGuid, memberUpdateRequestBody);
+        // TODO: test validations
+    }
+    
+    /**
+     * Update a spending plan iteration item
+     *
+     * Use this endpoint to update an existing &#x60;spending_plan_iteration_item&#x60;.
+     *
+     * @throws ApiException
+     *          if the Api call fails
+     */
+    @Test
+    public void updateSpendingPlanIterationItemTest() throws ApiException {
+        String userGuid = null;
+        String spendingPlanGuid = null;
+        String iterationItemGuid = null;
+        SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody = null;
+                SpendingPlanIterationItemResponse response = api.updateSpendingPlanIterationItem(userGuid, spendingPlanGuid, iterationItemGuid, spendingPlanIterationItemCreateRequestBody);
         // TODO: test validations
     }
     

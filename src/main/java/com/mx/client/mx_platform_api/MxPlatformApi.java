@@ -68,6 +68,15 @@ import com.mx.client.model.MerchantsResponseBody;
 import com.mx.client.model.OAuthWindowResponseBody;
 import com.mx.client.model.PaymentProcessorAuthorizationCodeRequestBody;
 import com.mx.client.model.PaymentProcessorAuthorizationCodeResponseBody;
+import com.mx.client.model.SpendingPlanAccountResponse;
+import com.mx.client.model.SpendingPlanAccountsResponse;
+import com.mx.client.model.SpendingPlanIterationItemCreateRequestBody;
+import com.mx.client.model.SpendingPlanIterationItemResponse;
+import com.mx.client.model.SpendingPlanIterationItemsResponseBody;
+import com.mx.client.model.SpendingPlanIterationResponse;
+import com.mx.client.model.SpendingPlanIterationsResponse;
+import com.mx.client.model.SpendingPlanResponse;
+import com.mx.client.model.SpendingPlansResponseBody;
 import com.mx.client.model.StatementResponseBody;
 import com.mx.client.model.StatementsResponseBody;
 import com.mx.client.model.TagCreateRequestBody;
@@ -1262,6 +1271,281 @@ public class MxPlatformApi {
 
         okhttp3.Call localVarCall = createMemberValidateBeforeCall(userGuid, memberCreateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<MemberResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createSpendingPlan
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSpendingPlanCall(String userGuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/spending_plans"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createSpendingPlanValidateBeforeCall(String userGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling createSpendingPlan(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createSpendingPlanCall(userGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create spending plan
+     * This endpoint creates a new &#x60;spending_plan&#x60; for the user.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return SpendingPlanResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SpendingPlanResponse createSpendingPlan(String userGuid) throws ApiException {
+        ApiResponse<SpendingPlanResponse> localVarResp = createSpendingPlanWithHttpInfo(userGuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create spending plan
+     * This endpoint creates a new &#x60;spending_plan&#x60; for the user.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return ApiResponse&lt;SpendingPlanResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SpendingPlanResponse> createSpendingPlanWithHttpInfo(String userGuid) throws ApiException {
+        okhttp3.Call localVarCall = createSpendingPlanValidateBeforeCall(userGuid, null);
+        Type localVarReturnType = new TypeToken<SpendingPlanResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create spending plan (asynchronously)
+     * This endpoint creates a new &#x60;spending_plan&#x60; for the user.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSpendingPlanAsync(String userGuid, final ApiCallback<SpendingPlanResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createSpendingPlanValidateBeforeCall(userGuid, _callback);
+        Type localVarReturnType = new TypeToken<SpendingPlanResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for createSpendingPlanIterationItem
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanIterationItemCreateRequestBody Iteration item to be created with required parameters (planned_amount) (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSpendingPlanIterationItemCall(String spendingPlanGuid, String userGuid, SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = spendingPlanIterationItemCreateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items"
+            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createSpendingPlanIterationItemValidateBeforeCall(String spendingPlanGuid, String userGuid, SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'spendingPlanGuid' is set
+        if (spendingPlanGuid == null) {
+            throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling createSpendingPlanIterationItem(Async)");
+        }
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling createSpendingPlanIterationItem(Async)");
+        }
+        
+        // verify the required parameter 'spendingPlanIterationItemCreateRequestBody' is set
+        if (spendingPlanIterationItemCreateRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'spendingPlanIterationItemCreateRequestBody' when calling createSpendingPlanIterationItem(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = createSpendingPlanIterationItemCall(spendingPlanGuid, userGuid, spendingPlanIterationItemCreateRequestBody, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Create spending plan iteration item
+     * This endpoint creates a new &#x60;spending_plan_iteration_item&#x60;.
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanIterationItemCreateRequestBody Iteration item to be created with required parameters (planned_amount) (required)
+     * @return SpendingPlanIterationItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SpendingPlanIterationItemResponse createSpendingPlanIterationItem(String spendingPlanGuid, String userGuid, SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody) throws ApiException {
+        ApiResponse<SpendingPlanIterationItemResponse> localVarResp = createSpendingPlanIterationItemWithHttpInfo(spendingPlanGuid, userGuid, spendingPlanIterationItemCreateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create spending plan iteration item
+     * This endpoint creates a new &#x60;spending_plan_iteration_item&#x60;.
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanIterationItemCreateRequestBody Iteration item to be created with required parameters (planned_amount) (required)
+     * @return ApiResponse&lt;SpendingPlanIterationItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SpendingPlanIterationItemResponse> createSpendingPlanIterationItemWithHttpInfo(String spendingPlanGuid, String userGuid, SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = createSpendingPlanIterationItemValidateBeforeCall(spendingPlanGuid, userGuid, spendingPlanIterationItemCreateRequestBody, null);
+        Type localVarReturnType = new TypeToken<SpendingPlanIterationItemResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create spending plan iteration item (asynchronously)
+     * This endpoint creates a new &#x60;spending_plan_iteration_item&#x60;.
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanIterationItemCreateRequestBody Iteration item to be created with required parameters (planned_amount) (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call createSpendingPlanIterationItemAsync(String spendingPlanGuid, String userGuid, SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody, final ApiCallback<SpendingPlanIterationItemResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = createSpendingPlanIterationItemValidateBeforeCall(spendingPlanGuid, userGuid, spendingPlanIterationItemCreateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<SpendingPlanIterationItemResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2634,6 +2918,428 @@ public class MxPlatformApi {
     public okhttp3.Call deleteMemberAsync(String memberGuid, String userGuid, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = deleteMemberValidateBeforeCall(memberGuid, userGuid, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteSpendingPlan
+     * @param userGuid The unique ID for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSpendingPlanCall(String userGuid, String spendingPlanGuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteSpendingPlanValidateBeforeCall(String userGuid, String spendingPlanGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling deleteSpendingPlan(Async)");
+        }
+        
+        // verify the required parameter 'spendingPlanGuid' is set
+        if (spendingPlanGuid == null) {
+            throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling deleteSpendingPlan(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteSpendingPlanCall(userGuid, spendingPlanGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete spending plan
+     * Use this endpoint to delete a user&#39;s &#x60;spending_plan&#x60;.
+     * @param userGuid The unique ID for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteSpendingPlan(String userGuid, String spendingPlanGuid) throws ApiException {
+        deleteSpendingPlanWithHttpInfo(userGuid, spendingPlanGuid);
+    }
+
+    /**
+     * Delete spending plan
+     * Use this endpoint to delete a user&#39;s &#x60;spending_plan&#x60;.
+     * @param userGuid The unique ID for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteSpendingPlanWithHttpInfo(String userGuid, String spendingPlanGuid) throws ApiException {
+        okhttp3.Call localVarCall = deleteSpendingPlanValidateBeforeCall(userGuid, spendingPlanGuid, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete spending plan (asynchronously)
+     * Use this endpoint to delete a user&#39;s &#x60;spending_plan&#x60;.
+     * @param userGuid The unique ID for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSpendingPlanAsync(String userGuid, String spendingPlanGuid, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteSpendingPlanValidateBeforeCall(userGuid, spendingPlanGuid, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteSpendingPlanAccount
+     * @param userGuid The unique ID for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param spendingPlanAccountGuid The unique ID for the specified account. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSpendingPlanAccountCall(String userGuid, String spendingPlanGuid, String spendingPlanAccountGuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/spending_plan_accounts/{spending_plan_account_guid}"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
+            .replaceAll("\\{" + "spending_plan_account_guid" + "\\}", localVarApiClient.escapeString(spendingPlanAccountGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteSpendingPlanAccountValidateBeforeCall(String userGuid, String spendingPlanGuid, String spendingPlanAccountGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling deleteSpendingPlanAccount(Async)");
+        }
+        
+        // verify the required parameter 'spendingPlanGuid' is set
+        if (spendingPlanGuid == null) {
+            throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling deleteSpendingPlanAccount(Async)");
+        }
+        
+        // verify the required parameter 'spendingPlanAccountGuid' is set
+        if (spendingPlanAccountGuid == null) {
+            throw new ApiException("Missing the required parameter 'spendingPlanAccountGuid' when calling deleteSpendingPlanAccount(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteSpendingPlanAccountCall(userGuid, spendingPlanGuid, spendingPlanAccountGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete spending plan account
+     * Use this endpoint to delete a &#x60;spending_plan_account&#x60;.
+     * @param userGuid The unique ID for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param spendingPlanAccountGuid The unique ID for the specified account. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteSpendingPlanAccount(String userGuid, String spendingPlanGuid, String spendingPlanAccountGuid) throws ApiException {
+        deleteSpendingPlanAccountWithHttpInfo(userGuid, spendingPlanGuid, spendingPlanAccountGuid);
+    }
+
+    /**
+     * Delete spending plan account
+     * Use this endpoint to delete a &#x60;spending_plan_account&#x60;.
+     * @param userGuid The unique ID for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param spendingPlanAccountGuid The unique ID for the specified account. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteSpendingPlanAccountWithHttpInfo(String userGuid, String spendingPlanGuid, String spendingPlanAccountGuid) throws ApiException {
+        okhttp3.Call localVarCall = deleteSpendingPlanAccountValidateBeforeCall(userGuid, spendingPlanGuid, spendingPlanAccountGuid, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete spending plan account (asynchronously)
+     * Use this endpoint to delete a &#x60;spending_plan_account&#x60;.
+     * @param userGuid The unique ID for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param spendingPlanAccountGuid The unique ID for the specified account. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSpendingPlanAccountAsync(String userGuid, String spendingPlanGuid, String spendingPlanAccountGuid, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteSpendingPlanAccountValidateBeforeCall(userGuid, spendingPlanGuid, spendingPlanAccountGuid, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for deleteSpendingPlanIterationItem
+     * @param userGuid The unique ID for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param iterationItemGuid The unique ID for the &#x60;iteration_item&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSpendingPlanIterationItemCall(String userGuid, String spendingPlanGuid, String iterationItemGuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items/{iteration_item_guid}"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
+            .replaceAll("\\{" + "iteration_item_guid" + "\\}", localVarApiClient.escapeString(iterationItemGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteSpendingPlanIterationItemValidateBeforeCall(String userGuid, String spendingPlanGuid, String iterationItemGuid, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling deleteSpendingPlanIterationItem(Async)");
+        }
+        
+        // verify the required parameter 'spendingPlanGuid' is set
+        if (spendingPlanGuid == null) {
+            throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling deleteSpendingPlanIterationItem(Async)");
+        }
+        
+        // verify the required parameter 'iterationItemGuid' is set
+        if (iterationItemGuid == null) {
+            throw new ApiException("Missing the required parameter 'iterationItemGuid' when calling deleteSpendingPlanIterationItem(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = deleteSpendingPlanIterationItemCall(userGuid, spendingPlanGuid, iterationItemGuid, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Delete spending plan iteration item
+     * Use this endpoint to delete a spending plan &#x60;iteration_item&#x60;.
+     * @param userGuid The unique ID for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param iterationItemGuid The unique ID for the &#x60;iteration_item&#x60;. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public void deleteSpendingPlanIterationItem(String userGuid, String spendingPlanGuid, String iterationItemGuid) throws ApiException {
+        deleteSpendingPlanIterationItemWithHttpInfo(userGuid, spendingPlanGuid, iterationItemGuid);
+    }
+
+    /**
+     * Delete spending plan iteration item
+     * Use this endpoint to delete a spending plan &#x60;iteration_item&#x60;.
+     * @param userGuid The unique ID for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param iterationItemGuid The unique ID for the &#x60;iteration_item&#x60;. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> deleteSpendingPlanIterationItemWithHttpInfo(String userGuid, String spendingPlanGuid, String iterationItemGuid) throws ApiException {
+        okhttp3.Call localVarCall = deleteSpendingPlanIterationItemValidateBeforeCall(userGuid, spendingPlanGuid, iterationItemGuid, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete spending plan iteration item (asynchronously)
+     * Use this endpoint to delete a spending plan &#x60;iteration_item&#x60;.
+     * @param userGuid The unique ID for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param iterationItemGuid The unique ID for the &#x60;iteration_item&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No Content </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call deleteSpendingPlanIterationItemAsync(String userGuid, String spendingPlanGuid, String iterationItemGuid, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = deleteSpendingPlanIterationItemValidateBeforeCall(userGuid, spendingPlanGuid, iterationItemGuid, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
         return localVarCall;
     }
@@ -7446,6 +8152,612 @@ public class MxPlatformApi {
         return localVarCall;
     }
     /**
+     * Build call for listSpendingPlanAccounts
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSpendingPlanAccountsCall(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/spending_plan_accounts"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSpendingPlanAccountsValidateBeforeCall(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling listSpendingPlanAccounts(Async)");
+        }
+        
+        // verify the required parameter 'spendingPlanGuid' is set
+        if (spendingPlanGuid == null) {
+            throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling listSpendingPlanAccounts(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listSpendingPlanAccountsCall(userGuid, spendingPlanGuid, page, recordsPerPage, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List spending plan accounts
+     * Use this endpoint to list all the spending plan accounts associated with the spending plan.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return SpendingPlanAccountsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SpendingPlanAccountsResponse listSpendingPlanAccounts(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<SpendingPlanAccountsResponse> localVarResp = listSpendingPlanAccountsWithHttpInfo(userGuid, spendingPlanGuid, page, recordsPerPage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List spending plan accounts
+     * Use this endpoint to list all the spending plan accounts associated with the spending plan.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return ApiResponse&lt;SpendingPlanAccountsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SpendingPlanAccountsResponse> listSpendingPlanAccountsWithHttpInfo(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listSpendingPlanAccountsValidateBeforeCall(userGuid, spendingPlanGuid, page, recordsPerPage, null);
+        Type localVarReturnType = new TypeToken<SpendingPlanAccountsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List spending plan accounts (asynchronously)
+     * Use this endpoint to list all the spending plan accounts associated with the spending plan.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSpendingPlanAccountsAsync(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback<SpendingPlanAccountsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSpendingPlanAccountsValidateBeforeCall(userGuid, spendingPlanGuid, page, recordsPerPage, _callback);
+        Type localVarReturnType = new TypeToken<SpendingPlanAccountsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSpendingPlanIterationItems
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSpendingPlanIterationItemsCall(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSpendingPlanIterationItemsValidateBeforeCall(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling listSpendingPlanIterationItems(Async)");
+        }
+        
+        // verify the required parameter 'spendingPlanGuid' is set
+        if (spendingPlanGuid == null) {
+            throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling listSpendingPlanIterationItems(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listSpendingPlanIterationItemsCall(userGuid, spendingPlanGuid, page, recordsPerPage, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List spending plan iteration items
+     * Use this endpoint to list all the spending plan &#x60;iteration_items&#x60; associated with the &#x60;iteration&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return SpendingPlanIterationItemsResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SpendingPlanIterationItemsResponseBody listSpendingPlanIterationItems(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<SpendingPlanIterationItemsResponseBody> localVarResp = listSpendingPlanIterationItemsWithHttpInfo(userGuid, spendingPlanGuid, page, recordsPerPage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List spending plan iteration items
+     * Use this endpoint to list all the spending plan &#x60;iteration_items&#x60; associated with the &#x60;iteration&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return ApiResponse&lt;SpendingPlanIterationItemsResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SpendingPlanIterationItemsResponseBody> listSpendingPlanIterationItemsWithHttpInfo(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listSpendingPlanIterationItemsValidateBeforeCall(userGuid, spendingPlanGuid, page, recordsPerPage, null);
+        Type localVarReturnType = new TypeToken<SpendingPlanIterationItemsResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List spending plan iteration items (asynchronously)
+     * Use this endpoint to list all the spending plan &#x60;iteration_items&#x60; associated with the &#x60;iteration&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSpendingPlanIterationItemsAsync(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback<SpendingPlanIterationItemsResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSpendingPlanIterationItemsValidateBeforeCall(userGuid, spendingPlanGuid, page, recordsPerPage, _callback);
+        Type localVarReturnType = new TypeToken<SpendingPlanIterationItemsResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSpendingPlanIterations
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSpendingPlanIterationsCall(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/iterations"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSpendingPlanIterationsValidateBeforeCall(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling listSpendingPlanIterations(Async)");
+        }
+        
+        // verify the required parameter 'spendingPlanGuid' is set
+        if (spendingPlanGuid == null) {
+            throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling listSpendingPlanIterations(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listSpendingPlanIterationsCall(userGuid, spendingPlanGuid, page, recordsPerPage, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List spending plan iterations
+     * Use this endpoint to list all the spending plan &#x60;iterations&#x60; associated with the &#x60;spending_plan&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return SpendingPlanIterationsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SpendingPlanIterationsResponse listSpendingPlanIterations(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<SpendingPlanIterationsResponse> localVarResp = listSpendingPlanIterationsWithHttpInfo(userGuid, spendingPlanGuid, page, recordsPerPage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List spending plan iterations
+     * Use this endpoint to list all the spending plan &#x60;iterations&#x60; associated with the &#x60;spending_plan&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return ApiResponse&lt;SpendingPlanIterationsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SpendingPlanIterationsResponse> listSpendingPlanIterationsWithHttpInfo(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listSpendingPlanIterationsValidateBeforeCall(userGuid, spendingPlanGuid, page, recordsPerPage, null);
+        Type localVarReturnType = new TypeToken<SpendingPlanIterationsResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List spending plan iterations (asynchronously)
+     * Use this endpoint to list all the spending plan &#x60;iterations&#x60; associated with the &#x60;spending_plan&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSpendingPlanIterationsAsync(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback<SpendingPlanIterationsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSpendingPlanIterationsValidateBeforeCall(userGuid, spendingPlanGuid, page, recordsPerPage, _callback);
+        Type localVarReturnType = new TypeToken<SpendingPlanIterationsResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for listSpendingPlans
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSpendingPlansCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/spending_plans"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSpendingPlansValidateBeforeCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling listSpendingPlans(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = listSpendingPlansCall(userGuid, page, recordsPerPage, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * List spending plans
+     * Use this endpoint to list all the spending plans associated with the user.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return SpendingPlansResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SpendingPlansResponseBody listSpendingPlans(String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<SpendingPlansResponseBody> localVarResp = listSpendingPlansWithHttpInfo(userGuid, page, recordsPerPage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List spending plans
+     * Use this endpoint to list all the spending plans associated with the user.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return ApiResponse&lt;SpendingPlansResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SpendingPlansResponseBody> listSpendingPlansWithHttpInfo(String userGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = listSpendingPlansValidateBeforeCall(userGuid, page, recordsPerPage, null);
+        Type localVarReturnType = new TypeToken<SpendingPlansResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List spending plans (asynchronously)
+     * Use this endpoint to list all the spending plans associated with the user.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listSpendingPlansAsync(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback<SpendingPlansResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSpendingPlansValidateBeforeCall(userGuid, page, recordsPerPage, _callback);
+        Type localVarReturnType = new TypeToken<SpendingPlansResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listStatementsByMember
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
@@ -10968,6 +12280,652 @@ public class MxPlatformApi {
         return localVarCall;
     }
     /**
+     * Build call for readSpendingPlanAccount
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param spendingPlanAccountGuid The unique ID for the specified account. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readSpendingPlanAccountCall(String userGuid, String spendingPlanGuid, String spendingPlanAccountGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/spending_plan_accounts/{spending_plan_account_guid}"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
+            .replaceAll("\\{" + "spending_plan_account_guid" + "\\}", localVarApiClient.escapeString(spendingPlanAccountGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call readSpendingPlanAccountValidateBeforeCall(String userGuid, String spendingPlanGuid, String spendingPlanAccountGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling readSpendingPlanAccount(Async)");
+        }
+        
+        // verify the required parameter 'spendingPlanGuid' is set
+        if (spendingPlanGuid == null) {
+            throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling readSpendingPlanAccount(Async)");
+        }
+        
+        // verify the required parameter 'spendingPlanAccountGuid' is set
+        if (spendingPlanAccountGuid == null) {
+            throw new ApiException("Missing the required parameter 'spendingPlanAccountGuid' when calling readSpendingPlanAccount(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = readSpendingPlanAccountCall(userGuid, spendingPlanGuid, spendingPlanAccountGuid, page, recordsPerPage, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read spending plan account
+     * Use this endpoint to read the attributes of a specific spending plan account according to its unique GUID.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param spendingPlanAccountGuid The unique ID for the specified account. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return SpendingPlanAccountResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SpendingPlanAccountResponse readSpendingPlanAccount(String userGuid, String spendingPlanGuid, String spendingPlanAccountGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<SpendingPlanAccountResponse> localVarResp = readSpendingPlanAccountWithHttpInfo(userGuid, spendingPlanGuid, spendingPlanAccountGuid, page, recordsPerPage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read spending plan account
+     * Use this endpoint to read the attributes of a specific spending plan account according to its unique GUID.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param spendingPlanAccountGuid The unique ID for the specified account. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return ApiResponse&lt;SpendingPlanAccountResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SpendingPlanAccountResponse> readSpendingPlanAccountWithHttpInfo(String userGuid, String spendingPlanGuid, String spendingPlanAccountGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = readSpendingPlanAccountValidateBeforeCall(userGuid, spendingPlanGuid, spendingPlanAccountGuid, page, recordsPerPage, null);
+        Type localVarReturnType = new TypeToken<SpendingPlanAccountResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read spending plan account (asynchronously)
+     * Use this endpoint to read the attributes of a specific spending plan account according to its unique GUID.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param spendingPlanAccountGuid The unique ID for the specified account. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readSpendingPlanAccountAsync(String userGuid, String spendingPlanGuid, String spendingPlanAccountGuid, Integer page, Integer recordsPerPage, final ApiCallback<SpendingPlanAccountResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = readSpendingPlanAccountValidateBeforeCall(userGuid, spendingPlanGuid, spendingPlanAccountGuid, page, recordsPerPage, _callback);
+        Type localVarReturnType = new TypeToken<SpendingPlanAccountResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for readSpendingPlanIteration
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param iterationNumber The current iteration number for the spending plan &#x60;iteration&#x60;&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readSpendingPlanIterationCall(String userGuid, String spendingPlanGuid, Integer iterationNumber, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/{iteration_number}"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
+            .replaceAll("\\{" + "iteration_number" + "\\}", localVarApiClient.escapeString(iterationNumber.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call readSpendingPlanIterationValidateBeforeCall(String userGuid, String spendingPlanGuid, Integer iterationNumber, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling readSpendingPlanIteration(Async)");
+        }
+        
+        // verify the required parameter 'spendingPlanGuid' is set
+        if (spendingPlanGuid == null) {
+            throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling readSpendingPlanIteration(Async)");
+        }
+        
+        // verify the required parameter 'iterationNumber' is set
+        if (iterationNumber == null) {
+            throw new ApiException("Missing the required parameter 'iterationNumber' when calling readSpendingPlanIteration(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = readSpendingPlanIterationCall(userGuid, spendingPlanGuid, iterationNumber, page, recordsPerPage, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read a spending plan iteration
+     * Use this endpoint to read the attributes of a specific spending plan &#x60;iteration&#x60; according to its &#x60;iteration_number&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param iterationNumber The current iteration number for the spending plan &#x60;iteration&#x60;&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return SpendingPlanIterationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SpendingPlanIterationResponse readSpendingPlanIteration(String userGuid, String spendingPlanGuid, Integer iterationNumber, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<SpendingPlanIterationResponse> localVarResp = readSpendingPlanIterationWithHttpInfo(userGuid, spendingPlanGuid, iterationNumber, page, recordsPerPage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read a spending plan iteration
+     * Use this endpoint to read the attributes of a specific spending plan &#x60;iteration&#x60; according to its &#x60;iteration_number&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param iterationNumber The current iteration number for the spending plan &#x60;iteration&#x60;&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return ApiResponse&lt;SpendingPlanIterationResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SpendingPlanIterationResponse> readSpendingPlanIterationWithHttpInfo(String userGuid, String spendingPlanGuid, Integer iterationNumber, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = readSpendingPlanIterationValidateBeforeCall(userGuid, spendingPlanGuid, iterationNumber, page, recordsPerPage, null);
+        Type localVarReturnType = new TypeToken<SpendingPlanIterationResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read a spending plan iteration (asynchronously)
+     * Use this endpoint to read the attributes of a specific spending plan &#x60;iteration&#x60; according to its &#x60;iteration_number&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param iterationNumber The current iteration number for the spending plan &#x60;iteration&#x60;&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readSpendingPlanIterationAsync(String userGuid, String spendingPlanGuid, Integer iterationNumber, Integer page, Integer recordsPerPage, final ApiCallback<SpendingPlanIterationResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = readSpendingPlanIterationValidateBeforeCall(userGuid, spendingPlanGuid, iterationNumber, page, recordsPerPage, _callback);
+        Type localVarReturnType = new TypeToken<SpendingPlanIterationResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for readSpendingPlanIterationItem
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param iterationItemGuid The unique ID for the &#x60;iteration_item&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readSpendingPlanIterationItemCall(String userGuid, String spendingPlanGuid, String iterationItemGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items/{iteration_item_guid}"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
+            .replaceAll("\\{" + "iteration_item_guid" + "\\}", localVarApiClient.escapeString(iterationItemGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call readSpendingPlanIterationItemValidateBeforeCall(String userGuid, String spendingPlanGuid, String iterationItemGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling readSpendingPlanIterationItem(Async)");
+        }
+        
+        // verify the required parameter 'spendingPlanGuid' is set
+        if (spendingPlanGuid == null) {
+            throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling readSpendingPlanIterationItem(Async)");
+        }
+        
+        // verify the required parameter 'iterationItemGuid' is set
+        if (iterationItemGuid == null) {
+            throw new ApiException("Missing the required parameter 'iterationItemGuid' when calling readSpendingPlanIterationItem(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = readSpendingPlanIterationItemCall(userGuid, spendingPlanGuid, iterationItemGuid, page, recordsPerPage, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read a spending plan iteration item
+     * Use this endpoint to read the attributes of a specific spending plan &#x60;iteration_item&#x60; according to its unique GUID.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param iterationItemGuid The unique ID for the &#x60;iteration_item&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return SpendingPlanIterationItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SpendingPlanIterationItemResponse readSpendingPlanIterationItem(String userGuid, String spendingPlanGuid, String iterationItemGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<SpendingPlanIterationItemResponse> localVarResp = readSpendingPlanIterationItemWithHttpInfo(userGuid, spendingPlanGuid, iterationItemGuid, page, recordsPerPage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read a spending plan iteration item
+     * Use this endpoint to read the attributes of a specific spending plan &#x60;iteration_item&#x60; according to its unique GUID.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param iterationItemGuid The unique ID for the &#x60;iteration_item&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return ApiResponse&lt;SpendingPlanIterationItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SpendingPlanIterationItemResponse> readSpendingPlanIterationItemWithHttpInfo(String userGuid, String spendingPlanGuid, String iterationItemGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = readSpendingPlanIterationItemValidateBeforeCall(userGuid, spendingPlanGuid, iterationItemGuid, page, recordsPerPage, null);
+        Type localVarReturnType = new TypeToken<SpendingPlanIterationItemResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read a spending plan iteration item (asynchronously)
+     * Use this endpoint to read the attributes of a specific spending plan &#x60;iteration_item&#x60; according to its unique GUID.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param iterationItemGuid The unique ID for the &#x60;iteration_item&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readSpendingPlanIterationItemAsync(String userGuid, String spendingPlanGuid, String iterationItemGuid, Integer page, Integer recordsPerPage, final ApiCallback<SpendingPlanIterationItemResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = readSpendingPlanIterationItemValidateBeforeCall(userGuid, spendingPlanGuid, iterationItemGuid, page, recordsPerPage, _callback);
+        Type localVarReturnType = new TypeToken<SpendingPlanIterationItemResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for readSpendingPlanUser
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readSpendingPlanUserCall(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (page != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("page", page));
+        }
+
+        if (recordsPerPage != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("records_per_page", recordsPerPage));
+        }
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call readSpendingPlanUserValidateBeforeCall(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling readSpendingPlanUser(Async)");
+        }
+        
+        // verify the required parameter 'spendingPlanGuid' is set
+        if (spendingPlanGuid == null) {
+            throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling readSpendingPlanUser(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = readSpendingPlanUserCall(userGuid, spendingPlanGuid, page, recordsPerPage, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Read a spending plan for a user
+     * Use this endpoint to read the attributes of a specific spending plan according to its unique GUID.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return SpendingPlanResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SpendingPlanResponse readSpendingPlanUser(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        ApiResponse<SpendingPlanResponse> localVarResp = readSpendingPlanUserWithHttpInfo(userGuid, spendingPlanGuid, page, recordsPerPage);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read a spending plan for a user
+     * Use this endpoint to read the attributes of a specific spending plan according to its unique GUID.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @return ApiResponse&lt;SpendingPlanResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SpendingPlanResponse> readSpendingPlanUserWithHttpInfo(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage) throws ApiException {
+        okhttp3.Call localVarCall = readSpendingPlanUserValidateBeforeCall(userGuid, spendingPlanGuid, page, recordsPerPage, null);
+        Type localVarReturnType = new TypeToken<SpendingPlanResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read a spending plan for a user (asynchronously)
+     * Use this endpoint to read the attributes of a specific spending plan according to its unique GUID.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param page Specify current page. (optional)
+     * @param recordsPerPage Specify records per page. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readSpendingPlanUserAsync(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback<SpendingPlanResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = readSpendingPlanUserValidateBeforeCall(userGuid, spendingPlanGuid, page, recordsPerPage, _callback);
+        Type localVarReturnType = new TypeToken<SpendingPlanResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for readStatementByMember
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param statementGuid The unique id for a &#x60;statement&#x60;. (required)
@@ -13596,6 +15554,163 @@ public class MxPlatformApi {
 
         okhttp3.Call localVarCall = updateMemberValidateBeforeCall(memberGuid, userGuid, memberUpdateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<MemberResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateSpendingPlanIterationItem
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param iterationItemGuid The unique ID for the &#x60;iteration_item&#x60;. (required)
+     * @param spendingPlanIterationItemCreateRequestBody Iteration item object to be updated with required parameter (iteration_item_guid) (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSpendingPlanIterationItemCall(String userGuid, String spendingPlanGuid, String iterationItemGuid, SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = spendingPlanIterationItemCreateRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items/{iteration_item_guid}"
+            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
+            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
+            .replaceAll("\\{" + "iteration_item_guid" + "\\}", localVarApiClient.escapeString(iterationItemGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateSpendingPlanIterationItemValidateBeforeCall(String userGuid, String spendingPlanGuid, String iterationItemGuid, SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody, final ApiCallback _callback) throws ApiException {
+        
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling updateSpendingPlanIterationItem(Async)");
+        }
+        
+        // verify the required parameter 'spendingPlanGuid' is set
+        if (spendingPlanGuid == null) {
+            throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling updateSpendingPlanIterationItem(Async)");
+        }
+        
+        // verify the required parameter 'iterationItemGuid' is set
+        if (iterationItemGuid == null) {
+            throw new ApiException("Missing the required parameter 'iterationItemGuid' when calling updateSpendingPlanIterationItem(Async)");
+        }
+        
+        // verify the required parameter 'spendingPlanIterationItemCreateRequestBody' is set
+        if (spendingPlanIterationItemCreateRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'spendingPlanIterationItemCreateRequestBody' when calling updateSpendingPlanIterationItem(Async)");
+        }
+        
+
+        okhttp3.Call localVarCall = updateSpendingPlanIterationItemCall(userGuid, spendingPlanGuid, iterationItemGuid, spendingPlanIterationItemCreateRequestBody, _callback);
+        return localVarCall;
+
+    }
+
+    /**
+     * Update a spending plan iteration item
+     * Use this endpoint to update an existing &#x60;spending_plan_iteration_item&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param iterationItemGuid The unique ID for the &#x60;iteration_item&#x60;. (required)
+     * @param spendingPlanIterationItemCreateRequestBody Iteration item object to be updated with required parameter (iteration_item_guid) (required)
+     * @return SpendingPlanIterationItemResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SpendingPlanIterationItemResponse updateSpendingPlanIterationItem(String userGuid, String spendingPlanGuid, String iterationItemGuid, SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody) throws ApiException {
+        ApiResponse<SpendingPlanIterationItemResponse> localVarResp = updateSpendingPlanIterationItemWithHttpInfo(userGuid, spendingPlanGuid, iterationItemGuid, spendingPlanIterationItemCreateRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a spending plan iteration item
+     * Use this endpoint to update an existing &#x60;spending_plan_iteration_item&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param iterationItemGuid The unique ID for the &#x60;iteration_item&#x60;. (required)
+     * @param spendingPlanIterationItemCreateRequestBody Iteration item object to be updated with required parameter (iteration_item_guid) (required)
+     * @return ApiResponse&lt;SpendingPlanIterationItemResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SpendingPlanIterationItemResponse> updateSpendingPlanIterationItemWithHttpInfo(String userGuid, String spendingPlanGuid, String iterationItemGuid, SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = updateSpendingPlanIterationItemValidateBeforeCall(userGuid, spendingPlanGuid, iterationItemGuid, spendingPlanIterationItemCreateRequestBody, null);
+        Type localVarReturnType = new TypeToken<SpendingPlanIterationItemResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a spending plan iteration item (asynchronously)
+     * Use this endpoint to update an existing &#x60;spending_plan_iteration_item&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
+     * @param iterationItemGuid The unique ID for the &#x60;iteration_item&#x60;. (required)
+     * @param spendingPlanIterationItemCreateRequestBody Iteration item object to be updated with required parameter (iteration_item_guid) (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateSpendingPlanIterationItemAsync(String userGuid, String spendingPlanGuid, String iterationItemGuid, SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody, final ApiCallback<SpendingPlanIterationItemResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateSpendingPlanIterationItemValidateBeforeCall(userGuid, spendingPlanGuid, iterationItemGuid, spendingPlanIterationItemCreateRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<SpendingPlanIterationItemResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
