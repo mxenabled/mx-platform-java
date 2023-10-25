@@ -14,15 +14,37 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * SpendingPlanAccountResponse
@@ -57,7 +79,7 @@ public class SpendingPlanAccountResponse {
   @SerializedName(SERIALIZED_NAME_USER_GUID)
   private String userGuid;
 
-  public SpendingPlanAccountResponse() { 
+  public SpendingPlanAccountResponse() {
   }
 
   public SpendingPlanAccountResponse accountGuid(String accountGuid) {
@@ -71,8 +93,6 @@ public class SpendingPlanAccountResponse {
    * @return accountGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ACT-97d3948f-ebe7-434a-9bd0-20b29d67c9d4", value = "")
-
   public String getAccountGuid() {
     return accountGuid;
   }
@@ -94,8 +114,6 @@ public class SpendingPlanAccountResponse {
    * @return clientGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "CLT-024284fc-a6a7-42ee-b363-dab9343e3f72", value = "")
-
   public String getClientGuid() {
     return clientGuid;
   }
@@ -117,8 +135,6 @@ public class SpendingPlanAccountResponse {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-04-27T23:14:16Z", value = "")
-
   public String getCreatedAt() {
     return createdAt;
   }
@@ -140,8 +156,6 @@ public class SpendingPlanAccountResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "SPA-c76e4a85-b2c4-4335-82b7-8f8b8f28c35a", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -163,8 +177,6 @@ public class SpendingPlanAccountResponse {
    * @return spendingPlanGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "SPL-dbfe201d-c341-4bff-93c0-62a918d0b600", value = "")
-
   public String getSpendingPlanGuid() {
     return spendingPlanGuid;
   }
@@ -186,8 +198,6 @@ public class SpendingPlanAccountResponse {
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-04-27T23:14:16Z", value = "")
-
   public String getUpdatedAt() {
     return updatedAt;
   }
@@ -209,8 +219,6 @@ public class SpendingPlanAccountResponse {
    * @return userGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USR-72086f59-6684-4adf-8f29-c4d32db43cd7", value = "")
-
   public String getUserGuid() {
     return userGuid;
   }
@@ -219,6 +227,7 @@ public class SpendingPlanAccountResponse {
   public void setUserGuid(String userGuid) {
     this.userGuid = userGuid;
   }
+
 
 
   @Override
@@ -270,5 +279,116 @@ public class SpendingPlanAccountResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("account_guid");
+    openapiFields.add("client_guid");
+    openapiFields.add("created_at");
+    openapiFields.add("guid");
+    openapiFields.add("spending_plan_guid");
+    openapiFields.add("updated_at");
+    openapiFields.add("user_guid");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to SpendingPlanAccountResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SpendingPlanAccountResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in SpendingPlanAccountResponse is not found in the empty JSON string", SpendingPlanAccountResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!SpendingPlanAccountResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SpendingPlanAccountResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("account_guid") != null && !jsonObj.get("account_guid").isJsonNull()) && !jsonObj.get("account_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `account_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_guid").toString()));
+      }
+      if ((jsonObj.get("client_guid") != null && !jsonObj.get("client_guid").isJsonNull()) && !jsonObj.get("client_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `client_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_guid").toString()));
+      }
+      if ((jsonObj.get("created_at") != null && !jsonObj.get("created_at").isJsonNull()) && !jsonObj.get("created_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `created_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_at").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("spending_plan_guid") != null && !jsonObj.get("spending_plan_guid").isJsonNull()) && !jsonObj.get("spending_plan_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `spending_plan_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("spending_plan_guid").toString()));
+      }
+      if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull()) && !jsonObj.get("updated_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updated_at").toString()));
+      }
+      if ((jsonObj.get("user_guid") != null && !jsonObj.get("user_guid").isJsonNull()) && !jsonObj.get("user_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_guid").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!SpendingPlanAccountResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'SpendingPlanAccountResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<SpendingPlanAccountResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(SpendingPlanAccountResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<SpendingPlanAccountResponse>() {
+           @Override
+           public void write(JsonWriter out, SpendingPlanAccountResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public SpendingPlanAccountResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of SpendingPlanAccountResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of SpendingPlanAccountResponse
+  * @throws IOException if the JSON string is invalid with respect to SpendingPlanAccountResponse
+  */
+  public static SpendingPlanAccountResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, SpendingPlanAccountResponse.class);
+  }
+
+ /**
+  * Convert an instance of SpendingPlanAccountResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

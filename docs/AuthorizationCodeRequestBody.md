@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**authorizationCode** | [**AuthorizationCodeRequest**](AuthorizationCodeRequest.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**authorizationCode** | [**AuthorizationCodeRequest**](AuthorizationCodeRequest.md) |  |  [optional] |
 
 
 

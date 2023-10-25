@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * AccountUpdateRequest
@@ -114,7 +136,7 @@ public class AccountUpdateRequest {
   @SerializedName(SERIALIZED_NAME_SKIP_WEBHOOK)
   private Boolean skipWebhook;
 
-  public AccountUpdateRequest() { 
+  public AccountUpdateRequest() {
   }
 
   public AccountUpdateRequest accountSubtype(String accountSubtype) {
@@ -128,8 +150,6 @@ public class AccountUpdateRequest {
    * @return accountSubtype
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "PERSONAL", value = "")
-
   public String getAccountSubtype() {
     return accountSubtype;
   }
@@ -151,8 +171,6 @@ public class AccountUpdateRequest {
    * @return accountType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "SAVINGS", value = "")
-
   public String getAccountType() {
     return accountType;
   }
@@ -174,8 +192,6 @@ public class AccountUpdateRequest {
    * @return apr
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1.0", value = "")
-
   public BigDecimal getApr() {
     return apr;
   }
@@ -197,8 +213,6 @@ public class AccountUpdateRequest {
    * @return apy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1.0", value = "")
-
   public BigDecimal getApy() {
     return apy;
   }
@@ -220,8 +234,6 @@ public class AccountUpdateRequest {
    * @return availableBalance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000.0", value = "")
-
   public BigDecimal getAvailableBalance() {
     return availableBalance;
   }
@@ -243,8 +255,6 @@ public class AccountUpdateRequest {
    * @return balance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000.0", value = "")
-
   public BigDecimal getBalance() {
     return balance;
   }
@@ -266,8 +276,6 @@ public class AccountUpdateRequest {
    * @return cashSurrenderValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000.0", value = "")
-
   public BigDecimal getCashSurrenderValue() {
     return cashSurrenderValue;
   }
@@ -289,8 +297,6 @@ public class AccountUpdateRequest {
    * @return creditLimit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "100.0", value = "")
-
   public BigDecimal getCreditLimit() {
     return creditLimit;
   }
@@ -312,8 +318,6 @@ public class AccountUpdateRequest {
    * @return currencyCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USD", value = "")
-
   public String getCurrencyCode() {
     return currencyCode;
   }
@@ -335,8 +339,6 @@ public class AccountUpdateRequest {
    * @return deathBenefit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000", value = "")
-
   public Integer getDeathBenefit() {
     return deathBenefit;
   }
@@ -358,8 +360,6 @@ public class AccountUpdateRequest {
    * @return interestRate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1.0", value = "")
-
   public BigDecimal getInterestRate() {
     return interestRate;
   }
@@ -381,8 +381,6 @@ public class AccountUpdateRequest {
    * @return isBusiness
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsBusiness() {
     return isBusiness;
   }
@@ -404,8 +402,6 @@ public class AccountUpdateRequest {
    * @return isClosed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsClosed() {
     return isClosed;
   }
@@ -427,8 +423,6 @@ public class AccountUpdateRequest {
    * @return isHidden
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsHidden() {
     return isHidden;
   }
@@ -450,8 +444,6 @@ public class AccountUpdateRequest {
    * @return loanAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000.0", value = "")
-
   public BigDecimal getLoanAmount() {
     return loanAmount;
   }
@@ -473,8 +465,6 @@ public class AccountUpdateRequest {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "some metadata", value = "")
-
   public String getMetadata() {
     return metadata;
   }
@@ -496,8 +486,6 @@ public class AccountUpdateRequest {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Test account 2", value = "")
-
   public String getName() {
     return name;
   }
@@ -519,8 +507,6 @@ public class AccountUpdateRequest {
    * @return nickname
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Swiss Account", value = "")
-
   public String getNickname() {
     return nickname;
   }
@@ -542,8 +528,6 @@ public class AccountUpdateRequest {
    * @return originalBalance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10.0", value = "")
-
   public BigDecimal getOriginalBalance() {
     return originalBalance;
   }
@@ -565,8 +549,6 @@ public class AccountUpdateRequest {
    * @return propertyType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "VEHICLE", value = "")
-
   public String getPropertyType() {
     return propertyType;
   }
@@ -588,8 +570,6 @@ public class AccountUpdateRequest {
    * @return skipWebhook
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
-
   public Boolean getSkipWebhook() {
     return skipWebhook;
   }
@@ -598,6 +578,7 @@ public class AccountUpdateRequest {
   public void setSkipWebhook(Boolean skipWebhook) {
     this.skipWebhook = skipWebhook;
   }
+
 
 
   @Override
@@ -677,5 +658,130 @@ public class AccountUpdateRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("account_subtype");
+    openapiFields.add("account_type");
+    openapiFields.add("apr");
+    openapiFields.add("apy");
+    openapiFields.add("available_balance");
+    openapiFields.add("balance");
+    openapiFields.add("cash_surrender_value");
+    openapiFields.add("credit_limit");
+    openapiFields.add("currency_code");
+    openapiFields.add("death_benefit");
+    openapiFields.add("interest_rate");
+    openapiFields.add("is_business");
+    openapiFields.add("is_closed");
+    openapiFields.add("is_hidden");
+    openapiFields.add("loan_amount");
+    openapiFields.add("metadata");
+    openapiFields.add("name");
+    openapiFields.add("nickname");
+    openapiFields.add("original_balance");
+    openapiFields.add("property_type");
+    openapiFields.add("skip_webhook");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to AccountUpdateRequest
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AccountUpdateRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AccountUpdateRequest is not found in the empty JSON string", AccountUpdateRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!AccountUpdateRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountUpdateRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("account_subtype") != null && !jsonObj.get("account_subtype").isJsonNull()) && !jsonObj.get("account_subtype").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `account_subtype` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_subtype").toString()));
+      }
+      if ((jsonObj.get("account_type") != null && !jsonObj.get("account_type").isJsonNull()) && !jsonObj.get("account_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `account_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_type").toString()));
+      }
+      if ((jsonObj.get("currency_code") != null && !jsonObj.get("currency_code").isJsonNull()) && !jsonObj.get("currency_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `currency_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency_code").toString()));
+      }
+      if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("nickname") != null && !jsonObj.get("nickname").isJsonNull()) && !jsonObj.get("nickname").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `nickname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nickname").toString()));
+      }
+      if ((jsonObj.get("property_type") != null && !jsonObj.get("property_type").isJsonNull()) && !jsonObj.get("property_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `property_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("property_type").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!AccountUpdateRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AccountUpdateRequest' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<AccountUpdateRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AccountUpdateRequest.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<AccountUpdateRequest>() {
+           @Override
+           public void write(JsonWriter out, AccountUpdateRequest value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public AccountUpdateRequest read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of AccountUpdateRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AccountUpdateRequest
+  * @throws IOException if the JSON string is invalid with respect to AccountUpdateRequest
+  */
+  public static AccountUpdateRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AccountUpdateRequest.class);
+  }
+
+ /**
+  * Convert an instance of AccountUpdateRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -14,19 +14,41 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.mx.client.model.ChallengeResponse;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * MemberStatusResponse
@@ -39,7 +61,7 @@ public class MemberStatusResponse {
 
   public static final String SERIALIZED_NAME_CHALLENGES = "challenges";
   @SerializedName(SERIALIZED_NAME_CHALLENGES)
-  private List<ChallengeResponse> challenges = null;
+  private List<ChallengeResponse> challenges;
 
   public static final String SERIALIZED_NAME_CONNECTION_STATUS = "connection_status";
   @SerializedName(SERIALIZED_NAME_CONNECTION_STATUS)
@@ -69,7 +91,7 @@ public class MemberStatusResponse {
   @SerializedName(SERIALIZED_NAME_SUCCESSFULLY_AGGREGATED_AT)
   private String successfullyAggregatedAt;
 
-  public MemberStatusResponse() { 
+  public MemberStatusResponse() {
   }
 
   public MemberStatusResponse aggregatedAt(String aggregatedAt) {
@@ -83,8 +105,6 @@ public class MemberStatusResponse {
    * @return aggregatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2016-10-13T18:07:57.000Z", value = "")
-
   public String getAggregatedAt() {
     return aggregatedAt;
   }
@@ -103,7 +123,7 @@ public class MemberStatusResponse {
 
   public MemberStatusResponse addChallengesItem(ChallengeResponse challengesItem) {
     if (this.challenges == null) {
-      this.challenges = new ArrayList<ChallengeResponse>();
+      this.challenges = new ArrayList<>();
     }
     this.challenges.add(challengesItem);
     return this;
@@ -114,8 +134,6 @@ public class MemberStatusResponse {
    * @return challenges
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<ChallengeResponse> getChallenges() {
     return challenges;
   }
@@ -137,8 +155,6 @@ public class MemberStatusResponse {
    * @return connectionStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "CONNECTED", value = "")
-
   public String getConnectionStatus() {
     return connectionStatus;
   }
@@ -160,8 +176,6 @@ public class MemberStatusResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -183,8 +197,6 @@ public class MemberStatusResponse {
    * @return hasProcessedAccounts
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
-
   public Boolean getHasProcessedAccounts() {
     return hasProcessedAccounts;
   }
@@ -206,8 +218,6 @@ public class MemberStatusResponse {
    * @return hasProcessedTransactions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getHasProcessedTransactions() {
     return hasProcessedTransactions;
   }
@@ -229,8 +239,6 @@ public class MemberStatusResponse {
    * @return isAuthenticated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsAuthenticated() {
     return isAuthenticated;
   }
@@ -252,8 +260,6 @@ public class MemberStatusResponse {
    * @return isBeingAggregated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsBeingAggregated() {
     return isBeingAggregated;
   }
@@ -275,8 +281,6 @@ public class MemberStatusResponse {
    * @return successfullyAggregatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2016-10-13T17:57:38.000Z", value = "")
-
   public String getSuccessfullyAggregatedAt() {
     return successfullyAggregatedAt;
   }
@@ -285,6 +289,7 @@ public class MemberStatusResponse {
   public void setSuccessfullyAggregatedAt(String successfullyAggregatedAt) {
     this.successfullyAggregatedAt = successfullyAggregatedAt;
   }
+
 
 
   @Override
@@ -351,5 +356,123 @@ public class MemberStatusResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("aggregated_at");
+    openapiFields.add("challenges");
+    openapiFields.add("connection_status");
+    openapiFields.add("guid");
+    openapiFields.add("has_processed_accounts");
+    openapiFields.add("has_processed_transactions");
+    openapiFields.add("is_authenticated");
+    openapiFields.add("is_being_aggregated");
+    openapiFields.add("successfully_aggregated_at");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to MemberStatusResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!MemberStatusResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in MemberStatusResponse is not found in the empty JSON string", MemberStatusResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!MemberStatusResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MemberStatusResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("aggregated_at") != null && !jsonObj.get("aggregated_at").isJsonNull()) && !jsonObj.get("aggregated_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `aggregated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aggregated_at").toString()));
+      }
+      if (jsonObj.get("challenges") != null && !jsonObj.get("challenges").isJsonNull()) {
+        JsonArray jsonArraychallenges = jsonObj.getAsJsonArray("challenges");
+        if (jsonArraychallenges != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("challenges").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `challenges` to be an array in the JSON string but got `%s`", jsonObj.get("challenges").toString()));
+          }
+
+          // validate the optional field `challenges` (array)
+          for (int i = 0; i < jsonArraychallenges.size(); i++) {
+            ChallengeResponse.validateJsonElement(jsonArraychallenges.get(i));
+          };
+        }
+      }
+      if ((jsonObj.get("connection_status") != null && !jsonObj.get("connection_status").isJsonNull()) && !jsonObj.get("connection_status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `connection_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection_status").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("successfully_aggregated_at") != null && !jsonObj.get("successfully_aggregated_at").isJsonNull()) && !jsonObj.get("successfully_aggregated_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `successfully_aggregated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("successfully_aggregated_at").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!MemberStatusResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MemberStatusResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<MemberStatusResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MemberStatusResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<MemberStatusResponse>() {
+           @Override
+           public void write(JsonWriter out, MemberStatusResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public MemberStatusResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of MemberStatusResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of MemberStatusResponse
+  * @throws IOException if the JSON string is invalid with respect to MemberStatusResponse
+  */
+  public static MemberStatusResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MemberStatusResponse.class);
+  }
+
+ /**
+  * Convert an instance of MemberStatusResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

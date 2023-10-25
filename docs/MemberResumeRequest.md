@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**challenges** | [**List&lt;CredentialRequest&gt;**](CredentialRequest.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**challenges** | [**List&lt;CredentialRequest&gt;**](CredentialRequest.md) |  |  [optional] |
 
 
 

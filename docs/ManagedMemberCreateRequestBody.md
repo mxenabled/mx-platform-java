@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**member** | [**ManagedMemberCreateRequest**](ManagedMemberCreateRequest.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**member** | [**ManagedMemberCreateRequest**](ManagedMemberCreateRequest.md) |  |  [optional] |
 
 
 

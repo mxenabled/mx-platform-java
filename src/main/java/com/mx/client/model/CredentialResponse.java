@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * CredentialResponse
@@ -54,7 +76,7 @@ public class CredentialResponse {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
-  public CredentialResponse() { 
+  public CredentialResponse() {
   }
 
   public CredentialResponse displayOrder(Integer displayOrder) {
@@ -68,8 +90,6 @@ public class CredentialResponse {
    * @return displayOrder
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "")
-
   public Integer getDisplayOrder() {
     return displayOrder;
   }
@@ -91,8 +111,6 @@ public class CredentialResponse {
    * @return fieldName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "LOGIN", value = "")
-
   public String getFieldName() {
     return fieldName;
   }
@@ -114,8 +132,6 @@ public class CredentialResponse {
    * @return fieldType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "TEXT", value = "")
-
   public String getFieldType() {
     return fieldType;
   }
@@ -137,8 +153,6 @@ public class CredentialResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "CRD-1ec152cd-e628-e81a-e852-d1e7104624da", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -160,8 +174,6 @@ public class CredentialResponse {
    * @return label
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Username", value = "")
-
   public String getLabel() {
     return label;
   }
@@ -183,8 +195,6 @@ public class CredentialResponse {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "TEXT", value = "")
-
   public String getType() {
     return type;
   }
@@ -193,6 +203,7 @@ public class CredentialResponse {
   public void setType(String type) {
     this.type = type;
   }
+
 
 
   @Override
@@ -253,5 +264,109 @@ public class CredentialResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("display_order");
+    openapiFields.add("field_name");
+    openapiFields.add("field_type");
+    openapiFields.add("guid");
+    openapiFields.add("label");
+    openapiFields.add("type");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to CredentialResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!CredentialResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CredentialResponse is not found in the empty JSON string", CredentialResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!CredentialResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CredentialResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("field_name") != null && !jsonObj.get("field_name").isJsonNull()) && !jsonObj.get("field_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `field_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("field_name").toString()));
+      }
+      if ((jsonObj.get("field_type") != null && !jsonObj.get("field_type").isJsonNull()) && !jsonObj.get("field_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `field_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("field_type").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("label") != null && !jsonObj.get("label").isJsonNull()) && !jsonObj.get("label").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
+      }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!CredentialResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CredentialResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<CredentialResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CredentialResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<CredentialResponse>() {
+           @Override
+           public void write(JsonWriter out, CredentialResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public CredentialResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of CredentialResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CredentialResponse
+  * @throws IOException if the JSON string is invalid with respect to CredentialResponse
+  */
+  public static CredentialResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CredentialResponse.class);
+  }
+
+ /**
+  * Convert an instance of CredentialResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

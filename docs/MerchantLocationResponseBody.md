@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**merchantLocation** | [**MerchantLocationResponse**](MerchantLocationResponse.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**merchantLocation** | [**MerchantLocationResponse**](MerchantLocationResponse.md) |  |  [optional] |
 
 
 

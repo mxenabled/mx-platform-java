@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * TransactionRuleResponse
@@ -58,7 +80,7 @@ public class TransactionRuleResponse {
   @SerializedName(SERIALIZED_NAME_USER_GUID)
   private String userGuid;
 
-  public TransactionRuleResponse() { 
+  public TransactionRuleResponse() {
   }
 
   public TransactionRuleResponse categoryGuid(String categoryGuid) {
@@ -72,8 +94,6 @@ public class TransactionRuleResponse {
    * @return categoryGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "CAT-b1de2a04-db08-b6ed-f6fe-ca2f5b11c2d0", value = "")
-
   public String getCategoryGuid() {
     return categoryGuid;
   }
@@ -95,8 +115,6 @@ public class TransactionRuleResponse {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2018-10-02T22:00:50+00:00", value = "")
-
   public String getCreatedAt() {
     return createdAt;
   }
@@ -118,8 +136,6 @@ public class TransactionRuleResponse {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Wal-mart food storage", value = "")
-
   public String getDescription() {
     return description;
   }
@@ -141,8 +157,6 @@ public class TransactionRuleResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "TXR-a080e0f9-a2d4-4d6f-9e03-672cc357a4d3", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -164,8 +178,6 @@ public class TransactionRuleResponse {
    * @return matchDescription
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Wal-mart", value = "")
-
   public String getMatchDescription() {
     return matchDescription;
   }
@@ -187,8 +199,6 @@ public class TransactionRuleResponse {
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2018-10-02T23:54:40+00:00", value = "")
-
   public String getUpdatedAt() {
     return updatedAt;
   }
@@ -210,8 +220,6 @@ public class TransactionRuleResponse {
    * @return userGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USR-22fc3203-b3e6-8340-43db-8e50b2f56995", value = "")
-
   public String getUserGuid() {
     return userGuid;
   }
@@ -220,6 +228,7 @@ public class TransactionRuleResponse {
   public void setUserGuid(String userGuid) {
     this.userGuid = userGuid;
   }
+
 
 
   @Override
@@ -282,5 +291,116 @@ public class TransactionRuleResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("category_guid");
+    openapiFields.add("created_at");
+    openapiFields.add("description");
+    openapiFields.add("guid");
+    openapiFields.add("match_description");
+    openapiFields.add("updated_at");
+    openapiFields.add("user_guid");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TransactionRuleResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TransactionRuleResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionRuleResponse is not found in the empty JSON string", TransactionRuleResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!TransactionRuleResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransactionRuleResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("category_guid") != null && !jsonObj.get("category_guid").isJsonNull()) && !jsonObj.get("category_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `category_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category_guid").toString()));
+      }
+      if ((jsonObj.get("created_at") != null && !jsonObj.get("created_at").isJsonNull()) && !jsonObj.get("created_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `created_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_at").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("match_description") != null && !jsonObj.get("match_description").isJsonNull()) && !jsonObj.get("match_description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `match_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("match_description").toString()));
+      }
+      if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull()) && !jsonObj.get("updated_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updated_at").toString()));
+      }
+      if ((jsonObj.get("user_guid") != null && !jsonObj.get("user_guid").isJsonNull()) && !jsonObj.get("user_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_guid").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TransactionRuleResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TransactionRuleResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TransactionRuleResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TransactionRuleResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TransactionRuleResponse>() {
+           @Override
+           public void write(JsonWriter out, TransactionRuleResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TransactionRuleResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TransactionRuleResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TransactionRuleResponse
+  * @throws IOException if the JSON string is invalid with respect to TransactionRuleResponse
+  */
+  public static TransactionRuleResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TransactionRuleResponse.class);
+  }
+
+ /**
+  * Convert an instance of TransactionRuleResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

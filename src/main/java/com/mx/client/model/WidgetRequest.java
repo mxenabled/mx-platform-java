@@ -14,15 +14,37 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * WidgetRequest
@@ -93,7 +115,7 @@ public class WidgetRequest {
   @SerializedName(SERIALIZED_NAME_WIDGET_TYPE)
   private String widgetType;
 
-  public WidgetRequest() { 
+  public WidgetRequest() {
   }
 
   public WidgetRequest clientRedirectUrl(String clientRedirectUrl) {
@@ -107,8 +129,6 @@ public class WidgetRequest {
    * @return clientRedirectUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://mx.com", value = "")
-
   public String getClientRedirectUrl() {
     return clientRedirectUrl;
   }
@@ -130,8 +150,6 @@ public class WidgetRequest {
    * @return colorScheme
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "light", value = "")
-
   public String getColorScheme() {
     return colorScheme;
   }
@@ -153,8 +171,6 @@ public class WidgetRequest {
    * @return currentInstitutionCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "chase", value = "")
-
   public String getCurrentInstitutionCode() {
     return currentInstitutionCode;
   }
@@ -176,8 +192,6 @@ public class WidgetRequest {
    * @return currentInstitutionGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "INS-f1a3285d-e855-b61f-6aa7-8ae575c0e0e9", value = "")
-
   public String getCurrentInstitutionGuid() {
     return currentInstitutionGuid;
   }
@@ -199,8 +213,6 @@ public class WidgetRequest {
    * @return currentMemberGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b", value = "")
-
   public String getCurrentMemberGuid() {
     return currentMemberGuid;
   }
@@ -222,8 +234,6 @@ public class WidgetRequest {
    * @return disableBackgroundAgg
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getDisableBackgroundAgg() {
     return disableBackgroundAgg;
   }
@@ -245,8 +255,6 @@ public class WidgetRequest {
    * @return disableInstitutionSearch
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getDisableInstitutionSearch() {
     return disableInstitutionSearch;
   }
@@ -268,8 +276,6 @@ public class WidgetRequest {
    * @return includeIdentity
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIncludeIdentity() {
     return includeIdentity;
   }
@@ -291,8 +297,6 @@ public class WidgetRequest {
    * @return includeTransactions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
-
   public Boolean getIncludeTransactions() {
     return includeTransactions;
   }
@@ -314,8 +318,6 @@ public class WidgetRequest {
    * @return isMobileWebview
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsMobileWebview() {
     return isMobileWebview;
   }
@@ -337,8 +339,6 @@ public class WidgetRequest {
    * @return mode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "aggregation", value = "")
-
   public String getMode() {
     return mode;
   }
@@ -360,8 +360,6 @@ public class WidgetRequest {
    * @return oauthReferralSource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "BROWSER", value = "")
-
   public String getOauthReferralSource() {
     return oauthReferralSource;
   }
@@ -383,8 +381,6 @@ public class WidgetRequest {
    * @return uiMessageVersion
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4", value = "")
-
   public Integer getUiMessageVersion() {
     return uiMessageVersion;
   }
@@ -406,8 +402,6 @@ public class WidgetRequest {
    * @return uiMessageWebviewUrlScheme
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "mx", value = "")
-
   public String getUiMessageWebviewUrlScheme() {
     return uiMessageWebviewUrlScheme;
   }
@@ -429,8 +423,6 @@ public class WidgetRequest {
    * @return updateCredentials
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getUpdateCredentials() {
     return updateCredentials;
   }
@@ -452,8 +444,6 @@ public class WidgetRequest {
    * @return widgetType
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "connect_widget", required = true, value = "")
-
   public String getWidgetType() {
     return widgetType;
   }
@@ -462,6 +452,7 @@ public class WidgetRequest {
   public void setWidgetType(String widgetType) {
     this.widgetType = widgetType;
   }
+
 
 
   @Override
@@ -531,5 +522,139 @@ public class WidgetRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("client_redirect_url");
+    openapiFields.add("color_scheme");
+    openapiFields.add("current_institution_code");
+    openapiFields.add("current_institution_guid");
+    openapiFields.add("current_member_guid");
+    openapiFields.add("disable_background_agg");
+    openapiFields.add("disable_institution_search");
+    openapiFields.add("include_identity");
+    openapiFields.add("include_transactions");
+    openapiFields.add("is_mobile_webview");
+    openapiFields.add("mode");
+    openapiFields.add("oauth_referral_source");
+    openapiFields.add("ui_message_version");
+    openapiFields.add("ui_message_webview_url_scheme");
+    openapiFields.add("update_credentials");
+    openapiFields.add("widget_type");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("widget_type");
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to WidgetRequest
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!WidgetRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in WidgetRequest is not found in the empty JSON string", WidgetRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!WidgetRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WidgetRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : WidgetRequest.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("client_redirect_url") != null && !jsonObj.get("client_redirect_url").isJsonNull()) && !jsonObj.get("client_redirect_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `client_redirect_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_redirect_url").toString()));
+      }
+      if ((jsonObj.get("color_scheme") != null && !jsonObj.get("color_scheme").isJsonNull()) && !jsonObj.get("color_scheme").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `color_scheme` to be a primitive type in the JSON string but got `%s`", jsonObj.get("color_scheme").toString()));
+      }
+      if ((jsonObj.get("current_institution_code") != null && !jsonObj.get("current_institution_code").isJsonNull()) && !jsonObj.get("current_institution_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `current_institution_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("current_institution_code").toString()));
+      }
+      if ((jsonObj.get("current_institution_guid") != null && !jsonObj.get("current_institution_guid").isJsonNull()) && !jsonObj.get("current_institution_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `current_institution_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("current_institution_guid").toString()));
+      }
+      if ((jsonObj.get("current_member_guid") != null && !jsonObj.get("current_member_guid").isJsonNull()) && !jsonObj.get("current_member_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `current_member_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("current_member_guid").toString()));
+      }
+      if ((jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull()) && !jsonObj.get("mode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `mode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mode").toString()));
+      }
+      if ((jsonObj.get("oauth_referral_source") != null && !jsonObj.get("oauth_referral_source").isJsonNull()) && !jsonObj.get("oauth_referral_source").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `oauth_referral_source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oauth_referral_source").toString()));
+      }
+      if ((jsonObj.get("ui_message_webview_url_scheme") != null && !jsonObj.get("ui_message_webview_url_scheme").isJsonNull()) && !jsonObj.get("ui_message_webview_url_scheme").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ui_message_webview_url_scheme` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ui_message_webview_url_scheme").toString()));
+      }
+      if (!jsonObj.get("widget_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `widget_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("widget_type").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!WidgetRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'WidgetRequest' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<WidgetRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(WidgetRequest.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<WidgetRequest>() {
+           @Override
+           public void write(JsonWriter out, WidgetRequest value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public WidgetRequest read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of WidgetRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of WidgetRequest
+  * @throws IOException if the JSON string is invalid with respect to WidgetRequest
+  */
+  public static WidgetRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, WidgetRequest.class);
+  }
+
+ /**
+  * Convert an instance of WidgetRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

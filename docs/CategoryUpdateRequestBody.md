@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**category** | [**CategoryUpdateRequest**](CategoryUpdateRequest.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**category** | [**CategoryUpdateRequest**](CategoryUpdateRequest.md) |  |  [optional] |
 
 
 

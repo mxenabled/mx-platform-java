@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * AccountOwnerResponse
@@ -86,7 +108,7 @@ public class AccountOwnerResponse {
   @SerializedName(SERIALIZED_NAME_USER_GUID)
   private String userGuid;
 
-  public AccountOwnerResponse() { 
+  public AccountOwnerResponse() {
   }
 
   public AccountOwnerResponse accountGuid(String accountGuid) {
@@ -100,8 +122,6 @@ public class AccountOwnerResponse {
    * @return accountGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1", value = "")
-
   public String getAccountGuid() {
     return accountGuid;
   }
@@ -123,8 +143,6 @@ public class AccountOwnerResponse {
    * @return address
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123 This Way", value = "")
-
   public String getAddress() {
     return address;
   }
@@ -146,8 +164,6 @@ public class AccountOwnerResponse {
    * @return city
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Middlesex", value = "")
-
   public String getCity() {
     return city;
   }
@@ -169,8 +185,6 @@ public class AccountOwnerResponse {
    * @return country
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "US", value = "")
-
   public String getCountry() {
     return country;
   }
@@ -192,8 +206,6 @@ public class AccountOwnerResponse {
    * @return email
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "donnie@darko.co", value = "")
-
   public String getEmail() {
     return email;
   }
@@ -215,8 +227,6 @@ public class AccountOwnerResponse {
    * @return firstName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Donnie", value = "")
-
   public String getFirstName() {
     return firstName;
   }
@@ -238,8 +248,6 @@ public class AccountOwnerResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ACO-63dc7714-6fc0-4aa2-a069-c06cdccd1af9", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -261,8 +269,6 @@ public class AccountOwnerResponse {
    * @return lastName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Darko", value = "")
-
   public String getLastName() {
     return lastName;
   }
@@ -284,8 +290,6 @@ public class AccountOwnerResponse {
    * @return memberGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b", value = "")
-
   public String getMemberGuid() {
     return memberGuid;
   }
@@ -307,8 +311,6 @@ public class AccountOwnerResponse {
    * @return ownerName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Donnie Darko", value = "")
-
   public String getOwnerName() {
     return ownerName;
   }
@@ -330,8 +332,6 @@ public class AccountOwnerResponse {
    * @return phone
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "555-555-5555", value = "")
-
   public String getPhone() {
     return phone;
   }
@@ -353,8 +353,6 @@ public class AccountOwnerResponse {
    * @return postalCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "00000-0000", value = "")
-
   public String getPostalCode() {
     return postalCode;
   }
@@ -376,8 +374,6 @@ public class AccountOwnerResponse {
    * @return state
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "VA", value = "")
-
   public String getState() {
     return state;
   }
@@ -399,8 +395,6 @@ public class AccountOwnerResponse {
    * @return userGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USR-fa7537f3-48aa-a683-a02a-b18940482f54", value = "")
-
   public String getUserGuid() {
     return userGuid;
   }
@@ -409,6 +403,7 @@ public class AccountOwnerResponse {
   public void setUserGuid(String userGuid) {
     this.userGuid = userGuid;
   }
+
 
 
   @Override
@@ -485,5 +480,144 @@ public class AccountOwnerResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("account_guid");
+    openapiFields.add("address");
+    openapiFields.add("city");
+    openapiFields.add("country");
+    openapiFields.add("email");
+    openapiFields.add("first_name");
+    openapiFields.add("guid");
+    openapiFields.add("last_name");
+    openapiFields.add("member_guid");
+    openapiFields.add("owner_name");
+    openapiFields.add("phone");
+    openapiFields.add("postal_code");
+    openapiFields.add("state");
+    openapiFields.add("user_guid");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to AccountOwnerResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AccountOwnerResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AccountOwnerResponse is not found in the empty JSON string", AccountOwnerResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!AccountOwnerResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountOwnerResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("account_guid") != null && !jsonObj.get("account_guid").isJsonNull()) && !jsonObj.get("account_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `account_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_guid").toString()));
+      }
+      if ((jsonObj.get("address") != null && !jsonObj.get("address").isJsonNull()) && !jsonObj.get("address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("address").toString()));
+      }
+      if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull()) && !jsonObj.get("city").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
+      }
+      if ((jsonObj.get("country") != null && !jsonObj.get("country").isJsonNull()) && !jsonObj.get("country").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country").toString()));
+      }
+      if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+      }
+      if ((jsonObj.get("first_name") != null && !jsonObj.get("first_name").isJsonNull()) && !jsonObj.get("first_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `first_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("first_name").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("last_name") != null && !jsonObj.get("last_name").isJsonNull()) && !jsonObj.get("last_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `last_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_name").toString()));
+      }
+      if ((jsonObj.get("member_guid") != null && !jsonObj.get("member_guid").isJsonNull()) && !jsonObj.get("member_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `member_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("member_guid").toString()));
+      }
+      if ((jsonObj.get("owner_name") != null && !jsonObj.get("owner_name").isJsonNull()) && !jsonObj.get("owner_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `owner_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("owner_name").toString()));
+      }
+      if ((jsonObj.get("phone") != null && !jsonObj.get("phone").isJsonNull()) && !jsonObj.get("phone").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `phone` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phone").toString()));
+      }
+      if ((jsonObj.get("postal_code") != null && !jsonObj.get("postal_code").isJsonNull()) && !jsonObj.get("postal_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `postal_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("postal_code").toString()));
+      }
+      if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
+      }
+      if ((jsonObj.get("user_guid") != null && !jsonObj.get("user_guid").isJsonNull()) && !jsonObj.get("user_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_guid").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!AccountOwnerResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AccountOwnerResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<AccountOwnerResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AccountOwnerResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<AccountOwnerResponse>() {
+           @Override
+           public void write(JsonWriter out, AccountOwnerResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public AccountOwnerResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of AccountOwnerResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AccountOwnerResponse
+  * @throws IOException if the JSON string is invalid with respect to AccountOwnerResponse
+  */
+  public static AccountOwnerResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AccountOwnerResponse.class);
+  }
+
+ /**
+  * Convert an instance of AccountOwnerResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

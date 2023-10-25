@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.mx.client.model.TransactionRuleResponse;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * TransactionRuleResponseBody
@@ -34,7 +56,7 @@ public class TransactionRuleResponseBody {
   @SerializedName(SERIALIZED_NAME_TRANSACTION_RULE)
   private TransactionRuleResponse transactionRule;
 
-  public TransactionRuleResponseBody() { 
+  public TransactionRuleResponseBody() {
   }
 
   public TransactionRuleResponseBody transactionRule(TransactionRuleResponse transactionRule) {
@@ -48,8 +70,6 @@ public class TransactionRuleResponseBody {
    * @return transactionRule
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public TransactionRuleResponse getTransactionRule() {
     return transactionRule;
   }
@@ -58,6 +78,7 @@ public class TransactionRuleResponseBody {
   public void setTransactionRule(TransactionRuleResponse transactionRule) {
     this.transactionRule = transactionRule;
   }
+
 
 
   @Override
@@ -97,5 +118,93 @@ public class TransactionRuleResponseBody {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("transaction_rule");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TransactionRuleResponseBody
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TransactionRuleResponseBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionRuleResponseBody is not found in the empty JSON string", TransactionRuleResponseBody.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!TransactionRuleResponseBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransactionRuleResponseBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the optional field `transaction_rule`
+      if (jsonObj.get("transaction_rule") != null && !jsonObj.get("transaction_rule").isJsonNull()) {
+        TransactionRuleResponse.validateJsonElement(jsonObj.get("transaction_rule"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TransactionRuleResponseBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TransactionRuleResponseBody' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TransactionRuleResponseBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TransactionRuleResponseBody.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TransactionRuleResponseBody>() {
+           @Override
+           public void write(JsonWriter out, TransactionRuleResponseBody value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TransactionRuleResponseBody read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TransactionRuleResponseBody given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TransactionRuleResponseBody
+  * @throws IOException if the JSON string is invalid with respect to TransactionRuleResponseBody
+  */
+  public static TransactionRuleResponseBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TransactionRuleResponseBody.class);
+  }
+
+ /**
+  * Convert an instance of TransactionRuleResponseBody to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

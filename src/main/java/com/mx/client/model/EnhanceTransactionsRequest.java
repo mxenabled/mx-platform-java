@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * EnhanceTransactionsRequest
@@ -58,7 +80,7 @@ public class EnhanceTransactionsRequest {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
-  public EnhanceTransactionsRequest() { 
+  public EnhanceTransactionsRequest() {
   }
 
   public EnhanceTransactionsRequest amount(BigDecimal amount) {
@@ -72,8 +94,6 @@ public class EnhanceTransactionsRequest {
    * @return amount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "21.33", value = "")
-
   public BigDecimal getAmount() {
     return amount;
   }
@@ -95,8 +115,6 @@ public class EnhanceTransactionsRequest {
    * @return description
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "ubr* pending.uber.com", required = true, value = "")
-
   public String getDescription() {
     return description;
   }
@@ -118,8 +136,6 @@ public class EnhanceTransactionsRequest {
    * @return extendedTransactionType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "partner_transaction_type", value = "")
-
   public String getExtendedTransactionType() {
     return extendedTransactionType;
   }
@@ -141,8 +157,6 @@ public class EnhanceTransactionsRequest {
    * @return id
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "ID-123", required = true, value = "")
-
   public String getId() {
     return id;
   }
@@ -164,8 +178,6 @@ public class EnhanceTransactionsRequest {
    * @return memo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Additional-information*on_transaction", value = "")
-
   public String getMemo() {
     return memo;
   }
@@ -187,8 +199,6 @@ public class EnhanceTransactionsRequest {
    * @return merchantCategoryCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4121", value = "")
-
   public Integer getMerchantCategoryCode() {
     return merchantCategoryCode;
   }
@@ -210,8 +220,6 @@ public class EnhanceTransactionsRequest {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "DEBIT", value = "")
-
   public String getType() {
     return type;
   }
@@ -220,6 +228,7 @@ public class EnhanceTransactionsRequest {
   public void setType(String type) {
     this.type = type;
   }
+
 
 
   @Override
@@ -271,5 +280,119 @@ public class EnhanceTransactionsRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("amount");
+    openapiFields.add("description");
+    openapiFields.add("extended_transaction_type");
+    openapiFields.add("id");
+    openapiFields.add("memo");
+    openapiFields.add("merchant_category_code");
+    openapiFields.add("type");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("description");
+    openapiRequiredFields.add("id");
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to EnhanceTransactionsRequest
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!EnhanceTransactionsRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in EnhanceTransactionsRequest is not found in the empty JSON string", EnhanceTransactionsRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!EnhanceTransactionsRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EnhanceTransactionsRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : EnhanceTransactionsRequest.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("extended_transaction_type") != null && !jsonObj.get("extended_transaction_type").isJsonNull()) && !jsonObj.get("extended_transaction_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `extended_transaction_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extended_transaction_type").toString()));
+      }
+      if (!jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("memo") != null && !jsonObj.get("memo").isJsonNull()) && !jsonObj.get("memo").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `memo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("memo").toString()));
+      }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!EnhanceTransactionsRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'EnhanceTransactionsRequest' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<EnhanceTransactionsRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(EnhanceTransactionsRequest.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<EnhanceTransactionsRequest>() {
+           @Override
+           public void write(JsonWriter out, EnhanceTransactionsRequest value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public EnhanceTransactionsRequest read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of EnhanceTransactionsRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of EnhanceTransactionsRequest
+  * @throws IOException if the JSON string is invalid with respect to EnhanceTransactionsRequest
+  */
+  public static EnhanceTransactionsRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, EnhanceTransactionsRequest.class);
+  }
+
+ /**
+  * Convert an instance of EnhanceTransactionsRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

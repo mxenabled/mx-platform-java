@@ -14,18 +14,40 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.mx.client.model.CredentialRequest;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * MemberUpdateRequest
@@ -38,7 +60,7 @@ public class MemberUpdateRequest {
 
   public static final String SERIALIZED_NAME_CREDENTIALS = "credentials";
   @SerializedName(SERIALIZED_NAME_CREDENTIALS)
-  private List<CredentialRequest> credentials = null;
+  private List<CredentialRequest> credentials;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -52,7 +74,7 @@ public class MemberUpdateRequest {
   @SerializedName(SERIALIZED_NAME_SKIP_AGGREGATION)
   private Boolean skipAggregation;
 
-  public MemberUpdateRequest() { 
+  public MemberUpdateRequest() {
   }
 
   public MemberUpdateRequest backgroundAggregationIsDisabled(Boolean backgroundAggregationIsDisabled) {
@@ -66,8 +88,6 @@ public class MemberUpdateRequest {
    * @return backgroundAggregationIsDisabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getBackgroundAggregationIsDisabled() {
     return backgroundAggregationIsDisabled;
   }
@@ -86,7 +106,7 @@ public class MemberUpdateRequest {
 
   public MemberUpdateRequest addCredentialsItem(CredentialRequest credentialsItem) {
     if (this.credentials == null) {
-      this.credentials = new ArrayList<CredentialRequest>();
+      this.credentials = new ArrayList<>();
     }
     this.credentials.add(credentialsItem);
     return this;
@@ -97,8 +117,6 @@ public class MemberUpdateRequest {
    * @return credentials
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<CredentialRequest> getCredentials() {
     return credentials;
   }
@@ -120,8 +138,6 @@ public class MemberUpdateRequest {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "unique_id", value = "")
-
   public String getId() {
     return id;
   }
@@ -143,8 +159,6 @@ public class MemberUpdateRequest {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "\\\"credentials_last_refreshed_at\\\": \\\"2015-10-15\\\"", value = "")
-
   public String getMetadata() {
     return metadata;
   }
@@ -166,8 +180,6 @@ public class MemberUpdateRequest {
    * @return skipAggregation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getSkipAggregation() {
     return skipAggregation;
   }
@@ -176,6 +188,7 @@ public class MemberUpdateRequest {
   public void setSkipAggregation(Boolean skipAggregation) {
     this.skipAggregation = skipAggregation;
   }
+
 
 
   @Override
@@ -223,5 +236,113 @@ public class MemberUpdateRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("background_aggregation_is_disabled");
+    openapiFields.add("credentials");
+    openapiFields.add("id");
+    openapiFields.add("metadata");
+    openapiFields.add("skip_aggregation");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to MemberUpdateRequest
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!MemberUpdateRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in MemberUpdateRequest is not found in the empty JSON string", MemberUpdateRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!MemberUpdateRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MemberUpdateRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("credentials") != null && !jsonObj.get("credentials").isJsonNull()) {
+        JsonArray jsonArraycredentials = jsonObj.getAsJsonArray("credentials");
+        if (jsonArraycredentials != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("credentials").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `credentials` to be an array in the JSON string but got `%s`", jsonObj.get("credentials").toString()));
+          }
+
+          // validate the optional field `credentials` (array)
+          for (int i = 0; i < jsonArraycredentials.size(); i++) {
+            CredentialRequest.validateJsonElement(jsonArraycredentials.get(i));
+          };
+        }
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!MemberUpdateRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MemberUpdateRequest' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<MemberUpdateRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MemberUpdateRequest.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<MemberUpdateRequest>() {
+           @Override
+           public void write(JsonWriter out, MemberUpdateRequest value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public MemberUpdateRequest read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of MemberUpdateRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of MemberUpdateRequest
+  * @throws IOException if the JSON string is invalid with respect to MemberUpdateRequest
+  */
+  public static MemberUpdateRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MemberUpdateRequest.class);
+  }
+
+ /**
+  * Convert an instance of MemberUpdateRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

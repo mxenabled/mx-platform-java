@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**member** | [**ManagedMemberUpdateRequest**](ManagedMemberUpdateRequest.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**member** | [**ManagedMemberUpdateRequest**](ManagedMemberUpdateRequest.md) |  |  [optional] |
 
 
 

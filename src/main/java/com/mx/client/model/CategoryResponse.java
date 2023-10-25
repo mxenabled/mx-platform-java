@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * CategoryResponse
@@ -62,7 +84,7 @@ public class CategoryResponse {
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private String updatedAt;
 
-  public CategoryResponse() { 
+  public CategoryResponse() {
   }
 
   public CategoryResponse createdAt(String createdAt) {
@@ -76,8 +98,6 @@ public class CategoryResponse {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2015-04-13T18:01:23.000Z", value = "")
-
   public String getCreatedAt() {
     return createdAt;
   }
@@ -99,8 +119,6 @@ public class CategoryResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "CAT-7829f71c-2e8c-afa5-2f55-fa3634b89874", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -122,8 +140,6 @@ public class CategoryResponse {
    * @return isDefault
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
-
   public Boolean getIsDefault() {
     return isDefault;
   }
@@ -145,8 +161,6 @@ public class CategoryResponse {
    * @return isIncome
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsIncome() {
     return isIncome;
   }
@@ -168,8 +182,6 @@ public class CategoryResponse {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "some metadata", value = "")
-
   public String getMetadata() {
     return metadata;
   }
@@ -191,8 +203,6 @@ public class CategoryResponse {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Auto Insurance", value = "")
-
   public String getName() {
     return name;
   }
@@ -214,8 +224,6 @@ public class CategoryResponse {
    * @return parentGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "CAT-7829f71c-2e8c-afa5-2f55-fa3634b89874", value = "")
-
   public String getParentGuid() {
     return parentGuid;
   }
@@ -237,8 +245,6 @@ public class CategoryResponse {
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2015-05-13T18:01:23.000Z", value = "")
-
   public String getUpdatedAt() {
     return updatedAt;
   }
@@ -247,6 +253,7 @@ public class CategoryResponse {
   public void setUpdatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
   }
+
 
 
   @Override
@@ -311,5 +318,114 @@ public class CategoryResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("created_at");
+    openapiFields.add("guid");
+    openapiFields.add("is_default");
+    openapiFields.add("is_income");
+    openapiFields.add("metadata");
+    openapiFields.add("name");
+    openapiFields.add("parent_guid");
+    openapiFields.add("updated_at");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to CategoryResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!CategoryResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CategoryResponse is not found in the empty JSON string", CategoryResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!CategoryResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CategoryResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("created_at") != null && !jsonObj.get("created_at").isJsonNull()) && !jsonObj.get("created_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `created_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_at").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("parent_guid") != null && !jsonObj.get("parent_guid").isJsonNull()) && !jsonObj.get("parent_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `parent_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("parent_guid").toString()));
+      }
+      if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull()) && !jsonObj.get("updated_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updated_at").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!CategoryResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CategoryResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<CategoryResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CategoryResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<CategoryResponse>() {
+           @Override
+           public void write(JsonWriter out, CategoryResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public CategoryResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of CategoryResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CategoryResponse
+  * @throws IOException if the JSON string is invalid with respect to CategoryResponse
+  */
+  public static CategoryResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CategoryResponse.class);
+  }
+
+ /**
+  * Convert an instance of CategoryResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

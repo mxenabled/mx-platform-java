@@ -14,17 +14,39 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * AccountResponse
@@ -255,7 +277,7 @@ public class AccountResponse {
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private String userId;
 
-  public AccountResponse() { 
+  public AccountResponse() {
   }
 
   public AccountResponse accountNumber(String accountNumber) {
@@ -269,8 +291,6 @@ public class AccountResponse {
    * @return accountNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "5366", value = "")
-
   public String getAccountNumber() {
     return accountNumber;
   }
@@ -292,8 +312,6 @@ public class AccountResponse {
    * @return accountOwnership
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "INDIVIDUAL", value = "")
-
   public String getAccountOwnership() {
     return accountOwnership;
   }
@@ -315,8 +333,6 @@ public class AccountResponse {
    * @return annuityPolicyToDate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2016-10-13T17:57:37.000Z", value = "")
-
   public String getAnnuityPolicyToDate() {
     return annuityPolicyToDate;
   }
@@ -338,8 +354,6 @@ public class AccountResponse {
    * @return annuityProvider
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Metlife", value = "")
-
   public String getAnnuityProvider() {
     return annuityProvider;
   }
@@ -361,8 +375,6 @@ public class AccountResponse {
    * @return annuityTermYear
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2048", value = "")
-
   public BigDecimal getAnnuityTermYear() {
     return annuityTermYear;
   }
@@ -384,8 +396,6 @@ public class AccountResponse {
    * @return apr
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1.0", value = "")
-
   public BigDecimal getApr() {
     return apr;
   }
@@ -407,8 +417,6 @@ public class AccountResponse {
    * @return apy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1.0", value = "")
-
   public BigDecimal getApy() {
     return apy;
   }
@@ -430,8 +438,6 @@ public class AccountResponse {
    * @return availableBalance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000.0", value = "")
-
   public BigDecimal getAvailableBalance() {
     return availableBalance;
   }
@@ -453,8 +459,6 @@ public class AccountResponse {
    * @return availableCredit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000.0", value = "")
-
   public BigDecimal getAvailableCredit() {
     return availableCredit;
   }
@@ -476,8 +480,6 @@ public class AccountResponse {
    * @return balance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10000.0", value = "")
-
   public BigDecimal getBalance() {
     return balance;
   }
@@ -499,8 +501,6 @@ public class AccountResponse {
    * @return cashBalance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000.0", value = "")
-
   public BigDecimal getCashBalance() {
     return cashBalance;
   }
@@ -522,8 +522,6 @@ public class AccountResponse {
    * @return cashSurrenderValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000.0", value = "")
-
   public BigDecimal getCashSurrenderValue() {
     return cashSurrenderValue;
   }
@@ -545,8 +543,6 @@ public class AccountResponse {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-07-25T17:14:46Z", value = "")
-
   public String getCreatedAt() {
     return createdAt;
   }
@@ -568,8 +564,6 @@ public class AccountResponse {
    * @return creditLimit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "100.0", value = "")
-
   public BigDecimal getCreditLimit() {
     return creditLimit;
   }
@@ -591,8 +585,6 @@ public class AccountResponse {
    * @return currencyCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USD", value = "")
-
   public String getCurrencyCode() {
     return currencyCode;
   }
@@ -614,8 +606,6 @@ public class AccountResponse {
    * @return dayPaymentIsDue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "20", value = "")
-
   public Integer getDayPaymentIsDue() {
     return dayPaymentIsDue;
   }
@@ -637,8 +627,6 @@ public class AccountResponse {
    * @return deathBenefit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000", value = "")
-
   public Integer getDeathBenefit() {
     return deathBenefit;
   }
@@ -660,8 +648,6 @@ public class AccountResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -683,8 +669,6 @@ public class AccountResponse {
    * @return holdingsValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000.0", value = "")
-
   public BigDecimal getHoldingsValue() {
     return holdingsValue;
   }
@@ -706,8 +690,6 @@ public class AccountResponse {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1040434698", value = "")
-
   public String getId() {
     return id;
   }
@@ -729,8 +711,6 @@ public class AccountResponse {
    * @return importedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2015-10-13T17:57:37.000Z", value = "")
-
   public String getImportedAt() {
     return importedAt;
   }
@@ -752,8 +732,6 @@ public class AccountResponse {
    * @return interestRate
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1.0", value = "")
-
   public BigDecimal getInterestRate() {
     return interestRate;
   }
@@ -775,8 +753,6 @@ public class AccountResponse {
    * @return institutionCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "3af3685e-05d9-7060-359f-008d0755e993", value = "")
-
   public String getInstitutionCode() {
     return institutionCode;
   }
@@ -798,8 +774,6 @@ public class AccountResponse {
    * @return insuredName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Tommy Shelby", value = "")
-
   public String getInsuredName() {
     return insuredName;
   }
@@ -821,8 +795,6 @@ public class AccountResponse {
    * @return isClosed
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsClosed() {
     return isClosed;
   }
@@ -844,8 +816,6 @@ public class AccountResponse {
    * @return isHidden
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsHidden() {
     return isHidden;
   }
@@ -867,8 +837,6 @@ public class AccountResponse {
    * @return isManual
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsManual() {
     return isManual;
   }
@@ -890,8 +858,6 @@ public class AccountResponse {
    * @return lastPayment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "100.0", value = "")
-
   public BigDecimal getLastPayment() {
     return lastPayment;
   }
@@ -913,8 +879,6 @@ public class AccountResponse {
    * @return lastPaymentAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2023-07-25T17:14:46Z", value = "")
-
   public String getLastPaymentAt() {
     return lastPaymentAt;
   }
@@ -936,8 +900,6 @@ public class AccountResponse {
    * @return loanAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000.0", value = "")
-
   public BigDecimal getLoanAmount() {
     return loanAmount;
   }
@@ -959,8 +921,6 @@ public class AccountResponse {
    * @return marginBalance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000.0", value = "")
-
   public BigDecimal getMarginBalance() {
     return marginBalance;
   }
@@ -982,8 +942,6 @@ public class AccountResponse {
    * @return maturesOn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2015-10-13T17:57:37.000Z", value = "")
-
   public String getMaturesOn() {
     return maturesOn;
   }
@@ -1005,8 +963,6 @@ public class AccountResponse {
    * @return memberGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b", value = "")
-
   public String getMemberGuid() {
     return memberGuid;
   }
@@ -1028,8 +984,6 @@ public class AccountResponse {
    * @return memberId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "member123", value = "")
-
   public String getMemberId() {
     return memberId;
   }
@@ -1051,8 +1005,6 @@ public class AccountResponse {
    * @return memberIsManagedByUser
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getMemberIsManagedByUser() {
     return memberIsManagedByUser;
   }
@@ -1074,8 +1026,6 @@ public class AccountResponse {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "some metadata", value = "")
-
   public String getMetadata() {
     return metadata;
   }
@@ -1097,8 +1047,6 @@ public class AccountResponse {
    * @return minimumBalance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "100.0", value = "")
-
   public BigDecimal getMinimumBalance() {
     return minimumBalance;
   }
@@ -1120,8 +1068,6 @@ public class AccountResponse {
    * @return minimumPayment
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10.0", value = "")
-
   public BigDecimal getMinimumPayment() {
     return minimumPayment;
   }
@@ -1143,8 +1089,6 @@ public class AccountResponse {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Test account 2", value = "")
-
   public String getName() {
     return name;
   }
@@ -1166,8 +1110,6 @@ public class AccountResponse {
    * @return nickname
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "My Checking", value = "")
-
   public String getNickname() {
     return nickname;
   }
@@ -1189,8 +1131,6 @@ public class AccountResponse {
    * @return originalBalance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10.0", value = "")
-
   public BigDecimal getOriginalBalance() {
     return originalBalance;
   }
@@ -1212,8 +1152,6 @@ public class AccountResponse {
    * @return payOutAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10.0", value = "")
-
   public BigDecimal getPayOutAmount() {
     return payOutAmount;
   }
@@ -1235,8 +1173,6 @@ public class AccountResponse {
    * @return paymentDueAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2015-10-13T17:57:37.000Z", value = "")
-
   public String getPaymentDueAt() {
     return paymentDueAt;
   }
@@ -1258,8 +1194,6 @@ public class AccountResponse {
    * @return payoffBalance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10.0", value = "")
-
   public BigDecimal getPayoffBalance() {
     return payoffBalance;
   }
@@ -1281,8 +1215,6 @@ public class AccountResponse {
    * @return premiumAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1.0", value = "")
-
   public BigDecimal getPremiumAmount() {
     return premiumAmount;
   }
@@ -1304,8 +1236,6 @@ public class AccountResponse {
    * @return propertyType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "VEHICLE", value = "")
-
   public String getPropertyType() {
     return propertyType;
   }
@@ -1327,8 +1257,6 @@ public class AccountResponse {
    * @return routingNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "68899990000000", value = "")
-
   public String getRoutingNumber() {
     return routingNumber;
   }
@@ -1350,8 +1278,6 @@ public class AccountResponse {
    * @return startedOn
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2015-10-13T17:57:37.000Z", value = "")
-
   public String getStartedOn() {
     return startedOn;
   }
@@ -1373,8 +1299,6 @@ public class AccountResponse {
    * @return subtype
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "NONE", value = "")
-
   public String getSubtype() {
     return subtype;
   }
@@ -1396,8 +1320,6 @@ public class AccountResponse {
    * @return todayUglAmount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1000.5", value = "")
-
   public BigDecimal getTodayUglAmount() {
     return todayUglAmount;
   }
@@ -1419,8 +1341,6 @@ public class AccountResponse {
    * @return todayUglPercentage
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "6.9", value = "")
-
   public BigDecimal getTodayUglPercentage() {
     return todayUglPercentage;
   }
@@ -1442,8 +1362,6 @@ public class AccountResponse {
    * @return totalAccountValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1.0", value = "")
-
   public BigDecimal getTotalAccountValue() {
     return totalAccountValue;
   }
@@ -1465,8 +1383,6 @@ public class AccountResponse {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "SAVINGS", value = "")
-
   public String getType() {
     return type;
   }
@@ -1488,8 +1404,6 @@ public class AccountResponse {
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2016-10-13T18:08:00.000Z", value = "")
-
   public String getUpdatedAt() {
     return updatedAt;
   }
@@ -1511,8 +1425,6 @@ public class AccountResponse {
    * @return userGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USR-fa7537f3-48aa-a683-a02a-b18940482f54", value = "")
-
   public String getUserGuid() {
     return userGuid;
   }
@@ -1534,8 +1446,6 @@ public class AccountResponse {
    * @return userId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "user123", value = "")
-
   public String getUserId() {
     return userId;
   }
@@ -1544,6 +1454,7 @@ public class AccountResponse {
   public void setUserId(String userId) {
     this.userId = userId;
   }
+
 
 
   @Override
@@ -1704,5 +1615,225 @@ public class AccountResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("account_number");
+    openapiFields.add("account_ownership");
+    openapiFields.add("annuity_policy_to_date");
+    openapiFields.add("annuity_provider");
+    openapiFields.add("annuity_term_year");
+    openapiFields.add("apr");
+    openapiFields.add("apy");
+    openapiFields.add("available_balance");
+    openapiFields.add("available_credit");
+    openapiFields.add("balance");
+    openapiFields.add("cash_balance");
+    openapiFields.add("cash_surrender_value");
+    openapiFields.add("created_at");
+    openapiFields.add("credit_limit");
+    openapiFields.add("currency_code");
+    openapiFields.add("day_payment_is_due");
+    openapiFields.add("death_benefit");
+    openapiFields.add("guid");
+    openapiFields.add("holdings_value");
+    openapiFields.add("id");
+    openapiFields.add("imported_at");
+    openapiFields.add("interest_rate");
+    openapiFields.add("institution_code");
+    openapiFields.add("insured_name");
+    openapiFields.add("is_closed");
+    openapiFields.add("is_hidden");
+    openapiFields.add("is_manual");
+    openapiFields.add("last_payment");
+    openapiFields.add("last_payment_at");
+    openapiFields.add("loan_amount");
+    openapiFields.add("margin_balance");
+    openapiFields.add("matures_on");
+    openapiFields.add("member_guid");
+    openapiFields.add("member_id");
+    openapiFields.add("member_is_managed_by_user");
+    openapiFields.add("metadata");
+    openapiFields.add("minimum_balance");
+    openapiFields.add("minimum_payment");
+    openapiFields.add("name");
+    openapiFields.add("nickname");
+    openapiFields.add("original_balance");
+    openapiFields.add("pay_out_amount");
+    openapiFields.add("payment_due_at");
+    openapiFields.add("payoff_balance");
+    openapiFields.add("premium_amount");
+    openapiFields.add("property_type");
+    openapiFields.add("routing_number");
+    openapiFields.add("started_on");
+    openapiFields.add("subtype");
+    openapiFields.add("today_ugl_amount");
+    openapiFields.add("today_ugl_percentage");
+    openapiFields.add("total_account_value");
+    openapiFields.add("type");
+    openapiFields.add("updated_at");
+    openapiFields.add("user_guid");
+    openapiFields.add("user_id");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to AccountResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AccountResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AccountResponse is not found in the empty JSON string", AccountResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!AccountResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("account_number") != null && !jsonObj.get("account_number").isJsonNull()) && !jsonObj.get("account_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `account_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_number").toString()));
+      }
+      if ((jsonObj.get("account_ownership") != null && !jsonObj.get("account_ownership").isJsonNull()) && !jsonObj.get("account_ownership").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `account_ownership` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_ownership").toString()));
+      }
+      if ((jsonObj.get("annuity_policy_to_date") != null && !jsonObj.get("annuity_policy_to_date").isJsonNull()) && !jsonObj.get("annuity_policy_to_date").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `annuity_policy_to_date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("annuity_policy_to_date").toString()));
+      }
+      if ((jsonObj.get("annuity_provider") != null && !jsonObj.get("annuity_provider").isJsonNull()) && !jsonObj.get("annuity_provider").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `annuity_provider` to be a primitive type in the JSON string but got `%s`", jsonObj.get("annuity_provider").toString()));
+      }
+      if ((jsonObj.get("created_at") != null && !jsonObj.get("created_at").isJsonNull()) && !jsonObj.get("created_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `created_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_at").toString()));
+      }
+      if ((jsonObj.get("currency_code") != null && !jsonObj.get("currency_code").isJsonNull()) && !jsonObj.get("currency_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `currency_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency_code").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("imported_at") != null && !jsonObj.get("imported_at").isJsonNull()) && !jsonObj.get("imported_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `imported_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imported_at").toString()));
+      }
+      if ((jsonObj.get("institution_code") != null && !jsonObj.get("institution_code").isJsonNull()) && !jsonObj.get("institution_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `institution_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("institution_code").toString()));
+      }
+      if ((jsonObj.get("insured_name") != null && !jsonObj.get("insured_name").isJsonNull()) && !jsonObj.get("insured_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `insured_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("insured_name").toString()));
+      }
+      if ((jsonObj.get("last_payment_at") != null && !jsonObj.get("last_payment_at").isJsonNull()) && !jsonObj.get("last_payment_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `last_payment_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("last_payment_at").toString()));
+      }
+      if ((jsonObj.get("matures_on") != null && !jsonObj.get("matures_on").isJsonNull()) && !jsonObj.get("matures_on").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `matures_on` to be a primitive type in the JSON string but got `%s`", jsonObj.get("matures_on").toString()));
+      }
+      if ((jsonObj.get("member_guid") != null && !jsonObj.get("member_guid").isJsonNull()) && !jsonObj.get("member_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `member_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("member_guid").toString()));
+      }
+      if ((jsonObj.get("member_id") != null && !jsonObj.get("member_id").isJsonNull()) && !jsonObj.get("member_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `member_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("member_id").toString()));
+      }
+      if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("nickname") != null && !jsonObj.get("nickname").isJsonNull()) && !jsonObj.get("nickname").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `nickname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("nickname").toString()));
+      }
+      if ((jsonObj.get("payment_due_at") != null && !jsonObj.get("payment_due_at").isJsonNull()) && !jsonObj.get("payment_due_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `payment_due_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payment_due_at").toString()));
+      }
+      if ((jsonObj.get("property_type") != null && !jsonObj.get("property_type").isJsonNull()) && !jsonObj.get("property_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `property_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("property_type").toString()));
+      }
+      if ((jsonObj.get("routing_number") != null && !jsonObj.get("routing_number").isJsonNull()) && !jsonObj.get("routing_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `routing_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("routing_number").toString()));
+      }
+      if ((jsonObj.get("started_on") != null && !jsonObj.get("started_on").isJsonNull()) && !jsonObj.get("started_on").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `started_on` to be a primitive type in the JSON string but got `%s`", jsonObj.get("started_on").toString()));
+      }
+      if ((jsonObj.get("subtype") != null && !jsonObj.get("subtype").isJsonNull()) && !jsonObj.get("subtype").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `subtype` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subtype").toString()));
+      }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull()) && !jsonObj.get("updated_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updated_at").toString()));
+      }
+      if ((jsonObj.get("user_guid") != null && !jsonObj.get("user_guid").isJsonNull()) && !jsonObj.get("user_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_guid").toString()));
+      }
+      if ((jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonNull()) && !jsonObj.get("user_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!AccountResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AccountResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<AccountResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AccountResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<AccountResponse>() {
+           @Override
+           public void write(JsonWriter out, AccountResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public AccountResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of AccountResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AccountResponse
+  * @throws IOException if the JSON string is invalid with respect to AccountResponse
+  */
+  public static AccountResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AccountResponse.class);
+  }
+
+ /**
+  * Convert an instance of AccountResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

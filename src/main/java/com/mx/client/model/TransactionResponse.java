@@ -14,17 +14,39 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * TransactionResponse
@@ -203,7 +225,7 @@ public class TransactionResponse {
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private String userId;
 
-  public TransactionResponse() { 
+  public TransactionResponse() {
   }
 
   public TransactionResponse accountGuid(String accountGuid) {
@@ -217,8 +239,6 @@ public class TransactionResponse {
    * @return accountGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1", value = "")
-
   public String getAccountGuid() {
     return accountGuid;
   }
@@ -240,8 +260,6 @@ public class TransactionResponse {
    * @return accountId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "account123", value = "")
-
   public String getAccountId() {
     return accountId;
   }
@@ -263,8 +281,6 @@ public class TransactionResponse {
    * @return amount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "61.11", value = "")
-
   public BigDecimal getAmount() {
     return amount;
   }
@@ -286,8 +302,6 @@ public class TransactionResponse {
    * @return category
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Groceries", value = "")
-
   public String getCategory() {
     return category;
   }
@@ -309,8 +323,6 @@ public class TransactionResponse {
    * @return categoryGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "CAT-9588eaad-90a4-bb5c-66c8-1812503d0db8", value = "")
-
   public String getCategoryGuid() {
     return categoryGuid;
   }
@@ -332,8 +344,6 @@ public class TransactionResponse {
    * @return checkNumberString
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "6812", value = "")
-
   public String getCheckNumberString() {
     return checkNumberString;
   }
@@ -355,8 +365,6 @@ public class TransactionResponse {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2016-10-06T09:43:42.000Z", value = "")
-
   public String getCreatedAt() {
     return createdAt;
   }
@@ -378,8 +386,6 @@ public class TransactionResponse {
    * @return currencyCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USD", value = "")
-
   public String getCurrencyCode() {
     return currencyCode;
   }
@@ -401,8 +407,6 @@ public class TransactionResponse {
    * @return date
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2013-09-23T00:00:00.000Z", value = "")
-
   public String getDate() {
     return date;
   }
@@ -424,8 +428,6 @@ public class TransactionResponse {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Whole foods", value = "")
-
   public String getDescription() {
     return description;
   }
@@ -447,8 +449,6 @@ public class TransactionResponse {
    * @return extendedTransactionType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "partner_transaction_type", value = "")
-
   public String getExtendedTransactionType() {
     return extendedTransactionType;
   }
@@ -470,8 +470,6 @@ public class TransactionResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "TRN-265abee9-889b-af6a-c69b-25157db2bdd9", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -493,8 +491,6 @@ public class TransactionResponse {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "transaction-265abee9-889b-af6a-c69b-25157db2bdd9", value = "")
-
   public String getId() {
     return id;
   }
@@ -516,8 +512,6 @@ public class TransactionResponse {
    * @return isBillPay
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsBillPay() {
     return isBillPay;
   }
@@ -539,8 +533,6 @@ public class TransactionResponse {
    * @return isDirectDeposit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsDirectDeposit() {
     return isDirectDeposit;
   }
@@ -562,8 +554,6 @@ public class TransactionResponse {
    * @return isExpense
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
-
   public Boolean getIsExpense() {
     return isExpense;
   }
@@ -585,8 +575,6 @@ public class TransactionResponse {
    * @return isFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsFee() {
     return isFee;
   }
@@ -608,8 +596,6 @@ public class TransactionResponse {
    * @return isIncome
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsIncome() {
     return isIncome;
   }
@@ -631,8 +617,6 @@ public class TransactionResponse {
    * @return isInternational
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsInternational() {
     return isInternational;
   }
@@ -654,8 +638,6 @@ public class TransactionResponse {
    * @return isOverdraftFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsOverdraftFee() {
     return isOverdraftFee;
   }
@@ -677,8 +659,6 @@ public class TransactionResponse {
    * @return isPayrollAdvance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsPayrollAdvance() {
     return isPayrollAdvance;
   }
@@ -700,8 +680,6 @@ public class TransactionResponse {
    * @return isRecurring
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsRecurring() {
     return isRecurring;
   }
@@ -723,8 +701,6 @@ public class TransactionResponse {
    * @return isSubscription
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsSubscription() {
     return isSubscription;
   }
@@ -746,8 +722,6 @@ public class TransactionResponse {
    * @return latitude
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "-43.2075", value = "")
-
   public BigDecimal getLatitude() {
     return latitude;
   }
@@ -769,8 +743,6 @@ public class TransactionResponse {
    * @return localizedDescription
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This is a localized_description", value = "")
-
   public String getLocalizedDescription() {
     return localizedDescription;
   }
@@ -792,8 +764,6 @@ public class TransactionResponse {
    * @return localizedMemo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This is a localized_memo", value = "")
-
   public String getLocalizedMemo() {
     return localizedMemo;
   }
@@ -815,8 +785,6 @@ public class TransactionResponse {
    * @return longitude
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "139.691706", value = "")
-
   public BigDecimal getLongitude() {
     return longitude;
   }
@@ -838,8 +806,6 @@ public class TransactionResponse {
    * @return memberGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b", value = "")
-
   public String getMemberGuid() {
     return memberGuid;
   }
@@ -861,8 +827,6 @@ public class TransactionResponse {
    * @return memberIsManagedByUser
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getMemberIsManagedByUser() {
     return memberIsManagedByUser;
   }
@@ -884,8 +848,6 @@ public class TransactionResponse {
    * @return memo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This is a memo", value = "")
-
   public String getMemo() {
     return memo;
   }
@@ -907,8 +869,6 @@ public class TransactionResponse {
    * @return merchantCategoryCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "5411", value = "")
-
   public Integer getMerchantCategoryCode() {
     return merchantCategoryCode;
   }
@@ -930,8 +890,6 @@ public class TransactionResponse {
    * @return merchantGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MCH-7ed79542-884d-2b1b-dd74-501c5cc9d25b", value = "")
-
   public String getMerchantGuid() {
     return merchantGuid;
   }
@@ -953,8 +911,6 @@ public class TransactionResponse {
    * @return merchantLocationGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MCL-00024e59-18b5-4d79-b879-2a7896726fea", value = "")
-
   public String getMerchantLocationGuid() {
     return merchantLocationGuid;
   }
@@ -976,8 +932,6 @@ public class TransactionResponse {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "some metadata", value = "")
-
   public String getMetadata() {
     return metadata;
   }
@@ -999,8 +953,6 @@ public class TransactionResponse {
    * @return originalDescription
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "WHOLEFDS TSQ 102", value = "")
-
   public String getOriginalDescription() {
     return originalDescription;
   }
@@ -1022,8 +974,6 @@ public class TransactionResponse {
    * @return postedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2016-10-07T06:00:00.000Z", value = "")
-
   public String getPostedAt() {
     return postedAt;
   }
@@ -1045,8 +995,6 @@ public class TransactionResponse {
    * @return status
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "POSTED", value = "")
-
   public String getStatus() {
     return status;
   }
@@ -1068,8 +1016,6 @@ public class TransactionResponse {
    * @return topLevelCategory
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Food & Dining", value = "")
-
   public String getTopLevelCategory() {
     return topLevelCategory;
   }
@@ -1091,8 +1037,6 @@ public class TransactionResponse {
    * @return transactedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2016-10-06T13:00:00.000Z", value = "")
-
   public String getTransactedAt() {
     return transactedAt;
   }
@@ -1114,8 +1058,6 @@ public class TransactionResponse {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "DEBIT", value = "")
-
   public String getType() {
     return type;
   }
@@ -1137,8 +1079,6 @@ public class TransactionResponse {
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2016-10-07T05:49:12.000Z", value = "")
-
   public String getUpdatedAt() {
     return updatedAt;
   }
@@ -1160,8 +1100,6 @@ public class TransactionResponse {
    * @return userGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USR-fa7537f3-48aa-a683-a02a-b18940482f54", value = "")
-
   public String getUserGuid() {
     return userGuid;
   }
@@ -1183,8 +1121,6 @@ public class TransactionResponse {
    * @return userId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "user123", value = "")
-
   public String getUserId() {
     return userId;
   }
@@ -1193,6 +1129,7 @@ public class TransactionResponse {
   public void setUserId(String userId) {
     this.userId = userId;
   }
+
 
 
   @Override
@@ -1327,5 +1264,215 @@ public class TransactionResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("account_guid");
+    openapiFields.add("account_id");
+    openapiFields.add("amount");
+    openapiFields.add("category");
+    openapiFields.add("category_guid");
+    openapiFields.add("check_number_string");
+    openapiFields.add("created_at");
+    openapiFields.add("currency_code");
+    openapiFields.add("date");
+    openapiFields.add("description");
+    openapiFields.add("extended_transaction_type");
+    openapiFields.add("guid");
+    openapiFields.add("id");
+    openapiFields.add("is_bill_pay");
+    openapiFields.add("is_direct_deposit");
+    openapiFields.add("is_expense");
+    openapiFields.add("is_fee");
+    openapiFields.add("is_income");
+    openapiFields.add("is_international");
+    openapiFields.add("is_overdraft_fee");
+    openapiFields.add("is_payroll_advance");
+    openapiFields.add("is_recurring");
+    openapiFields.add("is_subscription");
+    openapiFields.add("latitude");
+    openapiFields.add("localized_description");
+    openapiFields.add("localized_memo");
+    openapiFields.add("longitude");
+    openapiFields.add("member_guid");
+    openapiFields.add("member_is_managed_by_user");
+    openapiFields.add("memo");
+    openapiFields.add("merchant_category_code");
+    openapiFields.add("merchant_guid");
+    openapiFields.add("merchant_location_guid");
+    openapiFields.add("metadata");
+    openapiFields.add("original_description");
+    openapiFields.add("posted_at");
+    openapiFields.add("status");
+    openapiFields.add("top_level_category");
+    openapiFields.add("transacted_at");
+    openapiFields.add("type");
+    openapiFields.add("updated_at");
+    openapiFields.add("user_guid");
+    openapiFields.add("user_id");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TransactionResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TransactionResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionResponse is not found in the empty JSON string", TransactionResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!TransactionResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransactionResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("account_guid") != null && !jsonObj.get("account_guid").isJsonNull()) && !jsonObj.get("account_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `account_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_guid").toString()));
+      }
+      if ((jsonObj.get("account_id") != null && !jsonObj.get("account_id").isJsonNull()) && !jsonObj.get("account_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `account_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_id").toString()));
+      }
+      if ((jsonObj.get("category") != null && !jsonObj.get("category").isJsonNull()) && !jsonObj.get("category").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `category` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category").toString()));
+      }
+      if ((jsonObj.get("category_guid") != null && !jsonObj.get("category_guid").isJsonNull()) && !jsonObj.get("category_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `category_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category_guid").toString()));
+      }
+      if ((jsonObj.get("check_number_string") != null && !jsonObj.get("check_number_string").isJsonNull()) && !jsonObj.get("check_number_string").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `check_number_string` to be a primitive type in the JSON string but got `%s`", jsonObj.get("check_number_string").toString()));
+      }
+      if ((jsonObj.get("created_at") != null && !jsonObj.get("created_at").isJsonNull()) && !jsonObj.get("created_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `created_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_at").toString()));
+      }
+      if ((jsonObj.get("currency_code") != null && !jsonObj.get("currency_code").isJsonNull()) && !jsonObj.get("currency_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `currency_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency_code").toString()));
+      }
+      if ((jsonObj.get("date") != null && !jsonObj.get("date").isJsonNull()) && !jsonObj.get("date").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `date` to be a primitive type in the JSON string but got `%s`", jsonObj.get("date").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("extended_transaction_type") != null && !jsonObj.get("extended_transaction_type").isJsonNull()) && !jsonObj.get("extended_transaction_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `extended_transaction_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extended_transaction_type").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("localized_description") != null && !jsonObj.get("localized_description").isJsonNull()) && !jsonObj.get("localized_description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `localized_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("localized_description").toString()));
+      }
+      if ((jsonObj.get("localized_memo") != null && !jsonObj.get("localized_memo").isJsonNull()) && !jsonObj.get("localized_memo").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `localized_memo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("localized_memo").toString()));
+      }
+      if ((jsonObj.get("member_guid") != null && !jsonObj.get("member_guid").isJsonNull()) && !jsonObj.get("member_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `member_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("member_guid").toString()));
+      }
+      if ((jsonObj.get("memo") != null && !jsonObj.get("memo").isJsonNull()) && !jsonObj.get("memo").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `memo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("memo").toString()));
+      }
+      if ((jsonObj.get("merchant_guid") != null && !jsonObj.get("merchant_guid").isJsonNull()) && !jsonObj.get("merchant_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_guid").toString()));
+      }
+      if ((jsonObj.get("merchant_location_guid") != null && !jsonObj.get("merchant_location_guid").isJsonNull()) && !jsonObj.get("merchant_location_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_location_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_location_guid").toString()));
+      }
+      if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
+      }
+      if ((jsonObj.get("original_description") != null && !jsonObj.get("original_description").isJsonNull()) && !jsonObj.get("original_description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `original_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("original_description").toString()));
+      }
+      if ((jsonObj.get("posted_at") != null && !jsonObj.get("posted_at").isJsonNull()) && !jsonObj.get("posted_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `posted_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("posted_at").toString()));
+      }
+      if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) && !jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      }
+      if ((jsonObj.get("top_level_category") != null && !jsonObj.get("top_level_category").isJsonNull()) && !jsonObj.get("top_level_category").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `top_level_category` to be a primitive type in the JSON string but got `%s`", jsonObj.get("top_level_category").toString()));
+      }
+      if ((jsonObj.get("transacted_at") != null && !jsonObj.get("transacted_at").isJsonNull()) && !jsonObj.get("transacted_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `transacted_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transacted_at").toString()));
+      }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull()) && !jsonObj.get("updated_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updated_at").toString()));
+      }
+      if ((jsonObj.get("user_guid") != null && !jsonObj.get("user_guid").isJsonNull()) && !jsonObj.get("user_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_guid").toString()));
+      }
+      if ((jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonNull()) && !jsonObj.get("user_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TransactionResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TransactionResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TransactionResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TransactionResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TransactionResponse>() {
+           @Override
+           public void write(JsonWriter out, TransactionResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TransactionResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TransactionResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TransactionResponse
+  * @throws IOException if the JSON string is invalid with respect to TransactionResponse
+  */
+  public static TransactionResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TransactionResponse.class);
+  }
+
+ /**
+  * Convert an instance of TransactionResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

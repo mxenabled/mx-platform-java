@@ -14,7 +14,6 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +21,34 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.mx.client.model.ChallengeResponse;
 import com.mx.client.model.PaginationResponse;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * ChallengesResponseBody
@@ -35,13 +57,13 @@ import java.util.List;
 public class ChallengesResponseBody {
   public static final String SERIALIZED_NAME_CHALLENGES = "challenges";
   @SerializedName(SERIALIZED_NAME_CHALLENGES)
-  private List<ChallengeResponse> challenges = null;
+  private List<ChallengeResponse> challenges;
 
   public static final String SERIALIZED_NAME_PAGINATION = "pagination";
   @SerializedName(SERIALIZED_NAME_PAGINATION)
   private PaginationResponse pagination;
 
-  public ChallengesResponseBody() { 
+  public ChallengesResponseBody() {
   }
 
   public ChallengesResponseBody challenges(List<ChallengeResponse> challenges) {
@@ -52,7 +74,7 @@ public class ChallengesResponseBody {
 
   public ChallengesResponseBody addChallengesItem(ChallengeResponse challengesItem) {
     if (this.challenges == null) {
-      this.challenges = new ArrayList<ChallengeResponse>();
+      this.challenges = new ArrayList<>();
     }
     this.challenges.add(challengesItem);
     return this;
@@ -63,8 +85,6 @@ public class ChallengesResponseBody {
    * @return challenges
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<ChallengeResponse> getChallenges() {
     return challenges;
   }
@@ -86,8 +106,6 @@ public class ChallengesResponseBody {
    * @return pagination
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public PaginationResponse getPagination() {
     return pagination;
   }
@@ -96,6 +114,7 @@ public class ChallengesResponseBody {
   public void setPagination(PaginationResponse pagination) {
     this.pagination = pagination;
   }
+
 
 
   @Override
@@ -137,5 +156,108 @@ public class ChallengesResponseBody {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("challenges");
+    openapiFields.add("pagination");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to ChallengesResponseBody
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ChallengesResponseBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ChallengesResponseBody is not found in the empty JSON string", ChallengesResponseBody.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!ChallengesResponseBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ChallengesResponseBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("challenges") != null && !jsonObj.get("challenges").isJsonNull()) {
+        JsonArray jsonArraychallenges = jsonObj.getAsJsonArray("challenges");
+        if (jsonArraychallenges != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("challenges").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `challenges` to be an array in the JSON string but got `%s`", jsonObj.get("challenges").toString()));
+          }
+
+          // validate the optional field `challenges` (array)
+          for (int i = 0; i < jsonArraychallenges.size(); i++) {
+            ChallengeResponse.validateJsonElement(jsonArraychallenges.get(i));
+          };
+        }
+      }
+      // validate the optional field `pagination`
+      if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
+        PaginationResponse.validateJsonElement(jsonObj.get("pagination"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ChallengesResponseBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ChallengesResponseBody' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ChallengesResponseBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ChallengesResponseBody.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ChallengesResponseBody>() {
+           @Override
+           public void write(JsonWriter out, ChallengesResponseBody value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ChallengesResponseBody read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ChallengesResponseBody given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ChallengesResponseBody
+  * @throws IOException if the JSON string is invalid with respect to ChallengesResponseBody
+  */
+  public static ChallengesResponseBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ChallengesResponseBody.class);
+  }
+
+ /**
+  * Convert an instance of ChallengesResponseBody to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

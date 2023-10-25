@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * AccountNumberResponse
@@ -66,7 +88,7 @@ public class AccountNumberResponse {
   @SerializedName(SERIALIZED_NAME_USER_GUID)
   private String userGuid;
 
-  public AccountNumberResponse() { 
+  public AccountNumberResponse() {
   }
 
   public AccountNumberResponse accountGuid(String accountGuid) {
@@ -80,8 +102,6 @@ public class AccountNumberResponse {
    * @return accountGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ACT-06d7f45b-caae-0f6e-1384-01f52e75dcb1", value = "")
-
   public String getAccountGuid() {
     return accountGuid;
   }
@@ -103,8 +123,6 @@ public class AccountNumberResponse {
    * @return accountNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "10001", value = "")
-
   public String getAccountNumber() {
     return accountNumber;
   }
@@ -126,8 +144,6 @@ public class AccountNumberResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ACN-8899832e-e5b4-42cd-aa25-bbf1dc889a8f", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -149,8 +165,6 @@ public class AccountNumberResponse {
    * @return institutionNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "123", value = "")
-
   public String getInstitutionNumber() {
     return institutionNumber;
   }
@@ -172,8 +186,6 @@ public class AccountNumberResponse {
    * @return memberGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b", value = "")
-
   public String getMemberGuid() {
     return memberGuid;
   }
@@ -195,8 +207,6 @@ public class AccountNumberResponse {
    * @return passedValidation
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "true", value = "")
-
   public Boolean getPassedValidation() {
     return passedValidation;
   }
@@ -218,8 +228,6 @@ public class AccountNumberResponse {
    * @return routingNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "68899990000000", value = "")
-
   public String getRoutingNumber() {
     return routingNumber;
   }
@@ -241,8 +249,6 @@ public class AccountNumberResponse {
    * @return transitNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "12345", value = "")
-
   public String getTransitNumber() {
     return transitNumber;
   }
@@ -264,8 +270,6 @@ public class AccountNumberResponse {
    * @return userGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USR-fa7537f3-48aa-a683-a02a-b18940482f54", value = "")
-
   public String getUserGuid() {
     return userGuid;
   }
@@ -274,6 +278,7 @@ public class AccountNumberResponse {
   public void setUserGuid(String userGuid) {
     this.userGuid = userGuid;
   }
+
 
 
   @Override
@@ -340,5 +345,121 @@ public class AccountNumberResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("account_guid");
+    openapiFields.add("account_number");
+    openapiFields.add("guid");
+    openapiFields.add("institution_number");
+    openapiFields.add("member_guid");
+    openapiFields.add("passed_validation");
+    openapiFields.add("routing_number");
+    openapiFields.add("transit_number");
+    openapiFields.add("user_guid");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to AccountNumberResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AccountNumberResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AccountNumberResponse is not found in the empty JSON string", AccountNumberResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!AccountNumberResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountNumberResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("account_guid") != null && !jsonObj.get("account_guid").isJsonNull()) && !jsonObj.get("account_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `account_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_guid").toString()));
+      }
+      if ((jsonObj.get("account_number") != null && !jsonObj.get("account_number").isJsonNull()) && !jsonObj.get("account_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `account_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_number").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("institution_number") != null && !jsonObj.get("institution_number").isJsonNull()) && !jsonObj.get("institution_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `institution_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("institution_number").toString()));
+      }
+      if ((jsonObj.get("member_guid") != null && !jsonObj.get("member_guid").isJsonNull()) && !jsonObj.get("member_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `member_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("member_guid").toString()));
+      }
+      if ((jsonObj.get("routing_number") != null && !jsonObj.get("routing_number").isJsonNull()) && !jsonObj.get("routing_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `routing_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("routing_number").toString()));
+      }
+      if ((jsonObj.get("transit_number") != null && !jsonObj.get("transit_number").isJsonNull()) && !jsonObj.get("transit_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `transit_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transit_number").toString()));
+      }
+      if ((jsonObj.get("user_guid") != null && !jsonObj.get("user_guid").isJsonNull()) && !jsonObj.get("user_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_guid").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!AccountNumberResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AccountNumberResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<AccountNumberResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AccountNumberResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<AccountNumberResponse>() {
+           @Override
+           public void write(JsonWriter out, AccountNumberResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public AccountNumberResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of AccountNumberResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AccountNumberResponse
+  * @throws IOException if the JSON string is invalid with respect to AccountNumberResponse
+  */
+  public static AccountNumberResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AccountNumberResponse.class);
+  }
+
+ /**
+  * Convert an instance of AccountNumberResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

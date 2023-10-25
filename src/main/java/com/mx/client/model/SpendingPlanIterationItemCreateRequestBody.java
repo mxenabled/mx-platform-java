@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * SpendingPlanIterationItemCreateRequestBody
@@ -50,7 +72,7 @@ public class SpendingPlanIterationItemCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_TOP_LEVEL_CATEGORY_GUID)
   private String topLevelCategoryGuid;
 
-  public SpendingPlanIterationItemCreateRequestBody() { 
+  public SpendingPlanIterationItemCreateRequestBody() {
   }
 
   public SpendingPlanIterationItemCreateRequestBody categoryGuid(String categoryGuid) {
@@ -64,8 +86,6 @@ public class SpendingPlanIterationItemCreateRequestBody {
    * @return categoryGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "CAT-40faf068-abb4-405c-8f6a-e883ed541fff", value = "")
-
   public String getCategoryGuid() {
     return categoryGuid;
   }
@@ -87,8 +107,6 @@ public class SpendingPlanIterationItemCreateRequestBody {
    * @return itemType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "")
-
   public BigDecimal getItemType() {
     return itemType;
   }
@@ -110,8 +128,6 @@ public class SpendingPlanIterationItemCreateRequestBody {
    * @return plannedAmount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "110", required = true, value = "")
-
   public BigDecimal getPlannedAmount() {
     return plannedAmount;
   }
@@ -133,8 +149,6 @@ public class SpendingPlanIterationItemCreateRequestBody {
    * @return scheduledPaymentGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "SCP-c731988a-712f-4f83-9b3b-0aa5b3d5208b", value = "")
-
   public String getScheduledPaymentGuid() {
     return scheduledPaymentGuid;
   }
@@ -156,8 +170,6 @@ public class SpendingPlanIterationItemCreateRequestBody {
    * @return topLevelCategoryGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "CAT-9588eaad-90a4-bb5c-66c8-1812503d0db8", value = "")
-
   public String getTopLevelCategoryGuid() {
     return topLevelCategoryGuid;
   }
@@ -166,6 +178,7 @@ public class SpendingPlanIterationItemCreateRequestBody {
   public void setTopLevelCategoryGuid(String topLevelCategoryGuid) {
     this.topLevelCategoryGuid = topLevelCategoryGuid;
   }
+
 
 
   @Override
@@ -213,5 +226,110 @@ public class SpendingPlanIterationItemCreateRequestBody {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("category_guid");
+    openapiFields.add("item_type");
+    openapiFields.add("planned_amount");
+    openapiFields.add("scheduled_payment_guid");
+    openapiFields.add("top_level_category_guid");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("planned_amount");
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to SpendingPlanIterationItemCreateRequestBody
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SpendingPlanIterationItemCreateRequestBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in SpendingPlanIterationItemCreateRequestBody is not found in the empty JSON string", SpendingPlanIterationItemCreateRequestBody.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!SpendingPlanIterationItemCreateRequestBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SpendingPlanIterationItemCreateRequestBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : SpendingPlanIterationItemCreateRequestBody.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("category_guid") != null && !jsonObj.get("category_guid").isJsonNull()) && !jsonObj.get("category_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `category_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category_guid").toString()));
+      }
+      if ((jsonObj.get("scheduled_payment_guid") != null && !jsonObj.get("scheduled_payment_guid").isJsonNull()) && !jsonObj.get("scheduled_payment_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `scheduled_payment_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("scheduled_payment_guid").toString()));
+      }
+      if ((jsonObj.get("top_level_category_guid") != null && !jsonObj.get("top_level_category_guid").isJsonNull()) && !jsonObj.get("top_level_category_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `top_level_category_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("top_level_category_guid").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!SpendingPlanIterationItemCreateRequestBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'SpendingPlanIterationItemCreateRequestBody' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<SpendingPlanIterationItemCreateRequestBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(SpendingPlanIterationItemCreateRequestBody.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<SpendingPlanIterationItemCreateRequestBody>() {
+           @Override
+           public void write(JsonWriter out, SpendingPlanIterationItemCreateRequestBody value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public SpendingPlanIterationItemCreateRequestBody read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of SpendingPlanIterationItemCreateRequestBody given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of SpendingPlanIterationItemCreateRequestBody
+  * @throws IOException if the JSON string is invalid with respect to SpendingPlanIterationItemCreateRequestBody
+  */
+  public static SpendingPlanIterationItemCreateRequestBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, SpendingPlanIterationItemCreateRequestBody.class);
+  }
+
+ /**
+  * Convert an instance of SpendingPlanIterationItemCreateRequestBody to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

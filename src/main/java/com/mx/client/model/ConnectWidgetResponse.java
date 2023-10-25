@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * ConnectWidgetResponse
@@ -38,7 +60,7 @@ public class ConnectWidgetResponse {
   @SerializedName(SERIALIZED_NAME_GUID)
   private String guid;
 
-  public ConnectWidgetResponse() { 
+  public ConnectWidgetResponse() {
   }
 
   public ConnectWidgetResponse connectWidgetUrl(String connectWidgetUrl) {
@@ -52,8 +74,6 @@ public class ConnectWidgetResponse {
    * @return connectWidgetUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://int-widgets.moneydesktop.com/md/connect/jb1rA14m85tw2lyvpgfx4gc6d3Z8z8Ayb8", value = "")
-
   public String getConnectWidgetUrl() {
     return connectWidgetUrl;
   }
@@ -75,8 +95,6 @@ public class ConnectWidgetResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USR-fa7537f3-48aa-a683-a02a-b18940482f54", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -85,6 +103,7 @@ public class ConnectWidgetResponse {
   public void setGuid(String guid) {
     this.guid = guid;
   }
+
 
 
   @Override
@@ -137,5 +156,96 @@ public class ConnectWidgetResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("connect_widget_url");
+    openapiFields.add("guid");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to ConnectWidgetResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ConnectWidgetResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ConnectWidgetResponse is not found in the empty JSON string", ConnectWidgetResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!ConnectWidgetResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConnectWidgetResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("connect_widget_url") != null && !jsonObj.get("connect_widget_url").isJsonNull()) && !jsonObj.get("connect_widget_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `connect_widget_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connect_widget_url").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ConnectWidgetResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ConnectWidgetResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ConnectWidgetResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ConnectWidgetResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ConnectWidgetResponse>() {
+           @Override
+           public void write(JsonWriter out, ConnectWidgetResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ConnectWidgetResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ConnectWidgetResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ConnectWidgetResponse
+  * @throws IOException if the JSON string is invalid with respect to ConnectWidgetResponse
+  */
+  public static ConnectWidgetResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ConnectWidgetResponse.class);
+  }
+
+ /**
+  * Convert an instance of ConnectWidgetResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

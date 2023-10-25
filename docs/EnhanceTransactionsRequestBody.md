@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**transactions** | [**List&lt;EnhanceTransactionsRequest&gt;**](EnhanceTransactionsRequest.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**transactions** | [**List&lt;EnhanceTransactionsRequest&gt;**](EnhanceTransactionsRequest.md) |  |  [optional] |
 
 
 

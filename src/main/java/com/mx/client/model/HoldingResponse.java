@@ -14,17 +14,39 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * HoldingResponse
@@ -107,7 +129,7 @@ public class HoldingResponse {
   @SerializedName(SERIALIZED_NAME_USER_GUID)
   private String userGuid;
 
-  public HoldingResponse() { 
+  public HoldingResponse() {
   }
 
   public HoldingResponse accountGuid(String accountGuid) {
@@ -121,8 +143,6 @@ public class HoldingResponse {
    * @return accountGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1", value = "")
-
   public String getAccountGuid() {
     return accountGuid;
   }
@@ -144,8 +164,6 @@ public class HoldingResponse {
    * @return costBasis
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "827.0", value = "")
-
   public BigDecimal getCostBasis() {
     return costBasis;
   }
@@ -167,8 +185,6 @@ public class HoldingResponse {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2015-04-13T18:01:23.000Z", value = "")
-
   public String getCreatedAt() {
     return createdAt;
   }
@@ -190,8 +206,6 @@ public class HoldingResponse {
    * @return currencyCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USD", value = "")
-
   public String getCurrencyCode() {
     return currencyCode;
   }
@@ -213,8 +227,6 @@ public class HoldingResponse {
    * @return cusip
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "18383M878", value = "")
-
   public String getCusip() {
     return cusip;
   }
@@ -236,8 +248,6 @@ public class HoldingResponse {
    * @return dailyChange
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2.5", value = "")
-
   public BigDecimal getDailyChange() {
     return dailyChange;
   }
@@ -259,8 +269,6 @@ public class HoldingResponse {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Guggenheim Defensive Equity ETF", value = "")
-
   public String getDescription() {
     return description;
   }
@@ -282,8 +290,6 @@ public class HoldingResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "HOL-d65683e8-9eab-26bb-bcfd-ced159c9abe2", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -305,8 +311,6 @@ public class HoldingResponse {
    * @return holdingType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MONEY_MARKET", value = "")
-
   public String getHoldingType() {
     return holdingType;
   }
@@ -328,8 +332,6 @@ public class HoldingResponse {
    * @return holdingTypeId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "1", value = "")
-
   public Integer getHoldingTypeId() {
     return holdingTypeId;
   }
@@ -351,8 +353,6 @@ public class HoldingResponse {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ID-123", value = "")
-
   public String getId() {
     return id;
   }
@@ -374,8 +374,6 @@ public class HoldingResponse {
    * @return marketValue
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "989.5", value = "")
-
   public BigDecimal getMarketValue() {
     return marketValue;
   }
@@ -397,8 +395,6 @@ public class HoldingResponse {
    * @return memberGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MBR-d65683e8-9eab-26bb-bcfd-ced159c9abe", value = "")
-
   public String getMemberGuid() {
     return memberGuid;
   }
@@ -420,8 +416,6 @@ public class HoldingResponse {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "metadata", value = "")
-
   public String getMetadata() {
     return metadata;
   }
@@ -443,8 +437,6 @@ public class HoldingResponse {
    * @return purchasePrice
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "26.3", value = "")
-
   public BigDecimal getPurchasePrice() {
     return purchasePrice;
   }
@@ -466,8 +458,6 @@ public class HoldingResponse {
    * @return shares
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "6.0", value = "")
-
   public BigDecimal getShares() {
     return shares;
   }
@@ -489,8 +479,6 @@ public class HoldingResponse {
    * @return symbol
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "DEF", value = "")
-
   public String getSymbol() {
     return symbol;
   }
@@ -512,8 +500,6 @@ public class HoldingResponse {
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2015-04-13T18:01:23.000Z", value = "")
-
   public String getUpdatedAt() {
     return updatedAt;
   }
@@ -535,8 +521,6 @@ public class HoldingResponse {
    * @return userGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USR-743e5d7f-1116-28fa-5de1-d3ba02e41d8d", value = "")
-
   public String getUserGuid() {
     return userGuid;
   }
@@ -545,6 +529,7 @@ public class HoldingResponse {
   public void setUserGuid(String userGuid) {
     this.userGuid = userGuid;
   }
+
 
 
   @Override
@@ -631,5 +616,146 @@ public class HoldingResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("account_guid");
+    openapiFields.add("cost_basis");
+    openapiFields.add("created_at");
+    openapiFields.add("currency_code");
+    openapiFields.add("cusip");
+    openapiFields.add("daily_change");
+    openapiFields.add("description");
+    openapiFields.add("guid");
+    openapiFields.add("holding_type");
+    openapiFields.add("holding_type_id");
+    openapiFields.add("id");
+    openapiFields.add("market_value");
+    openapiFields.add("member_guid");
+    openapiFields.add("metadata");
+    openapiFields.add("purchase_price");
+    openapiFields.add("shares");
+    openapiFields.add("symbol");
+    openapiFields.add("updated_at");
+    openapiFields.add("user_guid");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to HoldingResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!HoldingResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in HoldingResponse is not found in the empty JSON string", HoldingResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!HoldingResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `HoldingResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("account_guid") != null && !jsonObj.get("account_guid").isJsonNull()) && !jsonObj.get("account_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `account_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_guid").toString()));
+      }
+      if ((jsonObj.get("created_at") != null && !jsonObj.get("created_at").isJsonNull()) && !jsonObj.get("created_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `created_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_at").toString()));
+      }
+      if ((jsonObj.get("currency_code") != null && !jsonObj.get("currency_code").isJsonNull()) && !jsonObj.get("currency_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `currency_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency_code").toString()));
+      }
+      if ((jsonObj.get("cusip") != null && !jsonObj.get("cusip").isJsonNull()) && !jsonObj.get("cusip").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `cusip` to be a primitive type in the JSON string but got `%s`", jsonObj.get("cusip").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("holding_type") != null && !jsonObj.get("holding_type").isJsonNull()) && !jsonObj.get("holding_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `holding_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("holding_type").toString()));
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("member_guid") != null && !jsonObj.get("member_guid").isJsonNull()) && !jsonObj.get("member_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `member_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("member_guid").toString()));
+      }
+      if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
+      }
+      if ((jsonObj.get("symbol") != null && !jsonObj.get("symbol").isJsonNull()) && !jsonObj.get("symbol").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `symbol` to be a primitive type in the JSON string but got `%s`", jsonObj.get("symbol").toString()));
+      }
+      if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull()) && !jsonObj.get("updated_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updated_at").toString()));
+      }
+      if ((jsonObj.get("user_guid") != null && !jsonObj.get("user_guid").isJsonNull()) && !jsonObj.get("user_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_guid").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!HoldingResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'HoldingResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<HoldingResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(HoldingResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<HoldingResponse>() {
+           @Override
+           public void write(JsonWriter out, HoldingResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public HoldingResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of HoldingResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of HoldingResponse
+  * @throws IOException if the JSON string is invalid with respect to HoldingResponse
+  */
+  public static HoldingResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, HoldingResponse.class);
+  }
+
+ /**
+  * Convert an instance of HoldingResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

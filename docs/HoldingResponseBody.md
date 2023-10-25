@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**holding** | [**HoldingResponse**](HoldingResponse.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**holding** | [**HoldingResponse**](HoldingResponse.md) |  |  [optional] |
 
 
 
