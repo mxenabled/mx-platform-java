@@ -8,3 +8,4 @@ gradlew.bat
 gradle.properties
 settings.gradle
 .travis.yml
+.github/workflows/maven.yml
