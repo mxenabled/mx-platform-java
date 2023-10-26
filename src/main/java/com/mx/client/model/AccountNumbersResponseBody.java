@@ -14,7 +14,6 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +21,34 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.mx.client.model.AccountNumberResponse;
 import com.mx.client.model.PaginationResponse;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * AccountNumbersResponseBody
@@ -35,13 +57,13 @@ import java.util.List;
 public class AccountNumbersResponseBody {
   public static final String SERIALIZED_NAME_ACCOUNT_NUMBERS = "account_numbers";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBERS)
-  private List<AccountNumberResponse> accountNumbers = null;
+  private List<AccountNumberResponse> accountNumbers;
 
   public static final String SERIALIZED_NAME_PAGINATION = "pagination";
   @SerializedName(SERIALIZED_NAME_PAGINATION)
   private PaginationResponse pagination;
 
-  public AccountNumbersResponseBody() { 
+  public AccountNumbersResponseBody() {
   }
 
   public AccountNumbersResponseBody accountNumbers(List<AccountNumberResponse> accountNumbers) {
@@ -52,7 +74,7 @@ public class AccountNumbersResponseBody {
 
   public AccountNumbersResponseBody addAccountNumbersItem(AccountNumberResponse accountNumbersItem) {
     if (this.accountNumbers == null) {
-      this.accountNumbers = new ArrayList<AccountNumberResponse>();
+      this.accountNumbers = new ArrayList<>();
     }
     this.accountNumbers.add(accountNumbersItem);
     return this;
@@ -63,8 +85,6 @@ public class AccountNumbersResponseBody {
    * @return accountNumbers
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<AccountNumberResponse> getAccountNumbers() {
     return accountNumbers;
   }
@@ -86,8 +106,6 @@ public class AccountNumbersResponseBody {
    * @return pagination
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public PaginationResponse getPagination() {
     return pagination;
   }
@@ -96,6 +114,7 @@ public class AccountNumbersResponseBody {
   public void setPagination(PaginationResponse pagination) {
     this.pagination = pagination;
   }
+
 
 
   @Override
@@ -137,5 +156,108 @@ public class AccountNumbersResponseBody {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("account_numbers");
+    openapiFields.add("pagination");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to AccountNumbersResponseBody
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AccountNumbersResponseBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AccountNumbersResponseBody is not found in the empty JSON string", AccountNumbersResponseBody.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!AccountNumbersResponseBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountNumbersResponseBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("account_numbers") != null && !jsonObj.get("account_numbers").isJsonNull()) {
+        JsonArray jsonArrayaccountNumbers = jsonObj.getAsJsonArray("account_numbers");
+        if (jsonArrayaccountNumbers != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("account_numbers").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `account_numbers` to be an array in the JSON string but got `%s`", jsonObj.get("account_numbers").toString()));
+          }
+
+          // validate the optional field `account_numbers` (array)
+          for (int i = 0; i < jsonArrayaccountNumbers.size(); i++) {
+            AccountNumberResponse.validateJsonElement(jsonArrayaccountNumbers.get(i));
+          };
+        }
+      }
+      // validate the optional field `pagination`
+      if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
+        PaginationResponse.validateJsonElement(jsonObj.get("pagination"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!AccountNumbersResponseBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'AccountNumbersResponseBody' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<AccountNumbersResponseBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(AccountNumbersResponseBody.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<AccountNumbersResponseBody>() {
+           @Override
+           public void write(JsonWriter out, AccountNumbersResponseBody value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public AccountNumbersResponseBody read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of AccountNumbersResponseBody given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AccountNumbersResponseBody
+  * @throws IOException if the JSON string is invalid with respect to AccountNumbersResponseBody
+  */
+  public static AccountNumbersResponseBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, AccountNumbersResponseBody.class);
+  }
+
+ /**
+  * Convert an instance of AccountNumbersResponseBody to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**tag** | [**TagResponse**](TagResponse.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**tag** | [**TagResponse**](TagResponse.md) |  |  [optional] |
 
 
 

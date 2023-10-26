@@ -14,7 +14,6 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,12 +21,35 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.mx.client.model.ImageOptionResponse;
 import com.mx.client.model.OptionResponse;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * ChallengeResponse
@@ -48,7 +70,7 @@ public class ChallengeResponse {
 
   public static final String SERIALIZED_NAME_IMAGE_OPTIONS = "image_options";
   @SerializedName(SERIALIZED_NAME_IMAGE_OPTIONS)
-  private List<ImageOptionResponse> imageOptions = null;
+  private List<ImageOptionResponse> imageOptions;
 
   public static final String SERIALIZED_NAME_LABEL = "label";
   @SerializedName(SERIALIZED_NAME_LABEL)
@@ -56,13 +78,13 @@ public class ChallengeResponse {
 
   public static final String SERIALIZED_NAME_OPTIONS = "options";
   @SerializedName(SERIALIZED_NAME_OPTIONS)
-  private List<OptionResponse> options = null;
+  private List<OptionResponse> options;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
-  public ChallengeResponse() { 
+  public ChallengeResponse() {
   }
 
   public ChallengeResponse fieldName(String fieldName) {
@@ -76,8 +98,6 @@ public class ChallengeResponse {
    * @return fieldName
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Who is this guy?", value = "")
-
   public String getFieldName() {
     return fieldName;
   }
@@ -99,8 +119,6 @@ public class ChallengeResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "CRD-ce76d2e3-86bd-ec4a-ec52-eb53b5194bf5", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -122,8 +140,6 @@ public class ChallengeResponse {
    * @return imageData
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Who is this guy?", value = "")
-
   public String getImageData() {
     return imageData;
   }
@@ -142,7 +158,7 @@ public class ChallengeResponse {
 
   public ChallengeResponse addImageOptionsItem(ImageOptionResponse imageOptionsItem) {
     if (this.imageOptions == null) {
-      this.imageOptions = new ArrayList<ImageOptionResponse>();
+      this.imageOptions = new ArrayList<>();
     }
     this.imageOptions.add(imageOptionsItem);
     return this;
@@ -153,8 +169,6 @@ public class ChallengeResponse {
    * @return imageOptions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<ImageOptionResponse> getImageOptions() {
     return imageOptions;
   }
@@ -176,8 +190,6 @@ public class ChallengeResponse {
    * @return label
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Who is this guy?", value = "")
-
   public String getLabel() {
     return label;
   }
@@ -196,7 +208,7 @@ public class ChallengeResponse {
 
   public ChallengeResponse addOptionsItem(OptionResponse optionsItem) {
     if (this.options == null) {
-      this.options = new ArrayList<OptionResponse>();
+      this.options = new ArrayList<>();
     }
     this.options.add(optionsItem);
     return this;
@@ -207,8 +219,6 @@ public class ChallengeResponse {
    * @return options
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<OptionResponse> getOptions() {
     return options;
   }
@@ -230,8 +240,6 @@ public class ChallengeResponse {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "IMAGE_DATA", value = "")
-
   public String getType() {
     return type;
   }
@@ -240,6 +248,7 @@ public class ChallengeResponse {
   public void setType(String type) {
     this.type = type;
   }
+
 
 
   @Override
@@ -302,5 +311,138 @@ public class ChallengeResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("field_name");
+    openapiFields.add("guid");
+    openapiFields.add("image_data");
+    openapiFields.add("image_options");
+    openapiFields.add("label");
+    openapiFields.add("options");
+    openapiFields.add("type");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to ChallengeResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ChallengeResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ChallengeResponse is not found in the empty JSON string", ChallengeResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!ChallengeResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ChallengeResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("field_name") != null && !jsonObj.get("field_name").isJsonNull()) && !jsonObj.get("field_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `field_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("field_name").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("image_data") != null && !jsonObj.get("image_data").isJsonNull()) && !jsonObj.get("image_data").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `image_data` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image_data").toString()));
+      }
+      if (jsonObj.get("image_options") != null && !jsonObj.get("image_options").isJsonNull()) {
+        JsonArray jsonArrayimageOptions = jsonObj.getAsJsonArray("image_options");
+        if (jsonArrayimageOptions != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("image_options").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `image_options` to be an array in the JSON string but got `%s`", jsonObj.get("image_options").toString()));
+          }
+
+          // validate the optional field `image_options` (array)
+          for (int i = 0; i < jsonArrayimageOptions.size(); i++) {
+            ImageOptionResponse.validateJsonElement(jsonArrayimageOptions.get(i));
+          };
+        }
+      }
+      if ((jsonObj.get("label") != null && !jsonObj.get("label").isJsonNull()) && !jsonObj.get("label").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
+      }
+      if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
+        JsonArray jsonArrayoptions = jsonObj.getAsJsonArray("options");
+        if (jsonArrayoptions != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("options").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `options` to be an array in the JSON string but got `%s`", jsonObj.get("options").toString()));
+          }
+
+          // validate the optional field `options` (array)
+          for (int i = 0; i < jsonArrayoptions.size(); i++) {
+            OptionResponse.validateJsonElement(jsonArrayoptions.get(i));
+          };
+        }
+      }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ChallengeResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ChallengeResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ChallengeResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ChallengeResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ChallengeResponse>() {
+           @Override
+           public void write(JsonWriter out, ChallengeResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ChallengeResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ChallengeResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ChallengeResponse
+  * @throws IOException if the JSON string is invalid with respect to ChallengeResponse
+  */
+  public static ChallengeResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ChallengeResponse.class);
+  }
+
+ /**
+  * Convert an instance of ChallengeResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

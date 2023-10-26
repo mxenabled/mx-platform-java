@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * MemberResponse
@@ -90,7 +112,7 @@ public class MemberResponse {
   @SerializedName(SERIALIZED_NAME_USER_ID)
   private String userId;
 
-  public MemberResponse() { 
+  public MemberResponse() {
   }
 
   public MemberResponse aggregatedAt(String aggregatedAt) {
@@ -104,8 +126,6 @@ public class MemberResponse {
    * @return aggregatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2016-10-13T18:07:57.000Z", value = "")
-
   public String getAggregatedAt() {
     return aggregatedAt;
   }
@@ -127,8 +147,6 @@ public class MemberResponse {
    * @return backgroundAggregationIsDisabled
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getBackgroundAggregationIsDisabled() {
     return backgroundAggregationIsDisabled;
   }
@@ -150,8 +168,6 @@ public class MemberResponse {
    * @return connectionStatus
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "CONNECTED", value = "")
-
   public String getConnectionStatus() {
     return connectionStatus;
   }
@@ -173,8 +189,6 @@ public class MemberResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -196,8 +210,6 @@ public class MemberResponse {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "unique_id", value = "")
-
   public String getId() {
     return id;
   }
@@ -219,8 +231,6 @@ public class MemberResponse {
    * @return institutionCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "chase", value = "")
-
   public String getInstitutionCode() {
     return institutionCode;
   }
@@ -242,8 +252,6 @@ public class MemberResponse {
    * @return isBeingAggregated
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsBeingAggregated() {
     return isBeingAggregated;
   }
@@ -265,8 +273,6 @@ public class MemberResponse {
    * @return isManagedByUser
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsManagedByUser() {
     return isManagedByUser;
   }
@@ -288,8 +294,6 @@ public class MemberResponse {
    * @return isOauth
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsOauth() {
     return isOauth;
   }
@@ -311,8 +315,6 @@ public class MemberResponse {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "\\\"credentials_last_refreshed_at\\\": \\\"2015-10-15\\\"", value = "")
-
   public String getMetadata() {
     return metadata;
   }
@@ -334,8 +336,6 @@ public class MemberResponse {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Chase Bank", value = "")
-
   public String getName() {
     return name;
   }
@@ -357,8 +357,6 @@ public class MemberResponse {
    * @return oauthWindowUri
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://mxbank.mx.com/oauth/authorize?client_id=b8OikQ4Ep3NuSUrQ13DdvFuwpNx-qqoAsJDVAQCyLkQ&redirect_uri=https%3A%2F%2Fint-app.moneydesktop.com%2Foauth%2Fredirect_from&response_type=code&scope=openid&state=d745bd4ee6f0f9c184757f574bcc2df2", value = "")
-
   public String getOauthWindowUri() {
     return oauthWindowUri;
   }
@@ -380,8 +378,6 @@ public class MemberResponse {
    * @return successfullyAggregatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2016-10-13T17:57:38.000Z", value = "")
-
   public String getSuccessfullyAggregatedAt() {
     return successfullyAggregatedAt;
   }
@@ -403,8 +399,6 @@ public class MemberResponse {
    * @return userGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USR-fa7537f3-48aa-a683-a02a-b18940482f54", value = "")
-
   public String getUserGuid() {
     return userGuid;
   }
@@ -426,8 +420,6 @@ public class MemberResponse {
    * @return userId
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "user123", value = "")
-
   public String getUserId() {
     return userId;
   }
@@ -436,6 +428,7 @@ public class MemberResponse {
   public void setUserId(String userId) {
     this.userId = userId;
   }
+
 
 
   @Override
@@ -514,5 +507,136 @@ public class MemberResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("aggregated_at");
+    openapiFields.add("background_aggregation_is_disabled");
+    openapiFields.add("connection_status");
+    openapiFields.add("guid");
+    openapiFields.add("id");
+    openapiFields.add("institution_code");
+    openapiFields.add("is_being_aggregated");
+    openapiFields.add("is_managed_by_user");
+    openapiFields.add("is_oauth");
+    openapiFields.add("metadata");
+    openapiFields.add("name");
+    openapiFields.add("oauth_window_uri");
+    openapiFields.add("successfully_aggregated_at");
+    openapiFields.add("user_guid");
+    openapiFields.add("user_id");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to MemberResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!MemberResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in MemberResponse is not found in the empty JSON string", MemberResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!MemberResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MemberResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("aggregated_at") != null && !jsonObj.get("aggregated_at").isJsonNull()) && !jsonObj.get("aggregated_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `aggregated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aggregated_at").toString()));
+      }
+      if ((jsonObj.get("connection_status") != null && !jsonObj.get("connection_status").isJsonNull()) && !jsonObj.get("connection_status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `connection_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection_status").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("institution_code") != null && !jsonObj.get("institution_code").isJsonNull()) && !jsonObj.get("institution_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `institution_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("institution_code").toString()));
+      }
+      if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("oauth_window_uri") != null && !jsonObj.get("oauth_window_uri").isJsonNull()) && !jsonObj.get("oauth_window_uri").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `oauth_window_uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oauth_window_uri").toString()));
+      }
+      if ((jsonObj.get("successfully_aggregated_at") != null && !jsonObj.get("successfully_aggregated_at").isJsonNull()) && !jsonObj.get("successfully_aggregated_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `successfully_aggregated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("successfully_aggregated_at").toString()));
+      }
+      if ((jsonObj.get("user_guid") != null && !jsonObj.get("user_guid").isJsonNull()) && !jsonObj.get("user_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_guid").toString()));
+      }
+      if ((jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonNull()) && !jsonObj.get("user_id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_id").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!MemberResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MemberResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<MemberResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MemberResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<MemberResponse>() {
+           @Override
+           public void write(JsonWriter out, MemberResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public MemberResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of MemberResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of MemberResponse
+  * @throws IOException if the JSON string is invalid with respect to MemberResponse
+  */
+  public static MemberResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MemberResponse.class);
+  }
+
+ /**
+  * Convert an instance of MemberResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

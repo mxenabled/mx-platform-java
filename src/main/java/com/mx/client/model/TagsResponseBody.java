@@ -14,7 +14,6 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +21,34 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.mx.client.model.PaginationResponse;
 import com.mx.client.model.TagResponse;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * TagsResponseBody
@@ -39,9 +61,9 @@ public class TagsResponseBody {
 
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
-  private List<TagResponse> tags = null;
+  private List<TagResponse> tags;
 
-  public TagsResponseBody() { 
+  public TagsResponseBody() {
   }
 
   public TagsResponseBody pagination(PaginationResponse pagination) {
@@ -55,8 +77,6 @@ public class TagsResponseBody {
    * @return pagination
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public PaginationResponse getPagination() {
     return pagination;
   }
@@ -75,7 +95,7 @@ public class TagsResponseBody {
 
   public TagsResponseBody addTagsItem(TagResponse tagsItem) {
     if (this.tags == null) {
-      this.tags = new ArrayList<TagResponse>();
+      this.tags = new ArrayList<>();
     }
     this.tags.add(tagsItem);
     return this;
@@ -86,8 +106,6 @@ public class TagsResponseBody {
    * @return tags
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<TagResponse> getTags() {
     return tags;
   }
@@ -96,6 +114,7 @@ public class TagsResponseBody {
   public void setTags(List<TagResponse> tags) {
     this.tags = tags;
   }
+
 
 
   @Override
@@ -137,5 +156,108 @@ public class TagsResponseBody {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("pagination");
+    openapiFields.add("tags");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TagsResponseBody
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TagsResponseBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TagsResponseBody is not found in the empty JSON string", TagsResponseBody.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!TagsResponseBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TagsResponseBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the optional field `pagination`
+      if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
+        PaginationResponse.validateJsonElement(jsonObj.get("pagination"));
+      }
+      if (jsonObj.get("tags") != null && !jsonObj.get("tags").isJsonNull()) {
+        JsonArray jsonArraytags = jsonObj.getAsJsonArray("tags");
+        if (jsonArraytags != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("tags").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `tags` to be an array in the JSON string but got `%s`", jsonObj.get("tags").toString()));
+          }
+
+          // validate the optional field `tags` (array)
+          for (int i = 0; i < jsonArraytags.size(); i++) {
+            TagResponse.validateJsonElement(jsonArraytags.get(i));
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TagsResponseBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TagsResponseBody' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TagsResponseBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TagsResponseBody.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TagsResponseBody>() {
+           @Override
+           public void write(JsonWriter out, TagsResponseBody value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TagsResponseBody read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TagsResponseBody given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TagsResponseBody
+  * @throws IOException if the JSON string is invalid with respect to TagsResponseBody
+  */
+  public static TagsResponseBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TagsResponseBody.class);
+  }
+
+ /**
+  * Convert an instance of TagsResponseBody to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

@@ -150,6 +150,7 @@ src/main/java/com/mx/client/auth/ApiKeyAuth.java
 src/main/java/com/mx/client/auth/Authentication.java
 src/main/java/com/mx/client/auth/HttpBasicAuth.java
 src/main/java/com/mx/client/auth/HttpBearerAuth.java
+src/main/java/com/mx/client/model/AbstractOpenApiSchema.java
 src/main/java/com/mx/client/model/AccountCreateRequest.java
 src/main/java/com/mx/client/model/AccountCreateRequestBody.java
 src/main/java/com/mx/client/model/AccountNumberResponse.java

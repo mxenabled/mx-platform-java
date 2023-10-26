@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**merchant** | [**MerchantResponse**](MerchantResponse.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**merchant** | [**MerchantResponse**](MerchantResponse.md) |  |  [optional] |
 
 
 

@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**tag** | [**TagCreateRequest**](TagCreateRequest.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**tag** | [**TagCreateRequest**](TagCreateRequest.md) |  |  [optional] |
 
 
 

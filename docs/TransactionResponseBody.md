@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**transaction** | [**TransactionResponse**](TransactionResponse.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**transaction** | [**TransactionResponse**](TransactionResponse.md) |  |  [optional] |
 
 
 

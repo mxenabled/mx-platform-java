@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.mx.client.model.TagCreateRequest;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * TagCreateRequestBody
@@ -34,7 +56,7 @@ public class TagCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_TAG)
   private TagCreateRequest tag;
 
-  public TagCreateRequestBody() { 
+  public TagCreateRequestBody() {
   }
 
   public TagCreateRequestBody tag(TagCreateRequest tag) {
@@ -48,8 +70,6 @@ public class TagCreateRequestBody {
    * @return tag
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public TagCreateRequest getTag() {
     return tag;
   }
@@ -58,6 +78,7 @@ public class TagCreateRequestBody {
   public void setTag(TagCreateRequest tag) {
     this.tag = tag;
   }
+
 
 
   @Override
@@ -97,5 +118,93 @@ public class TagCreateRequestBody {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("tag");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TagCreateRequestBody
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TagCreateRequestBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TagCreateRequestBody is not found in the empty JSON string", TagCreateRequestBody.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!TagCreateRequestBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TagCreateRequestBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the optional field `tag`
+      if (jsonObj.get("tag") != null && !jsonObj.get("tag").isJsonNull()) {
+        TagCreateRequest.validateJsonElement(jsonObj.get("tag"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TagCreateRequestBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TagCreateRequestBody' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TagCreateRequestBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TagCreateRequestBody.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TagCreateRequestBody>() {
+           @Override
+           public void write(JsonWriter out, TagCreateRequestBody value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TagCreateRequestBody read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TagCreateRequestBody given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TagCreateRequestBody
+  * @throws IOException if the JSON string is invalid with respect to TagCreateRequestBody
+  */
+  public static TagCreateRequestBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TagCreateRequestBody.class);
+  }
+
+ /**
+  * Convert an instance of TagCreateRequestBody to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

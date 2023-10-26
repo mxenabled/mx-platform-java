@@ -14,7 +14,6 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +21,34 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.mx.client.model.PaginationResponse;
 import com.mx.client.model.TransactionRuleResponse;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * TransactionRulesResponseBody
@@ -39,9 +61,9 @@ public class TransactionRulesResponseBody {
 
   public static final String SERIALIZED_NAME_TRANSACTION_RULES = "transaction_rules";
   @SerializedName(SERIALIZED_NAME_TRANSACTION_RULES)
-  private List<TransactionRuleResponse> transactionRules = null;
+  private List<TransactionRuleResponse> transactionRules;
 
-  public TransactionRulesResponseBody() { 
+  public TransactionRulesResponseBody() {
   }
 
   public TransactionRulesResponseBody pagination(PaginationResponse pagination) {
@@ -55,8 +77,6 @@ public class TransactionRulesResponseBody {
    * @return pagination
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public PaginationResponse getPagination() {
     return pagination;
   }
@@ -75,7 +95,7 @@ public class TransactionRulesResponseBody {
 
   public TransactionRulesResponseBody addTransactionRulesItem(TransactionRuleResponse transactionRulesItem) {
     if (this.transactionRules == null) {
-      this.transactionRules = new ArrayList<TransactionRuleResponse>();
+      this.transactionRules = new ArrayList<>();
     }
     this.transactionRules.add(transactionRulesItem);
     return this;
@@ -86,8 +106,6 @@ public class TransactionRulesResponseBody {
    * @return transactionRules
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<TransactionRuleResponse> getTransactionRules() {
     return transactionRules;
   }
@@ -96,6 +114,7 @@ public class TransactionRulesResponseBody {
   public void setTransactionRules(List<TransactionRuleResponse> transactionRules) {
     this.transactionRules = transactionRules;
   }
+
 
 
   @Override
@@ -137,5 +156,108 @@ public class TransactionRulesResponseBody {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("pagination");
+    openapiFields.add("transaction_rules");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TransactionRulesResponseBody
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TransactionRulesResponseBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TransactionRulesResponseBody is not found in the empty JSON string", TransactionRulesResponseBody.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!TransactionRulesResponseBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TransactionRulesResponseBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      // validate the optional field `pagination`
+      if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
+        PaginationResponse.validateJsonElement(jsonObj.get("pagination"));
+      }
+      if (jsonObj.get("transaction_rules") != null && !jsonObj.get("transaction_rules").isJsonNull()) {
+        JsonArray jsonArraytransactionRules = jsonObj.getAsJsonArray("transaction_rules");
+        if (jsonArraytransactionRules != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("transaction_rules").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `transaction_rules` to be an array in the JSON string but got `%s`", jsonObj.get("transaction_rules").toString()));
+          }
+
+          // validate the optional field `transaction_rules` (array)
+          for (int i = 0; i < jsonArraytransactionRules.size(); i++) {
+            TransactionRuleResponse.validateJsonElement(jsonArraytransactionRules.get(i));
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TransactionRulesResponseBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TransactionRulesResponseBody' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TransactionRulesResponseBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TransactionRulesResponseBody.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TransactionRulesResponseBody>() {
+           @Override
+           public void write(JsonWriter out, TransactionRulesResponseBody value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TransactionRulesResponseBody read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TransactionRulesResponseBody given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TransactionRulesResponseBody
+  * @throws IOException if the JSON string is invalid with respect to TransactionRulesResponseBody
+  */
+  public static TransactionRulesResponseBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TransactionRulesResponseBody.class);
+  }
+
+ /**
+  * Convert an instance of TransactionRulesResponseBody to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

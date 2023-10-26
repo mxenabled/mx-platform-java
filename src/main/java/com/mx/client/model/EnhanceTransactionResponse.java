@@ -14,17 +14,39 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * EnhanceTransactionResponse
@@ -123,7 +145,7 @@ public class EnhanceTransactionResponse {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
-  public EnhanceTransactionResponse() { 
+  public EnhanceTransactionResponse() {
   }
 
   public EnhanceTransactionResponse amount(BigDecimal amount) {
@@ -137,8 +159,6 @@ public class EnhanceTransactionResponse {
    * @return amount
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "21.33", value = "")
-
   public BigDecimal getAmount() {
     return amount;
   }
@@ -160,8 +180,6 @@ public class EnhanceTransactionResponse {
    * @return categorizedBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "13", value = "")
-
   public Integer getCategorizedBy() {
     return categorizedBy;
   }
@@ -183,8 +201,6 @@ public class EnhanceTransactionResponse {
    * @return category
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Rental Car & Taxi", value = "")
-
   public String getCategory() {
     return category;
   }
@@ -206,8 +222,6 @@ public class EnhanceTransactionResponse {
    * @return categoryGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "CAT-9588eaad-90a4-bb5c-66c8-1812503d0db8", value = "")
-
   public String getCategoryGuid() {
     return categoryGuid;
   }
@@ -229,8 +243,6 @@ public class EnhanceTransactionResponse {
    * @return describedBy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "6", value = "")
-
   public Integer getDescribedBy() {
     return describedBy;
   }
@@ -252,8 +264,6 @@ public class EnhanceTransactionResponse {
    * @return description
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Uber", value = "")
-
   public String getDescription() {
     return description;
   }
@@ -275,8 +285,6 @@ public class EnhanceTransactionResponse {
    * @return extendedTransactionType
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "partner_transaction_type", value = "")
-
   public String getExtendedTransactionType() {
     return extendedTransactionType;
   }
@@ -298,8 +306,6 @@ public class EnhanceTransactionResponse {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ID-123", value = "")
-
   public String getId() {
     return id;
   }
@@ -321,8 +327,6 @@ public class EnhanceTransactionResponse {
    * @return isBillPay
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsBillPay() {
     return isBillPay;
   }
@@ -344,8 +348,6 @@ public class EnhanceTransactionResponse {
    * @return isDirectDeposit
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsDirectDeposit() {
     return isDirectDeposit;
   }
@@ -367,8 +369,6 @@ public class EnhanceTransactionResponse {
    * @return isExpense
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsExpense() {
     return isExpense;
   }
@@ -390,8 +390,6 @@ public class EnhanceTransactionResponse {
    * @return isFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsFee() {
     return isFee;
   }
@@ -413,8 +411,6 @@ public class EnhanceTransactionResponse {
    * @return isIncome
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsIncome() {
     return isIncome;
   }
@@ -436,8 +432,6 @@ public class EnhanceTransactionResponse {
    * @return isInternational
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsInternational() {
     return isInternational;
   }
@@ -459,8 +453,6 @@ public class EnhanceTransactionResponse {
    * @return isOverdraftFee
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsOverdraftFee() {
     return isOverdraftFee;
   }
@@ -482,8 +474,6 @@ public class EnhanceTransactionResponse {
    * @return isPayrollAdvance
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsPayrollAdvance() {
     return isPayrollAdvance;
   }
@@ -505,8 +495,6 @@ public class EnhanceTransactionResponse {
    * @return isSubscription
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsSubscription() {
     return isSubscription;
   }
@@ -528,8 +516,6 @@ public class EnhanceTransactionResponse {
    * @return memo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Additional-information*on_transaction", value = "")
-
   public String getMemo() {
     return memo;
   }
@@ -551,8 +537,6 @@ public class EnhanceTransactionResponse {
    * @return merchantCategoryCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "4121", value = "")
-
   public Integer getMerchantCategoryCode() {
     return merchantCategoryCode;
   }
@@ -574,8 +558,6 @@ public class EnhanceTransactionResponse {
    * @return merchantGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MCH-14f25b63-ef47-a38e-b2b6-d02b280b6e4e", value = "")
-
   public String getMerchantGuid() {
     return merchantGuid;
   }
@@ -597,8 +579,6 @@ public class EnhanceTransactionResponse {
    * @return merchantLocationGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MCL-00024e59-18b5-4d79-b879-2a7896726fea", value = "")
-
   public String getMerchantLocationGuid() {
     return merchantLocationGuid;
   }
@@ -620,8 +600,6 @@ public class EnhanceTransactionResponse {
    * @return originalDescription
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ubr* pending.uber.com", value = "")
-
   public String getOriginalDescription() {
     return originalDescription;
   }
@@ -643,8 +621,6 @@ public class EnhanceTransactionResponse {
    * @return type
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "DEBIT", value = "")
-
   public String getType() {
     return type;
   }
@@ -653,6 +629,7 @@ public class EnhanceTransactionResponse {
   public void setType(String type) {
     this.type = type;
   }
+
 
 
   @Override
@@ -747,5 +724,141 @@ public class EnhanceTransactionResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("amount");
+    openapiFields.add("categorized_by");
+    openapiFields.add("category");
+    openapiFields.add("category_guid");
+    openapiFields.add("described_by");
+    openapiFields.add("description");
+    openapiFields.add("extended_transaction_type");
+    openapiFields.add("id");
+    openapiFields.add("is_bill_pay");
+    openapiFields.add("is_direct_deposit");
+    openapiFields.add("is_expense");
+    openapiFields.add("is_fee");
+    openapiFields.add("is_income");
+    openapiFields.add("is_international");
+    openapiFields.add("is_overdraft_fee");
+    openapiFields.add("is_payroll_advance");
+    openapiFields.add("is_subscription");
+    openapiFields.add("memo");
+    openapiFields.add("merchant_category_code");
+    openapiFields.add("merchant_guid");
+    openapiFields.add("merchant_location_guid");
+    openapiFields.add("original_description");
+    openapiFields.add("type");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to EnhanceTransactionResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!EnhanceTransactionResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in EnhanceTransactionResponse is not found in the empty JSON string", EnhanceTransactionResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!EnhanceTransactionResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EnhanceTransactionResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("category") != null && !jsonObj.get("category").isJsonNull()) && !jsonObj.get("category").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `category` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category").toString()));
+      }
+      if ((jsonObj.get("category_guid") != null && !jsonObj.get("category_guid").isJsonNull()) && !jsonObj.get("category_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `category_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category_guid").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("extended_transaction_type") != null && !jsonObj.get("extended_transaction_type").isJsonNull()) && !jsonObj.get("extended_transaction_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `extended_transaction_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("extended_transaction_type").toString()));
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("memo") != null && !jsonObj.get("memo").isJsonNull()) && !jsonObj.get("memo").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `memo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("memo").toString()));
+      }
+      if ((jsonObj.get("merchant_guid") != null && !jsonObj.get("merchant_guid").isJsonNull()) && !jsonObj.get("merchant_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_guid").toString()));
+      }
+      if ((jsonObj.get("merchant_location_guid") != null && !jsonObj.get("merchant_location_guid").isJsonNull()) && !jsonObj.get("merchant_location_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_location_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_location_guid").toString()));
+      }
+      if ((jsonObj.get("original_description") != null && !jsonObj.get("original_description").isJsonNull()) && !jsonObj.get("original_description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `original_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("original_description").toString()));
+      }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!EnhanceTransactionResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'EnhanceTransactionResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<EnhanceTransactionResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(EnhanceTransactionResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<EnhanceTransactionResponse>() {
+           @Override
+           public void write(JsonWriter out, EnhanceTransactionResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public EnhanceTransactionResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of EnhanceTransactionResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of EnhanceTransactionResponse
+  * @throws IOException if the JSON string is invalid with respect to EnhanceTransactionResponse
+  */
+  public static EnhanceTransactionResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, EnhanceTransactionResponse.class);
+  }
+
+ /**
+  * Convert an instance of EnhanceTransactionResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

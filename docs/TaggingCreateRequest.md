@@ -5,10 +5,10 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**tagGuid** | **String** |  | 
-**transactionGuid** | **String** |  | 
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**tagGuid** | **String** |  |  |
+|**transactionGuid** | **String** |  |  |
 
 
 

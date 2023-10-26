@@ -14,7 +14,6 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +21,34 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.mx.client.model.PaginationResponse;
 import com.mx.client.model.SpendingPlanResponse;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * SpendingPlansResponseBody
@@ -35,13 +57,13 @@ import java.util.List;
 public class SpendingPlansResponseBody {
   public static final String SERIALIZED_NAME_ITERATION_ITEMS = "iteration_items";
   @SerializedName(SERIALIZED_NAME_ITERATION_ITEMS)
-  private List<SpendingPlanResponse> iterationItems = null;
+  private List<SpendingPlanResponse> iterationItems;
 
   public static final String SERIALIZED_NAME_PAGINATION = "pagination";
   @SerializedName(SERIALIZED_NAME_PAGINATION)
   private PaginationResponse pagination;
 
-  public SpendingPlansResponseBody() { 
+  public SpendingPlansResponseBody() {
   }
 
   public SpendingPlansResponseBody iterationItems(List<SpendingPlanResponse> iterationItems) {
@@ -52,7 +74,7 @@ public class SpendingPlansResponseBody {
 
   public SpendingPlansResponseBody addIterationItemsItem(SpendingPlanResponse iterationItemsItem) {
     if (this.iterationItems == null) {
-      this.iterationItems = new ArrayList<SpendingPlanResponse>();
+      this.iterationItems = new ArrayList<>();
     }
     this.iterationItems.add(iterationItemsItem);
     return this;
@@ -63,8 +85,6 @@ public class SpendingPlansResponseBody {
    * @return iterationItems
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<SpendingPlanResponse> getIterationItems() {
     return iterationItems;
   }
@@ -86,8 +106,6 @@ public class SpendingPlansResponseBody {
    * @return pagination
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public PaginationResponse getPagination() {
     return pagination;
   }
@@ -96,6 +114,7 @@ public class SpendingPlansResponseBody {
   public void setPagination(PaginationResponse pagination) {
     this.pagination = pagination;
   }
+
 
 
   @Override
@@ -137,5 +156,108 @@ public class SpendingPlansResponseBody {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("iteration_items");
+    openapiFields.add("pagination");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to SpendingPlansResponseBody
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SpendingPlansResponseBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in SpendingPlansResponseBody is not found in the empty JSON string", SpendingPlansResponseBody.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!SpendingPlansResponseBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SpendingPlansResponseBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("iteration_items") != null && !jsonObj.get("iteration_items").isJsonNull()) {
+        JsonArray jsonArrayiterationItems = jsonObj.getAsJsonArray("iteration_items");
+        if (jsonArrayiterationItems != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("iteration_items").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `iteration_items` to be an array in the JSON string but got `%s`", jsonObj.get("iteration_items").toString()));
+          }
+
+          // validate the optional field `iteration_items` (array)
+          for (int i = 0; i < jsonArrayiterationItems.size(); i++) {
+            SpendingPlanResponse.validateJsonElement(jsonArrayiterationItems.get(i));
+          };
+        }
+      }
+      // validate the optional field `pagination`
+      if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
+        PaginationResponse.validateJsonElement(jsonObj.get("pagination"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!SpendingPlansResponseBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'SpendingPlansResponseBody' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<SpendingPlansResponseBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(SpendingPlansResponseBody.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<SpendingPlansResponseBody>() {
+           @Override
+           public void write(JsonWriter out, SpendingPlansResponseBody value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public SpendingPlansResponseBody read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of SpendingPlansResponseBody given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of SpendingPlansResponseBody
+  * @throws IOException if the JSON string is invalid with respect to SpendingPlansResponseBody
+  */
+  public static SpendingPlansResponseBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, SpendingPlansResponseBody.class);
+  }
+
+ /**
+  * Convert an instance of SpendingPlansResponseBody to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

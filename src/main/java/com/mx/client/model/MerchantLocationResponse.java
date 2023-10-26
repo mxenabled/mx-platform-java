@@ -14,17 +14,39 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * MerchantLocationResponse
@@ -79,7 +101,7 @@ public class MerchantLocationResponse {
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
   private String updatedAt;
 
-  public MerchantLocationResponse() { 
+  public MerchantLocationResponse() {
   }
 
   public MerchantLocationResponse city(String city) {
@@ -93,8 +115,6 @@ public class MerchantLocationResponse {
    * @return city
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Greenwood Village", value = "")
-
   public String getCity() {
     return city;
   }
@@ -116,8 +136,6 @@ public class MerchantLocationResponse {
    * @return country
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "US", value = "")
-
   public String getCountry() {
     return country;
   }
@@ -139,8 +157,6 @@ public class MerchantLocationResponse {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2020-04-13 21:05:09.000000000 Z", value = "")
-
   public String getCreatedAt() {
     return createdAt;
   }
@@ -162,8 +178,6 @@ public class MerchantLocationResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MCL-00024e59-18b5-4d79-b879-2a7896726fea", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -185,8 +199,6 @@ public class MerchantLocationResponse {
    * @return latitude
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "39.5963005", value = "")
-
   public BigDecimal getLatitude() {
     return latitude;
   }
@@ -208,8 +220,6 @@ public class MerchantLocationResponse {
    * @return longitude
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "-104.89158799999998", value = "")
-
   public BigDecimal getLongitude() {
     return longitude;
   }
@@ -231,8 +241,6 @@ public class MerchantLocationResponse {
    * @return merchantGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MCH-09466f0a-fb58-9d1a-bae2-2af0afbea621", value = "")
-
   public String getMerchantGuid() {
     return merchantGuid;
   }
@@ -254,8 +262,6 @@ public class MerchantLocationResponse {
    * @return phoneNumber
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "(303) 689-0728", value = "")
-
   public String getPhoneNumber() {
     return phoneNumber;
   }
@@ -277,8 +283,6 @@ public class MerchantLocationResponse {
    * @return postalCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "801121436", value = "")
-
   public String getPostalCode() {
     return postalCode;
   }
@@ -300,8 +304,6 @@ public class MerchantLocationResponse {
    * @return state
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "CO", value = "")
-
   public String getState() {
     return state;
   }
@@ -323,8 +325,6 @@ public class MerchantLocationResponse {
    * @return streetAddress
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "8547 E Arapahoe Rd, Ste 1", value = "")
-
   public String getStreetAddress() {
     return streetAddress;
   }
@@ -346,8 +346,6 @@ public class MerchantLocationResponse {
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2020-04-13 21:05:09.000000000 Z", value = "")
-
   public String getUpdatedAt() {
     return updatedAt;
   }
@@ -356,6 +354,7 @@ public class MerchantLocationResponse {
   public void setUpdatedAt(String updatedAt) {
     this.updatedAt = updatedAt;
   }
+
 
 
   @Override
@@ -428,5 +427,130 @@ public class MerchantLocationResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("city");
+    openapiFields.add("country");
+    openapiFields.add("created_at");
+    openapiFields.add("guid");
+    openapiFields.add("latitude");
+    openapiFields.add("longitude");
+    openapiFields.add("merchant_guid");
+    openapiFields.add("phone_number");
+    openapiFields.add("postal_code");
+    openapiFields.add("state");
+    openapiFields.add("street_address");
+    openapiFields.add("updated_at");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to MerchantLocationResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!MerchantLocationResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in MerchantLocationResponse is not found in the empty JSON string", MerchantLocationResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!MerchantLocationResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MerchantLocationResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("city") != null && !jsonObj.get("city").isJsonNull()) && !jsonObj.get("city").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `city` to be a primitive type in the JSON string but got `%s`", jsonObj.get("city").toString()));
+      }
+      if ((jsonObj.get("country") != null && !jsonObj.get("country").isJsonNull()) && !jsonObj.get("country").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `country` to be a primitive type in the JSON string but got `%s`", jsonObj.get("country").toString()));
+      }
+      if ((jsonObj.get("created_at") != null && !jsonObj.get("created_at").isJsonNull()) && !jsonObj.get("created_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `created_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_at").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("merchant_guid") != null && !jsonObj.get("merchant_guid").isJsonNull()) && !jsonObj.get("merchant_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_guid").toString()));
+      }
+      if ((jsonObj.get("phone_number") != null && !jsonObj.get("phone_number").isJsonNull()) && !jsonObj.get("phone_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `phone_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phone_number").toString()));
+      }
+      if ((jsonObj.get("postal_code") != null && !jsonObj.get("postal_code").isJsonNull()) && !jsonObj.get("postal_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `postal_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("postal_code").toString()));
+      }
+      if ((jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) && !jsonObj.get("state").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `state` to be a primitive type in the JSON string but got `%s`", jsonObj.get("state").toString()));
+      }
+      if ((jsonObj.get("street_address") != null && !jsonObj.get("street_address").isJsonNull()) && !jsonObj.get("street_address").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `street_address` to be a primitive type in the JSON string but got `%s`", jsonObj.get("street_address").toString()));
+      }
+      if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull()) && !jsonObj.get("updated_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updated_at").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!MerchantLocationResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MerchantLocationResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<MerchantLocationResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MerchantLocationResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<MerchantLocationResponse>() {
+           @Override
+           public void write(JsonWriter out, MerchantLocationResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public MerchantLocationResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of MerchantLocationResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of MerchantLocationResponse
+  * @throws IOException if the JSON string is invalid with respect to MerchantLocationResponse
+  */
+  public static MerchantLocationResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MerchantLocationResponse.class);
+  }
+
+ /**
+  * Convert an instance of MerchantLocationResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

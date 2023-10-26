@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * MerchantResponse
@@ -54,7 +76,7 @@ public class MerchantResponse {
   @SerializedName(SERIALIZED_NAME_WEBSITE_URL)
   private String websiteUrl;
 
-  public MerchantResponse() { 
+  public MerchantResponse() {
   }
 
   public MerchantResponse createdAt(String createdAt) {
@@ -68,8 +90,6 @@ public class MerchantResponse {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2017-04-20T19:30:12.000Z", value = "")
-
   public String getCreatedAt() {
     return createdAt;
   }
@@ -91,8 +111,6 @@ public class MerchantResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MCH-7ed79542-884d-2b1b-dd74-501c5cc9d25b", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -114,8 +132,6 @@ public class MerchantResponse {
    * @return logoUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://s3.amazonaws.com/MD_Assets/merchant_logos/comcast.png", value = "")
-
   public String getLogoUrl() {
     return logoUrl;
   }
@@ -137,8 +153,6 @@ public class MerchantResponse {
    * @return name
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Comcast", value = "")
-
   public String getName() {
     return name;
   }
@@ -160,8 +174,6 @@ public class MerchantResponse {
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2018-09-28T21:13:53.000Z", value = "")
-
   public String getUpdatedAt() {
     return updatedAt;
   }
@@ -183,8 +195,6 @@ public class MerchantResponse {
    * @return websiteUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://www.xfinity.com", value = "")
-
   public String getWebsiteUrl() {
     return websiteUrl;
   }
@@ -193,6 +203,7 @@ public class MerchantResponse {
   public void setWebsiteUrl(String websiteUrl) {
     this.websiteUrl = websiteUrl;
   }
+
 
 
   @Override
@@ -253,5 +264,112 @@ public class MerchantResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("created_at");
+    openapiFields.add("guid");
+    openapiFields.add("logo_url");
+    openapiFields.add("name");
+    openapiFields.add("updated_at");
+    openapiFields.add("website_url");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to MerchantResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!MerchantResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in MerchantResponse is not found in the empty JSON string", MerchantResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!MerchantResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MerchantResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("created_at") != null && !jsonObj.get("created_at").isJsonNull()) && !jsonObj.get("created_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `created_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_at").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("logo_url") != null && !jsonObj.get("logo_url").isJsonNull()) && !jsonObj.get("logo_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `logo_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("logo_url").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull()) && !jsonObj.get("updated_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updated_at").toString()));
+      }
+      if ((jsonObj.get("website_url") != null && !jsonObj.get("website_url").isJsonNull()) && !jsonObj.get("website_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `website_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("website_url").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!MerchantResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MerchantResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<MerchantResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MerchantResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<MerchantResponse>() {
+           @Override
+           public void write(JsonWriter out, MerchantResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public MerchantResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of MerchantResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of MerchantResponse
+  * @throws IOException if the JSON string is invalid with respect to MerchantResponse
+  */
+  public static MerchantResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MerchantResponse.class);
+  }
+
+ /**
+  * Convert an instance of MerchantResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

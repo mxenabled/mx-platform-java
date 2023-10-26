@@ -2,124 +2,124 @@
 
 All URIs are relative to *https://api.mx.com*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**aggregateMember**](MxPlatformApi.md#aggregateMember) | **POST** /users/{user_guid}/members/{member_guid}/aggregate | Aggregate member
-[**checkBalances**](MxPlatformApi.md#checkBalances) | **POST** /users/{user_guid}/members/{member_guid}/check_balance | Check balances
-[**createCategory**](MxPlatformApi.md#createCategory) | **POST** /users/{user_guid}/categories | Create category
-[**createManagedAccount**](MxPlatformApi.md#createManagedAccount) | **POST** /users/{user_guid}/managed_members/{member_guid}/accounts | Create managed account
-[**createManagedMember**](MxPlatformApi.md#createManagedMember) | **POST** /users/{user_guid}/managed_members | Create managed member
-[**createManagedTransaction**](MxPlatformApi.md#createManagedTransaction) | **POST** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions | Create managed transaction
-[**createManualAccount**](MxPlatformApi.md#createManualAccount) | **POST** /users/{user_guid}/accounts | Create manual account
-[**createMember**](MxPlatformApi.md#createMember) | **POST** /users/{user_guid}/members | Create member
-[**createSpendingPlan**](MxPlatformApi.md#createSpendingPlan) | **POST** /users/{user_guid}/spending_plans | Create spending plan
-[**createSpendingPlanIterationItem**](MxPlatformApi.md#createSpendingPlanIterationItem) | **POST** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items | Create spending plan iteration item
-[**createTag**](MxPlatformApi.md#createTag) | **POST** /users/{user_guid}/tags | Create tag
-[**createTagging**](MxPlatformApi.md#createTagging) | **POST** /users/{user_guid}/taggings | Create tagging
-[**createTransactionRule**](MxPlatformApi.md#createTransactionRule) | **POST** /users/{user_guid}/transaction_rules | Create transaction rule
-[**createUser**](MxPlatformApi.md#createUser) | **POST** /users | Create user
-[**deleteCategory**](MxPlatformApi.md#deleteCategory) | **DELETE** /users/{user_guid}/categories/{category_guid} | Delete category
-[**deleteManagedAccount**](MxPlatformApi.md#deleteManagedAccount) | **DELETE** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Delete managed account
-[**deleteManagedMember**](MxPlatformApi.md#deleteManagedMember) | **DELETE** /users/{user_guid}/managed_members/{member_guid} | Delete managed member
-[**deleteManagedTransaction**](MxPlatformApi.md#deleteManagedTransaction) | **DELETE** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid} | Delete managed transaction
-[**deleteManualAccount**](MxPlatformApi.md#deleteManualAccount) | **DELETE** /users/{user_guid}/accounts/{account_guid} | Delete manual account
-[**deleteMember**](MxPlatformApi.md#deleteMember) | **DELETE** /users/{user_guid}/members/{member_guid} | Delete member
-[**deleteSpendingPlan**](MxPlatformApi.md#deleteSpendingPlan) | **DELETE** /users/{user_guid}/spending_plans/{spending_plan_guid} | Delete spending plan
-[**deleteSpendingPlanAccount**](MxPlatformApi.md#deleteSpendingPlanAccount) | **DELETE** /users/{user_guid}/spending_plans/{spending_plan_guid}/spending_plan_accounts/{spending_plan_account_guid} | Delete spending plan account
-[**deleteSpendingPlanIterationItem**](MxPlatformApi.md#deleteSpendingPlanIterationItem) | **DELETE** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items/{iteration_item_guid} | Delete spending plan iteration item
-[**deleteTag**](MxPlatformApi.md#deleteTag) | **DELETE** /users/{user_guid}/tags/{tag_guid} | Delete tag
-[**deleteTagging**](MxPlatformApi.md#deleteTagging) | **DELETE** /users/{user_guid}/taggings/{tagging_guid} | Delete tagging
-[**deleteTransactionRule**](MxPlatformApi.md#deleteTransactionRule) | **DELETE** /users/{user_guid}/transaction_rules/{transaction_rule_guid} | Delete transaction rule
-[**deleteUser**](MxPlatformApi.md#deleteUser) | **DELETE** /users/{user_guid} | Delete user
-[**deprecatedRequestPaymentProcessorAuthorizationCode**](MxPlatformApi.md#deprecatedRequestPaymentProcessorAuthorizationCode) | **POST** /payment_processor_authorization_code | (Deprecated) Request an authorization code.
-[**downloadStatementPDF**](MxPlatformApi.md#downloadStatementPDF) | **GET** /users/{user_guid}/members/{member_guid}/statements/{statement_guid}.pdf | Download statement pdf
-[**downloadTaxDocument**](MxPlatformApi.md#downloadTaxDocument) | **GET** /users/{user_guid}/members/{member_guid}/tax_documents/{tax_document_guid}.pdf | Download a Tax Document PDF
-[**enhanceTransactions**](MxPlatformApi.md#enhanceTransactions) | **POST** /transactions/enhance | Enhance transactions
-[**extendHistory**](MxPlatformApi.md#extendHistory) | **POST** /users/{user_guid}/members/{member_guid}/extend_history | Extend history
-[**fetchStatements**](MxPlatformApi.md#fetchStatements) | **POST** /users/{user_guid}/members/{member_guid}/fetch_statements | Fetch statements
-[**fetchTaxDocuments**](MxPlatformApi.md#fetchTaxDocuments) | **POST** /users/{user_guid}/members/{member_guid}/fetch_tax_documents | Fetch Tax Documents
-[**identifyMember**](MxPlatformApi.md#identifyMember) | **POST** /users/{user_guid}/members/{member_guid}/identify | Identify member
-[**listAccountNumbersByAccount**](MxPlatformApi.md#listAccountNumbersByAccount) | **GET** /users/{user_guid}/accounts/{account_guid}/account_numbers | List account numbers by account
-[**listAccountNumbersByMember**](MxPlatformApi.md#listAccountNumbersByMember) | **GET** /users/{user_guid}/members/{member_guid}/account_numbers | List account numbers by member
-[**listAccountOwnersByMember**](MxPlatformApi.md#listAccountOwnersByMember) | **GET** /users/{user_guid}/members/{member_guid}/account_owners | List account owners by member
-[**listCategories**](MxPlatformApi.md#listCategories) | **GET** /users/{user_guid}/categories | List categories
-[**listDefaultCategories**](MxPlatformApi.md#listDefaultCategories) | **GET** /categories/default | List default categories
-[**listDefaultCategoriesByUser**](MxPlatformApi.md#listDefaultCategoriesByUser) | **GET** /users/{user_guid}/categories/default | List default categories by user
-[**listFavoriteInstitutions**](MxPlatformApi.md#listFavoriteInstitutions) | **GET** /institutions/favorites | List favorite institutions
-[**listHoldings**](MxPlatformApi.md#listHoldings) | **GET** /users/{user_guid}/holdings | List holdings
-[**listHoldingsByAccount**](MxPlatformApi.md#listHoldingsByAccount) | **GET** /users/{user_guid}/accounts/{account_guid}/holdings | List holdings by account
-[**listHoldingsByMember**](MxPlatformApi.md#listHoldingsByMember) | **GET** /users/{user_guid}/members/{member_guid}/holdings | List holdings by member
-[**listInstitutionCredentials**](MxPlatformApi.md#listInstitutionCredentials) | **GET** /institutions/{institution_code}/credentials | List institution credentials
-[**listInstitutions**](MxPlatformApi.md#listInstitutions) | **GET** /institutions | List institutions
-[**listManagedAccounts**](MxPlatformApi.md#listManagedAccounts) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts | List managed accounts
-[**listManagedInstitutions**](MxPlatformApi.md#listManagedInstitutions) | **GET** /managed_institutions | List managed institutions
-[**listManagedMembers**](MxPlatformApi.md#listManagedMembers) | **GET** /users/{user_guid}/managed_members | List managed members
-[**listManagedTransactions**](MxPlatformApi.md#listManagedTransactions) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions | List managed transactions
-[**listMemberAccounts**](MxPlatformApi.md#listMemberAccounts) | **GET** /users/{user_guid}/members/{member_guid}/accounts | List accounts by member
-[**listMemberChallenges**](MxPlatformApi.md#listMemberChallenges) | **GET** /users/{user_guid}/members/{member_guid}/challenges | List member challenges
-[**listMemberCredentials**](MxPlatformApi.md#listMemberCredentials) | **GET** /users/{user_guid}/members/{member_guid}/credentials | List member credentials
-[**listMembers**](MxPlatformApi.md#listMembers) | **GET** /users/{user_guid}/members | List members
-[**listMerchants**](MxPlatformApi.md#listMerchants) | **GET** /merchants | List merchants
-[**listSpendingPlanAccounts**](MxPlatformApi.md#listSpendingPlanAccounts) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/spending_plan_accounts | List spending plan accounts
-[**listSpendingPlanIterationItems**](MxPlatformApi.md#listSpendingPlanIterationItems) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items | List spending plan iteration items
-[**listSpendingPlanIterations**](MxPlatformApi.md#listSpendingPlanIterations) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations | List spending plan iterations
-[**listSpendingPlans**](MxPlatformApi.md#listSpendingPlans) | **GET** /users/{user_guid}/spending_plans | List spending plans
-[**listStatementsByMember**](MxPlatformApi.md#listStatementsByMember) | **GET** /users/{user_guid}/members/{member_guid}/statements | List statements by member
-[**listTaggings**](MxPlatformApi.md#listTaggings) | **GET** /users/{user_guid}/taggings | List taggings
-[**listTags**](MxPlatformApi.md#listTags) | **GET** /users/{user_guid}/tags | List tags
-[**listTaxDocuments**](MxPlatformApi.md#listTaxDocuments) | **GET** /users/{user_guid}/members/{member_guid}/tax_documents | List Tax Documents
-[**listTransactionRules**](MxPlatformApi.md#listTransactionRules) | **GET** /users/{user_guid}/transaction_rules | List transaction rules
-[**listTransactions**](MxPlatformApi.md#listTransactions) | **GET** /users/{user_guid}/transactions | List transactions
-[**listTransactionsByAccount**](MxPlatformApi.md#listTransactionsByAccount) | **GET** /users/{user_guid}/accounts/{account_guid}/transactions | List transactions by account
-[**listTransactionsByMember**](MxPlatformApi.md#listTransactionsByMember) | **GET** /users/{user_guid}/members/{member_guid}/transactions | List transactions by member
-[**listTransactionsByTag**](MxPlatformApi.md#listTransactionsByTag) | **GET** /users/{user_guid}/tags/{tag_guid}/transactions | List transactions by tag
-[**listUserAccounts**](MxPlatformApi.md#listUserAccounts) | **GET** /users/{user_guid}/accounts | List accounts
-[**listUsers**](MxPlatformApi.md#listUsers) | **GET** /users | List users
-[**readAccount**](MxPlatformApi.md#readAccount) | **GET** /users/{user_guid}/accounts/{account_guid} | Read account
-[**readAccountByMember**](MxPlatformApi.md#readAccountByMember) | **GET** /users/{user_guid}/members/{member_guid}/accounts/{account_guid} | Read account by member
-[**readCategory**](MxPlatformApi.md#readCategory) | **GET** /users/{user_guid}/categories/{category_guid} | Read a custom category
-[**readDefaultCategory**](MxPlatformApi.md#readDefaultCategory) | **GET** /categories/{category_guid} | Read a default category
-[**readHolding**](MxPlatformApi.md#readHolding) | **GET** /users/{user_guid}/holdings/{holding_guid} | Read holding
-[**readInstitution**](MxPlatformApi.md#readInstitution) | **GET** /institutions/{institution_code} | Read institution
-[**readManagedAccount**](MxPlatformApi.md#readManagedAccount) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Read managed account
-[**readManagedMember**](MxPlatformApi.md#readManagedMember) | **GET** /users/{user_guid}/managed_members/{member_guid} | Read managed member
-[**readManagedTransaction**](MxPlatformApi.md#readManagedTransaction) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid} | Read managed transaction
-[**readMember**](MxPlatformApi.md#readMember) | **GET** /users/{user_guid}/members/{member_guid} | Read member
-[**readMemberStatus**](MxPlatformApi.md#readMemberStatus) | **GET** /users/{user_guid}/members/{member_guid}/status | Read member status
-[**readMerchant**](MxPlatformApi.md#readMerchant) | **GET** /merchants/{merchant_guid} | Read merchant
-[**readMerchantLocation**](MxPlatformApi.md#readMerchantLocation) | **GET** /merchant_locations/{merchant_location_guid} | Read merchant location
-[**readSpendingPlanAccount**](MxPlatformApi.md#readSpendingPlanAccount) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/spending_plan_accounts/{spending_plan_account_guid} | Read spending plan account
-[**readSpendingPlanIteration**](MxPlatformApi.md#readSpendingPlanIteration) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/{iteration_number} | Read a spending plan iteration
-[**readSpendingPlanIterationItem**](MxPlatformApi.md#readSpendingPlanIterationItem) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items/{iteration_item_guid} | Read a spending plan iteration item
-[**readSpendingPlanUser**](MxPlatformApi.md#readSpendingPlanUser) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid} | Read a spending plan for a user
-[**readStatementByMember**](MxPlatformApi.md#readStatementByMember) | **GET** /users/{user_guid}/members/{member_guid}/statements/{statement_guid} | Read statement by member
-[**readTag**](MxPlatformApi.md#readTag) | **GET** /users/{user_guid}/tags/{tag_guid} | Read tag
-[**readTagging**](MxPlatformApi.md#readTagging) | **GET** /users/{user_guid}/taggings/{tagging_guid} | Read tagging
-[**readTaxDocument**](MxPlatformApi.md#readTaxDocument) | **GET** /users/{user_guid}/members/{member_guid}/tax_documents/{tax_document_guid} | Read a Tax Document
-[**readTransaction**](MxPlatformApi.md#readTransaction) | **GET** /users/{user_guid}/transactions/{transaction_guid} | Read transaction
-[**readTransactionRule**](MxPlatformApi.md#readTransactionRule) | **GET** /users/{user_guid}/transaction_rules/{transaction_rule_guid} | Read transaction rule
-[**readUser**](MxPlatformApi.md#readUser) | **GET** /users/{user_guid} | Read user
-[**requestAuthorizationCode**](MxPlatformApi.md#requestAuthorizationCode) | **POST** /authorization_code | Request an authorization code.
-[**requestConnectWidgetURL**](MxPlatformApi.md#requestConnectWidgetURL) | **POST** /users/{user_guid}/connect_widget_url | Request connect widget url
-[**requestOAuthWindowURI**](MxPlatformApi.md#requestOAuthWindowURI) | **GET** /users/{user_guid}/members/{member_guid}/oauth_window_uri | Request oauth window uri
-[**requestWidgetURL**](MxPlatformApi.md#requestWidgetURL) | **POST** /users/{user_guid}/widget_urls | Request widget url
-[**resumeAggregation**](MxPlatformApi.md#resumeAggregation) | **PUT** /users/{user_guid}/members/{member_guid}/resume | Resume aggregation
-[**updateAccountByMember**](MxPlatformApi.md#updateAccountByMember) | **PUT** /users/{user_guid}/members/{member_guid}/accounts/{account_guid} | Update account by member
-[**updateCategory**](MxPlatformApi.md#updateCategory) | **PUT** /users/{user_guid}/categories/{category_guid} | Update category
-[**updateManagedAccount**](MxPlatformApi.md#updateManagedAccount) | **PUT** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Update managed account
-[**updateManagedMember**](MxPlatformApi.md#updateManagedMember) | **PUT** /users/{user_guid}/managed_members/{member_guid} | Update managed member
-[**updateManagedTransaction**](MxPlatformApi.md#updateManagedTransaction) | **PUT** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid} | Update managed transaction
-[**updateMember**](MxPlatformApi.md#updateMember) | **PUT** /users/{user_guid}/members/{member_guid} | Update member
-[**updateSpendingPlanIterationItem**](MxPlatformApi.md#updateSpendingPlanIterationItem) | **PUT** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items/{iteration_item_guid} | Update a spending plan iteration item
-[**updateTag**](MxPlatformApi.md#updateTag) | **PUT** /users/{user_guid}/tags/{tag_guid} | Update tag
-[**updateTagging**](MxPlatformApi.md#updateTagging) | **PUT** /users/{user_guid}/taggings/{tagging_guid} | Update tagging
-[**updateTransaction**](MxPlatformApi.md#updateTransaction) | **PUT** /users/{user_guid}/transactions/{transaction_guid} | Update transaction
-[**updateTransactionRule**](MxPlatformApi.md#updateTransactionRule) | **PUT** /users/{user_guid}/transaction_rules/{transaction_rule_guid} | Update transaction_rule
-[**updateUser**](MxPlatformApi.md#updateUser) | **PUT** /users/{user_guid} | Update user
-[**verifyMember**](MxPlatformApi.md#verifyMember) | **POST** /users/{user_guid}/members/{member_guid}/verify | Verify member
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**aggregateMember**](MxPlatformApi.md#aggregateMember) | **POST** /users/{user_guid}/members/{member_guid}/aggregate | Aggregate member |
+| [**checkBalances**](MxPlatformApi.md#checkBalances) | **POST** /users/{user_guid}/members/{member_guid}/check_balance | Check balances |
+| [**createCategory**](MxPlatformApi.md#createCategory) | **POST** /users/{user_guid}/categories | Create category |
+| [**createManagedAccount**](MxPlatformApi.md#createManagedAccount) | **POST** /users/{user_guid}/managed_members/{member_guid}/accounts | Create managed account |
+| [**createManagedMember**](MxPlatformApi.md#createManagedMember) | **POST** /users/{user_guid}/managed_members | Create managed member |
+| [**createManagedTransaction**](MxPlatformApi.md#createManagedTransaction) | **POST** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions | Create managed transaction |
+| [**createManualAccount**](MxPlatformApi.md#createManualAccount) | **POST** /users/{user_guid}/accounts | Create manual account |
+| [**createMember**](MxPlatformApi.md#createMember) | **POST** /users/{user_guid}/members | Create member |
+| [**createSpendingPlan**](MxPlatformApi.md#createSpendingPlan) | **POST** /users/{user_guid}/spending_plans | Create spending plan |
+| [**createSpendingPlanIterationItem**](MxPlatformApi.md#createSpendingPlanIterationItem) | **POST** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items | Create spending plan iteration item |
+| [**createTag**](MxPlatformApi.md#createTag) | **POST** /users/{user_guid}/tags | Create tag |
+| [**createTagging**](MxPlatformApi.md#createTagging) | **POST** /users/{user_guid}/taggings | Create tagging |
+| [**createTransactionRule**](MxPlatformApi.md#createTransactionRule) | **POST** /users/{user_guid}/transaction_rules | Create transaction rule |
+| [**createUser**](MxPlatformApi.md#createUser) | **POST** /users | Create user |
+| [**deleteCategory**](MxPlatformApi.md#deleteCategory) | **DELETE** /users/{user_guid}/categories/{category_guid} | Delete category |
+| [**deleteManagedAccount**](MxPlatformApi.md#deleteManagedAccount) | **DELETE** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Delete managed account |
+| [**deleteManagedMember**](MxPlatformApi.md#deleteManagedMember) | **DELETE** /users/{user_guid}/managed_members/{member_guid} | Delete managed member |
+| [**deleteManagedTransaction**](MxPlatformApi.md#deleteManagedTransaction) | **DELETE** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid} | Delete managed transaction |
+| [**deleteManualAccount**](MxPlatformApi.md#deleteManualAccount) | **DELETE** /users/{user_guid}/accounts/{account_guid} | Delete manual account |
+| [**deleteMember**](MxPlatformApi.md#deleteMember) | **DELETE** /users/{user_guid}/members/{member_guid} | Delete member |
+| [**deleteSpendingPlan**](MxPlatformApi.md#deleteSpendingPlan) | **DELETE** /users/{user_guid}/spending_plans/{spending_plan_guid} | Delete spending plan |
+| [**deleteSpendingPlanAccount**](MxPlatformApi.md#deleteSpendingPlanAccount) | **DELETE** /users/{user_guid}/spending_plans/{spending_plan_guid}/spending_plan_accounts/{spending_plan_account_guid} | Delete spending plan account |
+| [**deleteSpendingPlanIterationItem**](MxPlatformApi.md#deleteSpendingPlanIterationItem) | **DELETE** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items/{iteration_item_guid} | Delete spending plan iteration item |
+| [**deleteTag**](MxPlatformApi.md#deleteTag) | **DELETE** /users/{user_guid}/tags/{tag_guid} | Delete tag |
+| [**deleteTagging**](MxPlatformApi.md#deleteTagging) | **DELETE** /users/{user_guid}/taggings/{tagging_guid} | Delete tagging |
+| [**deleteTransactionRule**](MxPlatformApi.md#deleteTransactionRule) | **DELETE** /users/{user_guid}/transaction_rules/{transaction_rule_guid} | Delete transaction rule |
+| [**deleteUser**](MxPlatformApi.md#deleteUser) | **DELETE** /users/{user_guid} | Delete user |
+| [**deprecatedRequestPaymentProcessorAuthorizationCode**](MxPlatformApi.md#deprecatedRequestPaymentProcessorAuthorizationCode) | **POST** /payment_processor_authorization_code | (Deprecated) Request an authorization code. |
+| [**downloadStatementPDF**](MxPlatformApi.md#downloadStatementPDF) | **GET** /users/{user_guid}/members/{member_guid}/statements/{statement_guid}.pdf | Download statement pdf |
+| [**downloadTaxDocument**](MxPlatformApi.md#downloadTaxDocument) | **GET** /users/{user_guid}/members/{member_guid}/tax_documents/{tax_document_guid}.pdf | Download a Tax Document PDF |
+| [**enhanceTransactions**](MxPlatformApi.md#enhanceTransactions) | **POST** /transactions/enhance | Enhance transactions |
+| [**extendHistory**](MxPlatformApi.md#extendHistory) | **POST** /users/{user_guid}/members/{member_guid}/extend_history | Extend history |
+| [**fetchStatements**](MxPlatformApi.md#fetchStatements) | **POST** /users/{user_guid}/members/{member_guid}/fetch_statements | Fetch statements |
+| [**fetchTaxDocuments**](MxPlatformApi.md#fetchTaxDocuments) | **POST** /users/{user_guid}/members/{member_guid}/fetch_tax_documents | Fetch Tax Documents |
+| [**identifyMember**](MxPlatformApi.md#identifyMember) | **POST** /users/{user_guid}/members/{member_guid}/identify | Identify member |
+| [**listAccountNumbersByAccount**](MxPlatformApi.md#listAccountNumbersByAccount) | **GET** /users/{user_guid}/accounts/{account_guid}/account_numbers | List account numbers by account |
+| [**listAccountNumbersByMember**](MxPlatformApi.md#listAccountNumbersByMember) | **GET** /users/{user_guid}/members/{member_guid}/account_numbers | List account numbers by member |
+| [**listAccountOwnersByMember**](MxPlatformApi.md#listAccountOwnersByMember) | **GET** /users/{user_guid}/members/{member_guid}/account_owners | List account owners by member |
+| [**listCategories**](MxPlatformApi.md#listCategories) | **GET** /users/{user_guid}/categories | List categories |
+| [**listDefaultCategories**](MxPlatformApi.md#listDefaultCategories) | **GET** /categories/default | List default categories |
+| [**listDefaultCategoriesByUser**](MxPlatformApi.md#listDefaultCategoriesByUser) | **GET** /users/{user_guid}/categories/default | List default categories by user |
+| [**listFavoriteInstitutions**](MxPlatformApi.md#listFavoriteInstitutions) | **GET** /institutions/favorites | List favorite institutions |
+| [**listHoldings**](MxPlatformApi.md#listHoldings) | **GET** /users/{user_guid}/holdings | List holdings |
+| [**listHoldingsByAccount**](MxPlatformApi.md#listHoldingsByAccount) | **GET** /users/{user_guid}/accounts/{account_guid}/holdings | List holdings by account |
+| [**listHoldingsByMember**](MxPlatformApi.md#listHoldingsByMember) | **GET** /users/{user_guid}/members/{member_guid}/holdings | List holdings by member |
+| [**listInstitutionCredentials**](MxPlatformApi.md#listInstitutionCredentials) | **GET** /institutions/{institution_code}/credentials | List institution credentials |
+| [**listInstitutions**](MxPlatformApi.md#listInstitutions) | **GET** /institutions | List institutions |
+| [**listManagedAccounts**](MxPlatformApi.md#listManagedAccounts) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts | List managed accounts |
+| [**listManagedInstitutions**](MxPlatformApi.md#listManagedInstitutions) | **GET** /managed_institutions | List managed institutions |
+| [**listManagedMembers**](MxPlatformApi.md#listManagedMembers) | **GET** /users/{user_guid}/managed_members | List managed members |
+| [**listManagedTransactions**](MxPlatformApi.md#listManagedTransactions) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions | List managed transactions |
+| [**listMemberAccounts**](MxPlatformApi.md#listMemberAccounts) | **GET** /users/{user_guid}/members/{member_guid}/accounts | List accounts by member |
+| [**listMemberChallenges**](MxPlatformApi.md#listMemberChallenges) | **GET** /users/{user_guid}/members/{member_guid}/challenges | List member challenges |
+| [**listMemberCredentials**](MxPlatformApi.md#listMemberCredentials) | **GET** /users/{user_guid}/members/{member_guid}/credentials | List member credentials |
+| [**listMembers**](MxPlatformApi.md#listMembers) | **GET** /users/{user_guid}/members | List members |
+| [**listMerchants**](MxPlatformApi.md#listMerchants) | **GET** /merchants | List merchants |
+| [**listSpendingPlanAccounts**](MxPlatformApi.md#listSpendingPlanAccounts) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/spending_plan_accounts | List spending plan accounts |
+| [**listSpendingPlanIterationItems**](MxPlatformApi.md#listSpendingPlanIterationItems) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items | List spending plan iteration items |
+| [**listSpendingPlanIterations**](MxPlatformApi.md#listSpendingPlanIterations) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations | List spending plan iterations |
+| [**listSpendingPlans**](MxPlatformApi.md#listSpendingPlans) | **GET** /users/{user_guid}/spending_plans | List spending plans |
+| [**listStatementsByMember**](MxPlatformApi.md#listStatementsByMember) | **GET** /users/{user_guid}/members/{member_guid}/statements | List statements by member |
+| [**listTaggings**](MxPlatformApi.md#listTaggings) | **GET** /users/{user_guid}/taggings | List taggings |
+| [**listTags**](MxPlatformApi.md#listTags) | **GET** /users/{user_guid}/tags | List tags |
+| [**listTaxDocuments**](MxPlatformApi.md#listTaxDocuments) | **GET** /users/{user_guid}/members/{member_guid}/tax_documents | List Tax Documents |
+| [**listTransactionRules**](MxPlatformApi.md#listTransactionRules) | **GET** /users/{user_guid}/transaction_rules | List transaction rules |
+| [**listTransactions**](MxPlatformApi.md#listTransactions) | **GET** /users/{user_guid}/transactions | List transactions |
+| [**listTransactionsByAccount**](MxPlatformApi.md#listTransactionsByAccount) | **GET** /users/{user_guid}/accounts/{account_guid}/transactions | List transactions by account |
+| [**listTransactionsByMember**](MxPlatformApi.md#listTransactionsByMember) | **GET** /users/{user_guid}/members/{member_guid}/transactions | List transactions by member |
+| [**listTransactionsByTag**](MxPlatformApi.md#listTransactionsByTag) | **GET** /users/{user_guid}/tags/{tag_guid}/transactions | List transactions by tag |
+| [**listUserAccounts**](MxPlatformApi.md#listUserAccounts) | **GET** /users/{user_guid}/accounts | List accounts |
+| [**listUsers**](MxPlatformApi.md#listUsers) | **GET** /users | List users |
+| [**readAccount**](MxPlatformApi.md#readAccount) | **GET** /users/{user_guid}/accounts/{account_guid} | Read account |
+| [**readAccountByMember**](MxPlatformApi.md#readAccountByMember) | **GET** /users/{user_guid}/members/{member_guid}/accounts/{account_guid} | Read account by member |
+| [**readCategory**](MxPlatformApi.md#readCategory) | **GET** /users/{user_guid}/categories/{category_guid} | Read a custom category |
+| [**readDefaultCategory**](MxPlatformApi.md#readDefaultCategory) | **GET** /categories/{category_guid} | Read a default category |
+| [**readHolding**](MxPlatformApi.md#readHolding) | **GET** /users/{user_guid}/holdings/{holding_guid} | Read holding |
+| [**readInstitution**](MxPlatformApi.md#readInstitution) | **GET** /institutions/{institution_code} | Read institution |
+| [**readManagedAccount**](MxPlatformApi.md#readManagedAccount) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Read managed account |
+| [**readManagedMember**](MxPlatformApi.md#readManagedMember) | **GET** /users/{user_guid}/managed_members/{member_guid} | Read managed member |
+| [**readManagedTransaction**](MxPlatformApi.md#readManagedTransaction) | **GET** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid} | Read managed transaction |
+| [**readMember**](MxPlatformApi.md#readMember) | **GET** /users/{user_guid}/members/{member_guid} | Read member |
+| [**readMemberStatus**](MxPlatformApi.md#readMemberStatus) | **GET** /users/{user_guid}/members/{member_guid}/status | Read member status |
+| [**readMerchant**](MxPlatformApi.md#readMerchant) | **GET** /merchants/{merchant_guid} | Read merchant |
+| [**readMerchantLocation**](MxPlatformApi.md#readMerchantLocation) | **GET** /merchant_locations/{merchant_location_guid} | Read merchant location |
+| [**readSpendingPlanAccount**](MxPlatformApi.md#readSpendingPlanAccount) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/spending_plan_accounts/{spending_plan_account_guid} | Read spending plan account |
+| [**readSpendingPlanIteration**](MxPlatformApi.md#readSpendingPlanIteration) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/{iteration_number} | Read a spending plan iteration |
+| [**readSpendingPlanIterationItem**](MxPlatformApi.md#readSpendingPlanIterationItem) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items/{iteration_item_guid} | Read a spending plan iteration item |
+| [**readSpendingPlanUser**](MxPlatformApi.md#readSpendingPlanUser) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid} | Read a spending plan for a user |
+| [**readStatementByMember**](MxPlatformApi.md#readStatementByMember) | **GET** /users/{user_guid}/members/{member_guid}/statements/{statement_guid} | Read statement by member |
+| [**readTag**](MxPlatformApi.md#readTag) | **GET** /users/{user_guid}/tags/{tag_guid} | Read tag |
+| [**readTagging**](MxPlatformApi.md#readTagging) | **GET** /users/{user_guid}/taggings/{tagging_guid} | Read tagging |
+| [**readTaxDocument**](MxPlatformApi.md#readTaxDocument) | **GET** /users/{user_guid}/members/{member_guid}/tax_documents/{tax_document_guid} | Read a Tax Document |
+| [**readTransaction**](MxPlatformApi.md#readTransaction) | **GET** /users/{user_guid}/transactions/{transaction_guid} | Read transaction |
+| [**readTransactionRule**](MxPlatformApi.md#readTransactionRule) | **GET** /users/{user_guid}/transaction_rules/{transaction_rule_guid} | Read transaction rule |
+| [**readUser**](MxPlatformApi.md#readUser) | **GET** /users/{user_guid} | Read user |
+| [**requestAuthorizationCode**](MxPlatformApi.md#requestAuthorizationCode) | **POST** /authorization_code | Request an authorization code. |
+| [**requestConnectWidgetURL**](MxPlatformApi.md#requestConnectWidgetURL) | **POST** /users/{user_guid}/connect_widget_url | Request connect widget url |
+| [**requestOAuthWindowURI**](MxPlatformApi.md#requestOAuthWindowURI) | **GET** /users/{user_guid}/members/{member_guid}/oauth_window_uri | Request oauth window uri |
+| [**requestWidgetURL**](MxPlatformApi.md#requestWidgetURL) | **POST** /users/{user_guid}/widget_urls | Request widget url |
+| [**resumeAggregation**](MxPlatformApi.md#resumeAggregation) | **PUT** /users/{user_guid}/members/{member_guid}/resume | Resume aggregation |
+| [**updateAccountByMember**](MxPlatformApi.md#updateAccountByMember) | **PUT** /users/{user_guid}/members/{member_guid}/accounts/{account_guid} | Update account by member |
+| [**updateCategory**](MxPlatformApi.md#updateCategory) | **PUT** /users/{user_guid}/categories/{category_guid} | Update category |
+| [**updateManagedAccount**](MxPlatformApi.md#updateManagedAccount) | **PUT** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Update managed account |
+| [**updateManagedMember**](MxPlatformApi.md#updateManagedMember) | **PUT** /users/{user_guid}/managed_members/{member_guid} | Update managed member |
+| [**updateManagedTransaction**](MxPlatformApi.md#updateManagedTransaction) | **PUT** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid} | Update managed transaction |
+| [**updateMember**](MxPlatformApi.md#updateMember) | **PUT** /users/{user_guid}/members/{member_guid} | Update member |
+| [**updateSpendingPlanIterationItem**](MxPlatformApi.md#updateSpendingPlanIterationItem) | **PUT** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items/{iteration_item_guid} | Update a spending plan iteration item |
+| [**updateTag**](MxPlatformApi.md#updateTag) | **PUT** /users/{user_guid}/tags/{tag_guid} | Update tag |
+| [**updateTagging**](MxPlatformApi.md#updateTagging) | **PUT** /users/{user_guid}/taggings/{tagging_guid} | Update tagging |
+| [**updateTransaction**](MxPlatformApi.md#updateTransaction) | **PUT** /users/{user_guid}/transactions/{transaction_guid} | Update transaction |
+| [**updateTransactionRule**](MxPlatformApi.md#updateTransactionRule) | **PUT** /users/{user_guid}/transaction_rules/{transaction_rule_guid} | Update transaction_rule |
+| [**updateUser**](MxPlatformApi.md#updateUser) | **PUT** /users/{user_guid} | Update user |
+| [**verifyMember**](MxPlatformApi.md#verifyMember) | **POST** /users/{user_guid}/members/{member_guid}/verify | Verify member |
 
 
-<a name="aggregateMember"></a>
+<a id="aggregateMember"></a>
 # **aggregateMember**
 > MemberResponseBody aggregateMember(memberGuid, userGuid)
 
@@ -166,10 +166,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -187,9 +187,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted |  -  |
+| **202** | Accepted |  -  |
 
-<a name="checkBalances"></a>
+<a id="checkBalances"></a>
 # **checkBalances**
 > MemberResponseBody checkBalances(memberGuid, userGuid)
 
@@ -236,10 +236,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -257,9 +257,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted |  -  |
+| **202** | Accepted |  -  |
 
-<a name="createCategory"></a>
+<a id="createCategory"></a>
 # **createCategory**
 > CategoryResponseBody createCategory(userGuid, categoryCreateRequestBody)
 
@@ -306,10 +306,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **categoryCreateRequestBody** | [**CategoryCreateRequestBody**](CategoryCreateRequestBody.md)| Custom category object to be created |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **categoryCreateRequestBody** | [**CategoryCreateRequestBody**](CategoryCreateRequestBody.md)| Custom category object to be created | |
 
 ### Return type
 
@@ -327,9 +327,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="createManagedAccount"></a>
+<a id="createManagedAccount"></a>
 # **createManagedAccount**
 > AccountResponseBody createManagedAccount(memberGuid, userGuid, managedAccountCreateRequestBody)
 
@@ -377,11 +377,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **managedAccountCreateRequestBody** | [**ManagedAccountCreateRequestBody**](ManagedAccountCreateRequestBody.md)| Managed account to be created. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **managedAccountCreateRequestBody** | [**ManagedAccountCreateRequestBody**](ManagedAccountCreateRequestBody.md)| Managed account to be created. | |
 
 ### Return type
 
@@ -399,9 +399,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | OK |  -  |
+| **202** | OK |  -  |
 
-<a name="createManagedMember"></a>
+<a id="createManagedMember"></a>
 # **createManagedMember**
 > MemberResponseBody createManagedMember(userGuid, managedMemberCreateRequestBody)
 
@@ -448,10 +448,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **managedMemberCreateRequestBody** | [**ManagedMemberCreateRequestBody**](ManagedMemberCreateRequestBody.md)| Managed member to be created. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **managedMemberCreateRequestBody** | [**ManagedMemberCreateRequestBody**](ManagedMemberCreateRequestBody.md)| Managed member to be created. | |
 
 ### Return type
 
@@ -469,9 +469,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | OK |  -  |
+| **202** | OK |  -  |
 
-<a name="createManagedTransaction"></a>
+<a id="createManagedTransaction"></a>
 # **createManagedTransaction**
 > TransactionResponseBody createManagedTransaction(accountGuid, memberGuid, userGuid, managedTransactionCreateRequestBody)
 
@@ -520,12 +520,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **managedTransactionCreateRequestBody** | [**ManagedTransactionCreateRequestBody**](ManagedTransactionCreateRequestBody.md)| Managed transaction to be created. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. | |
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **managedTransactionCreateRequestBody** | [**ManagedTransactionCreateRequestBody**](ManagedTransactionCreateRequestBody.md)| Managed transaction to be created. | |
 
 ### Return type
 
@@ -543,9 +543,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | OK |  -  |
+| **202** | OK |  -  |
 
-<a name="createManualAccount"></a>
+<a id="createManualAccount"></a>
 # **createManualAccount**
 > AccountResponseBody createManualAccount(userGuid, accountCreateRequestBody)
 
@@ -592,10 +592,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **accountCreateRequestBody** | [**AccountCreateRequestBody**](AccountCreateRequestBody.md)| Manual account object to be created. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **accountCreateRequestBody** | [**AccountCreateRequestBody**](AccountCreateRequestBody.md)| Manual account object to be created. | |
 
 ### Return type
 
@@ -613,9 +613,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="createMember"></a>
+<a id="createMember"></a>
 # **createMember**
 > MemberResponseBody createMember(userGuid, memberCreateRequestBody)
 
@@ -662,10 +662,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **memberCreateRequestBody** | [**MemberCreateRequestBody**](MemberCreateRequestBody.md)| Member object to be created with optional parameters (id and metadata) and required parameters (credentials and institution_code) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **memberCreateRequestBody** | [**MemberCreateRequestBody**](MemberCreateRequestBody.md)| Member object to be created with optional parameters (id and metadata) and required parameters (credentials and institution_code) | |
 
 ### Return type
 
@@ -683,9 +683,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted |  -  |
+| **202** | Accepted |  -  |
 
-<a name="createSpendingPlan"></a>
+<a id="createSpendingPlan"></a>
 # **createSpendingPlan**
 > SpendingPlanResponse createSpendingPlan(userGuid)
 
@@ -731,9 +731,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -751,9 +751,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="createSpendingPlanIterationItem"></a>
+<a id="createSpendingPlanIterationItem"></a>
 # **createSpendingPlanIterationItem**
 > SpendingPlanIterationItemResponse createSpendingPlanIterationItem(spendingPlanGuid, userGuid, spendingPlanIterationItemCreateRequestBody)
 
@@ -801,11 +801,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **spendingPlanIterationItemCreateRequestBody** | [**SpendingPlanIterationItemCreateRequestBody**](SpendingPlanIterationItemCreateRequestBody.md)| Iteration item to be created with required parameters (planned_amount) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **spendingPlanIterationItemCreateRequestBody** | [**SpendingPlanIterationItemCreateRequestBody**](SpendingPlanIterationItemCreateRequestBody.md)| Iteration item to be created with required parameters (planned_amount) | |
 
 ### Return type
 
@@ -823,9 +823,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="createTag"></a>
+<a id="createTag"></a>
 # **createTag**
 > TagResponseBody createTag(userGuid, tagCreateRequestBody)
 
@@ -872,10 +872,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **tagCreateRequestBody** | [**TagCreateRequestBody**](TagCreateRequestBody.md)| Tag object to be created with required parameters (tag_guid) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **tagCreateRequestBody** | [**TagCreateRequestBody**](TagCreateRequestBody.md)| Tag object to be created with required parameters (tag_guid) | |
 
 ### Return type
 
@@ -893,9 +893,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="createTagging"></a>
+<a id="createTagging"></a>
 # **createTagging**
 > TaggingResponseBody createTagging(userGuid, taggingCreateRequestBody)
 
@@ -942,10 +942,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **taggingCreateRequestBody** | [**TaggingCreateRequestBody**](TaggingCreateRequestBody.md)| Tagging object to be created with required parameters (tag_guid and transaction_guid) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **taggingCreateRequestBody** | [**TaggingCreateRequestBody**](TaggingCreateRequestBody.md)| Tagging object to be created with required parameters (tag_guid and transaction_guid) | |
 
 ### Return type
 
@@ -963,9 +963,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Accepted |  -  |
+| **200** | Accepted |  -  |
 
-<a name="createTransactionRule"></a>
+<a id="createTransactionRule"></a>
 # **createTransactionRule**
 > TransactionRuleResponseBody createTransactionRule(userGuid, transactionRuleCreateRequestBody)
 
@@ -1012,10 +1012,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **transactionRuleCreateRequestBody** | [**TransactionRuleCreateRequestBody**](TransactionRuleCreateRequestBody.md)| TransactionRule object to be created with optional parameters (description) and required parameters (category_guid and match_description) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **transactionRuleCreateRequestBody** | [**TransactionRuleCreateRequestBody**](TransactionRuleCreateRequestBody.md)| TransactionRule object to be created with optional parameters (description) and required parameters (category_guid and match_description) | |
 
 ### Return type
 
@@ -1033,9 +1033,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="createUser"></a>
+<a id="createUser"></a>
 # **createUser**
 > UserResponseBody createUser(userCreateRequestBody)
 
@@ -1081,9 +1081,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userCreateRequestBody** | [**UserCreateRequestBody**](UserCreateRequestBody.md)| User object to be created. (None of these parameters are required, but the user object cannot be empty) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userCreateRequestBody** | [**UserCreateRequestBody**](UserCreateRequestBody.md)| User object to be created. (None of these parameters are required, but the user object cannot be empty) | |
 
 ### Return type
 
@@ -1101,9 +1101,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="deleteCategory"></a>
+<a id="deleteCategory"></a>
 # **deleteCategory**
 > deleteCategory(categoryGuid, userGuid)
 
@@ -1149,10 +1149,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **categoryGuid** | **String**| The unique id for a &#x60;category&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **categoryGuid** | **String**| The unique id for a &#x60;category&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -1170,9 +1170,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
+| **204** | No Content |  -  |
 
-<a name="deleteManagedAccount"></a>
+<a id="deleteManagedAccount"></a>
 # **deleteManagedAccount**
 > deleteManagedAccount(accountGuid, memberGuid, userGuid)
 
@@ -1219,11 +1219,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. | |
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -1241,9 +1241,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
+| **204** | No Content |  -  |
 
-<a name="deleteManagedMember"></a>
+<a id="deleteManagedMember"></a>
 # **deleteManagedMember**
 > deleteManagedMember(memberGuid, userGuid)
 
@@ -1289,10 +1289,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -1310,9 +1310,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
+| **204** | No Content |  -  |
 
-<a name="deleteManagedTransaction"></a>
+<a id="deleteManagedTransaction"></a>
 # **deleteManagedTransaction**
 > deleteManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid)
 
@@ -1360,12 +1360,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **transactionGuid** | **String**| The unique id for a &#x60;transaction&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. | |
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **transactionGuid** | **String**| The unique id for a &#x60;transaction&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -1383,9 +1383,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
+| **204** | No Content |  -  |
 
-<a name="deleteManualAccount"></a>
+<a id="deleteManualAccount"></a>
 # **deleteManualAccount**
 > deleteManualAccount(accountGuid, userGuid)
 
@@ -1431,10 +1431,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -1452,9 +1452,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No content. |  -  |
+| **204** | No content. |  -  |
 
-<a name="deleteMember"></a>
+<a id="deleteMember"></a>
 # **deleteMember**
 > deleteMember(memberGuid, userGuid)
 
@@ -1500,10 +1500,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -1521,9 +1521,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
+| **204** | No Content |  -  |
 
-<a name="deleteSpendingPlan"></a>
+<a id="deleteSpendingPlan"></a>
 # **deleteSpendingPlan**
 > deleteSpendingPlan(userGuid, spendingPlanGuid)
 
@@ -1569,10 +1569,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique ID for a &#x60;user&#x60;. |
- **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique ID for a &#x60;user&#x60;. | |
+| **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
 
 ### Return type
 
@@ -1590,9 +1590,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
+| **204** | No Content |  -  |
 
-<a name="deleteSpendingPlanAccount"></a>
+<a id="deleteSpendingPlanAccount"></a>
 # **deleteSpendingPlanAccount**
 > deleteSpendingPlanAccount(userGuid, spendingPlanGuid, spendingPlanAccountGuid)
 
@@ -1639,11 +1639,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique ID for a &#x60;user&#x60;. |
- **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. |
- **spendingPlanAccountGuid** | **String**| The unique ID for the specified account. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique ID for a &#x60;user&#x60;. | |
+| **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
+| **spendingPlanAccountGuid** | **String**| The unique ID for the specified account. | |
 
 ### Return type
 
@@ -1661,9 +1661,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
+| **204** | No Content |  -  |
 
-<a name="deleteSpendingPlanIterationItem"></a>
+<a id="deleteSpendingPlanIterationItem"></a>
 # **deleteSpendingPlanIterationItem**
 > deleteSpendingPlanIterationItem(userGuid, spendingPlanGuid, iterationItemGuid)
 
@@ -1710,11 +1710,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique ID for a &#x60;user&#x60;. |
- **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. |
- **iterationItemGuid** | **String**| The unique ID for the &#x60;iteration_item&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique ID for a &#x60;user&#x60;. | |
+| **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
+| **iterationItemGuid** | **String**| The unique ID for the &#x60;iteration_item&#x60;. | |
 
 ### Return type
 
@@ -1732,9 +1732,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
+| **204** | No Content |  -  |
 
-<a name="deleteTag"></a>
+<a id="deleteTag"></a>
 # **deleteTag**
 > deleteTag(tagGuid, userGuid)
 
@@ -1780,10 +1780,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tagGuid** | **String**| The unique id for a &#x60;tag&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tagGuid** | **String**| The unique id for a &#x60;tag&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -1801,9 +1801,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
+| **204** | No Content |  -  |
 
-<a name="deleteTagging"></a>
+<a id="deleteTagging"></a>
 # **deleteTagging**
 > deleteTagging(taggingGuid, userGuid)
 
@@ -1849,10 +1849,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **taggingGuid** | **String**| The unique id for a &#x60;tagging&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **taggingGuid** | **String**| The unique id for a &#x60;tagging&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -1870,9 +1870,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
+| **204** | No Content |  -  |
 
-<a name="deleteTransactionRule"></a>
+<a id="deleteTransactionRule"></a>
 # **deleteTransactionRule**
 > deleteTransactionRule(transactionRuleGuid, userGuid)
 
@@ -1918,10 +1918,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **transactionRuleGuid** | **String**| The unique id for a &#x60;transaction_rule&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **transactionRuleGuid** | **String**| The unique id for a &#x60;transaction_rule&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -1939,9 +1939,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
+| **204** | No Content |  -  |
 
-<a name="deleteUser"></a>
+<a id="deleteUser"></a>
 # **deleteUser**
 > deleteUser(userGuid)
 
@@ -1986,9 +1986,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -2006,9 +2006,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | No Content |  -  |
+| **204** | No Content |  -  |
 
-<a name="deprecatedRequestPaymentProcessorAuthorizationCode"></a>
+<a id="deprecatedRequestPaymentProcessorAuthorizationCode"></a>
 # **deprecatedRequestPaymentProcessorAuthorizationCode**
 > PaymentProcessorAuthorizationCodeResponseBody deprecatedRequestPaymentProcessorAuthorizationCode(paymentProcessorAuthorizationCodeRequestBody)
 
@@ -2054,9 +2054,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **paymentProcessorAuthorizationCodeRequestBody** | [**PaymentProcessorAuthorizationCodeRequestBody**](PaymentProcessorAuthorizationCodeRequestBody.md)| The scope for the authorization code. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **paymentProcessorAuthorizationCodeRequestBody** | [**PaymentProcessorAuthorizationCodeRequestBody**](PaymentProcessorAuthorizationCodeRequestBody.md)| The scope for the authorization code. | |
 
 ### Return type
 
@@ -2074,9 +2074,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="downloadStatementPDF"></a>
+<a id="downloadStatementPDF"></a>
 # **downloadStatementPDF**
 > File downloadStatementPDF(memberGuid, statementGuid, userGuid)
 
@@ -2124,11 +2124,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **statementGuid** | **String**| The unique id for a &#x60;statement&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **statementGuid** | **String**| The unique id for a &#x60;statement&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -2146,9 +2146,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="downloadTaxDocument"></a>
+<a id="downloadTaxDocument"></a>
 # **downloadTaxDocument**
 > File downloadTaxDocument(taxDocumentGuid, memberGuid, userGuid)
 
@@ -2196,11 +2196,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **taxDocumentGuid** | **String**| The unique id for a &#x60;tax_document&#x60;. |
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **taxDocumentGuid** | **String**| The unique id for a &#x60;tax_document&#x60;. | |
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -2218,9 +2218,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="enhanceTransactions"></a>
+<a id="enhanceTransactions"></a>
 # **enhanceTransactions**
 > EnhanceTransactionsResponseBody enhanceTransactions(enhanceTransactionsRequestBody)
 
@@ -2266,9 +2266,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **enhanceTransactionsRequestBody** | [**EnhanceTransactionsRequestBody**](EnhanceTransactionsRequestBody.md)| Transaction object to be enhanced |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **enhanceTransactionsRequestBody** | [**EnhanceTransactionsRequestBody**](EnhanceTransactionsRequestBody.md)| Transaction object to be enhanced | |
 
 ### Return type
 
@@ -2286,9 +2286,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="extendHistory"></a>
+<a id="extendHistory"></a>
 # **extendHistory**
 > MemberResponseBody extendHistory(memberGuid, userGuid)
 
@@ -2335,10 +2335,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique identifier for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique identifier for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -2356,9 +2356,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted |  -  |
+| **202** | Accepted |  -  |
 
-<a name="fetchStatements"></a>
+<a id="fetchStatements"></a>
 # **fetchStatements**
 > MemberResponseBody fetchStatements(memberGuid, userGuid)
 
@@ -2405,10 +2405,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -2426,9 +2426,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted |  -  |
+| **202** | Accepted |  -  |
 
-<a name="fetchTaxDocuments"></a>
+<a id="fetchTaxDocuments"></a>
 # **fetchTaxDocuments**
 > MemberResponseBody fetchTaxDocuments(memberGuid, userGuid)
 
@@ -2475,10 +2475,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -2496,9 +2496,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted |  -  |
+| **202** | Accepted |  -  |
 
-<a name="identifyMember"></a>
+<a id="identifyMember"></a>
 # **identifyMember**
 > MemberResponseBody identifyMember(memberGuid, userGuid)
 
@@ -2545,10 +2545,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -2566,9 +2566,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted |  -  |
+| **202** | Accepted |  -  |
 
-<a name="listAccountNumbersByAccount"></a>
+<a id="listAccountNumbersByAccount"></a>
 # **listAccountNumbersByAccount**
 > AccountNumbersResponseBody listAccountNumbersByAccount(accountGuid, userGuid, page, recordsPerPage)
 
@@ -2617,12 +2617,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -2640,9 +2640,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listAccountNumbersByMember"></a>
+<a id="listAccountNumbersByMember"></a>
 # **listAccountNumbersByMember**
 > AccountNumbersResponseBody listAccountNumbersByMember(memberGuid, userGuid, page, recordsPerPage)
 
@@ -2691,12 +2691,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -2714,9 +2714,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listAccountOwnersByMember"></a>
+<a id="listAccountOwnersByMember"></a>
 # **listAccountOwnersByMember**
 > AccountOwnersResponseBody listAccountOwnersByMember(memberGuid, userGuid, page, recordsPerPage)
 
@@ -2765,12 +2765,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -2788,9 +2788,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listCategories"></a>
+<a id="listCategories"></a>
 # **listCategories**
 > CategoriesResponseBody listCategories(userGuid, page, recordsPerPage)
 
@@ -2838,11 +2838,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -2860,9 +2860,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listDefaultCategories"></a>
+<a id="listDefaultCategories"></a>
 # **listDefaultCategories**
 > CategoriesResponseBody listDefaultCategories(page, recordsPerPage)
 
@@ -2909,10 +2909,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -2930,9 +2930,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listDefaultCategoriesByUser"></a>
+<a id="listDefaultCategoriesByUser"></a>
 # **listDefaultCategoriesByUser**
 > CategoriesResponseBody listDefaultCategoriesByUser(userGuid, page, recordsPerPage)
 
@@ -2980,11 +2980,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -3002,9 +3002,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listFavoriteInstitutions"></a>
+<a id="listFavoriteInstitutions"></a>
 # **listFavoriteInstitutions**
 > InstitutionsResponseBody listFavoriteInstitutions(page, recordsPerPage)
 
@@ -3051,10 +3051,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -3072,9 +3072,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listHoldings"></a>
+<a id="listHoldings"></a>
 # **listHoldings**
 > HoldingsResponseBody listHoldings(userGuid, fromDate, page, recordsPerPage, toDate)
 
@@ -3124,13 +3124,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **fromDate** | **String**| Filter holdings from this date. | [optional]
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
- **toDate** | **String**| Filter holdings to this date. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **fromDate** | **String**| Filter holdings from this date. | [optional] |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **toDate** | **String**| Filter holdings to this date. | [optional] |
 
 ### Return type
 
@@ -3148,9 +3148,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listHoldingsByAccount"></a>
+<a id="listHoldingsByAccount"></a>
 # **listHoldingsByAccount**
 > HoldingsResponseBody listHoldingsByAccount(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate)
 
@@ -3201,14 +3201,14 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountGuid** | **String**| The unique id for the &#x60;account&#x60;. |
- **userGuid** | **String**| The unique id for the &#x60;user&#x60;. |
- **fromDate** | **String**| Filter holdings from this date. | [optional]
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
- **toDate** | **String**| Filter holdings to this date. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountGuid** | **String**| The unique id for the &#x60;account&#x60;. | |
+| **userGuid** | **String**| The unique id for the &#x60;user&#x60;. | |
+| **fromDate** | **String**| Filter holdings from this date. | [optional] |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **toDate** | **String**| Filter holdings to this date. | [optional] |
 
 ### Return type
 
@@ -3226,9 +3226,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listHoldingsByMember"></a>
+<a id="listHoldingsByMember"></a>
 # **listHoldingsByMember**
 > HoldingsResponseBody listHoldingsByMember(memberGuid, userGuid, fromDate, page, recordsPerPage, toDate)
 
@@ -3279,14 +3279,14 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **fromDate** | **String**| Filter holdings from this date. | [optional]
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
- **toDate** | **String**| Filter holdings to this date. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **fromDate** | **String**| Filter holdings from this date. | [optional] |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **toDate** | **String**| Filter holdings to this date. | [optional] |
 
 ### Return type
 
@@ -3304,9 +3304,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listInstitutionCredentials"></a>
+<a id="listInstitutionCredentials"></a>
 # **listInstitutionCredentials**
 > CredentialsResponseBody listInstitutionCredentials(institutionCode, page, recordsPerPage)
 
@@ -3354,11 +3354,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **institutionCode** | **String**| The institution_code of the institution. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **institutionCode** | **String**| The institution_code of the institution. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -3376,9 +3376,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listInstitutions"></a>
+<a id="listInstitutions"></a>
 # **listInstitutions**
 > InstitutionsResponseBody listInstitutions(name, page, recordsPerPage, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory)
 
@@ -3430,15 +3430,15 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| This will list only institutions in which the appended string appears. | [optional]
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
- **supportsAccountIdentification** | **Boolean**| Filter only institutions which support account identification. | [optional]
- **supportsAccountStatement** | **Boolean**| Filter only institutions which support account statements. | [optional]
- **supportsAccountVerification** | **Boolean**| Filter only institutions which support account verification. | [optional]
- **supportsTransactionHistory** | **Boolean**| Filter only institutions which support extended transaction history. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **name** | **String**| This will list only institutions in which the appended string appears. | [optional] |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **supportsAccountIdentification** | **Boolean**| Filter only institutions which support account identification. | [optional] |
+| **supportsAccountStatement** | **Boolean**| Filter only institutions which support account statements. | [optional] |
+| **supportsAccountVerification** | **Boolean**| Filter only institutions which support account verification. | [optional] |
+| **supportsTransactionHistory** | **Boolean**| Filter only institutions which support extended transaction history. | [optional] |
 
 ### Return type
 
@@ -3456,9 +3456,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listManagedAccounts"></a>
+<a id="listManagedAccounts"></a>
 # **listManagedAccounts**
 > AccountsResponseBody listManagedAccounts(memberGuid, userGuid, page, recordsPerPage)
 
@@ -3507,12 +3507,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -3530,9 +3530,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listManagedInstitutions"></a>
+<a id="listManagedInstitutions"></a>
 # **listManagedInstitutions**
 > InstitutionsResponseBody listManagedInstitutions(page, recordsPerPage)
 
@@ -3579,10 +3579,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -3600,9 +3600,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listManagedMembers"></a>
+<a id="listManagedMembers"></a>
 # **listManagedMembers**
 > MembersResponseBody listManagedMembers(userGuid, page, recordsPerPage)
 
@@ -3650,11 +3650,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -3672,9 +3672,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listManagedTransactions"></a>
+<a id="listManagedTransactions"></a>
 # **listManagedTransactions**
 > TransactionsResponseBody listManagedTransactions(accountGuid, memberGuid, userGuid, page, recordsPerPage)
 
@@ -3724,13 +3724,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. | |
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -3748,9 +3748,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listMemberAccounts"></a>
+<a id="listMemberAccounts"></a>
 # **listMemberAccounts**
 > AccountsResponseBody listMemberAccounts(userGuid, memberGuid, memberIsManagedByUser, page, recordsPerPage)
 
@@ -3800,13 +3800,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **memberIsManagedByUser** | **Boolean**| List only accounts whose member is managed by the user. | [optional]
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **memberIsManagedByUser** | **Boolean**| List only accounts whose member is managed by the user. | [optional] |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -3824,9 +3824,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listMemberChallenges"></a>
+<a id="listMemberChallenges"></a>
 # **listMemberChallenges**
 > ChallengesResponseBody listMemberChallenges(memberGuid, userGuid, page, recordsPerPage)
 
@@ -3875,12 +3875,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -3898,9 +3898,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listMemberCredentials"></a>
+<a id="listMemberCredentials"></a>
 # **listMemberCredentials**
 > CredentialsResponseBody listMemberCredentials(memberGuid, userGuid, page, recordsPerPage)
 
@@ -3949,12 +3949,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -3972,9 +3972,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listMembers"></a>
+<a id="listMembers"></a>
 # **listMembers**
 > MembersResponseBody listMembers(userGuid, page, recordsPerPage)
 
@@ -4022,11 +4022,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -4044,9 +4044,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listMerchants"></a>
+<a id="listMerchants"></a>
 # **listMerchants**
 > MerchantsResponseBody listMerchants(page, recordsPerPage)
 
@@ -4093,10 +4093,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -4114,9 +4114,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listSpendingPlanAccounts"></a>
+<a id="listSpendingPlanAccounts"></a>
 # **listSpendingPlanAccounts**
 > SpendingPlanAccountsResponse listSpendingPlanAccounts(userGuid, spendingPlanGuid, page, recordsPerPage)
 
@@ -4165,12 +4165,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -4188,9 +4188,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listSpendingPlanIterationItems"></a>
+<a id="listSpendingPlanIterationItems"></a>
 # **listSpendingPlanIterationItems**
 > SpendingPlanIterationItemsResponseBody listSpendingPlanIterationItems(userGuid, spendingPlanGuid, page, recordsPerPage)
 
@@ -4239,12 +4239,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -4262,9 +4262,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listSpendingPlanIterations"></a>
+<a id="listSpendingPlanIterations"></a>
 # **listSpendingPlanIterations**
 > SpendingPlanIterationsResponse listSpendingPlanIterations(userGuid, spendingPlanGuid, page, recordsPerPage)
 
@@ -4313,12 +4313,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -4336,9 +4336,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listSpendingPlans"></a>
+<a id="listSpendingPlans"></a>
 # **listSpendingPlans**
 > SpendingPlansResponseBody listSpendingPlans(userGuid, page, recordsPerPage)
 
@@ -4386,11 +4386,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -4408,9 +4408,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listStatementsByMember"></a>
+<a id="listStatementsByMember"></a>
 # **listStatementsByMember**
 > StatementsResponseBody listStatementsByMember(memberGuid, userGuid, page, recordsPerPage)
 
@@ -4459,12 +4459,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -4482,9 +4482,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listTaggings"></a>
+<a id="listTaggings"></a>
 # **listTaggings**
 > TaggingsResponseBody listTaggings(userGuid, page, recordsPerPage)
 
@@ -4532,11 +4532,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -4554,9 +4554,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listTags"></a>
+<a id="listTags"></a>
 # **listTags**
 > TagsResponseBody listTags(userGuid, page, recordsPerPage)
 
@@ -4604,11 +4604,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -4626,9 +4626,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listTaxDocuments"></a>
+<a id="listTaxDocuments"></a>
 # **listTaxDocuments**
 > TaxDocumentsResponseBody listTaxDocuments(memberGuid, userGuid, page, recordsPerPage)
 
@@ -4677,12 +4677,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -4700,9 +4700,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listTransactionRules"></a>
+<a id="listTransactionRules"></a>
 # **listTransactionRules**
 > TransactionRulesResponseBody listTransactionRules(userGuid, page, recordsPerPage)
 
@@ -4750,11 +4750,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -4772,9 +4772,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listTransactions"></a>
+<a id="listTransactions"></a>
 # **listTransactions**
 > TransactionsResponseBody listTransactions(userGuid, fromDate, page, recordsPerPage, toDate)
 
@@ -4824,13 +4824,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **fromDate** | **String**| Filter transactions from this date. | [optional]
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
- **toDate** | **String**| Filter transactions to this date. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **fromDate** | **String**| Filter transactions from this date. | [optional] |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **toDate** | **String**| Filter transactions to this date. | [optional] |
 
 ### Return type
 
@@ -4848,9 +4848,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listTransactionsByAccount"></a>
+<a id="listTransactionsByAccount"></a>
 # **listTransactionsByAccount**
 > TransactionsResponseBody listTransactionsByAccount(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate)
 
@@ -4901,14 +4901,14 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **fromDate** | **String**| Filter transactions from this date. | [optional]
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
- **toDate** | **String**| Filter transactions to this date. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **fromDate** | **String**| Filter transactions from this date. | [optional] |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **toDate** | **String**| Filter transactions to this date. | [optional] |
 
 ### Return type
 
@@ -4926,9 +4926,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listTransactionsByMember"></a>
+<a id="listTransactionsByMember"></a>
 # **listTransactionsByMember**
 > TransactionsResponseBody listTransactionsByMember(memberGuid, userGuid, fromDate, page, recordsPerPage, toDate)
 
@@ -4979,14 +4979,14 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **fromDate** | **String**| Filter transactions from this date. | [optional]
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
- **toDate** | **String**| Filter transactions to this date. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **fromDate** | **String**| Filter transactions from this date. | [optional] |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **toDate** | **String**| Filter transactions to this date. | [optional] |
 
 ### Return type
 
@@ -5004,9 +5004,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listTransactionsByTag"></a>
+<a id="listTransactionsByTag"></a>
 # **listTransactionsByTag**
 > TransactionsResponseBody listTransactionsByTag(tagGuid, userGuid, fromDate, page, recordsPerPage, toDate)
 
@@ -5057,14 +5057,14 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tagGuid** | **String**| The unique id for a &#x60;tag&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **fromDate** | **String**| Filter transactions from this date. | [optional]
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
- **toDate** | **String**| Filter transactions to this date. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tagGuid** | **String**| The unique id for a &#x60;tag&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **fromDate** | **String**| Filter transactions from this date. | [optional] |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **toDate** | **String**| Filter transactions to this date. | [optional] |
 
 ### Return type
 
@@ -5082,9 +5082,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listUserAccounts"></a>
+<a id="listUserAccounts"></a>
 # **listUserAccounts**
 > AccountsResponseBody listUserAccounts(userGuid, memberIsManagedByUser, page, isManual, recordsPerPage)
 
@@ -5134,13 +5134,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **memberIsManagedByUser** | **Boolean**| List only accounts whose member is managed by the user. | [optional]
- **page** | **Integer**| Specify current page. | [optional]
- **isManual** | **Boolean**| List only accounts that were manually created. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **memberIsManagedByUser** | **Boolean**| List only accounts whose member is managed by the user. | [optional] |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **isManual** | **Boolean**| List only accounts that were manually created. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -5158,9 +5158,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="listUsers"></a>
+<a id="listUsers"></a>
 # **listUsers**
 > UsersResponseBody listUsers(page, recordsPerPage, id, email, isDisabled)
 
@@ -5210,13 +5210,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
- **id** | **String**| The user &#x60;id&#x60; to search for. | [optional]
- **email** | **String**| The user &#x60;email&#x60; to search for. | [optional]
- **isDisabled** | **Boolean**| Search for users that are diabled. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **id** | **String**| The user &#x60;id&#x60; to search for. | [optional] |
+| **email** | **String**| The user &#x60;email&#x60; to search for. | [optional] |
+| **isDisabled** | **Boolean**| Search for users that are diabled. | [optional] |
 
 ### Return type
 
@@ -5234,9 +5234,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readAccount"></a>
+<a id="readAccount"></a>
 # **readAccount**
 > AccountResponseBody readAccount(accountGuid, userGuid)
 
@@ -5283,10 +5283,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -5304,9 +5304,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readAccountByMember"></a>
+<a id="readAccountByMember"></a>
 # **readAccountByMember**
 > AccountResponseBody readAccountByMember(accountGuid, memberGuid, userGuid)
 
@@ -5354,11 +5354,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. | |
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -5376,9 +5376,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readCategory"></a>
+<a id="readCategory"></a>
 # **readCategory**
 > CategoryResponseBody readCategory(categoryGuid, userGuid)
 
@@ -5425,10 +5425,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **categoryGuid** | **String**| The unique id for a &#x60;category&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **categoryGuid** | **String**| The unique id for a &#x60;category&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -5446,9 +5446,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readDefaultCategory"></a>
+<a id="readDefaultCategory"></a>
 # **readDefaultCategory**
 > CategoryResponseBody readDefaultCategory(categoryGuid)
 
@@ -5494,9 +5494,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **categoryGuid** | **String**| The unique id for a &#x60;category&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **categoryGuid** | **String**| The unique id for a &#x60;category&#x60;. | |
 
 ### Return type
 
@@ -5514,9 +5514,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readHolding"></a>
+<a id="readHolding"></a>
 # **readHolding**
 > HoldingResponseBody readHolding(holdingGuid, userGuid)
 
@@ -5563,10 +5563,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **holdingGuid** | **String**| The unique id for a &#x60;holding&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **holdingGuid** | **String**| The unique id for a &#x60;holding&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -5584,9 +5584,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readInstitution"></a>
+<a id="readInstitution"></a>
 # **readInstitution**
 > InstitutionResponseBody readInstitution(institutionCode)
 
@@ -5632,9 +5632,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **institutionCode** | **String**| The institution_code of the institution. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **institutionCode** | **String**| The institution_code of the institution. | |
 
 ### Return type
 
@@ -5652,9 +5652,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readManagedAccount"></a>
+<a id="readManagedAccount"></a>
 # **readManagedAccount**
 > AccountResponseBody readManagedAccount(accountGuid, memberGuid, userGuid)
 
@@ -5702,11 +5702,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. | |
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -5724,9 +5724,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readManagedMember"></a>
+<a id="readManagedMember"></a>
 # **readManagedMember**
 > MemberResponseBody readManagedMember(memberGuid, userGuid)
 
@@ -5773,10 +5773,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -5794,9 +5794,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readManagedTransaction"></a>
+<a id="readManagedTransaction"></a>
 # **readManagedTransaction**
 > TransactionResponseBody readManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid)
 
@@ -5845,12 +5845,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **transactionGuid** | **String**| The unique id for a &#x60;transaction&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. | |
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **transactionGuid** | **String**| The unique id for a &#x60;transaction&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -5868,9 +5868,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readMember"></a>
+<a id="readMember"></a>
 # **readMember**
 > MemberResponseBody readMember(memberGuid, userGuid)
 
@@ -5917,10 +5917,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -5938,9 +5938,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readMemberStatus"></a>
+<a id="readMemberStatus"></a>
 # **readMemberStatus**
 > MemberStatusResponseBody readMemberStatus(memberGuid, userGuid)
 
@@ -5987,10 +5987,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -6008,9 +6008,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readMerchant"></a>
+<a id="readMerchant"></a>
 # **readMerchant**
 > MerchantResponseBody readMerchant(merchantGuid)
 
@@ -6056,9 +6056,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **merchantGuid** | **String**| The unique id for a &#x60;merchant&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **merchantGuid** | **String**| The unique id for a &#x60;merchant&#x60;. | |
 
 ### Return type
 
@@ -6076,9 +6076,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readMerchantLocation"></a>
+<a id="readMerchantLocation"></a>
 # **readMerchantLocation**
 > MerchantLocationResponseBody readMerchantLocation(merchantLocationGuid)
 
@@ -6124,9 +6124,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **merchantLocationGuid** | **String**| The unique id for a &#x60;merchant_location&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **merchantLocationGuid** | **String**| The unique id for a &#x60;merchant_location&#x60;. | |
 
 ### Return type
 
@@ -6144,9 +6144,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readSpendingPlanAccount"></a>
+<a id="readSpendingPlanAccount"></a>
 # **readSpendingPlanAccount**
 > SpendingPlanAccountResponse readSpendingPlanAccount(userGuid, spendingPlanGuid, spendingPlanAccountGuid, page, recordsPerPage)
 
@@ -6196,13 +6196,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. |
- **spendingPlanAccountGuid** | **String**| The unique ID for the specified account. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
+| **spendingPlanAccountGuid** | **String**| The unique ID for the specified account. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -6220,9 +6220,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readSpendingPlanIteration"></a>
+<a id="readSpendingPlanIteration"></a>
 # **readSpendingPlanIteration**
 > SpendingPlanIterationResponse readSpendingPlanIteration(userGuid, spendingPlanGuid, iterationNumber, page, recordsPerPage)
 
@@ -6272,13 +6272,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. |
- **iterationNumber** | **Integer**| The current iteration number for the spending plan &#x60;iteration&#x60;&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
+| **iterationNumber** | **Integer**| The current iteration number for the spending plan &#x60;iteration&#x60;&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -6296,9 +6296,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readSpendingPlanIterationItem"></a>
+<a id="readSpendingPlanIterationItem"></a>
 # **readSpendingPlanIterationItem**
 > SpendingPlanIterationItemResponse readSpendingPlanIterationItem(userGuid, spendingPlanGuid, iterationItemGuid, page, recordsPerPage)
 
@@ -6348,13 +6348,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. |
- **iterationItemGuid** | **String**| The unique ID for the &#x60;iteration_item&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
+| **iterationItemGuid** | **String**| The unique ID for the &#x60;iteration_item&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -6372,9 +6372,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readSpendingPlanUser"></a>
+<a id="readSpendingPlanUser"></a>
 # **readSpendingPlanUser**
 > SpendingPlanResponse readSpendingPlanUser(userGuid, spendingPlanGuid, page, recordsPerPage)
 
@@ -6423,12 +6423,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. |
- **page** | **Integer**| Specify current page. | [optional]
- **recordsPerPage** | **Integer**| Specify records per page. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
+| **page** | **Integer**| Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
 
 ### Return type
 
@@ -6446,9 +6446,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readStatementByMember"></a>
+<a id="readStatementByMember"></a>
 # **readStatementByMember**
 > StatementResponseBody readStatementByMember(memberGuid, statementGuid, userGuid)
 
@@ -6496,11 +6496,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **statementGuid** | **String**| The unique id for a &#x60;statement&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **statementGuid** | **String**| The unique id for a &#x60;statement&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -6518,9 +6518,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readTag"></a>
+<a id="readTag"></a>
 # **readTag**
 > TagResponseBody readTag(tagGuid, userGuid)
 
@@ -6567,10 +6567,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tagGuid** | **String**| The unique id for a &#x60;tag&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tagGuid** | **String**| The unique id for a &#x60;tag&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -6588,9 +6588,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readTagging"></a>
+<a id="readTagging"></a>
 # **readTagging**
 > TaggingResponseBody readTagging(taggingGuid, userGuid)
 
@@ -6637,10 +6637,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **taggingGuid** | **String**| The unique id for a &#x60;tagging&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **taggingGuid** | **String**| The unique id for a &#x60;tagging&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -6658,9 +6658,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readTaxDocument"></a>
+<a id="readTaxDocument"></a>
 # **readTaxDocument**
 > TaxDocumentResponseBody readTaxDocument(taxDocumentGuid, memberGuid, userGuid)
 
@@ -6708,11 +6708,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **taxDocumentGuid** | **String**| The unique id for a &#x60;tax_document&#x60;. |
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **taxDocumentGuid** | **String**| The unique id for a &#x60;tax_document&#x60;. | |
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -6730,9 +6730,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readTransaction"></a>
+<a id="readTransaction"></a>
 # **readTransaction**
 > TransactionResponseBody readTransaction(transactionGuid, userGuid)
 
@@ -6779,10 +6779,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **transactionGuid** | **String**| The unique id for a &#x60;transaction&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **transactionGuid** | **String**| The unique id for a &#x60;transaction&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -6800,9 +6800,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readTransactionRule"></a>
+<a id="readTransactionRule"></a>
 # **readTransactionRule**
 > TransactionRuleResponseBody readTransactionRule(transactionRuleGuid, userGuid)
 
@@ -6849,10 +6849,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **transactionRuleGuid** | **String**| The unique id for a &#x60;transaction_rule&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **transactionRuleGuid** | **String**| The unique id for a &#x60;transaction_rule&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -6870,9 +6870,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="readUser"></a>
+<a id="readUser"></a>
 # **readUser**
 > UserResponseBody readUser(userGuid)
 
@@ -6918,9 +6918,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -6938,9 +6938,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="requestAuthorizationCode"></a>
+<a id="requestAuthorizationCode"></a>
 # **requestAuthorizationCode**
 > AuthorizationCodeResponseBody requestAuthorizationCode(authorizationCodeRequestBody)
 
@@ -6986,9 +6986,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authorizationCodeRequestBody** | [**AuthorizationCodeRequestBody**](AuthorizationCodeRequestBody.md)| The scope for the authorization code. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **authorizationCodeRequestBody** | [**AuthorizationCodeRequestBody**](AuthorizationCodeRequestBody.md)| The scope for the authorization code. | |
 
 ### Return type
 
@@ -7006,9 +7006,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="requestConnectWidgetURL"></a>
+<a id="requestConnectWidgetURL"></a>
 # **requestConnectWidgetURL**
 > ConnectWidgetResponseBody requestConnectWidgetURL(userGuid, connectWidgetRequestBody)
 
@@ -7055,10 +7055,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **connectWidgetRequestBody** | [**ConnectWidgetRequestBody**](ConnectWidgetRequestBody.md)| Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **connectWidgetRequestBody** | [**ConnectWidgetRequestBody**](ConnectWidgetRequestBody.md)| Optional config options for WebView (is_mobile_webview, current_institution_code, current_member_guid, update_credentials) | |
 
 ### Return type
 
@@ -7076,9 +7076,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="requestOAuthWindowURI"></a>
+<a id="requestOAuthWindowURI"></a>
 # **requestOAuthWindowURI**
 > OAuthWindowResponseBody requestOAuthWindowURI(memberGuid, userGuid, clientRedirectUrl, enableApp2app, referralSource, skipAggregation, uiMessageWebviewUrlScheme)
 
@@ -7130,15 +7130,15 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **clientRedirectUrl** | **String**| A URL that MX will redirect to at the end of OAuth with additional query parameters. Only available with &#x60;referral_source&#x3D;APP&#x60;. | [optional]
- **enableApp2app** | **String**| This indicates whether OAuth app2app behavior is enabled for institutions that support it. Defaults to &#x60;true&#x60;. This setting is not persistent. | [optional]
- **referralSource** | **String**| Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. | [optional]
- **skipAggregation** | **Boolean**| Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. | [optional]
- **uiMessageWebviewUrlScheme** | **String**| A scheme for routing the user back to the application state they were previously in. Only available with &#x60;referral_source&#x3D;APP&#x60;. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **clientRedirectUrl** | **String**| A URL that MX will redirect to at the end of OAuth with additional query parameters. Only available with &#x60;referral_source&#x3D;APP&#x60;. | [optional] |
+| **enableApp2app** | **String**| This indicates whether OAuth app2app behavior is enabled for institutions that support it. Defaults to &#x60;true&#x60;. This setting is not persistent. | [optional] |
+| **referralSource** | **String**| Must be either &#x60;BROWSER&#x60; or &#x60;APP&#x60; depending on the implementation. Defaults to &#x60;BROWSER&#x60;. | [optional] |
+| **skipAggregation** | **Boolean**| Setting this parameter to &#x60;true&#x60; will prevent the member from automatically aggregating after being redirected from the authorization page. | [optional] |
+| **uiMessageWebviewUrlScheme** | **String**| A scheme for routing the user back to the application state they were previously in. Only available with &#x60;referral_source&#x3D;APP&#x60;. | [optional] |
 
 ### Return type
 
@@ -7156,9 +7156,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="requestWidgetURL"></a>
+<a id="requestWidgetURL"></a>
 # **requestWidgetURL**
 > WidgetResponseBody requestWidgetURL(userGuid, widgetRequestBody, acceptLanguage)
 
@@ -7206,11 +7206,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **widgetRequestBody** | [**WidgetRequestBody**](WidgetRequestBody.md)| The widget url configuration options. |
- **acceptLanguage** | **String**| The desired language of the widget. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **widgetRequestBody** | [**WidgetRequestBody**](WidgetRequestBody.md)| The widget url configuration options. | |
+| **acceptLanguage** | **String**| The desired language of the widget. | [optional] |
 
 ### Return type
 
@@ -7228,9 +7228,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="resumeAggregation"></a>
+<a id="resumeAggregation"></a>
 # **resumeAggregation**
 > MemberResponseBody resumeAggregation(memberGuid, userGuid, memberResumeRequestBody)
 
@@ -7278,11 +7278,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **memberResumeRequestBody** | [**MemberResumeRequestBody**](MemberResumeRequestBody.md)| Member object with MFA challenge answers |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **memberResumeRequestBody** | [**MemberResumeRequestBody**](MemberResumeRequestBody.md)| Member object with MFA challenge answers | |
 
 ### Return type
 
@@ -7300,9 +7300,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**202** | Accepted |  -  |
+| **202** | Accepted |  -  |
 
-<a name="updateAccountByMember"></a>
+<a id="updateAccountByMember"></a>
 # **updateAccountByMember**
 > AccountResponseBody updateAccountByMember(accountGuid, memberGuid, userGuid, accountUpdateRequestBody)
 
@@ -7351,12 +7351,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **accountUpdateRequestBody** | [**AccountUpdateRequestBody**](AccountUpdateRequestBody.md)| Account object to be created with optional parameters (is_hidden) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. | |
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **accountUpdateRequestBody** | [**AccountUpdateRequestBody**](AccountUpdateRequestBody.md)| Account object to be created with optional parameters (is_hidden) | |
 
 ### Return type
 
@@ -7374,9 +7374,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="updateCategory"></a>
+<a id="updateCategory"></a>
 # **updateCategory**
 > CategoryResponseBody updateCategory(categoryGuid, userGuid, categoryUpdateRequestBody)
 
@@ -7424,11 +7424,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **categoryGuid** | **String**| The unique id for a &#x60;category&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **categoryUpdateRequestBody** | [**CategoryUpdateRequestBody**](CategoryUpdateRequestBody.md)| Category object to be updated (While no single parameter is required, the &#x60;category&#x60; object cannot be empty) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **categoryGuid** | **String**| The unique id for a &#x60;category&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **categoryUpdateRequestBody** | [**CategoryUpdateRequestBody**](CategoryUpdateRequestBody.md)| Category object to be updated (While no single parameter is required, the &#x60;category&#x60; object cannot be empty) | |
 
 ### Return type
 
@@ -7446,9 +7446,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="updateManagedAccount"></a>
+<a id="updateManagedAccount"></a>
 # **updateManagedAccount**
 > AccountResponseBody updateManagedAccount(accountGuid, memberGuid, userGuid, managedAccountUpdateRequestBody)
 
@@ -7497,12 +7497,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **managedAccountUpdateRequestBody** | [**ManagedAccountUpdateRequestBody**](ManagedAccountUpdateRequestBody.md)| Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. | |
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **managedAccountUpdateRequestBody** | [**ManagedAccountUpdateRequestBody**](ManagedAccountUpdateRequestBody.md)| Managed account object to be updated (While no single parameter is required, the request body can&#39;t be empty) | |
 
 ### Return type
 
@@ -7520,9 +7520,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="updateManagedMember"></a>
+<a id="updateManagedMember"></a>
 # **updateManagedMember**
 > MemberResponseBody updateManagedMember(memberGuid, userGuid, managedMemberUpdateRequestBody)
 
@@ -7570,11 +7570,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **managedMemberUpdateRequestBody** | [**ManagedMemberUpdateRequestBody**](ManagedMemberUpdateRequestBody.md)| Managed member object to be updated (While no single parameter is required, the request body can&#39;t be empty) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **managedMemberUpdateRequestBody** | [**ManagedMemberUpdateRequestBody**](ManagedMemberUpdateRequestBody.md)| Managed member object to be updated (While no single parameter is required, the request body can&#39;t be empty) | |
 
 ### Return type
 
@@ -7592,9 +7592,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="updateManagedTransaction"></a>
+<a id="updateManagedTransaction"></a>
 # **updateManagedTransaction**
 > TransactionResponseBody updateManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid, managedTransactionUpdateRequestBody)
 
@@ -7644,13 +7644,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. |
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **transactionGuid** | **String**| The unique id for a &#x60;transaction&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **managedTransactionUpdateRequestBody** | [**ManagedTransactionUpdateRequestBody**](ManagedTransactionUpdateRequestBody.md)| Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. | |
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **transactionGuid** | **String**| The unique id for a &#x60;transaction&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **managedTransactionUpdateRequestBody** | [**ManagedTransactionUpdateRequestBody**](ManagedTransactionUpdateRequestBody.md)| Managed transaction object to be updated (While no single parameter is required, the request body can&#39;t be empty) | |
 
 ### Return type
 
@@ -7668,9 +7668,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="updateMember"></a>
+<a id="updateMember"></a>
 # **updateMember**
 > MemberResponseBody updateMember(memberGuid, userGuid, memberUpdateRequestBody)
 
@@ -7718,11 +7718,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **memberUpdateRequestBody** | [**MemberUpdateRequestBody**](MemberUpdateRequestBody.md)| Member object to be updated (While no single parameter is required, the request body can&#39;t be empty) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **memberUpdateRequestBody** | [**MemberUpdateRequestBody**](MemberUpdateRequestBody.md)| Member object to be updated (While no single parameter is required, the request body can&#39;t be empty) | |
 
 ### Return type
 
@@ -7740,9 +7740,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="updateSpendingPlanIterationItem"></a>
+<a id="updateSpendingPlanIterationItem"></a>
 # **updateSpendingPlanIterationItem**
 > SpendingPlanIterationItemResponse updateSpendingPlanIterationItem(userGuid, spendingPlanGuid, iterationItemGuid, spendingPlanIterationItemCreateRequestBody)
 
@@ -7791,12 +7791,12 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. |
- **iterationItemGuid** | **String**| The unique ID for the &#x60;iteration_item&#x60;. |
- **spendingPlanIterationItemCreateRequestBody** | [**SpendingPlanIterationItemCreateRequestBody**](SpendingPlanIterationItemCreateRequestBody.md)| Iteration item object to be updated with required parameter (iteration_item_guid) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
+| **iterationItemGuid** | **String**| The unique ID for the &#x60;iteration_item&#x60;. | |
+| **spendingPlanIterationItemCreateRequestBody** | [**SpendingPlanIterationItemCreateRequestBody**](SpendingPlanIterationItemCreateRequestBody.md)| Iteration item object to be updated with required parameter (iteration_item_guid) | |
 
 ### Return type
 
@@ -7814,9 +7814,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="updateTag"></a>
+<a id="updateTag"></a>
 # **updateTag**
 > TagResponseBody updateTag(tagGuid, userGuid, tagUpdateRequestBody)
 
@@ -7864,11 +7864,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tagGuid** | **String**| The unique id for a &#x60;tag&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **tagUpdateRequestBody** | [**TagUpdateRequestBody**](TagUpdateRequestBody.md)| Tag object to be updated with required parameter (tag_guid) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **tagGuid** | **String**| The unique id for a &#x60;tag&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **tagUpdateRequestBody** | [**TagUpdateRequestBody**](TagUpdateRequestBody.md)| Tag object to be updated with required parameter (tag_guid) | |
 
 ### Return type
 
@@ -7886,9 +7886,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="updateTagging"></a>
+<a id="updateTagging"></a>
 # **updateTagging**
 > TaggingResponseBody updateTagging(taggingGuid, userGuid, taggingUpdateRequestBody)
 
@@ -7936,11 +7936,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **taggingGuid** | **String**| The unique id for a &#x60;tagging&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **taggingUpdateRequestBody** | [**TaggingUpdateRequestBody**](TaggingUpdateRequestBody.md)| Tagging object to be updated with required parameter (tag_guid) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **taggingGuid** | **String**| The unique id for a &#x60;tagging&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **taggingUpdateRequestBody** | [**TaggingUpdateRequestBody**](TaggingUpdateRequestBody.md)| Tagging object to be updated with required parameter (tag_guid) | |
 
 ### Return type
 
@@ -7958,9 +7958,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="updateTransaction"></a>
+<a id="updateTransaction"></a>
 # **updateTransaction**
 > TransactionResponseBody updateTransaction(transactionGuid, userGuid, transactionUpdateRequestBody)
 
@@ -8008,11 +8008,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **transactionGuid** | **String**| The unique id for a &#x60;transaction&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **transactionUpdateRequestBody** | [**TransactionUpdateRequestBody**](TransactionUpdateRequestBody.md)| Transaction object to be updated with a new description |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **transactionGuid** | **String**| The unique id for a &#x60;transaction&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **transactionUpdateRequestBody** | [**TransactionUpdateRequestBody**](TransactionUpdateRequestBody.md)| Transaction object to be updated with a new description | |
 
 ### Return type
 
@@ -8030,9 +8030,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="updateTransactionRule"></a>
+<a id="updateTransactionRule"></a>
 # **updateTransactionRule**
 > TransactionRuleResponseBody updateTransactionRule(transactionRuleGuid, userGuid, transactionRuleUpdateRequestBody)
 
@@ -8080,11 +8080,11 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **transactionRuleGuid** | **String**| The unique id for a &#x60;transaction_rule&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **transactionRuleUpdateRequestBody** | [**TransactionRuleUpdateRequestBody**](TransactionRuleUpdateRequestBody.md)| TransactionRule object to be updated |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **transactionRuleGuid** | **String**| The unique id for a &#x60;transaction_rule&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **transactionRuleUpdateRequestBody** | [**TransactionRuleUpdateRequestBody**](TransactionRuleUpdateRequestBody.md)| TransactionRule object to be updated | |
 
 ### Return type
 
@@ -8102,9 +8102,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="updateUser"></a>
+<a id="updateUser"></a>
 # **updateUser**
 > UserResponseBody updateUser(userGuid, userUpdateRequestBody)
 
@@ -8151,10 +8151,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
- **userUpdateRequestBody** | [**UserUpdateRequestBody**](UserUpdateRequestBody.md)| User object to be updated (None of these parameters are required, but the user object cannot be empty.) |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **userUpdateRequestBody** | [**UserUpdateRequestBody**](UserUpdateRequestBody.md)| User object to be updated (None of these parameters are required, but the user object cannot be empty.) | |
 
 ### Return type
 
@@ -8172,9 +8172,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 
-<a name="verifyMember"></a>
+<a id="verifyMember"></a>
 # **verifyMember**
 > MemberResponseBody verifyMember(memberGuid, userGuid)
 
@@ -8221,10 +8221,10 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. |
- **userGuid** | **String**| The unique id for a &#x60;user&#x60;. |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 
 ### Return type
 
@@ -8242,5 +8242,5 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
+| **200** | OK |  -  |
 

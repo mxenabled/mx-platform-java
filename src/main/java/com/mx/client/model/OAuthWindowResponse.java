@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * OAuthWindowResponse
@@ -38,7 +60,7 @@ public class OAuthWindowResponse {
   @SerializedName(SERIALIZED_NAME_OAUTH_WINDOW_URI)
   private String oauthWindowUri;
 
-  public OAuthWindowResponse() { 
+  public OAuthWindowResponse() {
   }
 
   public OAuthWindowResponse guid(String guid) {
@@ -52,8 +74,6 @@ public class OAuthWindowResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MBR-df96fd60-7122-4464-b3c2-ff11d8c74f6f", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -75,8 +95,6 @@ public class OAuthWindowResponse {
    * @return oauthWindowUri
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://mxbank.mx.com/oauth/authorize?client_id=b8OikQ4Ep3NuSUrQ13DdvFuwpNx-qqoAsJDVAQCyLkQ&redirect_uri=https%3A%2F%2Fint-app.moneydesktop.com%2Foauth%2Fredirect_from&response_type=code&scope=openid&state=d745bd4ee6f0f9c184757f574bcc2df2", value = "")
-
   public String getOauthWindowUri() {
     return oauthWindowUri;
   }
@@ -85,6 +103,7 @@ public class OAuthWindowResponse {
   public void setOauthWindowUri(String oauthWindowUri) {
     this.oauthWindowUri = oauthWindowUri;
   }
+
 
 
   @Override
@@ -137,5 +156,96 @@ public class OAuthWindowResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("guid");
+    openapiFields.add("oauth_window_uri");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to OAuthWindowResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!OAuthWindowResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in OAuthWindowResponse is not found in the empty JSON string", OAuthWindowResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!OAuthWindowResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `OAuthWindowResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("oauth_window_uri") != null && !jsonObj.get("oauth_window_uri").isJsonNull()) && !jsonObj.get("oauth_window_uri").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `oauth_window_uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("oauth_window_uri").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!OAuthWindowResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'OAuthWindowResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<OAuthWindowResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(OAuthWindowResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<OAuthWindowResponse>() {
+           @Override
+           public void write(JsonWriter out, OAuthWindowResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public OAuthWindowResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of OAuthWindowResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of OAuthWindowResponse
+  * @throws IOException if the JSON string is invalid with respect to OAuthWindowResponse
+  */
+  public static OAuthWindowResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, OAuthWindowResponse.class);
+  }
+
+ /**
+  * Convert an instance of OAuthWindowResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

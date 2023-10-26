@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.mx.client.model.MemberCreateRequest;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * MemberCreateRequestBody
@@ -50,7 +72,7 @@ public class MemberCreateRequestBody {
   @SerializedName(SERIALIZED_NAME_UI_MESSAGE_WEBVIEW_URL_SCHEME)
   private String uiMessageWebviewUrlScheme;
 
-  public MemberCreateRequestBody() { 
+  public MemberCreateRequestBody() {
   }
 
   public MemberCreateRequestBody clientRedirectUrl(String clientRedirectUrl) {
@@ -64,8 +86,6 @@ public class MemberCreateRequestBody {
    * @return clientRedirectUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "https://mx.com", value = "")
-
   public String getClientRedirectUrl() {
     return clientRedirectUrl;
   }
@@ -87,8 +107,6 @@ public class MemberCreateRequestBody {
    * @return enableApp2app
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getEnableApp2app() {
     return enableApp2app;
   }
@@ -110,8 +128,6 @@ public class MemberCreateRequestBody {
    * @return member
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public MemberCreateRequest getMember() {
     return member;
   }
@@ -133,8 +149,6 @@ public class MemberCreateRequestBody {
    * @return referralSource
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "APP", value = "")
-
   public String getReferralSource() {
     return referralSource;
   }
@@ -156,8 +170,6 @@ public class MemberCreateRequestBody {
    * @return uiMessageWebviewUrlScheme
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "mx", value = "")
-
   public String getUiMessageWebviewUrlScheme() {
     return uiMessageWebviewUrlScheme;
   }
@@ -166,6 +178,7 @@ public class MemberCreateRequestBody {
   public void setUiMessageWebviewUrlScheme(String uiMessageWebviewUrlScheme) {
     this.uiMessageWebviewUrlScheme = uiMessageWebviewUrlScheme;
   }
+
 
 
   @Override
@@ -213,5 +226,106 @@ public class MemberCreateRequestBody {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("client_redirect_url");
+    openapiFields.add("enable_app2app");
+    openapiFields.add("member");
+    openapiFields.add("referral_source");
+    openapiFields.add("ui_message_webview_url_scheme");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to MemberCreateRequestBody
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!MemberCreateRequestBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in MemberCreateRequestBody is not found in the empty JSON string", MemberCreateRequestBody.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!MemberCreateRequestBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MemberCreateRequestBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("client_redirect_url") != null && !jsonObj.get("client_redirect_url").isJsonNull()) && !jsonObj.get("client_redirect_url").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `client_redirect_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("client_redirect_url").toString()));
+      }
+      // validate the optional field `member`
+      if (jsonObj.get("member") != null && !jsonObj.get("member").isJsonNull()) {
+        MemberCreateRequest.validateJsonElement(jsonObj.get("member"));
+      }
+      if ((jsonObj.get("referral_source") != null && !jsonObj.get("referral_source").isJsonNull()) && !jsonObj.get("referral_source").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `referral_source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("referral_source").toString()));
+      }
+      if ((jsonObj.get("ui_message_webview_url_scheme") != null && !jsonObj.get("ui_message_webview_url_scheme").isJsonNull()) && !jsonObj.get("ui_message_webview_url_scheme").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `ui_message_webview_url_scheme` to be a primitive type in the JSON string but got `%s`", jsonObj.get("ui_message_webview_url_scheme").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!MemberCreateRequestBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MemberCreateRequestBody' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<MemberCreateRequestBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MemberCreateRequestBody.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<MemberCreateRequestBody>() {
+           @Override
+           public void write(JsonWriter out, MemberCreateRequestBody value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public MemberCreateRequestBody read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of MemberCreateRequestBody given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of MemberCreateRequestBody
+  * @throws IOException if the JSON string is invalid with respect to MemberCreateRequestBody
+  */
+  public static MemberCreateRequestBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MemberCreateRequestBody.class);
+  }
+
+ /**
+  * Convert an instance of MemberCreateRequestBody to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

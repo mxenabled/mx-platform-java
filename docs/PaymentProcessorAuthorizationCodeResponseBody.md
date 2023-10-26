@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**paymentProcessorAuthorizationCode** | [**PaymentProcessorAuthorizationCodeResponse**](PaymentProcessorAuthorizationCodeResponse.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**paymentProcessorAuthorizationCode** | [**PaymentProcessorAuthorizationCodeResponse**](PaymentProcessorAuthorizationCodeResponse.md) |  |  [optional] |
 
 
 

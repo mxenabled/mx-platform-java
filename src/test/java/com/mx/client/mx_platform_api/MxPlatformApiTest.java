@@ -89,8 +89,8 @@ import com.mx.client.model.UserUpdateRequestBody;
 import com.mx.client.model.UsersResponseBody;
 import com.mx.client.model.WidgetRequestBody;
 import com.mx.client.model.WidgetResponseBody;
-import org.junit.Test;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -100,100 +100,93 @@ import java.util.Map;
 /**
  * API tests for MxPlatformApi
  */
-@Ignore
+@Disabled
 public class MxPlatformApiTest {
 
     private final MxPlatformApi api = new MxPlatformApi();
 
-    
     /**
      * Aggregate member
      *
      * Calling this endpoint initiates an aggregation event for the member. This brings in the latest account and transaction data from the connected institution. If this data has recently been updated, MX may not initiate an aggregation event.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void aggregateMemberTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
-                MemberResponseBody response = api.aggregateMember(memberGuid, userGuid);
+        MemberResponseBody response = api.aggregateMember(memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Check balances
      *
      * This endpoint operates much like the aggregate member endpoint except that it gathers only account balance information; it does not gather any transaction data.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void checkBalancesTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
-                MemberResponseBody response = api.checkBalances(memberGuid, userGuid);
+        MemberResponseBody response = api.checkBalances(memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Create category
      *
      * Use this endpoint to create a new custom category for a specific &#x60;user&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createCategoryTest() throws ApiException {
         String userGuid = null;
         CategoryCreateRequestBody categoryCreateRequestBody = null;
-                CategoryResponseBody response = api.createCategory(userGuid, categoryCreateRequestBody);
+        CategoryResponseBody response = api.createCategory(userGuid, categoryCreateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Create managed account
      *
      * Use this endpoint to create a partner-managed account.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createManagedAccountTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
         ManagedAccountCreateRequestBody managedAccountCreateRequestBody = null;
-                AccountResponseBody response = api.createManagedAccount(memberGuid, userGuid, managedAccountCreateRequestBody);
+        AccountResponseBody response = api.createManagedAccount(memberGuid, userGuid, managedAccountCreateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Create managed member
      *
      * Use this endpoint to create a new partner-managed &#x60;member&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createManagedMemberTest() throws ApiException {
         String userGuid = null;
         ManagedMemberCreateRequestBody managedMemberCreateRequestBody = null;
-                MemberResponseBody response = api.createManagedMember(userGuid, managedMemberCreateRequestBody);
+        MemberResponseBody response = api.createManagedMember(userGuid, managedMemberCreateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Create managed transaction
      *
      * Use this endpoint to create a new partner-managed &#x60;transaction&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createManagedTransactionTest() throws ApiException {
@@ -201,193 +194,181 @@ public class MxPlatformApiTest {
         String memberGuid = null;
         String userGuid = null;
         ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody = null;
-                TransactionResponseBody response = api.createManagedTransaction(accountGuid, memberGuid, userGuid, managedTransactionCreateRequestBody);
+        TransactionResponseBody response = api.createManagedTransaction(accountGuid, memberGuid, userGuid, managedTransactionCreateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Create manual account
      *
      * This endpoint can only be used to create manual accounts. Creating a manual account will automatically create it under the Manual Institution member. Since a manual account has no credentials tied to the member, the account will never aggregate or include data from a data feed..
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createManualAccountTest() throws ApiException {
         String userGuid = null;
         AccountCreateRequestBody accountCreateRequestBody = null;
-                AccountResponseBody response = api.createManualAccount(userGuid, accountCreateRequestBody);
+        AccountResponseBody response = api.createManualAccount(userGuid, accountCreateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Create member
      *
      * This endpoint allows you to create a new member. Members are created with the required parameters credentials and institution_code, and the optional parameters id and metadata. When creating a member, youll need to include the correct type of credential required by the financial institution and provided by the user. You can find out which credential type is required with the &#x60;/institutions/{institution_code}/credentials&#x60; endpoint. If successful, the MX Platform API will respond with the newly-created member object. Once you successfully create a member, MX will immediately validate the provided credentials and attempt to aggregate data for accounts and transactions.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createMemberTest() throws ApiException {
         String userGuid = null;
         MemberCreateRequestBody memberCreateRequestBody = null;
-                MemberResponseBody response = api.createMember(userGuid, memberCreateRequestBody);
+        MemberResponseBody response = api.createMember(userGuid, memberCreateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Create spending plan
      *
      * This endpoint creates a new &#x60;spending_plan&#x60; for the user.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createSpendingPlanTest() throws ApiException {
         String userGuid = null;
-                SpendingPlanResponse response = api.createSpendingPlan(userGuid);
+        SpendingPlanResponse response = api.createSpendingPlan(userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Create spending plan iteration item
      *
      * This endpoint creates a new &#x60;spending_plan_iteration_item&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createSpendingPlanIterationItemTest() throws ApiException {
         String spendingPlanGuid = null;
         String userGuid = null;
         SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody = null;
-                SpendingPlanIterationItemResponse response = api.createSpendingPlanIterationItem(spendingPlanGuid, userGuid, spendingPlanIterationItemCreateRequestBody);
+        SpendingPlanIterationItemResponse response = api.createSpendingPlanIterationItem(spendingPlanGuid, userGuid, spendingPlanIterationItemCreateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Create tag
      *
      * Use this endpoint to create a new custom tag.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createTagTest() throws ApiException {
         String userGuid = null;
         TagCreateRequestBody tagCreateRequestBody = null;
-                TagResponseBody response = api.createTag(userGuid, tagCreateRequestBody);
+        TagResponseBody response = api.createTag(userGuid, tagCreateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Create tagging
      *
      * Use this endpoint to create a new association between a tag and a particular transaction, according to their unique GUIDs.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createTaggingTest() throws ApiException {
         String userGuid = null;
         TaggingCreateRequestBody taggingCreateRequestBody = null;
-                TaggingResponseBody response = api.createTagging(userGuid, taggingCreateRequestBody);
+        TaggingResponseBody response = api.createTagging(userGuid, taggingCreateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Create transaction rule
      *
      * Use this endpoint to create a new transaction rule. The newly-created &#x60;transaction_rule&#x60; object will be returned if successful.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createTransactionRuleTest() throws ApiException {
         String userGuid = null;
         TransactionRuleCreateRequestBody transactionRuleCreateRequestBody = null;
-                TransactionRuleResponseBody response = api.createTransactionRule(userGuid, transactionRuleCreateRequestBody);
+        TransactionRuleResponseBody response = api.createTransactionRule(userGuid, transactionRuleCreateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Create user
      *
      * Use this endpoint to create a new user. The API will respond with the newly-created user object if successful. Disabling a user means that accounts and transactions associated with it will not be updated in the background by MX. It will also restrict access to that user’s data until they are no longer disabled.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void createUserTest() throws ApiException {
         UserCreateRequestBody userCreateRequestBody = null;
-                UserResponseBody response = api.createUser(userCreateRequestBody);
+        UserResponseBody response = api.createUser(userCreateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Delete category
      *
      * Use this endpoint to delete a specific custom category according to its unique GUID. The API will respond with an empty object and a status of &#x60;204 No Content&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteCategoryTest() throws ApiException {
         String categoryGuid = null;
         String userGuid = null;
-                api.deleteCategory(categoryGuid, userGuid);
+        api.deleteCategory(categoryGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Delete managed account
      *
      * Use this endpoint to delete a partner-managed account according to its unique GUID. If successful, the API will respond with a status of &#x60;204 No Content&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteManagedAccountTest() throws ApiException {
         String accountGuid = null;
         String memberGuid = null;
         String userGuid = null;
-                api.deleteManagedAccount(accountGuid, memberGuid, userGuid);
+        api.deleteManagedAccount(accountGuid, memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Delete managed member
      *
      * Use this endpoint to delete the specified partner-managed &#x60;member&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteManagedMemberTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
-                api.deleteManagedMember(memberGuid, userGuid);
+        api.deleteManagedMember(memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Delete managed transaction
      *
      * Use this endpoint to delete the specified partner-managed &#x60;transaction&#x60;. The endpoint will respond with a status of &#x60;204 No Content&#x60; without a resource.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteManagedTransactionTest() throws ApiException {
@@ -395,290 +376,272 @@ public class MxPlatformApiTest {
         String memberGuid = null;
         String transactionGuid = null;
         String userGuid = null;
-                api.deleteManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid);
+        api.deleteManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Delete manual account
      *
      * This endpoint deletes accounts that were manually created. The API will respond with an empty object and a status of &#x60;204 No Content&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteManualAccountTest() throws ApiException {
         String accountGuid = null;
         String userGuid = null;
-                api.deleteManualAccount(accountGuid, userGuid);
+        api.deleteManualAccount(accountGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Delete member
      *
      * Accessing this endpoint will permanently delete a member.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteMemberTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
-                api.deleteMember(memberGuid, userGuid);
+        api.deleteMember(memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Delete spending plan
      *
      * Use this endpoint to delete a user&#39;s &#x60;spending_plan&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteSpendingPlanTest() throws ApiException {
         String userGuid = null;
         String spendingPlanGuid = null;
-                api.deleteSpendingPlan(userGuid, spendingPlanGuid);
+        api.deleteSpendingPlan(userGuid, spendingPlanGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Delete spending plan account
      *
      * Use this endpoint to delete a &#x60;spending_plan_account&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteSpendingPlanAccountTest() throws ApiException {
         String userGuid = null;
         String spendingPlanGuid = null;
         String spendingPlanAccountGuid = null;
-                api.deleteSpendingPlanAccount(userGuid, spendingPlanGuid, spendingPlanAccountGuid);
+        api.deleteSpendingPlanAccount(userGuid, spendingPlanGuid, spendingPlanAccountGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Delete spending plan iteration item
      *
      * Use this endpoint to delete a spending plan &#x60;iteration_item&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteSpendingPlanIterationItemTest() throws ApiException {
         String userGuid = null;
         String spendingPlanGuid = null;
         String iterationItemGuid = null;
-                api.deleteSpendingPlanIterationItem(userGuid, spendingPlanGuid, iterationItemGuid);
+        api.deleteSpendingPlanIterationItem(userGuid, spendingPlanGuid, iterationItemGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Delete tag
      *
      * Use this endpoint to permanently delete a specific tag based on its unique GUID. If successful, the API will respond with status of &#x60;204 No Content&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteTagTest() throws ApiException {
         String tagGuid = null;
         String userGuid = null;
-                api.deleteTag(tagGuid, userGuid);
+        api.deleteTag(tagGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Delete tagging
      *
      * Use this endpoint to delete a tagging according to its unique GUID. If successful, the API will respond with an empty body and a status of 204 NO Content.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteTaggingTest() throws ApiException {
         String taggingGuid = null;
         String userGuid = null;
-                api.deleteTagging(taggingGuid, userGuid);
+        api.deleteTagging(taggingGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Delete transaction rule
      *
      * Use this endpoint to permanently delete a transaction rule based on its unique GUID.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteTransactionRuleTest() throws ApiException {
         String transactionRuleGuid = null;
         String userGuid = null;
-                api.deleteTransactionRule(transactionRuleGuid, userGuid);
+        api.deleteTransactionRule(transactionRuleGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Delete user
      *
      * Use this endpoint to delete the specified &#x60;user&#x60;. The response will have a status of &#x60;204 No Content&#x60; without an object.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deleteUserTest() throws ApiException {
         String userGuid = null;
-                api.deleteUser(userGuid);
+        api.deleteUser(userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * (Deprecated) Request an authorization code.
      *
      * (This endpoint is deprecated. Clients should use &#x60;/authorization_code&#x60;.) Clients use this endpoint to request an authorization_code according to a user, member, and account specified in the request body. Clients then pass this code to processors. Processor access is scoped only to the user/member/account specified in this request. Before requesting an authorization_code, clients must have verified the specified member.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void deprecatedRequestPaymentProcessorAuthorizationCodeTest() throws ApiException {
         PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody = null;
-                PaymentProcessorAuthorizationCodeResponseBody response = api.deprecatedRequestPaymentProcessorAuthorizationCode(paymentProcessorAuthorizationCodeRequestBody);
+        PaymentProcessorAuthorizationCodeResponseBody response = api.deprecatedRequestPaymentProcessorAuthorizationCode(paymentProcessorAuthorizationCodeRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Download statement pdf
      *
      * Use this endpoint to download a specified statement PDF.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void downloadStatementPDFTest() throws ApiException {
         String memberGuid = null;
         String statementGuid = null;
         String userGuid = null;
-                File response = api.downloadStatementPDF(memberGuid, statementGuid, userGuid);
+        File response = api.downloadStatementPDF(memberGuid, statementGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Download a Tax Document PDF
      *
      * Use this endpoint to download a PDF version of the specified tax document. The endpoint URL is the base URL appended with the uri of the tax_document.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void downloadTaxDocumentTest() throws ApiException {
         String taxDocumentGuid = null;
         String memberGuid = null;
         String userGuid = null;
-                File response = api.downloadTaxDocument(taxDocumentGuid, memberGuid, userGuid);
+        File response = api.downloadTaxDocument(taxDocumentGuid, memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Enhance transactions
      *
      * Use this endpoint to categorize, cleanse, and classify transactions. These transactions are not persisted or stored on the MX platform.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void enhanceTransactionsTest() throws ApiException {
         EnhanceTransactionsRequestBody enhanceTransactionsRequestBody = null;
-                EnhanceTransactionsResponseBody response = api.enhanceTransactions(enhanceTransactionsRequestBody);
+        EnhanceTransactionsResponseBody response = api.enhanceTransactions(enhanceTransactionsRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Extend history
      *
      * Some institutions allow developers to access an extended transaction history with up to 24 months of data associated with a particular member. The process for fetching and then reading this extended transaction history is much like standard aggregation, and it may trigger multi-factor authentication.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void extendHistoryTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
-                MemberResponseBody response = api.extendHistory(memberGuid, userGuid);
+        MemberResponseBody response = api.extendHistory(memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Fetch statements
      *
      * Use this endpoint to fetch the statements associated with a particular member.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void fetchStatementsTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
-                MemberResponseBody response = api.fetchStatements(memberGuid, userGuid);
+        MemberResponseBody response = api.fetchStatements(memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Fetch Tax Documents
      *
      * Use this endpoint to fetch (aggregate) the tax documents associated with the specified member. This request **does not** return the latest tax documents. It just starts the document aggregation process and returns the initial state of the process. You must interact with the newly aggregated data using the other document endpoints in this reference. This request may also trigger multi-factor authentication which requires end-user input and a specific process for answering authentication challenges.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void fetchTaxDocumentsTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
-                MemberResponseBody response = api.fetchTaxDocuments(memberGuid, userGuid);
+        MemberResponseBody response = api.fetchTaxDocuments(memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Identify member
      *
      * The identify endpoint begins an identification process for an already-existing member.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void identifyMemberTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
-                MemberResponseBody response = api.identifyMember(memberGuid, userGuid);
+        MemberResponseBody response = api.identifyMember(memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * List account numbers by account
      *
      * This endpoint returns a list of account numbers associated with the specified &#x60;account&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listAccountNumbersByAccountTest() throws ApiException {
@@ -686,17 +649,16 @@ public class MxPlatformApiTest {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                AccountNumbersResponseBody response = api.listAccountNumbersByAccount(accountGuid, userGuid, page, recordsPerPage);
+        AccountNumbersResponseBody response = api.listAccountNumbersByAccount(accountGuid, userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List account numbers by member
      *
      * This endpoint returns a list of account numbers associated with the specified &#x60;member&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listAccountNumbersByMemberTest() throws ApiException {
@@ -704,17 +666,16 @@ public class MxPlatformApiTest {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                AccountNumbersResponseBody response = api.listAccountNumbersByMember(memberGuid, userGuid, page, recordsPerPage);
+        AccountNumbersResponseBody response = api.listAccountNumbersByMember(memberGuid, userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List account owners by member
      *
      * This endpoint returns an array with information about every account associated with a particular member.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listAccountOwnersByMemberTest() throws ApiException {
@@ -722,83 +683,78 @@ public class MxPlatformApiTest {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                AccountOwnersResponseBody response = api.listAccountOwnersByMember(memberGuid, userGuid, page, recordsPerPage);
+        AccountOwnersResponseBody response = api.listAccountOwnersByMember(memberGuid, userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List categories
      *
      * Use this endpoint to list all categories associated with a &#x60;user&#x60;, including both default and custom categories.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listCategoriesTest() throws ApiException {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                CategoriesResponseBody response = api.listCategories(userGuid, page, recordsPerPage);
+        CategoriesResponseBody response = api.listCategories(userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List default categories
      *
      * Use this endpoint to retrieve a list of all the default categories and subcategories offered within the MX Platform API. In other words, each item in the returned list will have its &#x60;is_default&#x60; field set to &#x60;true&#x60;. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listDefaultCategoriesTest() throws ApiException {
         Integer page = null;
         Integer recordsPerPage = null;
-                CategoriesResponseBody response = api.listDefaultCategories(page, recordsPerPage);
+        CategoriesResponseBody response = api.listDefaultCategories(page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List default categories by user
      *
      * Use this endpoint to retrieve a list of all the default categories and subcategories, scoped by user, offered within the MX Platform API. In other words, each item in the returned list will have its &#x60;is_default&#x60; field set to &#x60;true&#x60;. There are currently 119 default categories and subcategories. Both the _list default categories_ and _list default categories by user_ endpoints return the same results. The different routes are provided for convenience.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listDefaultCategoriesByUserTest() throws ApiException {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                CategoriesResponseBody response = api.listDefaultCategoriesByUser(userGuid, page, recordsPerPage);
+        CategoriesResponseBody response = api.listDefaultCategoriesByUser(userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List favorite institutions
      *
      * This endpoint returns a paginated list containing institutions that have been set as the partner’s favorites, sorted by popularity. Please contact MX to set a list of favorites.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listFavoriteInstitutionsTest() throws ApiException {
         Integer page = null;
         Integer recordsPerPage = null;
-                InstitutionsResponseBody response = api.listFavoriteInstitutions(page, recordsPerPage);
+        InstitutionsResponseBody response = api.listFavoriteInstitutions(page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List holdings
      *
      * This endpoint returns all holdings associated with the specified &#x60;user&#x60; across all accounts and members.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listHoldingsTest() throws ApiException {
@@ -807,17 +763,16 @@ public class MxPlatformApiTest {
         Integer page = null;
         Integer recordsPerPage = null;
         String toDate = null;
-                HoldingsResponseBody response = api.listHoldings(userGuid, fromDate, page, recordsPerPage, toDate);
+        HoldingsResponseBody response = api.listHoldings(userGuid, fromDate, page, recordsPerPage, toDate);
         // TODO: test validations
     }
-    
+
     /**
      * List holdings by account
      *
      * This endpoint returns all holdings associated with the specified &#x60;account&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listHoldingsByAccountTest() throws ApiException {
@@ -827,17 +782,16 @@ public class MxPlatformApiTest {
         Integer page = null;
         Integer recordsPerPage = null;
         String toDate = null;
-                HoldingsResponseBody response = api.listHoldingsByAccount(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate);
+        HoldingsResponseBody response = api.listHoldingsByAccount(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate);
         // TODO: test validations
     }
-    
+
     /**
      * List holdings by member
      *
      * This endpoint returns all holdings associated with the specified &#x60;member&#x60; across all accounts.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listHoldingsByMemberTest() throws ApiException {
@@ -847,34 +801,32 @@ public class MxPlatformApiTest {
         Integer page = null;
         Integer recordsPerPage = null;
         String toDate = null;
-                HoldingsResponseBody response = api.listHoldingsByMember(memberGuid, userGuid, fromDate, page, recordsPerPage, toDate);
+        HoldingsResponseBody response = api.listHoldingsByMember(memberGuid, userGuid, fromDate, page, recordsPerPage, toDate);
         // TODO: test validations
     }
-    
+
     /**
      * List institution credentials
      *
      * Use this endpoint to see which credentials will be needed to create a member for a specific institution.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listInstitutionCredentialsTest() throws ApiException {
         String institutionCode = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                CredentialsResponseBody response = api.listInstitutionCredentials(institutionCode, page, recordsPerPage);
+        CredentialsResponseBody response = api.listInstitutionCredentials(institutionCode, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List institutions
      *
      * This endpoint returns a list of institutions based on the specified search term or parameter.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listInstitutionsTest() throws ApiException {
@@ -885,17 +837,16 @@ public class MxPlatformApiTest {
         Boolean supportsAccountStatement = null;
         Boolean supportsAccountVerification = null;
         Boolean supportsTransactionHistory = null;
-                InstitutionsResponseBody response = api.listInstitutions(name, page, recordsPerPage, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory);
+        InstitutionsResponseBody response = api.listInstitutions(name, page, recordsPerPage, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory);
         // TODO: test validations
     }
-    
+
     /**
      * List managed accounts
      *
      * Use this endpoint to retrieve a list of all the partner-managed accounts associated with the given partner-manage member.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listManagedAccountsTest() throws ApiException {
@@ -903,50 +854,47 @@ public class MxPlatformApiTest {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                AccountsResponseBody response = api.listManagedAccounts(memberGuid, userGuid, page, recordsPerPage);
+        AccountsResponseBody response = api.listManagedAccounts(memberGuid, userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List managed institutions
      *
      * This endpoint returns a list of institutions which can be used to create partner-managed members.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listManagedInstitutionsTest() throws ApiException {
         Integer page = null;
         Integer recordsPerPage = null;
-                InstitutionsResponseBody response = api.listManagedInstitutions(page, recordsPerPage);
+        InstitutionsResponseBody response = api.listManagedInstitutions(page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List managed members
      *
      * This endpoint returns a list of all the partner-managed members associated with the specified &#x60;user&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listManagedMembersTest() throws ApiException {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                MembersResponseBody response = api.listManagedMembers(userGuid, page, recordsPerPage);
+        MembersResponseBody response = api.listManagedMembers(userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List managed transactions
      *
      * This endpoint returns a list of all the partner-managed transactions associated with the specified &#x60;account&#x60;, scoped through a &#x60;user&#x60; and a &#x60;member&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listManagedTransactionsTest() throws ApiException {
@@ -955,17 +903,16 @@ public class MxPlatformApiTest {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                TransactionsResponseBody response = api.listManagedTransactions(accountGuid, memberGuid, userGuid, page, recordsPerPage);
+        TransactionsResponseBody response = api.listManagedTransactions(accountGuid, memberGuid, userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List accounts by member
      *
      * This endpoint returns a list of all the accounts associated with the specified &#x60;member&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listMemberAccountsTest() throws ApiException {
@@ -974,17 +921,16 @@ public class MxPlatformApiTest {
         Boolean memberIsManagedByUser = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                AccountsResponseBody response = api.listMemberAccounts(userGuid, memberGuid, memberIsManagedByUser, page, recordsPerPage);
+        AccountsResponseBody response = api.listMemberAccounts(userGuid, memberGuid, memberIsManagedByUser, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List member challenges
      *
      * Use this endpoint for information on what multi-factor authentication challenges need to be answered in order to aggregate a member. If the aggregation is not challenged, i.e., the member does not have a connection status of &#x60;CHALLENGED&#x60;, then code &#x60;204 No Content&#x60; will be returned. If the aggregation has been challenged, i.e., the member does have a connection status of &#x60;CHALLENGED&#x60;, then code &#x60;200 OK&#x60; will be returned - along with the corresponding credentials.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listMemberChallengesTest() throws ApiException {
@@ -992,17 +938,16 @@ public class MxPlatformApiTest {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                ChallengesResponseBody response = api.listMemberChallenges(memberGuid, userGuid, page, recordsPerPage);
+        ChallengesResponseBody response = api.listMemberChallenges(memberGuid, userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List member credentials
      *
      * This endpoint returns an array which contains information on every non-MFA credential associated with a specific member.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listMemberCredentialsTest() throws ApiException {
@@ -1010,50 +955,47 @@ public class MxPlatformApiTest {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                CredentialsResponseBody response = api.listMemberCredentials(memberGuid, userGuid, page, recordsPerPage);
+        CredentialsResponseBody response = api.listMemberCredentials(memberGuid, userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List members
      *
      * This endpoint returns an array which contains information on every member associated with a specific user.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listMembersTest() throws ApiException {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                MembersResponseBody response = api.listMembers(userGuid, page, recordsPerPage);
+        MembersResponseBody response = api.listMembers(userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List merchants
      *
      * This endpoint returns a paginated list of all the merchants in the MX system.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listMerchantsTest() throws ApiException {
         Integer page = null;
         Integer recordsPerPage = null;
-                MerchantsResponseBody response = api.listMerchants(page, recordsPerPage);
+        MerchantsResponseBody response = api.listMerchants(page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List spending plan accounts
      *
      * Use this endpoint to list all the spending plan accounts associated with the spending plan.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listSpendingPlanAccountsTest() throws ApiException {
@@ -1061,17 +1003,16 @@ public class MxPlatformApiTest {
         String spendingPlanGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                SpendingPlanAccountsResponse response = api.listSpendingPlanAccounts(userGuid, spendingPlanGuid, page, recordsPerPage);
+        SpendingPlanAccountsResponse response = api.listSpendingPlanAccounts(userGuid, spendingPlanGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List spending plan iteration items
      *
      * Use this endpoint to list all the spending plan &#x60;iteration_items&#x60; associated with the &#x60;iteration&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listSpendingPlanIterationItemsTest() throws ApiException {
@@ -1079,17 +1020,16 @@ public class MxPlatformApiTest {
         String spendingPlanGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                SpendingPlanIterationItemsResponseBody response = api.listSpendingPlanIterationItems(userGuid, spendingPlanGuid, page, recordsPerPage);
+        SpendingPlanIterationItemsResponseBody response = api.listSpendingPlanIterationItems(userGuid, spendingPlanGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List spending plan iterations
      *
      * Use this endpoint to list all the spending plan &#x60;iterations&#x60; associated with the &#x60;spending_plan&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listSpendingPlanIterationsTest() throws ApiException {
@@ -1097,34 +1037,32 @@ public class MxPlatformApiTest {
         String spendingPlanGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                SpendingPlanIterationsResponse response = api.listSpendingPlanIterations(userGuid, spendingPlanGuid, page, recordsPerPage);
+        SpendingPlanIterationsResponse response = api.listSpendingPlanIterations(userGuid, spendingPlanGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List spending plans
      *
      * Use this endpoint to list all the spending plans associated with the user.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listSpendingPlansTest() throws ApiException {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                SpendingPlansResponseBody response = api.listSpendingPlans(userGuid, page, recordsPerPage);
+        SpendingPlansResponseBody response = api.listSpendingPlans(userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List statements by member
      *
      * Use this endpoint to get an array of available statements.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listStatementsByMemberTest() throws ApiException {
@@ -1132,51 +1070,48 @@ public class MxPlatformApiTest {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                StatementsResponseBody response = api.listStatementsByMember(memberGuid, userGuid, page, recordsPerPage);
+        StatementsResponseBody response = api.listStatementsByMember(memberGuid, userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List taggings
      *
      * Use this endpoint to retrieve a list of all the taggings associated with a specific user.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listTaggingsTest() throws ApiException {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                TaggingsResponseBody response = api.listTaggings(userGuid, page, recordsPerPage);
+        TaggingsResponseBody response = api.listTaggings(userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List tags
      *
      * Use this endpoint to list all tags associated with the specified &#x60;user&#x60;. Each user includes the &#x60;Business&#x60; tag by default.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listTagsTest() throws ApiException {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                TagsResponseBody response = api.listTags(userGuid, page, recordsPerPage);
+        TagsResponseBody response = api.listTags(userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List Tax Documents
      *
      * Use this endpoint to get a paginated list of tax documents.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listTaxDocumentsTest() throws ApiException {
@@ -1184,34 +1119,32 @@ public class MxPlatformApiTest {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                TaxDocumentsResponseBody response = api.listTaxDocuments(memberGuid, userGuid, page, recordsPerPage);
+        TaxDocumentsResponseBody response = api.listTaxDocuments(memberGuid, userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List transaction rules
      *
      * Use this endpoint to read the attributes of all existing transaction rules belonging to the user.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listTransactionRulesTest() throws ApiException {
         String userGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                TransactionRulesResponseBody response = api.listTransactionRules(userGuid, page, recordsPerPage);
+        TransactionRulesResponseBody response = api.listTransactionRules(userGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List transactions
      *
      * Requests to this endpoint return a list of transactions associated with the specified &#x60;user&#x60;, accross all members and accounts associated with that &#x60;user&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listTransactionsTest() throws ApiException {
@@ -1220,17 +1153,16 @@ public class MxPlatformApiTest {
         Integer page = null;
         Integer recordsPerPage = null;
         String toDate = null;
-                TransactionsResponseBody response = api.listTransactions(userGuid, fromDate, page, recordsPerPage, toDate);
+        TransactionsResponseBody response = api.listTransactions(userGuid, fromDate, page, recordsPerPage, toDate);
         // TODO: test validations
     }
-    
+
     /**
      * List transactions by account
      *
      * This endpoint returns a list of the last 90 days of transactions associated with the specified account.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listTransactionsByAccountTest() throws ApiException {
@@ -1240,17 +1172,16 @@ public class MxPlatformApiTest {
         Integer page = null;
         Integer recordsPerPage = null;
         String toDate = null;
-                TransactionsResponseBody response = api.listTransactionsByAccount(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate);
+        TransactionsResponseBody response = api.listTransactionsByAccount(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate);
         // TODO: test validations
     }
-    
+
     /**
      * List transactions by member
      *
      * Requests to this endpoint return a list of transactions associated with the specified &#x60;member&#x60;, accross all accounts associated with that &#x60;member&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listTransactionsByMemberTest() throws ApiException {
@@ -1260,17 +1191,16 @@ public class MxPlatformApiTest {
         Integer page = null;
         Integer recordsPerPage = null;
         String toDate = null;
-                TransactionsResponseBody response = api.listTransactionsByMember(memberGuid, userGuid, fromDate, page, recordsPerPage, toDate);
+        TransactionsResponseBody response = api.listTransactionsByMember(memberGuid, userGuid, fromDate, page, recordsPerPage, toDate);
         // TODO: test validations
     }
-    
+
     /**
      * List transactions by tag
      *
      * Use this endpoint to get a list of all transactions associated with a particular tag according to the tag’s unique GUID. In other words, a list of all transactions that have been assigned to a particular tag using the create a tagging endpoint.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listTransactionsByTagTest() throws ApiException {
@@ -1280,17 +1210,16 @@ public class MxPlatformApiTest {
         Integer page = null;
         Integer recordsPerPage = null;
         String toDate = null;
-                TransactionsResponseBody response = api.listTransactionsByTag(tagGuid, userGuid, fromDate, page, recordsPerPage, toDate);
+        TransactionsResponseBody response = api.listTransactionsByTag(tagGuid, userGuid, fromDate, page, recordsPerPage, toDate);
         // TODO: test validations
     }
-    
+
     /**
      * List accounts
      *
      * This endpoint returns a list of all the accounts associated with the specified &#x60;user&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listUserAccountsTest() throws ApiException {
@@ -1299,17 +1228,16 @@ public class MxPlatformApiTest {
         Integer page = null;
         Boolean isManual = null;
         Integer recordsPerPage = null;
-                AccountsResponseBody response = api.listUserAccounts(userGuid, memberIsManagedByUser, page, isManual, recordsPerPage);
+        AccountsResponseBody response = api.listUserAccounts(userGuid, memberIsManagedByUser, page, isManual, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * List users
      *
      * Use this endpoint to list every user you&#39;ve created in the MX Platform API.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void listUsersTest() throws ApiException {
@@ -1318,145 +1246,136 @@ public class MxPlatformApiTest {
         String id = null;
         String email = null;
         Boolean isDisabled = null;
-                UsersResponseBody response = api.listUsers(page, recordsPerPage, id, email, isDisabled);
+        UsersResponseBody response = api.listUsers(page, recordsPerPage, id, email, isDisabled);
         // TODO: test validations
     }
-    
+
     /**
      * Read account
      *
      * This endpoint returns the specified &#x60;account&#x60; resource.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readAccountTest() throws ApiException {
         String accountGuid = null;
         String userGuid = null;
-                AccountResponseBody response = api.readAccount(accountGuid, userGuid);
+        AccountResponseBody response = api.readAccount(accountGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read account by member
      *
      * This endpoint allows you to read the attributes of an &#x60;account&#x60; resource.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readAccountByMemberTest() throws ApiException {
         String accountGuid = null;
         String memberGuid = null;
         String userGuid = null;
-                AccountResponseBody response = api.readAccountByMember(accountGuid, memberGuid, userGuid);
+        AccountResponseBody response = api.readAccountByMember(accountGuid, memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read a custom category
      *
      * Use this endpoint to read the attributes of either a default category or a custom category.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readCategoryTest() throws ApiException {
         String categoryGuid = null;
         String userGuid = null;
-                CategoryResponseBody response = api.readCategory(categoryGuid, userGuid);
+        CategoryResponseBody response = api.readCategory(categoryGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read a default category
      *
      * Use this endpoint to read the attributes of a default category.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readDefaultCategoryTest() throws ApiException {
         String categoryGuid = null;
-                CategoryResponseBody response = api.readDefaultCategory(categoryGuid);
+        CategoryResponseBody response = api.readDefaultCategory(categoryGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read holding
      *
      * Use this endpoint to read the attributes of a specific &#x60;holding&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readHoldingTest() throws ApiException {
         String holdingGuid = null;
         String userGuid = null;
-                HoldingResponseBody response = api.readHolding(holdingGuid, userGuid);
+        HoldingResponseBody response = api.readHolding(holdingGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read institution
      *
      * This endpoint returns information about the institution specified by &#x60;institution_code&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readInstitutionTest() throws ApiException {
         String institutionCode = null;
-                InstitutionResponseBody response = api.readInstitution(institutionCode);
+        InstitutionResponseBody response = api.readInstitution(institutionCode);
         // TODO: test validations
     }
-    
+
     /**
      * Read managed account
      *
      * Use this endpoint to read the attributes of a partner-managed account according to its unique guid.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readManagedAccountTest() throws ApiException {
         String accountGuid = null;
         String memberGuid = null;
         String userGuid = null;
-                AccountResponseBody response = api.readManagedAccount(accountGuid, memberGuid, userGuid);
+        AccountResponseBody response = api.readManagedAccount(accountGuid, memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read managed member
      *
      * This endpoint returns the attributes of the specified partner-managed &#x60;member&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readManagedMemberTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
-                MemberResponseBody response = api.readManagedMember(memberGuid, userGuid);
+        MemberResponseBody response = api.readManagedMember(memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read managed transaction
      *
      * Requests to this endpoint will return the attributes of the specified partner-managed &#x60;transaction&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readManagedTransactionTest() throws ApiException {
@@ -1464,79 +1383,74 @@ public class MxPlatformApiTest {
         String memberGuid = null;
         String transactionGuid = null;
         String userGuid = null;
-                TransactionResponseBody response = api.readManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid);
+        TransactionResponseBody response = api.readManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read member
      *
      * Use this endpoint to read the attributes of a specific member.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readMemberTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
-                MemberResponseBody response = api.readMember(memberGuid, userGuid);
+        MemberResponseBody response = api.readMember(memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read member status
      *
      * This endpoint provides the status of the members most recent aggregation event. This is an important step in the aggregation process, and the results returned by this endpoint should determine what you do next in order to successfully aggregate a member. MX has introduced new, more detailed information on the current status of a members connection to a financial institution and the state of its aggregation - the connection_status field. These are intended to replace and expand upon the information provided in the status field, which will soon be deprecated; support for the status field remains for the time being.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readMemberStatusTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
-                MemberStatusResponseBody response = api.readMemberStatus(memberGuid, userGuid);
+        MemberStatusResponseBody response = api.readMemberStatus(memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read merchant
      *
      * Returns information about a particular merchant, such as a logo, name, and website.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readMerchantTest() throws ApiException {
         String merchantGuid = null;
-                MerchantResponseBody response = api.readMerchant(merchantGuid);
+        MerchantResponseBody response = api.readMerchant(merchantGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read merchant location
      *
      * This endpoint returns the specified merchant_location resource.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readMerchantLocationTest() throws ApiException {
         String merchantLocationGuid = null;
-                MerchantLocationResponseBody response = api.readMerchantLocation(merchantLocationGuid);
+        MerchantLocationResponseBody response = api.readMerchantLocation(merchantLocationGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read spending plan account
      *
      * Use this endpoint to read the attributes of a specific spending plan account according to its unique GUID.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readSpendingPlanAccountTest() throws ApiException {
@@ -1545,17 +1459,16 @@ public class MxPlatformApiTest {
         String spendingPlanAccountGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                SpendingPlanAccountResponse response = api.readSpendingPlanAccount(userGuid, spendingPlanGuid, spendingPlanAccountGuid, page, recordsPerPage);
+        SpendingPlanAccountResponse response = api.readSpendingPlanAccount(userGuid, spendingPlanGuid, spendingPlanAccountGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * Read a spending plan iteration
      *
      * Use this endpoint to read the attributes of a specific spending plan &#x60;iteration&#x60; according to its &#x60;iteration_number&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readSpendingPlanIterationTest() throws ApiException {
@@ -1564,17 +1477,16 @@ public class MxPlatformApiTest {
         Integer iterationNumber = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                SpendingPlanIterationResponse response = api.readSpendingPlanIteration(userGuid, spendingPlanGuid, iterationNumber, page, recordsPerPage);
+        SpendingPlanIterationResponse response = api.readSpendingPlanIteration(userGuid, spendingPlanGuid, iterationNumber, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * Read a spending plan iteration item
      *
      * Use this endpoint to read the attributes of a specific spending plan &#x60;iteration_item&#x60; according to its unique GUID.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readSpendingPlanIterationItemTest() throws ApiException {
@@ -1583,17 +1495,16 @@ public class MxPlatformApiTest {
         String iterationItemGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                SpendingPlanIterationItemResponse response = api.readSpendingPlanIterationItem(userGuid, spendingPlanGuid, iterationItemGuid, page, recordsPerPage);
+        SpendingPlanIterationItemResponse response = api.readSpendingPlanIterationItem(userGuid, spendingPlanGuid, iterationItemGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * Read a spending plan for a user
      *
      * Use this endpoint to read the attributes of a specific spending plan according to its unique GUID.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readSpendingPlanUserTest() throws ApiException {
@@ -1601,161 +1512,151 @@ public class MxPlatformApiTest {
         String spendingPlanGuid = null;
         Integer page = null;
         Integer recordsPerPage = null;
-                SpendingPlanResponse response = api.readSpendingPlanUser(userGuid, spendingPlanGuid, page, recordsPerPage);
+        SpendingPlanResponse response = api.readSpendingPlanUser(userGuid, spendingPlanGuid, page, recordsPerPage);
         // TODO: test validations
     }
-    
+
     /**
      * Read statement by member
      *
      * Use this endpoint to read a JSON representation of the statement.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readStatementByMemberTest() throws ApiException {
         String memberGuid = null;
         String statementGuid = null;
         String userGuid = null;
-                StatementResponseBody response = api.readStatementByMember(memberGuid, statementGuid, userGuid);
+        StatementResponseBody response = api.readStatementByMember(memberGuid, statementGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read tag
      *
      * Use this endpoint to read the attributes of a particular tag according to its unique GUID.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readTagTest() throws ApiException {
         String tagGuid = null;
         String userGuid = null;
-                TagResponseBody response = api.readTag(tagGuid, userGuid);
+        TagResponseBody response = api.readTag(tagGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read tagging
      *
      * Use this endpoint to read the attributes of a &#x60;tagging&#x60; according to its unique GUID.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readTaggingTest() throws ApiException {
         String taggingGuid = null;
         String userGuid = null;
-                TaggingResponseBody response = api.readTagging(taggingGuid, userGuid);
+        TaggingResponseBody response = api.readTagging(taggingGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read a Tax Document
      *
      * Use this endpoint to read the attributes of the specified tax document.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readTaxDocumentTest() throws ApiException {
         String taxDocumentGuid = null;
         String memberGuid = null;
         String userGuid = null;
-                TaxDocumentResponseBody response = api.readTaxDocument(taxDocumentGuid, memberGuid, userGuid);
+        TaxDocumentResponseBody response = api.readTaxDocument(taxDocumentGuid, memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read transaction
      *
      * Requests to this endpoint will return the attributes of the specified &#x60;transaction&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readTransactionTest() throws ApiException {
         String transactionGuid = null;
         String userGuid = null;
-                TransactionResponseBody response = api.readTransaction(transactionGuid, userGuid);
+        TransactionResponseBody response = api.readTransaction(transactionGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read transaction rule
      *
      * Use this endpoint to read the attributes of an existing transaction rule based on the rule’s unique GUID.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readTransactionRuleTest() throws ApiException {
         String transactionRuleGuid = null;
         String userGuid = null;
-                TransactionRuleResponseBody response = api.readTransactionRule(transactionRuleGuid, userGuid);
+        TransactionRuleResponseBody response = api.readTransactionRule(transactionRuleGuid, userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Read user
      *
      * Use this endpoint to read the attributes of a specific user.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void readUserTest() throws ApiException {
         String userGuid = null;
-                UserResponseBody response = api.readUser(userGuid);
+        UserResponseBody response = api.readUser(userGuid);
         // TODO: test validations
     }
-    
+
     /**
      * Request an authorization code.
      *
      * Clients use this endpoint to request an authorization code according to the parameters specified in the scope. Clients then pass this code to processors. Processor access is scoped only to the GUIDs and features specified in this request. Before requesting an authorization code which includes a member in the scope, clients must have verified that member.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void requestAuthorizationCodeTest() throws ApiException {
         AuthorizationCodeRequestBody authorizationCodeRequestBody = null;
-                AuthorizationCodeResponseBody response = api.requestAuthorizationCode(authorizationCodeRequestBody);
+        AuthorizationCodeResponseBody response = api.requestAuthorizationCode(authorizationCodeRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Request connect widget url
      *
      * This endpoint will return a URL for an embeddable version of MX Connect.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void requestConnectWidgetURLTest() throws ApiException {
         String userGuid = null;
         ConnectWidgetRequestBody connectWidgetRequestBody = null;
-                ConnectWidgetResponseBody response = api.requestConnectWidgetURL(userGuid, connectWidgetRequestBody);
+        ConnectWidgetResponseBody response = api.requestConnectWidgetURL(userGuid, connectWidgetRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Request oauth window uri
      *
      * This endpoint will generate an &#x60;oauth_window_uri&#x60; for the specified &#x60;member&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void requestOAuthWindowURITest() throws ApiException {
@@ -1766,51 +1667,48 @@ public class MxPlatformApiTest {
         String referralSource = null;
         Boolean skipAggregation = null;
         String uiMessageWebviewUrlScheme = null;
-                OAuthWindowResponseBody response = api.requestOAuthWindowURI(memberGuid, userGuid, clientRedirectUrl, enableApp2app, referralSource, skipAggregation, uiMessageWebviewUrlScheme);
+        OAuthWindowResponseBody response = api.requestOAuthWindowURI(memberGuid, userGuid, clientRedirectUrl, enableApp2app, referralSource, skipAggregation, uiMessageWebviewUrlScheme);
         // TODO: test validations
     }
-    
+
     /**
      * Request widget url
      *
      * This endpoint allows partners to get a URL by passing the &#x60;widget_type&#x60; in the request body, as well as configuring it in several different ways. In the case of Connect, that means setting the &#x60;widget_type&#x60; to &#x60;connect_widget&#x60;. Partners may also pass an optional &#x60;Accept-Language&#x60; header as well as a number of configuration options. Note that this is a &#x60;POST&#x60; request.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void requestWidgetURLTest() throws ApiException {
         String userGuid = null;
         WidgetRequestBody widgetRequestBody = null;
         String acceptLanguage = null;
-                WidgetResponseBody response = api.requestWidgetURL(userGuid, widgetRequestBody, acceptLanguage);
+        WidgetResponseBody response = api.requestWidgetURL(userGuid, widgetRequestBody, acceptLanguage);
         // TODO: test validations
     }
-    
+
     /**
      * Resume aggregation
      *
      * This endpoint answers the challenges needed when a member has been challenged by multi-factor authentication.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void resumeAggregationTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
         MemberResumeRequestBody memberResumeRequestBody = null;
-                MemberResponseBody response = api.resumeAggregation(memberGuid, userGuid, memberResumeRequestBody);
+        MemberResponseBody response = api.resumeAggregation(memberGuid, userGuid, memberResumeRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Update account by member
      *
      * This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateAccountByMemberTest() throws ApiException {
@@ -1818,34 +1716,32 @@ public class MxPlatformApiTest {
         String memberGuid = null;
         String userGuid = null;
         AccountUpdateRequestBody accountUpdateRequestBody = null;
-                AccountResponseBody response = api.updateAccountByMember(accountGuid, memberGuid, userGuid, accountUpdateRequestBody);
+        AccountResponseBody response = api.updateAccountByMember(accountGuid, memberGuid, userGuid, accountUpdateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Update category
      *
      * Use this endpoint to update the attributes of a custom category according to its unique GUID.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateCategoryTest() throws ApiException {
         String categoryGuid = null;
         String userGuid = null;
         CategoryUpdateRequestBody categoryUpdateRequestBody = null;
-                CategoryResponseBody response = api.updateCategory(categoryGuid, userGuid, categoryUpdateRequestBody);
+        CategoryResponseBody response = api.updateCategory(categoryGuid, userGuid, categoryUpdateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Update managed account
      *
      * Use this endpoint to update the attributes of a partner-managed account according to its unique GUID.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateManagedAccountTest() throws ApiException {
@@ -1853,34 +1749,32 @@ public class MxPlatformApiTest {
         String memberGuid = null;
         String userGuid = null;
         ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody = null;
-                AccountResponseBody response = api.updateManagedAccount(accountGuid, memberGuid, userGuid, managedAccountUpdateRequestBody);
+        AccountResponseBody response = api.updateManagedAccount(accountGuid, memberGuid, userGuid, managedAccountUpdateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Update managed member
      *
      * Use this endpoint to update the attributes of the specified partner_managed &#x60;member&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateManagedMemberTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
         ManagedMemberUpdateRequestBody managedMemberUpdateRequestBody = null;
-                MemberResponseBody response = api.updateManagedMember(memberGuid, userGuid, managedMemberUpdateRequestBody);
+        MemberResponseBody response = api.updateManagedMember(memberGuid, userGuid, managedMemberUpdateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Update managed transaction
      *
      * Use this endpoint to update the attributes of the specified partner_managed &#x60;transaction&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateManagedTransactionTest() throws ApiException {
@@ -1889,34 +1783,32 @@ public class MxPlatformApiTest {
         String transactionGuid = null;
         String userGuid = null;
         ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody = null;
-                TransactionResponseBody response = api.updateManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid, managedTransactionUpdateRequestBody);
+        TransactionResponseBody response = api.updateManagedTransaction(accountGuid, memberGuid, transactionGuid, userGuid, managedTransactionUpdateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Update member
      *
      * Use this endpoint to update a members attributes. Only the credentials, id, and metadata parameters can be updated. To get a list of the required credentials for the member, use the list member credentials endpoint.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateMemberTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
         MemberUpdateRequestBody memberUpdateRequestBody = null;
-                MemberResponseBody response = api.updateMember(memberGuid, userGuid, memberUpdateRequestBody);
+        MemberResponseBody response = api.updateMember(memberGuid, userGuid, memberUpdateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Update a spending plan iteration item
      *
      * Use this endpoint to update an existing &#x60;spending_plan_iteration_item&#x60;.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateSpendingPlanIterationItemTest() throws ApiException {
@@ -1924,108 +1816,102 @@ public class MxPlatformApiTest {
         String spendingPlanGuid = null;
         String iterationItemGuid = null;
         SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody = null;
-                SpendingPlanIterationItemResponse response = api.updateSpendingPlanIterationItem(userGuid, spendingPlanGuid, iterationItemGuid, spendingPlanIterationItemCreateRequestBody);
+        SpendingPlanIterationItemResponse response = api.updateSpendingPlanIterationItem(userGuid, spendingPlanGuid, iterationItemGuid, spendingPlanIterationItemCreateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Update tag
      *
      * Use this endpoint to update the name of a specific tag according to its unique GUID.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateTagTest() throws ApiException {
         String tagGuid = null;
         String userGuid = null;
         TagUpdateRequestBody tagUpdateRequestBody = null;
-                TagResponseBody response = api.updateTag(tagGuid, userGuid, tagUpdateRequestBody);
+        TagResponseBody response = api.updateTag(tagGuid, userGuid, tagUpdateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Update tagging
      *
      * Use this endpoint to update a tagging.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateTaggingTest() throws ApiException {
         String taggingGuid = null;
         String userGuid = null;
         TaggingUpdateRequestBody taggingUpdateRequestBody = null;
-                TaggingResponseBody response = api.updateTagging(taggingGuid, userGuid, taggingUpdateRequestBody);
+        TaggingResponseBody response = api.updateTagging(taggingGuid, userGuid, taggingUpdateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Update transaction
      *
      * Use this endpoint to update the &#x60;description&#x60; of a specific transaction according to its unique GUID.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateTransactionTest() throws ApiException {
         String transactionGuid = null;
         String userGuid = null;
         TransactionUpdateRequestBody transactionUpdateRequestBody = null;
-                TransactionResponseBody response = api.updateTransaction(transactionGuid, userGuid, transactionUpdateRequestBody);
+        TransactionResponseBody response = api.updateTransaction(transactionGuid, userGuid, transactionUpdateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Update transaction_rule
      *
      * Use this endpoint to update the attributes of a specific transaction rule based on its unique GUID. The API will respond with the updated transaction_rule object. Any attributes not provided will be left unchanged.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateTransactionRuleTest() throws ApiException {
         String transactionRuleGuid = null;
         String userGuid = null;
         TransactionRuleUpdateRequestBody transactionRuleUpdateRequestBody = null;
-                TransactionRuleResponseBody response = api.updateTransactionRule(transactionRuleGuid, userGuid, transactionRuleUpdateRequestBody);
+        TransactionRuleResponseBody response = api.updateTransactionRule(transactionRuleGuid, userGuid, transactionRuleUpdateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Update user
      *
      * Use this endpoint to update the attributes of the specified user.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void updateUserTest() throws ApiException {
         String userGuid = null;
         UserUpdateRequestBody userUpdateRequestBody = null;
-                UserResponseBody response = api.updateUser(userGuid, userUpdateRequestBody);
+        UserResponseBody response = api.updateUser(userGuid, userUpdateRequestBody);
         // TODO: test validations
     }
-    
+
     /**
      * Verify member
      *
      * The verify endpoint begins a verification process for a member.
      *
-     * @throws ApiException
-     *          if the Api call fails
+     * @throws ApiException if the Api call fails
      */
     @Test
     public void verifyMemberTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
-                MemberResponseBody response = api.verifyMember(memberGuid, userGuid);
+        MemberResponseBody response = api.verifyMember(memberGuid, userGuid);
         // TODO: test validations
     }
-    
+
 }

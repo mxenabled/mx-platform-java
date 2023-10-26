@@ -14,15 +14,37 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * TaggingUpdateRequest
@@ -33,7 +55,7 @@ public class TaggingUpdateRequest {
   @SerializedName(SERIALIZED_NAME_TAG_GUID)
   private String tagGuid;
 
-  public TaggingUpdateRequest() { 
+  public TaggingUpdateRequest() {
   }
 
   public TaggingUpdateRequest tagGuid(String tagGuid) {
@@ -47,8 +69,6 @@ public class TaggingUpdateRequest {
    * @return tagGuid
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "TAG-40faf068-abb4-405c-8f6a-e883ed541fff", required = true, value = "")
-
   public String getTagGuid() {
     return tagGuid;
   }
@@ -57,6 +77,7 @@ public class TaggingUpdateRequest {
   public void setTagGuid(String tagGuid) {
     this.tagGuid = tagGuid;
   }
+
 
 
   @Override
@@ -96,5 +117,100 @@ public class TaggingUpdateRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("tag_guid");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("tag_guid");
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TaggingUpdateRequest
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TaggingUpdateRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in TaggingUpdateRequest is not found in the empty JSON string", TaggingUpdateRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!TaggingUpdateRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TaggingUpdateRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : TaggingUpdateRequest.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("tag_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `tag_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("tag_guid").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!TaggingUpdateRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'TaggingUpdateRequest' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<TaggingUpdateRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(TaggingUpdateRequest.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<TaggingUpdateRequest>() {
+           @Override
+           public void write(JsonWriter out, TaggingUpdateRequest value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public TaggingUpdateRequest read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of TaggingUpdateRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of TaggingUpdateRequest
+  * @throws IOException if the JSON string is invalid with respect to TaggingUpdateRequest
+  */
+  public static TaggingUpdateRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, TaggingUpdateRequest.class);
+  }
+
+ /**
+  * Convert an instance of TaggingUpdateRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

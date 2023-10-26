@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * StatementResponse
@@ -62,7 +84,7 @@ public class StatementResponse {
   @SerializedName(SERIALIZED_NAME_USER_GUID)
   private String userGuid;
 
-  public StatementResponse() { 
+  public StatementResponse() {
   }
 
   public StatementResponse accountGuid(String accountGuid) {
@@ -76,8 +98,6 @@ public class StatementResponse {
    * @return accountGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1", value = "")
-
   public String getAccountGuid() {
     return accountGuid;
   }
@@ -99,8 +119,6 @@ public class StatementResponse {
    * @return contentHash
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "ca53785b812d00ef821c3d94bfd6e5bbc0020504410589b7ea8552169f021981", value = "")
-
   public String getContentHash() {
     return contentHash;
   }
@@ -122,8 +140,6 @@ public class StatementResponse {
    * @return createdAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2016-10-13T18:08:00+00:00", value = "")
-
   public String getCreatedAt() {
     return createdAt;
   }
@@ -145,8 +161,6 @@ public class StatementResponse {
    * @return guid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "STA-737a344b-caae-0f6e-1384-01f52e75dcb1", value = "")
-
   public String getGuid() {
     return guid;
   }
@@ -168,8 +182,6 @@ public class StatementResponse {
    * @return memberGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b", value = "")
-
   public String getMemberGuid() {
     return memberGuid;
   }
@@ -191,8 +203,6 @@ public class StatementResponse {
    * @return updatedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2016-10-13T18:09:00+00:00", value = "")
-
   public String getUpdatedAt() {
     return updatedAt;
   }
@@ -214,8 +224,6 @@ public class StatementResponse {
    * @return uri
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "uri/to/statement", value = "")
-
   public String getUri() {
     return uri;
   }
@@ -237,8 +245,6 @@ public class StatementResponse {
    * @return userGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USR-fa7537f3-48aa-a683-a02a-b18940482f54", value = "")
-
   public String getUserGuid() {
     return userGuid;
   }
@@ -247,6 +253,7 @@ public class StatementResponse {
   public void setUserGuid(String userGuid) {
     this.userGuid = userGuid;
   }
+
 
 
   @Override
@@ -311,5 +318,120 @@ public class StatementResponse {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("account_guid");
+    openapiFields.add("content_hash");
+    openapiFields.add("created_at");
+    openapiFields.add("guid");
+    openapiFields.add("member_guid");
+    openapiFields.add("updated_at");
+    openapiFields.add("uri");
+    openapiFields.add("user_guid");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to StatementResponse
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!StatementResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in StatementResponse is not found in the empty JSON string", StatementResponse.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!StatementResponse.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `StatementResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("account_guid") != null && !jsonObj.get("account_guid").isJsonNull()) && !jsonObj.get("account_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `account_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("account_guid").toString()));
+      }
+      if ((jsonObj.get("content_hash") != null && !jsonObj.get("content_hash").isJsonNull()) && !jsonObj.get("content_hash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `content_hash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("content_hash").toString()));
+      }
+      if ((jsonObj.get("created_at") != null && !jsonObj.get("created_at").isJsonNull()) && !jsonObj.get("created_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `created_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("created_at").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("member_guid") != null && !jsonObj.get("member_guid").isJsonNull()) && !jsonObj.get("member_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `member_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("member_guid").toString()));
+      }
+      if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull()) && !jsonObj.get("updated_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updated_at").toString()));
+      }
+      if ((jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) && !jsonObj.get("uri").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uri").toString()));
+      }
+      if ((jsonObj.get("user_guid") != null && !jsonObj.get("user_guid").isJsonNull()) && !jsonObj.get("user_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_guid").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!StatementResponse.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'StatementResponse' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<StatementResponse> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(StatementResponse.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<StatementResponse>() {
+           @Override
+           public void write(JsonWriter out, StatementResponse value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public StatementResponse read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of StatementResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of StatementResponse
+  * @throws IOException if the JSON string is invalid with respect to StatementResponse
+  */
+  public static StatementResponse fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, StatementResponse.class);
+  }
+
+ /**
+  * Convert an instance of StatementResponse to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

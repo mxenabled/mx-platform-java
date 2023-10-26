@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**account** | [**AccountUpdateRequest**](AccountUpdateRequest.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**account** | [**AccountUpdateRequest**](AccountUpdateRequest.md) |  |  [optional] |
 
 
 

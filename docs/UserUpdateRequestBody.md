@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**user** | [**UserUpdateRequest**](UserUpdateRequest.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**user** | [**UserUpdateRequest**](UserUpdateRequest.md) |  |  [optional] |
 
 
 

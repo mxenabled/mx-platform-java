@@ -5,9 +5,9 @@
 
 ## Properties
 
-Name | Type | Description | Notes
------------- | ------------- | ------------- | -------------
-**config** | [**ConnectWidgetRequest**](ConnectWidgetRequest.md) |  |  [optional]
+| Name | Type | Description | Notes |
+|------------ | ------------- | ------------- | -------------|
+|**config** | [**ConnectWidgetRequest**](ConnectWidgetRequest.md) |  |  [optional] |
 
 
 

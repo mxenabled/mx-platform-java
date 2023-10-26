@@ -161,7 +161,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call aggregateMemberCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -178,8 +177,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/aggregate"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -196,7 +195,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -209,20 +207,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call aggregateMemberValidateBeforeCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling aggregateMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling aggregateMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = aggregateMemberCall(memberGuid, userGuid, _callback);
-        return localVarCall;
+        return aggregateMemberCall(memberGuid, userGuid, _callback);
 
     }
 
@@ -299,7 +294,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call checkBalancesCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -316,8 +310,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/check_balance"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -334,7 +328,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -347,20 +340,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call checkBalancesValidateBeforeCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling checkBalances(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling checkBalances(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = checkBalancesCall(memberGuid, userGuid, _callback);
-        return localVarCall;
+        return checkBalancesCall(memberGuid, userGuid, _callback);
 
     }
 
@@ -437,7 +427,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call createCategoryCall(String userGuid, CategoryCreateRequestBody categoryCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -454,7 +443,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/categories"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -484,20 +473,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createCategoryValidateBeforeCall(String userGuid, CategoryCreateRequestBody categoryCreateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling createCategory(Async)");
         }
-        
+
         // verify the required parameter 'categoryCreateRequestBody' is set
         if (categoryCreateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'categoryCreateRequestBody' when calling createCategory(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createCategoryCall(userGuid, categoryCreateRequestBody, _callback);
-        return localVarCall;
+        return createCategoryCall(userGuid, categoryCreateRequestBody, _callback);
 
     }
 
@@ -575,7 +561,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call createManagedAccountCall(String memberGuid, String userGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -592,8 +577,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -623,25 +608,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createManagedAccountValidateBeforeCall(String memberGuid, String userGuid, ManagedAccountCreateRequestBody managedAccountCreateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling createManagedAccount(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling createManagedAccount(Async)");
         }
-        
+
         // verify the required parameter 'managedAccountCreateRequestBody' is set
         if (managedAccountCreateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'managedAccountCreateRequestBody' when calling createManagedAccount(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createManagedAccountCall(memberGuid, userGuid, managedAccountCreateRequestBody, _callback);
-        return localVarCall;
+        return createManagedAccountCall(memberGuid, userGuid, managedAccountCreateRequestBody, _callback);
 
     }
 
@@ -721,7 +703,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call createManagedMemberCall(String userGuid, ManagedMemberCreateRequestBody managedMemberCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -738,7 +719,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -768,20 +749,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createManagedMemberValidateBeforeCall(String userGuid, ManagedMemberCreateRequestBody managedMemberCreateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling createManagedMember(Async)");
         }
-        
+
         // verify the required parameter 'managedMemberCreateRequestBody' is set
         if (managedMemberCreateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'managedMemberCreateRequestBody' when calling createManagedMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createManagedMemberCall(userGuid, managedMemberCreateRequestBody, _callback);
-        return localVarCall;
+        return createManagedMemberCall(userGuid, managedMemberCreateRequestBody, _callback);
 
     }
 
@@ -860,7 +838,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call createManagedTransactionCall(String accountGuid, String memberGuid, String userGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -877,9 +854,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions"
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "account_guid" + "}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -909,30 +886,27 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createManagedTransactionValidateBeforeCall(String accountGuid, String memberGuid, String userGuid, ManagedTransactionCreateRequestBody managedTransactionCreateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'accountGuid' is set
         if (accountGuid == null) {
             throw new ApiException("Missing the required parameter 'accountGuid' when calling createManagedTransaction(Async)");
         }
-        
+
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling createManagedTransaction(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling createManagedTransaction(Async)");
         }
-        
+
         // verify the required parameter 'managedTransactionCreateRequestBody' is set
         if (managedTransactionCreateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'managedTransactionCreateRequestBody' when calling createManagedTransaction(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createManagedTransactionCall(accountGuid, memberGuid, userGuid, managedTransactionCreateRequestBody, _callback);
-        return localVarCall;
+        return createManagedTransactionCall(accountGuid, memberGuid, userGuid, managedTransactionCreateRequestBody, _callback);
 
     }
 
@@ -1015,7 +989,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call createManualAccountCall(String userGuid, AccountCreateRequestBody accountCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -1032,7 +1005,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/accounts"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1062,20 +1035,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createManualAccountValidateBeforeCall(String userGuid, AccountCreateRequestBody accountCreateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling createManualAccount(Async)");
         }
-        
+
         // verify the required parameter 'accountCreateRequestBody' is set
         if (accountCreateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'accountCreateRequestBody' when calling createManualAccount(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createManualAccountCall(userGuid, accountCreateRequestBody, _callback);
-        return localVarCall;
+        return createManualAccountCall(userGuid, accountCreateRequestBody, _callback);
 
     }
 
@@ -1152,7 +1122,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call createMemberCall(String userGuid, MemberCreateRequestBody memberCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -1169,7 +1138,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1199,20 +1168,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createMemberValidateBeforeCall(String userGuid, MemberCreateRequestBody memberCreateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling createMember(Async)");
         }
-        
+
         // verify the required parameter 'memberCreateRequestBody' is set
         if (memberCreateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'memberCreateRequestBody' when calling createMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createMemberCall(userGuid, memberCreateRequestBody, _callback);
-        return localVarCall;
+        return createMemberCall(userGuid, memberCreateRequestBody, _callback);
 
     }
 
@@ -1288,7 +1254,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call createSpendingPlanCall(String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -1305,7 +1270,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/spending_plans"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1322,7 +1287,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -1335,15 +1299,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createSpendingPlanValidateBeforeCall(String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling createSpendingPlan(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createSpendingPlanCall(userGuid, _callback);
-        return localVarCall;
+        return createSpendingPlanCall(userGuid, _callback);
 
     }
 
@@ -1418,7 +1379,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call createSpendingPlanIterationItemCall(String spendingPlanGuid, String userGuid, SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -1435,8 +1395,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items"
-            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "spending_plan_guid" + "}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1466,25 +1426,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createSpendingPlanIterationItemValidateBeforeCall(String spendingPlanGuid, String userGuid, SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'spendingPlanGuid' is set
         if (spendingPlanGuid == null) {
             throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling createSpendingPlanIterationItem(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling createSpendingPlanIterationItem(Async)");
         }
-        
+
         // verify the required parameter 'spendingPlanIterationItemCreateRequestBody' is set
         if (spendingPlanIterationItemCreateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'spendingPlanIterationItemCreateRequestBody' when calling createSpendingPlanIterationItem(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createSpendingPlanIterationItemCall(spendingPlanGuid, userGuid, spendingPlanIterationItemCreateRequestBody, _callback);
-        return localVarCall;
+        return createSpendingPlanIterationItemCall(spendingPlanGuid, userGuid, spendingPlanIterationItemCreateRequestBody, _callback);
 
     }
 
@@ -1564,7 +1521,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call createTagCall(String userGuid, TagCreateRequestBody tagCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -1581,7 +1537,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/tags"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1611,20 +1567,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createTagValidateBeforeCall(String userGuid, TagCreateRequestBody tagCreateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling createTag(Async)");
         }
-        
+
         // verify the required parameter 'tagCreateRequestBody' is set
         if (tagCreateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'tagCreateRequestBody' when calling createTag(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createTagCall(userGuid, tagCreateRequestBody, _callback);
-        return localVarCall;
+        return createTagCall(userGuid, tagCreateRequestBody, _callback);
 
     }
 
@@ -1701,7 +1654,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call createTaggingCall(String userGuid, TaggingCreateRequestBody taggingCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -1718,7 +1670,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/taggings"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1748,20 +1700,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createTaggingValidateBeforeCall(String userGuid, TaggingCreateRequestBody taggingCreateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling createTagging(Async)");
         }
-        
+
         // verify the required parameter 'taggingCreateRequestBody' is set
         if (taggingCreateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'taggingCreateRequestBody' when calling createTagging(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createTaggingCall(userGuid, taggingCreateRequestBody, _callback);
-        return localVarCall;
+        return createTaggingCall(userGuid, taggingCreateRequestBody, _callback);
 
     }
 
@@ -1838,7 +1787,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call createTransactionRuleCall(String userGuid, TransactionRuleCreateRequestBody transactionRuleCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -1855,7 +1803,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/transaction_rules"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -1885,20 +1833,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createTransactionRuleValidateBeforeCall(String userGuid, TransactionRuleCreateRequestBody transactionRuleCreateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling createTransactionRule(Async)");
         }
-        
+
         // verify the required parameter 'transactionRuleCreateRequestBody' is set
         if (transactionRuleCreateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'transactionRuleCreateRequestBody' when calling createTransactionRule(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createTransactionRuleCall(userGuid, transactionRuleCreateRequestBody, _callback);
-        return localVarCall;
+        return createTransactionRuleCall(userGuid, transactionRuleCreateRequestBody, _callback);
 
     }
 
@@ -1974,7 +1919,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call createUserCall(UserCreateRequestBody userCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -2020,15 +1964,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createUserValidateBeforeCall(UserCreateRequestBody userCreateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userCreateRequestBody' is set
         if (userCreateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'userCreateRequestBody' when calling createUser(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = createUserCall(userCreateRequestBody, _callback);
-        return localVarCall;
+        return createUserCall(userCreateRequestBody, _callback);
 
     }
 
@@ -2102,7 +2043,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call deleteCategoryCall(String categoryGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -2119,8 +2059,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/categories/{category_guid}"
-            .replaceAll("\\{" + "category_guid" + "\\}", localVarApiClient.escapeString(categoryGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "category_guid" + "}", localVarApiClient.escapeString(categoryGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2129,7 +2069,6 @@ public class MxPlatformApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2137,7 +2076,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2150,20 +2088,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteCategoryValidateBeforeCall(String categoryGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'categoryGuid' is set
         if (categoryGuid == null) {
             throw new ApiException("Missing the required parameter 'categoryGuid' when calling deleteCategory(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling deleteCategory(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteCategoryCall(categoryGuid, userGuid, _callback);
-        return localVarCall;
+        return deleteCategoryCall(categoryGuid, userGuid, _callback);
 
     }
 
@@ -2237,7 +2172,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call deleteManagedAccountCall(String accountGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -2254,9 +2188,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}"
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "account_guid" + "}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2265,7 +2199,6 @@ public class MxPlatformApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2273,7 +2206,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2286,25 +2218,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteManagedAccountValidateBeforeCall(String accountGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'accountGuid' is set
         if (accountGuid == null) {
             throw new ApiException("Missing the required parameter 'accountGuid' when calling deleteManagedAccount(Async)");
         }
-        
+
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling deleteManagedAccount(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling deleteManagedAccount(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteManagedAccountCall(accountGuid, memberGuid, userGuid, _callback);
-        return localVarCall;
+        return deleteManagedAccountCall(accountGuid, memberGuid, userGuid, _callback);
 
     }
 
@@ -2380,7 +2309,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call deleteManagedMemberCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -2397,8 +2325,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2407,7 +2335,6 @@ public class MxPlatformApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2415,7 +2342,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2428,20 +2354,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteManagedMemberValidateBeforeCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling deleteManagedMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling deleteManagedMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteManagedMemberCall(memberGuid, userGuid, _callback);
-        return localVarCall;
+        return deleteManagedMemberCall(memberGuid, userGuid, _callback);
 
     }
 
@@ -2516,7 +2439,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call deleteManagedTransactionCall(String accountGuid, String memberGuid, String transactionGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -2533,10 +2455,10 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid}"
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "transaction_guid" + "\\}", localVarApiClient.escapeString(transactionGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "account_guid" + "}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "transaction_guid" + "}", localVarApiClient.escapeString(transactionGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2545,7 +2467,6 @@ public class MxPlatformApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2553,7 +2474,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2566,30 +2486,27 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteManagedTransactionValidateBeforeCall(String accountGuid, String memberGuid, String transactionGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'accountGuid' is set
         if (accountGuid == null) {
             throw new ApiException("Missing the required parameter 'accountGuid' when calling deleteManagedTransaction(Async)");
         }
-        
+
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling deleteManagedTransaction(Async)");
         }
-        
+
         // verify the required parameter 'transactionGuid' is set
         if (transactionGuid == null) {
             throw new ApiException("Missing the required parameter 'transactionGuid' when calling deleteManagedTransaction(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling deleteManagedTransaction(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteManagedTransactionCall(accountGuid, memberGuid, transactionGuid, userGuid, _callback);
-        return localVarCall;
+        return deleteManagedTransactionCall(accountGuid, memberGuid, transactionGuid, userGuid, _callback);
 
     }
 
@@ -2668,7 +2585,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call deleteManualAccountCall(String accountGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -2685,8 +2601,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/accounts/{account_guid}"
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "account_guid" + "}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2695,7 +2611,6 @@ public class MxPlatformApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2703,7 +2618,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2716,20 +2630,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteManualAccountValidateBeforeCall(String accountGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'accountGuid' is set
         if (accountGuid == null) {
             throw new ApiException("Missing the required parameter 'accountGuid' when calling deleteManualAccount(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling deleteManualAccount(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteManualAccountCall(accountGuid, userGuid, _callback);
-        return localVarCall;
+        return deleteManualAccountCall(accountGuid, userGuid, _callback);
 
     }
 
@@ -2802,7 +2713,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call deleteMemberCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -2819,8 +2729,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2829,7 +2739,6 @@ public class MxPlatformApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2837,7 +2746,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2850,20 +2758,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteMemberValidateBeforeCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling deleteMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling deleteMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteMemberCall(memberGuid, userGuid, _callback);
-        return localVarCall;
+        return deleteMemberCall(memberGuid, userGuid, _callback);
 
     }
 
@@ -2936,7 +2841,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call deleteSpendingPlanCall(String userGuid, String spendingPlanGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -2953,8 +2857,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()))
+            .replace("{" + "spending_plan_guid" + "}", localVarApiClient.escapeString(spendingPlanGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -2963,7 +2867,6 @@ public class MxPlatformApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2971,7 +2874,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -2984,20 +2886,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteSpendingPlanValidateBeforeCall(String userGuid, String spendingPlanGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling deleteSpendingPlan(Async)");
         }
-        
+
         // verify the required parameter 'spendingPlanGuid' is set
         if (spendingPlanGuid == null) {
             throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling deleteSpendingPlan(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteSpendingPlanCall(userGuid, spendingPlanGuid, _callback);
-        return localVarCall;
+        return deleteSpendingPlanCall(userGuid, spendingPlanGuid, _callback);
 
     }
 
@@ -3071,7 +2970,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call deleteSpendingPlanAccountCall(String userGuid, String spendingPlanGuid, String spendingPlanAccountGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -3088,9 +2986,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/spending_plan_accounts/{spending_plan_account_guid}"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
-            .replaceAll("\\{" + "spending_plan_account_guid" + "\\}", localVarApiClient.escapeString(spendingPlanAccountGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()))
+            .replace("{" + "spending_plan_guid" + "}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
+            .replace("{" + "spending_plan_account_guid" + "}", localVarApiClient.escapeString(spendingPlanAccountGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3099,7 +2997,6 @@ public class MxPlatformApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3107,7 +3004,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3120,25 +3016,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteSpendingPlanAccountValidateBeforeCall(String userGuid, String spendingPlanGuid, String spendingPlanAccountGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling deleteSpendingPlanAccount(Async)");
         }
-        
+
         // verify the required parameter 'spendingPlanGuid' is set
         if (spendingPlanGuid == null) {
             throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling deleteSpendingPlanAccount(Async)");
         }
-        
+
         // verify the required parameter 'spendingPlanAccountGuid' is set
         if (spendingPlanAccountGuid == null) {
             throw new ApiException("Missing the required parameter 'spendingPlanAccountGuid' when calling deleteSpendingPlanAccount(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteSpendingPlanAccountCall(userGuid, spendingPlanGuid, spendingPlanAccountGuid, _callback);
-        return localVarCall;
+        return deleteSpendingPlanAccountCall(userGuid, spendingPlanGuid, spendingPlanAccountGuid, _callback);
 
     }
 
@@ -3215,7 +3108,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call deleteSpendingPlanIterationItemCall(String userGuid, String spendingPlanGuid, String iterationItemGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -3232,9 +3124,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items/{iteration_item_guid}"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
-            .replaceAll("\\{" + "iteration_item_guid" + "\\}", localVarApiClient.escapeString(iterationItemGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()))
+            .replace("{" + "spending_plan_guid" + "}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
+            .replace("{" + "iteration_item_guid" + "}", localVarApiClient.escapeString(iterationItemGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3243,7 +3135,6 @@ public class MxPlatformApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3251,7 +3142,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3264,25 +3154,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteSpendingPlanIterationItemValidateBeforeCall(String userGuid, String spendingPlanGuid, String iterationItemGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling deleteSpendingPlanIterationItem(Async)");
         }
-        
+
         // verify the required parameter 'spendingPlanGuid' is set
         if (spendingPlanGuid == null) {
             throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling deleteSpendingPlanIterationItem(Async)");
         }
-        
+
         // verify the required parameter 'iterationItemGuid' is set
         if (iterationItemGuid == null) {
             throw new ApiException("Missing the required parameter 'iterationItemGuid' when calling deleteSpendingPlanIterationItem(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteSpendingPlanIterationItemCall(userGuid, spendingPlanGuid, iterationItemGuid, _callback);
-        return localVarCall;
+        return deleteSpendingPlanIterationItemCall(userGuid, spendingPlanGuid, iterationItemGuid, _callback);
 
     }
 
@@ -3358,7 +3245,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call deleteTagCall(String tagGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -3375,8 +3261,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/tags/{tag_guid}"
-            .replaceAll("\\{" + "tag_guid" + "\\}", localVarApiClient.escapeString(tagGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "tag_guid" + "}", localVarApiClient.escapeString(tagGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3385,7 +3271,6 @@ public class MxPlatformApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3393,7 +3278,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3406,20 +3290,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteTagValidateBeforeCall(String tagGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'tagGuid' is set
         if (tagGuid == null) {
             throw new ApiException("Missing the required parameter 'tagGuid' when calling deleteTag(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling deleteTag(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteTagCall(tagGuid, userGuid, _callback);
-        return localVarCall;
+        return deleteTagCall(tagGuid, userGuid, _callback);
 
     }
 
@@ -3492,7 +3373,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call deleteTaggingCall(String taggingGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -3509,8 +3389,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/taggings/{tagging_guid}"
-            .replaceAll("\\{" + "tagging_guid" + "\\}", localVarApiClient.escapeString(taggingGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "tagging_guid" + "}", localVarApiClient.escapeString(taggingGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3519,7 +3399,6 @@ public class MxPlatformApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3527,7 +3406,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3540,20 +3418,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteTaggingValidateBeforeCall(String taggingGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'taggingGuid' is set
         if (taggingGuid == null) {
             throw new ApiException("Missing the required parameter 'taggingGuid' when calling deleteTagging(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling deleteTagging(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteTaggingCall(taggingGuid, userGuid, _callback);
-        return localVarCall;
+        return deleteTaggingCall(taggingGuid, userGuid, _callback);
 
     }
 
@@ -3626,7 +3501,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call deleteTransactionRuleCall(String transactionRuleGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -3643,8 +3517,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/transaction_rules/{transaction_rule_guid}"
-            .replaceAll("\\{" + "transaction_rule_guid" + "\\}", localVarApiClient.escapeString(transactionRuleGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "transaction_rule_guid" + "}", localVarApiClient.escapeString(transactionRuleGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3653,7 +3527,6 @@ public class MxPlatformApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3661,7 +3534,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3674,20 +3546,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteTransactionRuleValidateBeforeCall(String transactionRuleGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'transactionRuleGuid' is set
         if (transactionRuleGuid == null) {
             throw new ApiException("Missing the required parameter 'transactionRuleGuid' when calling deleteTransactionRule(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling deleteTransactionRule(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteTransactionRuleCall(transactionRuleGuid, userGuid, _callback);
-        return localVarCall;
+        return deleteTransactionRuleCall(transactionRuleGuid, userGuid, _callback);
 
     }
 
@@ -3759,7 +3628,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call deleteUserCall(String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -3776,7 +3644,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -3785,7 +3653,6 @@ public class MxPlatformApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         final String[] localVarAccepts = {
-            
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3793,7 +3660,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -3806,15 +3672,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteUserValidateBeforeCall(String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling deleteUser(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deleteUserCall(userGuid, _callback);
-        return localVarCall;
+        return deleteUserCall(userGuid, _callback);
 
     }
 
@@ -3883,7 +3746,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call deprecatedRequestPaymentProcessorAuthorizationCodeCall(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -3929,15 +3791,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deprecatedRequestPaymentProcessorAuthorizationCodeValidateBeforeCall(PaymentProcessorAuthorizationCodeRequestBody paymentProcessorAuthorizationCodeRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'paymentProcessorAuthorizationCodeRequestBody' is set
         if (paymentProcessorAuthorizationCodeRequestBody == null) {
             throw new ApiException("Missing the required parameter 'paymentProcessorAuthorizationCodeRequestBody' when calling deprecatedRequestPaymentProcessorAuthorizationCode(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = deprecatedRequestPaymentProcessorAuthorizationCodeCall(paymentProcessorAuthorizationCodeRequestBody, _callback);
-        return localVarCall;
+        return deprecatedRequestPaymentProcessorAuthorizationCodeCall(paymentProcessorAuthorizationCodeRequestBody, _callback);
 
     }
 
@@ -4012,7 +3871,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call downloadStatementPDFCall(String memberGuid, String statementGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -4029,9 +3887,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/statements/{statement_guid}.pdf"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "statement_guid" + "\\}", localVarApiClient.escapeString(statementGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "statement_guid" + "}", localVarApiClient.escapeString(statementGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4048,7 +3906,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4061,25 +3918,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call downloadStatementPDFValidateBeforeCall(String memberGuid, String statementGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling downloadStatementPDF(Async)");
         }
-        
+
         // verify the required parameter 'statementGuid' is set
         if (statementGuid == null) {
             throw new ApiException("Missing the required parameter 'statementGuid' when calling downloadStatementPDF(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling downloadStatementPDF(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = downloadStatementPDFCall(memberGuid, statementGuid, userGuid, _callback);
-        return localVarCall;
+        return downloadStatementPDFCall(memberGuid, statementGuid, userGuid, _callback);
 
     }
 
@@ -4160,7 +4014,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call downloadTaxDocumentCall(String taxDocumentGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -4177,9 +4030,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/tax_documents/{tax_document_guid}.pdf"
-            .replaceAll("\\{" + "tax_document_guid" + "\\}", localVarApiClient.escapeString(taxDocumentGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "tax_document_guid" + "}", localVarApiClient.escapeString(taxDocumentGuid.toString()))
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4196,7 +4049,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4209,25 +4061,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call downloadTaxDocumentValidateBeforeCall(String taxDocumentGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'taxDocumentGuid' is set
         if (taxDocumentGuid == null) {
             throw new ApiException("Missing the required parameter 'taxDocumentGuid' when calling downloadTaxDocument(Async)");
         }
-        
+
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling downloadTaxDocument(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling downloadTaxDocument(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = downloadTaxDocumentCall(taxDocumentGuid, memberGuid, userGuid, _callback);
-        return localVarCall;
+        return downloadTaxDocumentCall(taxDocumentGuid, memberGuid, userGuid, _callback);
 
     }
 
@@ -4306,7 +4155,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call enhanceTransactionsCall(EnhanceTransactionsRequestBody enhanceTransactionsRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -4352,15 +4200,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call enhanceTransactionsValidateBeforeCall(EnhanceTransactionsRequestBody enhanceTransactionsRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'enhanceTransactionsRequestBody' is set
         if (enhanceTransactionsRequestBody == null) {
             throw new ApiException("Missing the required parameter 'enhanceTransactionsRequestBody' when calling enhanceTransactions(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = enhanceTransactionsCall(enhanceTransactionsRequestBody, _callback);
-        return localVarCall;
+        return enhanceTransactionsCall(enhanceTransactionsRequestBody, _callback);
 
     }
 
@@ -4434,7 +4279,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call extendHistoryCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -4451,8 +4295,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/extend_history"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4469,7 +4313,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4482,20 +4325,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call extendHistoryValidateBeforeCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling extendHistory(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling extendHistory(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = extendHistoryCall(memberGuid, userGuid, _callback);
-        return localVarCall;
+        return extendHistoryCall(memberGuid, userGuid, _callback);
 
     }
 
@@ -4572,7 +4412,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call fetchStatementsCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -4589,8 +4428,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/fetch_statements"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4607,7 +4446,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4620,20 +4458,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call fetchStatementsValidateBeforeCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling fetchStatements(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling fetchStatements(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = fetchStatementsCall(memberGuid, userGuid, _callback);
-        return localVarCall;
+        return fetchStatementsCall(memberGuid, userGuid, _callback);
 
     }
 
@@ -4710,7 +4545,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call fetchTaxDocumentsCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -4727,8 +4561,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/fetch_tax_documents"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4745,7 +4579,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4758,20 +4591,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call fetchTaxDocumentsValidateBeforeCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling fetchTaxDocuments(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling fetchTaxDocuments(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = fetchTaxDocumentsCall(memberGuid, userGuid, _callback);
-        return localVarCall;
+        return fetchTaxDocumentsCall(memberGuid, userGuid, _callback);
 
     }
 
@@ -4848,7 +4678,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call identifyMemberCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -4865,8 +4694,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/identify"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -4883,7 +4712,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -4896,20 +4724,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call identifyMemberValidateBeforeCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling identifyMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling identifyMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = identifyMemberCall(memberGuid, userGuid, _callback);
-        return localVarCall;
+        return identifyMemberCall(memberGuid, userGuid, _callback);
 
     }
 
@@ -4988,7 +4813,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listAccountNumbersByAccountCall(String accountGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -5005,8 +4829,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/accounts/{account_guid}/account_numbers"
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "account_guid" + "}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5031,7 +4855,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5044,20 +4867,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAccountNumbersByAccountValidateBeforeCall(String accountGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'accountGuid' is set
         if (accountGuid == null) {
             throw new ApiException("Missing the required parameter 'accountGuid' when calling listAccountNumbersByAccount(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listAccountNumbersByAccount(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listAccountNumbersByAccountCall(accountGuid, userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listAccountNumbersByAccountCall(accountGuid, userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -5142,7 +4962,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listAccountNumbersByMemberCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -5159,8 +4978,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/account_numbers"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5185,7 +5004,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5198,20 +5016,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAccountNumbersByMemberValidateBeforeCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling listAccountNumbersByMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listAccountNumbersByMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listAccountNumbersByMemberCall(memberGuid, userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listAccountNumbersByMemberCall(memberGuid, userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -5296,7 +5111,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listAccountOwnersByMemberCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -5313,8 +5127,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/account_owners"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5339,7 +5153,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5352,20 +5165,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAccountOwnersByMemberValidateBeforeCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling listAccountOwnersByMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listAccountOwnersByMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listAccountOwnersByMemberCall(memberGuid, userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listAccountOwnersByMemberCall(memberGuid, userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -5449,7 +5259,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listCategoriesCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -5466,7 +5275,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/categories"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5491,7 +5300,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5504,15 +5312,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listCategoriesValidateBeforeCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listCategories(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listCategoriesCall(userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listCategoriesCall(userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -5592,7 +5397,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listDefaultCategoriesCall(Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -5633,7 +5437,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5646,10 +5449,7 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDefaultCategoriesValidateBeforeCall(Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = listDefaultCategoriesCall(page, recordsPerPage, _callback);
-        return localVarCall;
+        return listDefaultCategoriesCall(page, recordsPerPage, _callback);
 
     }
 
@@ -5727,7 +5527,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listDefaultCategoriesByUserCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -5744,7 +5543,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/categories/default"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -5769,7 +5568,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5782,15 +5580,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDefaultCategoriesByUserValidateBeforeCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listDefaultCategoriesByUser(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listDefaultCategoriesByUserCall(userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listDefaultCategoriesByUserCall(userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -5870,7 +5665,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listFavoriteInstitutionsCall(Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -5911,7 +5705,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -5924,10 +5717,7 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listFavoriteInstitutionsValidateBeforeCall(Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = listFavoriteInstitutionsCall(page, recordsPerPage, _callback);
-        return localVarCall;
+        return listFavoriteInstitutionsCall(page, recordsPerPage, _callback);
 
     }
 
@@ -6007,7 +5797,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listHoldingsCall(String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -6024,7 +5813,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/holdings"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6057,7 +5846,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -6070,15 +5858,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listHoldingsValidateBeforeCall(String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listHoldings(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listHoldingsCall(userGuid, fromDate, page, recordsPerPage, toDate, _callback);
-        return localVarCall;
+        return listHoldingsCall(userGuid, fromDate, page, recordsPerPage, toDate, _callback);
 
     }
 
@@ -6168,7 +5953,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listHoldingsByAccountCall(String accountGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -6185,8 +5969,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/accounts/{account_guid}/holdings"
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "account_guid" + "}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6219,7 +6003,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -6232,20 +6015,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listHoldingsByAccountValidateBeforeCall(String accountGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'accountGuid' is set
         if (accountGuid == null) {
             throw new ApiException("Missing the required parameter 'accountGuid' when calling listHoldingsByAccount(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listHoldingsByAccount(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listHoldingsByAccountCall(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate, _callback);
-        return localVarCall;
+        return listHoldingsByAccountCall(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate, _callback);
 
     }
 
@@ -6338,7 +6118,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listHoldingsByMemberCall(String memberGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -6355,8 +6134,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/holdings"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6389,7 +6168,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -6402,20 +6180,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listHoldingsByMemberValidateBeforeCall(String memberGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling listHoldingsByMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listHoldingsByMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listHoldingsByMemberCall(memberGuid, userGuid, fromDate, page, recordsPerPage, toDate, _callback);
-        return localVarCall;
+        return listHoldingsByMemberCall(memberGuid, userGuid, fromDate, page, recordsPerPage, toDate, _callback);
 
     }
 
@@ -6505,7 +6280,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listInstitutionCredentialsCall(String institutionCode, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -6522,7 +6296,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/institutions/{institution_code}/credentials"
-            .replaceAll("\\{" + "institution_code" + "\\}", localVarApiClient.escapeString(institutionCode.toString()));
+            .replace("{" + "institution_code" + "}", localVarApiClient.escapeString(institutionCode.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6547,7 +6321,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -6560,15 +6333,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listInstitutionCredentialsValidateBeforeCall(String institutionCode, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'institutionCode' is set
         if (institutionCode == null) {
             throw new ApiException("Missing the required parameter 'institutionCode' when calling listInstitutionCredentials(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listInstitutionCredentialsCall(institutionCode, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listInstitutionCredentialsCall(institutionCode, page, recordsPerPage, _callback);
 
     }
 
@@ -6653,7 +6423,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listInstitutionsCall(String name, Integer page, Integer recordsPerPage, Boolean supportsAccountIdentification, Boolean supportsAccountStatement, Boolean supportsAccountVerification, Boolean supportsTransactionHistory, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -6714,7 +6483,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -6727,10 +6495,7 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listInstitutionsValidateBeforeCall(String name, Integer page, Integer recordsPerPage, Boolean supportsAccountIdentification, Boolean supportsAccountStatement, Boolean supportsAccountVerification, Boolean supportsTransactionHistory, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = listInstitutionsCall(name, page, recordsPerPage, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory, _callback);
-        return localVarCall;
+        return listInstitutionsCall(name, page, recordsPerPage, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsTransactionHistory, _callback);
 
     }
 
@@ -6824,7 +6589,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listManagedAccountsCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -6841,8 +6605,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -6867,7 +6631,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -6880,20 +6643,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listManagedAccountsValidateBeforeCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling listManagedAccounts(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listManagedAccounts(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listManagedAccountsCall(memberGuid, userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listManagedAccountsCall(memberGuid, userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -6976,7 +6736,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listManagedInstitutionsCall(Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -7017,7 +6776,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -7030,10 +6788,7 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listManagedInstitutionsValidateBeforeCall(Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = listManagedInstitutionsCall(page, recordsPerPage, _callback);
-        return localVarCall;
+        return listManagedInstitutionsCall(page, recordsPerPage, _callback);
 
     }
 
@@ -7111,7 +6866,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listManagedMembersCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -7128,7 +6882,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7153,7 +6907,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -7166,15 +6919,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listManagedMembersValidateBeforeCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listManagedMembers(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listManagedMembersCall(userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listManagedMembersCall(userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -7257,7 +7007,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listManagedTransactionsCall(String accountGuid, String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -7274,9 +7023,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions"
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "account_guid" + "}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7301,7 +7050,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -7314,25 +7062,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listManagedTransactionsValidateBeforeCall(String accountGuid, String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'accountGuid' is set
         if (accountGuid == null) {
             throw new ApiException("Missing the required parameter 'accountGuid' when calling listManagedTransactions(Async)");
         }
-        
+
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling listManagedTransactions(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listManagedTransactions(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listManagedTransactionsCall(accountGuid, memberGuid, userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listManagedTransactionsCall(accountGuid, memberGuid, userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -7421,7 +7166,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listMemberAccountsCall(String userGuid, String memberGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -7438,8 +7182,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/accounts"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()))
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7468,7 +7212,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -7481,20 +7224,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listMemberAccountsValidateBeforeCall(String userGuid, String memberGuid, Boolean memberIsManagedByUser, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listMemberAccounts(Async)");
         }
-        
+
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling listMemberAccounts(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listMemberAccountsCall(userGuid, memberGuid, memberIsManagedByUser, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listMemberAccountsCall(userGuid, memberGuid, memberIsManagedByUser, page, recordsPerPage, _callback);
 
     }
 
@@ -7582,7 +7322,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listMemberChallengesCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -7599,8 +7338,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/challenges"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7625,7 +7364,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -7638,20 +7376,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listMemberChallengesValidateBeforeCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling listMemberChallenges(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listMemberChallenges(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listMemberChallengesCall(memberGuid, userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listMemberChallengesCall(memberGuid, userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -7736,7 +7471,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listMemberCredentialsCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -7753,8 +7487,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/credentials"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7779,7 +7513,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -7792,20 +7525,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listMemberCredentialsValidateBeforeCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling listMemberCredentials(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listMemberCredentials(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listMemberCredentialsCall(memberGuid, userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listMemberCredentialsCall(memberGuid, userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -7889,7 +7619,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listMembersCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -7906,7 +7635,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -7931,7 +7660,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -7944,15 +7672,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listMembersValidateBeforeCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listMembers(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listMembersCall(userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listMembersCall(userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -8032,7 +7757,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listMerchantsCall(Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -8073,7 +7797,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -8086,10 +7809,7 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listMerchantsValidateBeforeCall(Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = listMerchantsCall(page, recordsPerPage, _callback);
-        return localVarCall;
+        return listMerchantsCall(page, recordsPerPage, _callback);
 
     }
 
@@ -8168,7 +7888,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listSpendingPlanAccountsCall(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -8185,8 +7904,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/spending_plan_accounts"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()))
+            .replace("{" + "spending_plan_guid" + "}", localVarApiClient.escapeString(spendingPlanGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8211,7 +7930,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -8224,20 +7942,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSpendingPlanAccountsValidateBeforeCall(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listSpendingPlanAccounts(Async)");
         }
-        
+
         // verify the required parameter 'spendingPlanGuid' is set
         if (spendingPlanGuid == null) {
             throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling listSpendingPlanAccounts(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listSpendingPlanAccountsCall(userGuid, spendingPlanGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listSpendingPlanAccountsCall(userGuid, spendingPlanGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -8322,7 +8037,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listSpendingPlanIterationItemsCall(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -8339,8 +8053,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()))
+            .replace("{" + "spending_plan_guid" + "}", localVarApiClient.escapeString(spendingPlanGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8365,7 +8079,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -8378,20 +8091,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSpendingPlanIterationItemsValidateBeforeCall(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listSpendingPlanIterationItems(Async)");
         }
-        
+
         // verify the required parameter 'spendingPlanGuid' is set
         if (spendingPlanGuid == null) {
             throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling listSpendingPlanIterationItems(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listSpendingPlanIterationItemsCall(userGuid, spendingPlanGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listSpendingPlanIterationItemsCall(userGuid, spendingPlanGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -8476,7 +8186,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listSpendingPlanIterationsCall(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -8493,8 +8202,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/iterations"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()))
+            .replace("{" + "spending_plan_guid" + "}", localVarApiClient.escapeString(spendingPlanGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8519,7 +8228,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -8532,20 +8240,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSpendingPlanIterationsValidateBeforeCall(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listSpendingPlanIterations(Async)");
         }
-        
+
         // verify the required parameter 'spendingPlanGuid' is set
         if (spendingPlanGuid == null) {
             throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling listSpendingPlanIterations(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listSpendingPlanIterationsCall(userGuid, spendingPlanGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listSpendingPlanIterationsCall(userGuid, spendingPlanGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -8629,7 +8334,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listSpendingPlansCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -8646,7 +8350,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/spending_plans"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8671,7 +8375,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -8684,15 +8387,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSpendingPlansValidateBeforeCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listSpendingPlans(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listSpendingPlansCall(userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listSpendingPlansCall(userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -8774,7 +8474,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listStatementsByMemberCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -8791,8 +8490,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/statements"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8817,7 +8516,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -8830,20 +8528,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listStatementsByMemberValidateBeforeCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling listStatementsByMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listStatementsByMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listStatementsByMemberCall(memberGuid, userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listStatementsByMemberCall(memberGuid, userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -8927,7 +8622,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listTaggingsCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -8944,7 +8638,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/taggings"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -8969,7 +8663,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -8982,15 +8675,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTaggingsValidateBeforeCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listTaggings(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listTaggingsCall(userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listTaggingsCall(userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -9071,7 +8761,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listTagsCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -9088,7 +8777,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/tags"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9113,7 +8802,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -9126,15 +8814,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTagsValidateBeforeCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listTags(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listTagsCall(userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listTagsCall(userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -9216,7 +8901,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listTaxDocumentsCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -9233,8 +8917,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/tax_documents"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9259,7 +8943,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -9272,20 +8955,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTaxDocumentsValidateBeforeCall(String memberGuid, String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling listTaxDocuments(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listTaxDocuments(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listTaxDocumentsCall(memberGuid, userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listTaxDocumentsCall(memberGuid, userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -9369,7 +9049,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listTransactionRulesCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -9386,7 +9065,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/transaction_rules"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9411,7 +9090,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -9424,15 +9102,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTransactionRulesValidateBeforeCall(String userGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listTransactionRules(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listTransactionRulesCall(userGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return listTransactionRulesCall(userGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -9515,7 +9190,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listTransactionsCall(String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -9532,7 +9206,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/transactions"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9565,7 +9239,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -9578,15 +9251,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTransactionsValidateBeforeCall(String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listTransactions(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listTransactionsCall(userGuid, fromDate, page, recordsPerPage, toDate, _callback);
-        return localVarCall;
+        return listTransactionsCall(userGuid, fromDate, page, recordsPerPage, toDate, _callback);
 
     }
 
@@ -9676,7 +9346,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listTransactionsByAccountCall(String accountGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -9693,8 +9362,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/accounts/{account_guid}/transactions"
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "account_guid" + "}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9727,7 +9396,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -9740,20 +9408,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTransactionsByAccountValidateBeforeCall(String accountGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'accountGuid' is set
         if (accountGuid == null) {
             throw new ApiException("Missing the required parameter 'accountGuid' when calling listTransactionsByAccount(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listTransactionsByAccount(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listTransactionsByAccountCall(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate, _callback);
-        return localVarCall;
+        return listTransactionsByAccountCall(accountGuid, userGuid, fromDate, page, recordsPerPage, toDate, _callback);
 
     }
 
@@ -9846,7 +9511,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listTransactionsByMemberCall(String memberGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -9863,8 +9527,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/transactions"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -9897,7 +9561,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -9910,20 +9573,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTransactionsByMemberValidateBeforeCall(String memberGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling listTransactionsByMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listTransactionsByMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listTransactionsByMemberCall(memberGuid, userGuid, fromDate, page, recordsPerPage, toDate, _callback);
-        return localVarCall;
+        return listTransactionsByMemberCall(memberGuid, userGuid, fromDate, page, recordsPerPage, toDate, _callback);
 
     }
 
@@ -10016,7 +9676,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listTransactionsByTagCall(String tagGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -10033,8 +9692,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/tags/{tag_guid}/transactions"
-            .replaceAll("\\{" + "tag_guid" + "\\}", localVarApiClient.escapeString(tagGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "tag_guid" + "}", localVarApiClient.escapeString(tagGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10067,7 +9726,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -10080,20 +9738,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTransactionsByTagValidateBeforeCall(String tagGuid, String userGuid, String fromDate, Integer page, Integer recordsPerPage, String toDate, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'tagGuid' is set
         if (tagGuid == null) {
             throw new ApiException("Missing the required parameter 'tagGuid' when calling listTransactionsByTag(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listTransactionsByTag(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listTransactionsByTagCall(tagGuid, userGuid, fromDate, page, recordsPerPage, toDate, _callback);
-        return localVarCall;
+        return listTransactionsByTagCall(tagGuid, userGuid, fromDate, page, recordsPerPage, toDate, _callback);
 
     }
 
@@ -10185,7 +9840,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listUserAccountsCall(String userGuid, Boolean memberIsManagedByUser, Integer page, Boolean isManual, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -10202,7 +9856,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/accounts"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10235,7 +9889,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -10248,15 +9901,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listUserAccountsValidateBeforeCall(String userGuid, Boolean memberIsManagedByUser, Integer page, Boolean isManual, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling listUserAccounts(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = listUserAccountsCall(userGuid, memberIsManagedByUser, page, isManual, recordsPerPage, _callback);
-        return localVarCall;
+        return listUserAccountsCall(userGuid, memberIsManagedByUser, page, isManual, recordsPerPage, _callback);
 
     }
 
@@ -10345,7 +9995,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call listUsersCall(Integer page, Integer recordsPerPage, String id, String email, Boolean isDisabled, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -10398,7 +10047,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -10411,10 +10059,7 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listUsersValidateBeforeCall(Integer page, Integer recordsPerPage, String id, String email, Boolean isDisabled, final ApiCallback _callback) throws ApiException {
-        
-
-        okhttp3.Call localVarCall = listUsersCall(page, recordsPerPage, id, email, isDisabled, _callback);
-        return localVarCall;
+        return listUsersCall(page, recordsPerPage, id, email, isDisabled, _callback);
 
     }
 
@@ -10500,7 +10145,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readAccountCall(String accountGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -10517,8 +10161,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/accounts/{account_guid}"
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "account_guid" + "}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10535,7 +10179,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -10548,20 +10191,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readAccountValidateBeforeCall(String accountGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'accountGuid' is set
         if (accountGuid == null) {
             throw new ApiException("Missing the required parameter 'accountGuid' when calling readAccount(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readAccount(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readAccountCall(accountGuid, userGuid, _callback);
-        return localVarCall;
+        return readAccountCall(accountGuid, userGuid, _callback);
 
     }
 
@@ -10639,7 +10279,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readAccountByMemberCall(String accountGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -10656,9 +10295,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/accounts/{account_guid}"
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "account_guid" + "}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10675,7 +10314,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -10688,25 +10326,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readAccountByMemberValidateBeforeCall(String accountGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'accountGuid' is set
         if (accountGuid == null) {
             throw new ApiException("Missing the required parameter 'accountGuid' when calling readAccountByMember(Async)");
         }
-        
+
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling readAccountByMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readAccountByMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readAccountByMemberCall(accountGuid, memberGuid, userGuid, _callback);
-        return localVarCall;
+        return readAccountByMemberCall(accountGuid, memberGuid, userGuid, _callback);
 
     }
 
@@ -10786,7 +10421,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readCategoryCall(String categoryGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -10803,8 +10437,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/categories/{category_guid}"
-            .replaceAll("\\{" + "category_guid" + "\\}", localVarApiClient.escapeString(categoryGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "category_guid" + "}", localVarApiClient.escapeString(categoryGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10821,7 +10455,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -10834,20 +10467,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readCategoryValidateBeforeCall(String categoryGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'categoryGuid' is set
         if (categoryGuid == null) {
             throw new ApiException("Missing the required parameter 'categoryGuid' when calling readCategory(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readCategory(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readCategoryCall(categoryGuid, userGuid, _callback);
-        return localVarCall;
+        return readCategoryCall(categoryGuid, userGuid, _callback);
 
     }
 
@@ -10923,7 +10553,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readDefaultCategoryCall(String categoryGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -10940,7 +10569,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/categories/{category_guid}"
-            .replaceAll("\\{" + "category_guid" + "\\}", localVarApiClient.escapeString(categoryGuid.toString()));
+            .replace("{" + "category_guid" + "}", localVarApiClient.escapeString(categoryGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -10957,7 +10586,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -10970,15 +10598,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readDefaultCategoryValidateBeforeCall(String categoryGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'categoryGuid' is set
         if (categoryGuid == null) {
             throw new ApiException("Missing the required parameter 'categoryGuid' when calling readDefaultCategory(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readDefaultCategoryCall(categoryGuid, _callback);
-        return localVarCall;
+        return readDefaultCategoryCall(categoryGuid, _callback);
 
     }
 
@@ -11052,7 +10677,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readHoldingCall(String holdingGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -11069,8 +10693,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/holdings/{holding_guid}"
-            .replaceAll("\\{" + "holding_guid" + "\\}", localVarApiClient.escapeString(holdingGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "holding_guid" + "}", localVarApiClient.escapeString(holdingGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11087,7 +10711,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -11100,20 +10723,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readHoldingValidateBeforeCall(String holdingGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'holdingGuid' is set
         if (holdingGuid == null) {
             throw new ApiException("Missing the required parameter 'holdingGuid' when calling readHolding(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readHolding(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readHoldingCall(holdingGuid, userGuid, _callback);
-        return localVarCall;
+        return readHoldingCall(holdingGuid, userGuid, _callback);
 
     }
 
@@ -11189,7 +10809,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readInstitutionCall(String institutionCode, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -11206,7 +10825,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/institutions/{institution_code}"
-            .replaceAll("\\{" + "institution_code" + "\\}", localVarApiClient.escapeString(institutionCode.toString()));
+            .replace("{" + "institution_code" + "}", localVarApiClient.escapeString(institutionCode.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11223,7 +10842,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -11236,15 +10854,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readInstitutionValidateBeforeCall(String institutionCode, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'institutionCode' is set
         if (institutionCode == null) {
             throw new ApiException("Missing the required parameter 'institutionCode' when calling readInstitution(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readInstitutionCall(institutionCode, _callback);
-        return localVarCall;
+        return readInstitutionCall(institutionCode, _callback);
 
     }
 
@@ -11319,7 +10934,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readManagedAccountCall(String accountGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -11336,9 +10950,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}"
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "account_guid" + "}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11355,7 +10969,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -11368,25 +10981,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readManagedAccountValidateBeforeCall(String accountGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'accountGuid' is set
         if (accountGuid == null) {
             throw new ApiException("Missing the required parameter 'accountGuid' when calling readManagedAccount(Async)");
         }
-        
+
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling readManagedAccount(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readManagedAccount(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readManagedAccountCall(accountGuid, memberGuid, userGuid, _callback);
-        return localVarCall;
+        return readManagedAccountCall(accountGuid, memberGuid, userGuid, _callback);
 
     }
 
@@ -11466,7 +11076,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readManagedMemberCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -11483,8 +11092,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11501,7 +11110,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -11514,20 +11122,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readManagedMemberValidateBeforeCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling readManagedMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readManagedMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readManagedMemberCall(memberGuid, userGuid, _callback);
-        return localVarCall;
+        return readManagedMemberCall(memberGuid, userGuid, _callback);
 
     }
 
@@ -11606,7 +11211,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readManagedTransactionCall(String accountGuid, String memberGuid, String transactionGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -11623,10 +11227,10 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid}"
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "transaction_guid" + "\\}", localVarApiClient.escapeString(transactionGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "account_guid" + "}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "transaction_guid" + "}", localVarApiClient.escapeString(transactionGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11643,7 +11247,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -11656,30 +11259,27 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readManagedTransactionValidateBeforeCall(String accountGuid, String memberGuid, String transactionGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'accountGuid' is set
         if (accountGuid == null) {
             throw new ApiException("Missing the required parameter 'accountGuid' when calling readManagedTransaction(Async)");
         }
-        
+
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling readManagedTransaction(Async)");
         }
-        
+
         // verify the required parameter 'transactionGuid' is set
         if (transactionGuid == null) {
             throw new ApiException("Missing the required parameter 'transactionGuid' when calling readManagedTransaction(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readManagedTransaction(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readManagedTransactionCall(accountGuid, memberGuid, transactionGuid, userGuid, _callback);
-        return localVarCall;
+        return readManagedTransactionCall(accountGuid, memberGuid, transactionGuid, userGuid, _callback);
 
     }
 
@@ -11762,7 +11362,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readMemberCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -11779,8 +11378,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11797,7 +11396,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -11810,20 +11408,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readMemberValidateBeforeCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling readMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readMemberCall(memberGuid, userGuid, _callback);
-        return localVarCall;
+        return readMemberCall(memberGuid, userGuid, _callback);
 
     }
 
@@ -11900,7 +11495,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readMemberStatusCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -11917,8 +11511,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/status"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -11935,7 +11529,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -11948,20 +11541,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readMemberStatusValidateBeforeCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling readMemberStatus(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readMemberStatus(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readMemberStatusCall(memberGuid, userGuid, _callback);
-        return localVarCall;
+        return readMemberStatusCall(memberGuid, userGuid, _callback);
 
     }
 
@@ -12037,7 +11627,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readMerchantCall(String merchantGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -12054,7 +11643,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/merchants/{merchant_guid}"
-            .replaceAll("\\{" + "merchant_guid" + "\\}", localVarApiClient.escapeString(merchantGuid.toString()));
+            .replace("{" + "merchant_guid" + "}", localVarApiClient.escapeString(merchantGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12071,7 +11660,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -12084,15 +11672,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readMerchantValidateBeforeCall(String merchantGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'merchantGuid' is set
         if (merchantGuid == null) {
             throw new ApiException("Missing the required parameter 'merchantGuid' when calling readMerchant(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readMerchantCall(merchantGuid, _callback);
-        return localVarCall;
+        return readMerchantCall(merchantGuid, _callback);
 
     }
 
@@ -12165,7 +11750,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readMerchantLocationCall(String merchantLocationGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -12182,7 +11766,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/merchant_locations/{merchant_location_guid}"
-            .replaceAll("\\{" + "merchant_location_guid" + "\\}", localVarApiClient.escapeString(merchantLocationGuid.toString()));
+            .replace("{" + "merchant_location_guid" + "}", localVarApiClient.escapeString(merchantLocationGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12199,7 +11783,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -12212,15 +11795,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readMerchantLocationValidateBeforeCall(String merchantLocationGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'merchantLocationGuid' is set
         if (merchantLocationGuid == null) {
             throw new ApiException("Missing the required parameter 'merchantLocationGuid' when calling readMerchantLocation(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readMerchantLocationCall(merchantLocationGuid, _callback);
-        return localVarCall;
+        return readMerchantLocationCall(merchantLocationGuid, _callback);
 
     }
 
@@ -12297,7 +11877,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readSpendingPlanAccountCall(String userGuid, String spendingPlanGuid, String spendingPlanAccountGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -12314,9 +11893,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/spending_plan_accounts/{spending_plan_account_guid}"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
-            .replaceAll("\\{" + "spending_plan_account_guid" + "\\}", localVarApiClient.escapeString(spendingPlanAccountGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()))
+            .replace("{" + "spending_plan_guid" + "}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
+            .replace("{" + "spending_plan_account_guid" + "}", localVarApiClient.escapeString(spendingPlanAccountGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12341,7 +11920,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -12354,25 +11932,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readSpendingPlanAccountValidateBeforeCall(String userGuid, String spendingPlanGuid, String spendingPlanAccountGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readSpendingPlanAccount(Async)");
         }
-        
+
         // verify the required parameter 'spendingPlanGuid' is set
         if (spendingPlanGuid == null) {
             throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling readSpendingPlanAccount(Async)");
         }
-        
+
         // verify the required parameter 'spendingPlanAccountGuid' is set
         if (spendingPlanAccountGuid == null) {
             throw new ApiException("Missing the required parameter 'spendingPlanAccountGuid' when calling readSpendingPlanAccount(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readSpendingPlanAccountCall(userGuid, spendingPlanGuid, spendingPlanAccountGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return readSpendingPlanAccountCall(userGuid, spendingPlanGuid, spendingPlanAccountGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -12461,7 +12036,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readSpendingPlanIterationCall(String userGuid, String spendingPlanGuid, Integer iterationNumber, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -12478,9 +12052,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/{iteration_number}"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
-            .replaceAll("\\{" + "iteration_number" + "\\}", localVarApiClient.escapeString(iterationNumber.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()))
+            .replace("{" + "spending_plan_guid" + "}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
+            .replace("{" + "iteration_number" + "}", localVarApiClient.escapeString(iterationNumber.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12505,7 +12079,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -12518,25 +12091,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readSpendingPlanIterationValidateBeforeCall(String userGuid, String spendingPlanGuid, Integer iterationNumber, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readSpendingPlanIteration(Async)");
         }
-        
+
         // verify the required parameter 'spendingPlanGuid' is set
         if (spendingPlanGuid == null) {
             throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling readSpendingPlanIteration(Async)");
         }
-        
+
         // verify the required parameter 'iterationNumber' is set
         if (iterationNumber == null) {
             throw new ApiException("Missing the required parameter 'iterationNumber' when calling readSpendingPlanIteration(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readSpendingPlanIterationCall(userGuid, spendingPlanGuid, iterationNumber, page, recordsPerPage, _callback);
-        return localVarCall;
+        return readSpendingPlanIterationCall(userGuid, spendingPlanGuid, iterationNumber, page, recordsPerPage, _callback);
 
     }
 
@@ -12625,7 +12195,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readSpendingPlanIterationItemCall(String userGuid, String spendingPlanGuid, String iterationItemGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -12642,9 +12211,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items/{iteration_item_guid}"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
-            .replaceAll("\\{" + "iteration_item_guid" + "\\}", localVarApiClient.escapeString(iterationItemGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()))
+            .replace("{" + "spending_plan_guid" + "}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
+            .replace("{" + "iteration_item_guid" + "}", localVarApiClient.escapeString(iterationItemGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12669,7 +12238,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -12682,25 +12250,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readSpendingPlanIterationItemValidateBeforeCall(String userGuid, String spendingPlanGuid, String iterationItemGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readSpendingPlanIterationItem(Async)");
         }
-        
+
         // verify the required parameter 'spendingPlanGuid' is set
         if (spendingPlanGuid == null) {
             throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling readSpendingPlanIterationItem(Async)");
         }
-        
+
         // verify the required parameter 'iterationItemGuid' is set
         if (iterationItemGuid == null) {
             throw new ApiException("Missing the required parameter 'iterationItemGuid' when calling readSpendingPlanIterationItem(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readSpendingPlanIterationItemCall(userGuid, spendingPlanGuid, iterationItemGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return readSpendingPlanIterationItemCall(userGuid, spendingPlanGuid, iterationItemGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -12788,7 +12353,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readSpendingPlanUserCall(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -12805,8 +12369,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()))
+            .replace("{" + "spending_plan_guid" + "}", localVarApiClient.escapeString(spendingPlanGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12831,7 +12395,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -12844,20 +12407,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readSpendingPlanUserValidateBeforeCall(String userGuid, String spendingPlanGuid, Integer page, Integer recordsPerPage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readSpendingPlanUser(Async)");
         }
-        
+
         // verify the required parameter 'spendingPlanGuid' is set
         if (spendingPlanGuid == null) {
             throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling readSpendingPlanUser(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readSpendingPlanUserCall(userGuid, spendingPlanGuid, page, recordsPerPage, _callback);
-        return localVarCall;
+        return readSpendingPlanUserCall(userGuid, spendingPlanGuid, page, recordsPerPage, _callback);
 
     }
 
@@ -12941,7 +12501,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readStatementByMemberCall(String memberGuid, String statementGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -12958,9 +12517,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/statements/{statement_guid}"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "statement_guid" + "\\}", localVarApiClient.escapeString(statementGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "statement_guid" + "}", localVarApiClient.escapeString(statementGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -12977,7 +12536,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -12990,25 +12548,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readStatementByMemberValidateBeforeCall(String memberGuid, String statementGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling readStatementByMember(Async)");
         }
-        
+
         // verify the required parameter 'statementGuid' is set
         if (statementGuid == null) {
             throw new ApiException("Missing the required parameter 'statementGuid' when calling readStatementByMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readStatementByMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readStatementByMemberCall(memberGuid, statementGuid, userGuid, _callback);
-        return localVarCall;
+        return readStatementByMemberCall(memberGuid, statementGuid, userGuid, _callback);
 
     }
 
@@ -13088,7 +12643,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readTagCall(String tagGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -13105,8 +12659,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/tags/{tag_guid}"
-            .replaceAll("\\{" + "tag_guid" + "\\}", localVarApiClient.escapeString(tagGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "tag_guid" + "}", localVarApiClient.escapeString(tagGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13123,7 +12677,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -13136,20 +12689,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readTagValidateBeforeCall(String tagGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'tagGuid' is set
         if (tagGuid == null) {
             throw new ApiException("Missing the required parameter 'tagGuid' when calling readTag(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readTag(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readTagCall(tagGuid, userGuid, _callback);
-        return localVarCall;
+        return readTagCall(tagGuid, userGuid, _callback);
 
     }
 
@@ -13226,7 +12776,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readTaggingCall(String taggingGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -13243,8 +12792,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/taggings/{tagging_guid}"
-            .replaceAll("\\{" + "tagging_guid" + "\\}", localVarApiClient.escapeString(taggingGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "tagging_guid" + "}", localVarApiClient.escapeString(taggingGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13261,7 +12810,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -13274,20 +12822,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readTaggingValidateBeforeCall(String taggingGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'taggingGuid' is set
         if (taggingGuid == null) {
             throw new ApiException("Missing the required parameter 'taggingGuid' when calling readTagging(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readTagging(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readTaggingCall(taggingGuid, userGuid, _callback);
-        return localVarCall;
+        return readTaggingCall(taggingGuid, userGuid, _callback);
 
     }
 
@@ -13365,7 +12910,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readTaxDocumentCall(String taxDocumentGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -13382,9 +12926,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/tax_documents/{tax_document_guid}"
-            .replaceAll("\\{" + "tax_document_guid" + "\\}", localVarApiClient.escapeString(taxDocumentGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "tax_document_guid" + "}", localVarApiClient.escapeString(taxDocumentGuid.toString()))
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13401,7 +12945,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -13414,25 +12957,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readTaxDocumentValidateBeforeCall(String taxDocumentGuid, String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'taxDocumentGuid' is set
         if (taxDocumentGuid == null) {
             throw new ApiException("Missing the required parameter 'taxDocumentGuid' when calling readTaxDocument(Async)");
         }
-        
+
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling readTaxDocument(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readTaxDocument(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readTaxDocumentCall(taxDocumentGuid, memberGuid, userGuid, _callback);
-        return localVarCall;
+        return readTaxDocumentCall(taxDocumentGuid, memberGuid, userGuid, _callback);
 
     }
 
@@ -13512,7 +13052,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readTransactionCall(String transactionGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -13529,8 +13068,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/transactions/{transaction_guid}"
-            .replaceAll("\\{" + "transaction_guid" + "\\}", localVarApiClient.escapeString(transactionGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "transaction_guid" + "}", localVarApiClient.escapeString(transactionGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13547,7 +13086,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -13560,20 +13098,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readTransactionValidateBeforeCall(String transactionGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'transactionGuid' is set
         if (transactionGuid == null) {
             throw new ApiException("Missing the required parameter 'transactionGuid' when calling readTransaction(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readTransaction(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readTransactionCall(transactionGuid, userGuid, _callback);
-        return localVarCall;
+        return readTransactionCall(transactionGuid, userGuid, _callback);
 
     }
 
@@ -13650,7 +13185,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readTransactionRuleCall(String transactionRuleGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -13667,8 +13201,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/transaction_rules/{transaction_rule_guid}"
-            .replaceAll("\\{" + "transaction_rule_guid" + "\\}", localVarApiClient.escapeString(transactionRuleGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "transaction_rule_guid" + "}", localVarApiClient.escapeString(transactionRuleGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13685,7 +13219,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -13698,20 +13231,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readTransactionRuleValidateBeforeCall(String transactionRuleGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'transactionRuleGuid' is set
         if (transactionRuleGuid == null) {
             throw new ApiException("Missing the required parameter 'transactionRuleGuid' when calling readTransactionRule(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readTransactionRule(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readTransactionRuleCall(transactionRuleGuid, userGuid, _callback);
-        return localVarCall;
+        return readTransactionRuleCall(transactionRuleGuid, userGuid, _callback);
 
     }
 
@@ -13787,7 +13317,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call readUserCall(String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -13804,7 +13333,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -13821,7 +13350,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -13834,15 +13362,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readUserValidateBeforeCall(String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling readUser(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = readUserCall(userGuid, _callback);
-        return localVarCall;
+        return readUserCall(userGuid, _callback);
 
     }
 
@@ -13915,7 +13440,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call requestAuthorizationCodeCall(AuthorizationCodeRequestBody authorizationCodeRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -13961,15 +13485,12 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call requestAuthorizationCodeValidateBeforeCall(AuthorizationCodeRequestBody authorizationCodeRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'authorizationCodeRequestBody' is set
         if (authorizationCodeRequestBody == null) {
             throw new ApiException("Missing the required parameter 'authorizationCodeRequestBody' when calling requestAuthorizationCode(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = requestAuthorizationCodeCall(authorizationCodeRequestBody, _callback);
-        return localVarCall;
+        return requestAuthorizationCodeCall(authorizationCodeRequestBody, _callback);
 
     }
 
@@ -14043,7 +13564,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call requestConnectWidgetURLCall(String userGuid, ConnectWidgetRequestBody connectWidgetRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -14060,7 +13580,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/connect_widget_url"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14090,20 +13610,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call requestConnectWidgetURLValidateBeforeCall(String userGuid, ConnectWidgetRequestBody connectWidgetRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling requestConnectWidgetURL(Async)");
         }
-        
+
         // verify the required parameter 'connectWidgetRequestBody' is set
         if (connectWidgetRequestBody == null) {
             throw new ApiException("Missing the required parameter 'connectWidgetRequestBody' when calling requestConnectWidgetURL(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = requestConnectWidgetURLCall(userGuid, connectWidgetRequestBody, _callback);
-        return localVarCall;
+        return requestConnectWidgetURLCall(userGuid, connectWidgetRequestBody, _callback);
 
     }
 
@@ -14185,7 +13702,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call requestOAuthWindowURICall(String memberGuid, String userGuid, String clientRedirectUrl, String enableApp2app, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -14202,8 +13718,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/oauth_window_uri"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14240,7 +13756,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -14253,20 +13768,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call requestOAuthWindowURIValidateBeforeCall(String memberGuid, String userGuid, String clientRedirectUrl, String enableApp2app, String referralSource, Boolean skipAggregation, String uiMessageWebviewUrlScheme, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling requestOAuthWindowURI(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling requestOAuthWindowURI(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = requestOAuthWindowURICall(memberGuid, userGuid, clientRedirectUrl, enableApp2app, referralSource, skipAggregation, uiMessageWebviewUrlScheme, _callback);
-        return localVarCall;
+        return requestOAuthWindowURICall(memberGuid, userGuid, clientRedirectUrl, enableApp2app, referralSource, skipAggregation, uiMessageWebviewUrlScheme, _callback);
 
     }
 
@@ -14359,7 +13871,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call requestWidgetURLCall(String userGuid, WidgetRequestBody widgetRequestBody, String acceptLanguage, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -14376,7 +13887,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/widget_urls"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14410,20 +13921,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call requestWidgetURLValidateBeforeCall(String userGuid, WidgetRequestBody widgetRequestBody, String acceptLanguage, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling requestWidgetURL(Async)");
         }
-        
+
         // verify the required parameter 'widgetRequestBody' is set
         if (widgetRequestBody == null) {
             throw new ApiException("Missing the required parameter 'widgetRequestBody' when calling requestWidgetURL(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = requestWidgetURLCall(userGuid, widgetRequestBody, acceptLanguage, _callback);
-        return localVarCall;
+        return requestWidgetURLCall(userGuid, widgetRequestBody, acceptLanguage, _callback);
 
     }
 
@@ -14504,7 +14012,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call resumeAggregationCall(String memberGuid, String userGuid, MemberResumeRequestBody memberResumeRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -14521,8 +14028,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/resume"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14552,25 +14059,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call resumeAggregationValidateBeforeCall(String memberGuid, String userGuid, MemberResumeRequestBody memberResumeRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling resumeAggregation(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling resumeAggregation(Async)");
         }
-        
+
         // verify the required parameter 'memberResumeRequestBody' is set
         if (memberResumeRequestBody == null) {
             throw new ApiException("Missing the required parameter 'memberResumeRequestBody' when calling resumeAggregation(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = resumeAggregationCall(memberGuid, userGuid, memberResumeRequestBody, _callback);
-        return localVarCall;
+        return resumeAggregationCall(memberGuid, userGuid, memberResumeRequestBody, _callback);
 
     }
 
@@ -14652,7 +14156,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call updateAccountByMemberCall(String accountGuid, String memberGuid, String userGuid, AccountUpdateRequestBody accountUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -14669,9 +14172,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/accounts/{account_guid}"
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "account_guid" + "}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14701,30 +14204,27 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateAccountByMemberValidateBeforeCall(String accountGuid, String memberGuid, String userGuid, AccountUpdateRequestBody accountUpdateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'accountGuid' is set
         if (accountGuid == null) {
             throw new ApiException("Missing the required parameter 'accountGuid' when calling updateAccountByMember(Async)");
         }
-        
+
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling updateAccountByMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling updateAccountByMember(Async)");
         }
-        
+
         // verify the required parameter 'accountUpdateRequestBody' is set
         if (accountUpdateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'accountUpdateRequestBody' when calling updateAccountByMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateAccountByMemberCall(accountGuid, memberGuid, userGuid, accountUpdateRequestBody, _callback);
-        return localVarCall;
+        return updateAccountByMemberCall(accountGuid, memberGuid, userGuid, accountUpdateRequestBody, _callback);
 
     }
 
@@ -14808,7 +14308,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call updateCategoryCall(String categoryGuid, String userGuid, CategoryUpdateRequestBody categoryUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -14825,8 +14324,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/categories/{category_guid}"
-            .replaceAll("\\{" + "category_guid" + "\\}", localVarApiClient.escapeString(categoryGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "category_guid" + "}", localVarApiClient.escapeString(categoryGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -14856,25 +14355,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateCategoryValidateBeforeCall(String categoryGuid, String userGuid, CategoryUpdateRequestBody categoryUpdateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'categoryGuid' is set
         if (categoryGuid == null) {
             throw new ApiException("Missing the required parameter 'categoryGuid' when calling updateCategory(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling updateCategory(Async)");
         }
-        
+
         // verify the required parameter 'categoryUpdateRequestBody' is set
         if (categoryUpdateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'categoryUpdateRequestBody' when calling updateCategory(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateCategoryCall(categoryGuid, userGuid, categoryUpdateRequestBody, _callback);
-        return localVarCall;
+        return updateCategoryCall(categoryGuid, userGuid, categoryUpdateRequestBody, _callback);
 
     }
 
@@ -14956,7 +14452,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call updateManagedAccountCall(String accountGuid, String memberGuid, String userGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -14973,9 +14468,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}"
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "account_guid" + "}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15005,30 +14500,27 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateManagedAccountValidateBeforeCall(String accountGuid, String memberGuid, String userGuid, ManagedAccountUpdateRequestBody managedAccountUpdateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'accountGuid' is set
         if (accountGuid == null) {
             throw new ApiException("Missing the required parameter 'accountGuid' when calling updateManagedAccount(Async)");
         }
-        
+
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling updateManagedAccount(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling updateManagedAccount(Async)");
         }
-        
+
         // verify the required parameter 'managedAccountUpdateRequestBody' is set
         if (managedAccountUpdateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'managedAccountUpdateRequestBody' when calling updateManagedAccount(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateManagedAccountCall(accountGuid, memberGuid, userGuid, managedAccountUpdateRequestBody, _callback);
-        return localVarCall;
+        return updateManagedAccountCall(accountGuid, memberGuid, userGuid, managedAccountUpdateRequestBody, _callback);
 
     }
 
@@ -15112,7 +14604,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call updateManagedMemberCall(String memberGuid, String userGuid, ManagedMemberUpdateRequestBody managedMemberUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -15129,8 +14620,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15160,25 +14651,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateManagedMemberValidateBeforeCall(String memberGuid, String userGuid, ManagedMemberUpdateRequestBody managedMemberUpdateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling updateManagedMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling updateManagedMember(Async)");
         }
-        
+
         // verify the required parameter 'managedMemberUpdateRequestBody' is set
         if (managedMemberUpdateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'managedMemberUpdateRequestBody' when calling updateManagedMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateManagedMemberCall(memberGuid, userGuid, managedMemberUpdateRequestBody, _callback);
-        return localVarCall;
+        return updateManagedMemberCall(memberGuid, userGuid, managedMemberUpdateRequestBody, _callback);
 
     }
 
@@ -15261,7 +14749,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call updateManagedTransactionCall(String accountGuid, String memberGuid, String transactionGuid, String userGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -15278,10 +14765,10 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid}/transactions/{transaction_guid}"
-            .replaceAll("\\{" + "account_guid" + "\\}", localVarApiClient.escapeString(accountGuid.toString()))
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "transaction_guid" + "\\}", localVarApiClient.escapeString(transactionGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "account_guid" + "}", localVarApiClient.escapeString(accountGuid.toString()))
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "transaction_guid" + "}", localVarApiClient.escapeString(transactionGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15311,35 +14798,32 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateManagedTransactionValidateBeforeCall(String accountGuid, String memberGuid, String transactionGuid, String userGuid, ManagedTransactionUpdateRequestBody managedTransactionUpdateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'accountGuid' is set
         if (accountGuid == null) {
             throw new ApiException("Missing the required parameter 'accountGuid' when calling updateManagedTransaction(Async)");
         }
-        
+
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling updateManagedTransaction(Async)");
         }
-        
+
         // verify the required parameter 'transactionGuid' is set
         if (transactionGuid == null) {
             throw new ApiException("Missing the required parameter 'transactionGuid' when calling updateManagedTransaction(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling updateManagedTransaction(Async)");
         }
-        
+
         // verify the required parameter 'managedTransactionUpdateRequestBody' is set
         if (managedTransactionUpdateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'managedTransactionUpdateRequestBody' when calling updateManagedTransaction(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateManagedTransactionCall(accountGuid, memberGuid, transactionGuid, userGuid, managedTransactionUpdateRequestBody, _callback);
-        return localVarCall;
+        return updateManagedTransactionCall(accountGuid, memberGuid, transactionGuid, userGuid, managedTransactionUpdateRequestBody, _callback);
 
     }
 
@@ -15426,7 +14910,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call updateMemberCall(String memberGuid, String userGuid, MemberUpdateRequestBody memberUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -15443,8 +14926,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15474,25 +14957,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateMemberValidateBeforeCall(String memberGuid, String userGuid, MemberUpdateRequestBody memberUpdateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling updateMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling updateMember(Async)");
         }
-        
+
         // verify the required parameter 'memberUpdateRequestBody' is set
         if (memberUpdateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'memberUpdateRequestBody' when calling updateMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateMemberCall(memberGuid, userGuid, memberUpdateRequestBody, _callback);
-        return localVarCall;
+        return updateMemberCall(memberGuid, userGuid, memberUpdateRequestBody, _callback);
 
     }
 
@@ -15574,7 +15054,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call updateSpendingPlanIterationItemCall(String userGuid, String spendingPlanGuid, String iterationItemGuid, SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -15591,9 +15070,9 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items/{iteration_item_guid}"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()))
-            .replaceAll("\\{" + "spending_plan_guid" + "\\}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
-            .replaceAll("\\{" + "iteration_item_guid" + "\\}", localVarApiClient.escapeString(iterationItemGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()))
+            .replace("{" + "spending_plan_guid" + "}", localVarApiClient.escapeString(spendingPlanGuid.toString()))
+            .replace("{" + "iteration_item_guid" + "}", localVarApiClient.escapeString(iterationItemGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15623,30 +15102,27 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateSpendingPlanIterationItemValidateBeforeCall(String userGuid, String spendingPlanGuid, String iterationItemGuid, SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling updateSpendingPlanIterationItem(Async)");
         }
-        
+
         // verify the required parameter 'spendingPlanGuid' is set
         if (spendingPlanGuid == null) {
             throw new ApiException("Missing the required parameter 'spendingPlanGuid' when calling updateSpendingPlanIterationItem(Async)");
         }
-        
+
         // verify the required parameter 'iterationItemGuid' is set
         if (iterationItemGuid == null) {
             throw new ApiException("Missing the required parameter 'iterationItemGuid' when calling updateSpendingPlanIterationItem(Async)");
         }
-        
+
         // verify the required parameter 'spendingPlanIterationItemCreateRequestBody' is set
         if (spendingPlanIterationItemCreateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'spendingPlanIterationItemCreateRequestBody' when calling updateSpendingPlanIterationItem(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateSpendingPlanIterationItemCall(userGuid, spendingPlanGuid, iterationItemGuid, spendingPlanIterationItemCreateRequestBody, _callback);
-        return localVarCall;
+        return updateSpendingPlanIterationItemCall(userGuid, spendingPlanGuid, iterationItemGuid, spendingPlanIterationItemCreateRequestBody, _callback);
 
     }
 
@@ -15730,7 +15206,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call updateTagCall(String tagGuid, String userGuid, TagUpdateRequestBody tagUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -15747,8 +15222,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/tags/{tag_guid}"
-            .replaceAll("\\{" + "tag_guid" + "\\}", localVarApiClient.escapeString(tagGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "tag_guid" + "}", localVarApiClient.escapeString(tagGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15778,25 +15253,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateTagValidateBeforeCall(String tagGuid, String userGuid, TagUpdateRequestBody tagUpdateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'tagGuid' is set
         if (tagGuid == null) {
             throw new ApiException("Missing the required parameter 'tagGuid' when calling updateTag(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling updateTag(Async)");
         }
-        
+
         // verify the required parameter 'tagUpdateRequestBody' is set
         if (tagUpdateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'tagUpdateRequestBody' when calling updateTag(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateTagCall(tagGuid, userGuid, tagUpdateRequestBody, _callback);
-        return localVarCall;
+        return updateTagCall(tagGuid, userGuid, tagUpdateRequestBody, _callback);
 
     }
 
@@ -15877,7 +15349,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call updateTaggingCall(String taggingGuid, String userGuid, TaggingUpdateRequestBody taggingUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -15894,8 +15365,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/taggings/{tagging_guid}"
-            .replaceAll("\\{" + "tagging_guid" + "\\}", localVarApiClient.escapeString(taggingGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "tagging_guid" + "}", localVarApiClient.escapeString(taggingGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -15925,25 +15396,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateTaggingValidateBeforeCall(String taggingGuid, String userGuid, TaggingUpdateRequestBody taggingUpdateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'taggingGuid' is set
         if (taggingGuid == null) {
             throw new ApiException("Missing the required parameter 'taggingGuid' when calling updateTagging(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling updateTagging(Async)");
         }
-        
+
         // verify the required parameter 'taggingUpdateRequestBody' is set
         if (taggingUpdateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'taggingUpdateRequestBody' when calling updateTagging(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateTaggingCall(taggingGuid, userGuid, taggingUpdateRequestBody, _callback);
-        return localVarCall;
+        return updateTaggingCall(taggingGuid, userGuid, taggingUpdateRequestBody, _callback);
 
     }
 
@@ -16024,7 +15492,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call updateTransactionCall(String transactionGuid, String userGuid, TransactionUpdateRequestBody transactionUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -16041,8 +15508,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/transactions/{transaction_guid}"
-            .replaceAll("\\{" + "transaction_guid" + "\\}", localVarApiClient.escapeString(transactionGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "transaction_guid" + "}", localVarApiClient.escapeString(transactionGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16072,25 +15539,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateTransactionValidateBeforeCall(String transactionGuid, String userGuid, TransactionUpdateRequestBody transactionUpdateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'transactionGuid' is set
         if (transactionGuid == null) {
             throw new ApiException("Missing the required parameter 'transactionGuid' when calling updateTransaction(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling updateTransaction(Async)");
         }
-        
+
         // verify the required parameter 'transactionUpdateRequestBody' is set
         if (transactionUpdateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'transactionUpdateRequestBody' when calling updateTransaction(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateTransactionCall(transactionGuid, userGuid, transactionUpdateRequestBody, _callback);
-        return localVarCall;
+        return updateTransactionCall(transactionGuid, userGuid, transactionUpdateRequestBody, _callback);
 
     }
 
@@ -16171,7 +15635,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call updateTransactionRuleCall(String transactionRuleGuid, String userGuid, TransactionRuleUpdateRequestBody transactionRuleUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -16188,8 +15651,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/transaction_rules/{transaction_rule_guid}"
-            .replaceAll("\\{" + "transaction_rule_guid" + "\\}", localVarApiClient.escapeString(transactionRuleGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "transaction_rule_guid" + "}", localVarApiClient.escapeString(transactionRuleGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16219,25 +15682,22 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateTransactionRuleValidateBeforeCall(String transactionRuleGuid, String userGuid, TransactionRuleUpdateRequestBody transactionRuleUpdateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'transactionRuleGuid' is set
         if (transactionRuleGuid == null) {
             throw new ApiException("Missing the required parameter 'transactionRuleGuid' when calling updateTransactionRule(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling updateTransactionRule(Async)");
         }
-        
+
         // verify the required parameter 'transactionRuleUpdateRequestBody' is set
         if (transactionRuleUpdateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'transactionRuleUpdateRequestBody' when calling updateTransactionRule(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateTransactionRuleCall(transactionRuleGuid, userGuid, transactionRuleUpdateRequestBody, _callback);
-        return localVarCall;
+        return updateTransactionRuleCall(transactionRuleGuid, userGuid, transactionRuleUpdateRequestBody, _callback);
 
     }
 
@@ -16317,7 +15777,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call updateUserCall(String userGuid, UserUpdateRequestBody userUpdateRequestBody, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -16334,7 +15793,7 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}"
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16364,20 +15823,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateUserValidateBeforeCall(String userGuid, UserUpdateRequestBody userUpdateRequestBody, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling updateUser(Async)");
         }
-        
+
         // verify the required parameter 'userUpdateRequestBody' is set
         if (userUpdateRequestBody == null) {
             throw new ApiException("Missing the required parameter 'userUpdateRequestBody' when calling updateUser(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = updateUserCall(userGuid, userUpdateRequestBody, _callback);
-        return localVarCall;
+        return updateUserCall(userGuid, userUpdateRequestBody, _callback);
 
     }
 
@@ -16454,7 +15910,6 @@ public class MxPlatformApi {
      */
     public okhttp3.Call verifyMemberCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
-
         // Operation Servers
         String[] localBasePaths = new String[] {  };
 
@@ -16471,8 +15926,8 @@ public class MxPlatformApi {
 
         // create path and map variables
         String localVarPath = "/users/{user_guid}/members/{member_guid}/verify"
-            .replaceAll("\\{" + "member_guid" + "\\}", localVarApiClient.escapeString(memberGuid.toString()))
-            .replaceAll("\\{" + "user_guid" + "\\}", localVarApiClient.escapeString(userGuid.toString()));
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -16489,7 +15944,6 @@ public class MxPlatformApi {
         }
 
         final String[] localVarContentTypes = {
-            
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -16502,20 +15956,17 @@ public class MxPlatformApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call verifyMemberValidateBeforeCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
-        
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling verifyMember(Async)");
         }
-        
+
         // verify the required parameter 'userGuid' is set
         if (userGuid == null) {
             throw new ApiException("Missing the required parameter 'userGuid' when calling verifyMember(Async)");
         }
-        
 
-        okhttp3.Call localVarCall = verifyMemberCall(memberGuid, userGuid, _callback);
-        return localVarCall;
+        return verifyMemberCall(memberGuid, userGuid, _callback);
 
     }
 

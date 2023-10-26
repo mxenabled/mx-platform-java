@@ -14,7 +14,6 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,11 +21,34 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.mx.client.model.MerchantResponse;
 import com.mx.client.model.PaginationResponse;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * MerchantsResponseBody
@@ -35,13 +57,13 @@ import java.util.List;
 public class MerchantsResponseBody {
   public static final String SERIALIZED_NAME_MERCHANTS = "merchants";
   @SerializedName(SERIALIZED_NAME_MERCHANTS)
-  private List<MerchantResponse> merchants = null;
+  private List<MerchantResponse> merchants;
 
   public static final String SERIALIZED_NAME_PAGINATION = "pagination";
   @SerializedName(SERIALIZED_NAME_PAGINATION)
   private PaginationResponse pagination;
 
-  public MerchantsResponseBody() { 
+  public MerchantsResponseBody() {
   }
 
   public MerchantsResponseBody merchants(List<MerchantResponse> merchants) {
@@ -52,7 +74,7 @@ public class MerchantsResponseBody {
 
   public MerchantsResponseBody addMerchantsItem(MerchantResponse merchantsItem) {
     if (this.merchants == null) {
-      this.merchants = new ArrayList<MerchantResponse>();
+      this.merchants = new ArrayList<>();
     }
     this.merchants.add(merchantsItem);
     return this;
@@ -63,8 +85,6 @@ public class MerchantsResponseBody {
    * @return merchants
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public List<MerchantResponse> getMerchants() {
     return merchants;
   }
@@ -86,8 +106,6 @@ public class MerchantsResponseBody {
    * @return pagination
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
   public PaginationResponse getPagination() {
     return pagination;
   }
@@ -96,6 +114,7 @@ public class MerchantsResponseBody {
   public void setPagination(PaginationResponse pagination) {
     this.pagination = pagination;
   }
+
 
 
   @Override
@@ -137,5 +156,108 @@ public class MerchantsResponseBody {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("merchants");
+    openapiFields.add("pagination");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to MerchantsResponseBody
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!MerchantsResponseBody.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in MerchantsResponseBody is not found in the empty JSON string", MerchantsResponseBody.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!MerchantsResponseBody.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MerchantsResponseBody` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (jsonObj.get("merchants") != null && !jsonObj.get("merchants").isJsonNull()) {
+        JsonArray jsonArraymerchants = jsonObj.getAsJsonArray("merchants");
+        if (jsonArraymerchants != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("merchants").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `merchants` to be an array in the JSON string but got `%s`", jsonObj.get("merchants").toString()));
+          }
+
+          // validate the optional field `merchants` (array)
+          for (int i = 0; i < jsonArraymerchants.size(); i++) {
+            MerchantResponse.validateJsonElement(jsonArraymerchants.get(i));
+          };
+        }
+      }
+      // validate the optional field `pagination`
+      if (jsonObj.get("pagination") != null && !jsonObj.get("pagination").isJsonNull()) {
+        PaginationResponse.validateJsonElement(jsonObj.get("pagination"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!MerchantsResponseBody.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'MerchantsResponseBody' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<MerchantsResponseBody> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(MerchantsResponseBody.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<MerchantsResponseBody>() {
+           @Override
+           public void write(JsonWriter out, MerchantsResponseBody value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public MerchantsResponseBody read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of MerchantsResponseBody given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of MerchantsResponseBody
+  * @throws IOException if the JSON string is invalid with respect to MerchantsResponseBody
+  */
+  public static MerchantsResponseBody fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, MerchantsResponseBody.class);
+  }
+
+ /**
+  * Convert an instance of MerchantsResponseBody to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 

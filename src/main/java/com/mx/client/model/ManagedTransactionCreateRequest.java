@@ -14,16 +14,38 @@
 package com.mx.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Arrays;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import com.mx.client.JSON;
 
 /**
  * ManagedTransactionCreateRequest
@@ -110,7 +132,7 @@ public class ManagedTransactionCreateRequest {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
-  public ManagedTransactionCreateRequest() { 
+  public ManagedTransactionCreateRequest() {
   }
 
   public ManagedTransactionCreateRequest amount(String amount) {
@@ -124,8 +146,6 @@ public class ManagedTransactionCreateRequest {
    * @return amount
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "61.11", required = true, value = "")
-
   public String getAmount() {
     return amount;
   }
@@ -147,8 +167,6 @@ public class ManagedTransactionCreateRequest {
    * @return category
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "Groceries", value = "")
-
   public String getCategory() {
     return category;
   }
@@ -170,8 +188,6 @@ public class ManagedTransactionCreateRequest {
    * @return checkNumberString
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "6812", value = "")
-
   public String getCheckNumberString() {
     return checkNumberString;
   }
@@ -193,8 +209,6 @@ public class ManagedTransactionCreateRequest {
    * @return currencyCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "USD", value = "")
-
   public String getCurrencyCode() {
     return currencyCode;
   }
@@ -216,8 +230,6 @@ public class ManagedTransactionCreateRequest {
    * @return description
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "Whole foods", required = true, value = "")
-
   public String getDescription() {
     return description;
   }
@@ -239,8 +251,6 @@ public class ManagedTransactionCreateRequest {
    * @return id
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "transaction-265abee9-889b-af6a-c69b-25157db2bdd9", value = "")
-
   public String getId() {
     return id;
   }
@@ -262,8 +272,6 @@ public class ManagedTransactionCreateRequest {
    * @return isInternational
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "false", value = "")
-
   public Boolean getIsInternational() {
     return isInternational;
   }
@@ -285,8 +293,6 @@ public class ManagedTransactionCreateRequest {
    * @return latitude
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "-43.2075", value = "")
-
   public BigDecimal getLatitude() {
     return latitude;
   }
@@ -308,8 +314,6 @@ public class ManagedTransactionCreateRequest {
    * @return localizedDescription
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This is a localized_description", value = "")
-
   public String getLocalizedDescription() {
     return localizedDescription;
   }
@@ -331,8 +335,6 @@ public class ManagedTransactionCreateRequest {
    * @return localizedMemo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This is a localized_memo", value = "")
-
   public String getLocalizedMemo() {
     return localizedMemo;
   }
@@ -354,8 +356,6 @@ public class ManagedTransactionCreateRequest {
    * @return longitude
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "139.691706", value = "")
-
   public BigDecimal getLongitude() {
     return longitude;
   }
@@ -377,8 +377,6 @@ public class ManagedTransactionCreateRequest {
    * @return memo
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "This is a memo", value = "")
-
   public String getMemo() {
     return memo;
   }
@@ -400,8 +398,6 @@ public class ManagedTransactionCreateRequest {
    * @return merchantCategoryCode
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "5411", value = "")
-
   public Integer getMerchantCategoryCode() {
     return merchantCategoryCode;
   }
@@ -423,8 +419,6 @@ public class ManagedTransactionCreateRequest {
    * @return merchantGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MCH-7ed79542-884d-2b1b-dd74-501c5cc9d25b", value = "")
-
   public String getMerchantGuid() {
     return merchantGuid;
   }
@@ -446,8 +440,6 @@ public class ManagedTransactionCreateRequest {
    * @return merchantLocationGuid
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "MCL-00024e59-18b5-4d79-b879-2a7896726fea", value = "")
-
   public String getMerchantLocationGuid() {
     return merchantLocationGuid;
   }
@@ -469,8 +461,6 @@ public class ManagedTransactionCreateRequest {
    * @return metadata
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "some metadata", value = "")
-
   public String getMetadata() {
     return metadata;
   }
@@ -492,8 +482,6 @@ public class ManagedTransactionCreateRequest {
    * @return postedAt
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(example = "2016-10-07T06:00:00.000Z", value = "")
-
   public String getPostedAt() {
     return postedAt;
   }
@@ -515,8 +503,6 @@ public class ManagedTransactionCreateRequest {
    * @return status
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "POSTED", required = true, value = "")
-
   public String getStatus() {
     return status;
   }
@@ -538,8 +524,6 @@ public class ManagedTransactionCreateRequest {
    * @return transactedAt
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "2016-10-06T13:00:00.000Z", required = true, value = "")
-
   public String getTransactedAt() {
     return transactedAt;
   }
@@ -561,8 +545,6 @@ public class ManagedTransactionCreateRequest {
    * @return type
   **/
   @javax.annotation.Nonnull
-  @ApiModelProperty(example = "DEBIT", required = true, value = "")
-
   public String getType() {
     return type;
   }
@@ -571,6 +553,7 @@ public class ManagedTransactionCreateRequest {
   public void setType(String type) {
     this.type = type;
   }
+
 
 
   @Override
@@ -648,5 +631,168 @@ public class ManagedTransactionCreateRequest {
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("amount");
+    openapiFields.add("category");
+    openapiFields.add("check_number_string");
+    openapiFields.add("currency_code");
+    openapiFields.add("description");
+    openapiFields.add("id");
+    openapiFields.add("is_international");
+    openapiFields.add("latitude");
+    openapiFields.add("localized_description");
+    openapiFields.add("localized_memo");
+    openapiFields.add("longitude");
+    openapiFields.add("memo");
+    openapiFields.add("merchant_category_code");
+    openapiFields.add("merchant_guid");
+    openapiFields.add("merchant_location_guid");
+    openapiFields.add("metadata");
+    openapiFields.add("posted_at");
+    openapiFields.add("status");
+    openapiFields.add("transacted_at");
+    openapiFields.add("type");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("amount");
+    openapiRequiredFields.add("description");
+    openapiRequiredFields.add("status");
+    openapiRequiredFields.add("transacted_at");
+    openapiRequiredFields.add("type");
+  }
+
+ /**
+  * Validates the JSON Element and throws an exception if issues found
+  *
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to ManagedTransactionCreateRequest
+  */
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!ManagedTransactionCreateRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ManagedTransactionCreateRequest is not found in the empty JSON string", ManagedTransactionCreateRequest.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Map.Entry<String, JsonElement> entry : entries) {
+        if (!ManagedTransactionCreateRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ManagedTransactionCreateRequest` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : ManagedTransactionCreateRequest.openapiRequiredFields) {
+        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        }
+      }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if (!jsonObj.get("amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("amount").toString()));
+      }
+      if ((jsonObj.get("category") != null && !jsonObj.get("category").isJsonNull()) && !jsonObj.get("category").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `category` to be a primitive type in the JSON string but got `%s`", jsonObj.get("category").toString()));
+      }
+      if ((jsonObj.get("check_number_string") != null && !jsonObj.get("check_number_string").isJsonNull()) && !jsonObj.get("check_number_string").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `check_number_string` to be a primitive type in the JSON string but got `%s`", jsonObj.get("check_number_string").toString()));
+      }
+      if ((jsonObj.get("currency_code") != null && !jsonObj.get("currency_code").isJsonNull()) && !jsonObj.get("currency_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `currency_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency_code").toString()));
+      }
+      if (!jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      if ((jsonObj.get("localized_description") != null && !jsonObj.get("localized_description").isJsonNull()) && !jsonObj.get("localized_description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `localized_description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("localized_description").toString()));
+      }
+      if ((jsonObj.get("localized_memo") != null && !jsonObj.get("localized_memo").isJsonNull()) && !jsonObj.get("localized_memo").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `localized_memo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("localized_memo").toString()));
+      }
+      if ((jsonObj.get("memo") != null && !jsonObj.get("memo").isJsonNull()) && !jsonObj.get("memo").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `memo` to be a primitive type in the JSON string but got `%s`", jsonObj.get("memo").toString()));
+      }
+      if ((jsonObj.get("merchant_guid") != null && !jsonObj.get("merchant_guid").isJsonNull()) && !jsonObj.get("merchant_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_guid").toString()));
+      }
+      if ((jsonObj.get("merchant_location_guid") != null && !jsonObj.get("merchant_location_guid").isJsonNull()) && !jsonObj.get("merchant_location_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `merchant_location_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("merchant_location_guid").toString()));
+      }
+      if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
+      }
+      if ((jsonObj.get("posted_at") != null && !jsonObj.get("posted_at").isJsonNull()) && !jsonObj.get("posted_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `posted_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("posted_at").toString()));
+      }
+      if (!jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      }
+      if (!jsonObj.get("transacted_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `transacted_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transacted_at").toString()));
+      }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!ManagedTransactionCreateRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ManagedTransactionCreateRequest' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<ManagedTransactionCreateRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ManagedTransactionCreateRequest.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<ManagedTransactionCreateRequest>() {
+           @Override
+           public void write(JsonWriter out, ManagedTransactionCreateRequest value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public ManagedTransactionCreateRequest read(JsonReader in) throws IOException {
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of ManagedTransactionCreateRequest given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ManagedTransactionCreateRequest
+  * @throws IOException if the JSON string is invalid with respect to ManagedTransactionCreateRequest
+  */
+  public static ManagedTransactionCreateRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ManagedTransactionCreateRequest.class);
+  }
+
+ /**
+  * Convert an instance of ManagedTransactionCreateRequest to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
 
