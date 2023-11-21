@@ -42,11 +42,11 @@ public class SpendingPlansResponseBodyTest {
     }
 
     /**
-     * Test the property 'iterationItems'
+     * Test the property 'spendingPlans'
      */
     @Test
-    public void iterationItemsTest() {
-        // TODO: test iterationItems
+    public void spendingPlansTest() {
+        // TODO: test spendingPlans
     }
 
     /**

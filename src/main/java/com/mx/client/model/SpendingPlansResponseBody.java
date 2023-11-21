@@ -55,9 +55,9 @@ import com.mx.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class SpendingPlansResponseBody {
-  public static final String SERIALIZED_NAME_ITERATION_ITEMS = "iteration_items";
-  @SerializedName(SERIALIZED_NAME_ITERATION_ITEMS)
-  private List<SpendingPlanResponse> iterationItems;
+  public static final String SERIALIZED_NAME_SPENDING_PLANS = "spending_plans";
+  @SerializedName(SERIALIZED_NAME_SPENDING_PLANS)
+  private List<SpendingPlanResponse> spendingPlans;
 
   public static final String SERIALIZED_NAME_PAGINATION = "pagination";
   @SerializedName(SERIALIZED_NAME_PAGINATION)
@@ -66,32 +66,32 @@ public class SpendingPlansResponseBody {
   public SpendingPlansResponseBody() {
   }
 
-  public SpendingPlansResponseBody iterationItems(List<SpendingPlanResponse> iterationItems) {
+  public SpendingPlansResponseBody spendingPlans(List<SpendingPlanResponse> spendingPlans) {
     
-    this.iterationItems = iterationItems;
+    this.spendingPlans = spendingPlans;
     return this;
   }
 
-  public SpendingPlansResponseBody addIterationItemsItem(SpendingPlanResponse iterationItemsItem) {
-    if (this.iterationItems == null) {
-      this.iterationItems = new ArrayList<>();
+  public SpendingPlansResponseBody addSpendingPlansItem(SpendingPlanResponse spendingPlansItem) {
+    if (this.spendingPlans == null) {
+      this.spendingPlans = new ArrayList<>();
     }
-    this.iterationItems.add(iterationItemsItem);
+    this.spendingPlans.add(spendingPlansItem);
     return this;
   }
 
    /**
-   * Get iterationItems
-   * @return iterationItems
+   * Get spendingPlans
+   * @return spendingPlans
   **/
   @javax.annotation.Nullable
-  public List<SpendingPlanResponse> getIterationItems() {
-    return iterationItems;
+  public List<SpendingPlanResponse> getSpendingPlans() {
+    return spendingPlans;
   }
 
 
-  public void setIterationItems(List<SpendingPlanResponse> iterationItems) {
-    this.iterationItems = iterationItems;
+  public void setSpendingPlans(List<SpendingPlanResponse> spendingPlans) {
+    this.spendingPlans = spendingPlans;
   }
 
 
@@ -126,20 +126,20 @@ public class SpendingPlansResponseBody {
       return false;
     }
     SpendingPlansResponseBody spendingPlansResponseBody = (SpendingPlansResponseBody) o;
-    return Objects.equals(this.iterationItems, spendingPlansResponseBody.iterationItems) &&
+    return Objects.equals(this.spendingPlans, spendingPlansResponseBody.spendingPlans) &&
         Objects.equals(this.pagination, spendingPlansResponseBody.pagination);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(iterationItems, pagination);
+    return Objects.hash(spendingPlans, pagination);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class SpendingPlansResponseBody {\n");
-    sb.append("    iterationItems: ").append(toIndentedString(iterationItems)).append("\n");
+    sb.append("    spendingPlans: ").append(toIndentedString(spendingPlans)).append("\n");
     sb.append("    pagination: ").append(toIndentedString(pagination)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -163,7 +163,7 @@ public class SpendingPlansResponseBody {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("iteration_items");
+    openapiFields.add("spending_plans");
     openapiFields.add("pagination");
 
     // a set of required properties/fields (JSON key names)
@@ -191,17 +191,17 @@ public class SpendingPlansResponseBody {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if (jsonObj.get("iteration_items") != null && !jsonObj.get("iteration_items").isJsonNull()) {
-        JsonArray jsonArrayiterationItems = jsonObj.getAsJsonArray("iteration_items");
-        if (jsonArrayiterationItems != null) {
+      if (jsonObj.get("spending_plans") != null && !jsonObj.get("spending_plans").isJsonNull()) {
+        JsonArray jsonArrayspendingPlans = jsonObj.getAsJsonArray("spending_plans");
+        if (jsonArrayspendingPlans != null) {
           // ensure the json data is an array
-          if (!jsonObj.get("iteration_items").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `iteration_items` to be an array in the JSON string but got `%s`", jsonObj.get("iteration_items").toString()));
+          if (!jsonObj.get("spending_plans").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `spending_plans` to be an array in the JSON string but got `%s`", jsonObj.get("spending_plans").toString()));
           }
 
-          // validate the optional field `iteration_items` (array)
-          for (int i = 0; i < jsonArrayiterationItems.size(); i++) {
-            SpendingPlanResponse.validateJsonElement(jsonArrayiterationItems.get(i));
+          // validate the optional field `spending_plans` (array)
+          for (int i = 0; i < jsonArrayspendingPlans.size(); i++) {
+            SpendingPlanResponse.validateJsonElement(jsonArrayspendingPlans.get(i));
           };
         }
       }
