@@ -81,6 +81,7 @@ docs/PaymentProcessorAuthorizationCodeResponse.md
 docs/PaymentProcessorAuthorizationCodeResponseBody.md
 docs/SpendingPlanAccountResponse.md
 docs/SpendingPlanAccountsResponse.md
+docs/SpendingPlanApi.md
 docs/SpendingPlanIterationItemCreateRequestBody.md
 docs/SpendingPlanIterationItemResponse.md
 docs/SpendingPlanIterationItemsResponseBody.md
@@ -282,6 +283,7 @@ src/main/java/com/mx/client/model/WidgetRequestBody.java
 src/main/java/com/mx/client/model/WidgetResponse.java
 src/main/java/com/mx/client/model/WidgetResponseBody.java
 src/main/java/com/mx/client/mx_platform_api/MxPlatformApi.java
+src/main/java/com/mx/client/mx_platform_api/SpendingPlanApi.java
 src/test/java/com/mx/client/model/AccountCreateRequestBodyTest.java
 src/test/java/com/mx/client/model/AccountCreateRequestTest.java
 src/test/java/com/mx/client/model/AccountNumberResponseTest.java
@@ -413,3 +415,4 @@ src/test/java/com/mx/client/model/WidgetRequestTest.java
 src/test/java/com/mx/client/model/WidgetResponseBodyTest.java
 src/test/java/com/mx/client/model/WidgetResponseTest.java
 src/test/java/com/mx/client/mx_platform_api/MxPlatformApiTest.java
+src/test/java/com/mx/client/mx_platform_api/SpendingPlanApiTest.java
