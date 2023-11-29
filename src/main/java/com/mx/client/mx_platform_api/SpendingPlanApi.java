@@ -207,7 +207,7 @@ public class SpendingPlanApi {
      * Build call for createSpendingPlanIterationItem
      * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param spendingPlanIterationItemCreateRequestBody Iteration item to be created with required parameters (planned_amount) (required)
+     * @param spendingPlanIterationItemCreateRequestBody Iteration item to be created with required parameter (planned_amount) (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -290,7 +290,7 @@ public class SpendingPlanApi {
      * This endpoint creates a new &#x60;spending_plan_iteration_item&#x60;.
      * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param spendingPlanIterationItemCreateRequestBody Iteration item to be created with required parameters (planned_amount) (required)
+     * @param spendingPlanIterationItemCreateRequestBody Iteration item to be created with required parameter (planned_amount) (required)
      * @return SpendingPlanIterationItemResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -309,7 +309,7 @@ public class SpendingPlanApi {
      * This endpoint creates a new &#x60;spending_plan_iteration_item&#x60;.
      * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param spendingPlanIterationItemCreateRequestBody Iteration item to be created with required parameters (planned_amount) (required)
+     * @param spendingPlanIterationItemCreateRequestBody Iteration item to be created with required parameter (planned_amount) (required)
      * @return ApiResponse&lt;SpendingPlanIterationItemResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -329,7 +329,7 @@ public class SpendingPlanApi {
      * This endpoint creates a new &#x60;spending_plan_iteration_item&#x60;.
      * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param spendingPlanIterationItemCreateRequestBody Iteration item to be created with required parameters (planned_amount) (required)
+     * @param spendingPlanIterationItemCreateRequestBody Iteration item to be created with required parameter (planned_amount) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1967,7 +1967,7 @@ public class SpendingPlanApi {
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
      * @param iterationItemGuid The unique ID for the &#x60;iteration_item&#x60;. (required)
-     * @param spendingPlanIterationItemCreateRequestBody Iteration item object to be updated with required parameter (iteration_item_guid) (required)
+     * @param spendingPlanIterationItemCreateRequestBody Iteration item to be updated with required parameter (planned_amount) (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2057,7 +2057,7 @@ public class SpendingPlanApi {
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
      * @param iterationItemGuid The unique ID for the &#x60;iteration_item&#x60;. (required)
-     * @param spendingPlanIterationItemCreateRequestBody Iteration item object to be updated with required parameter (iteration_item_guid) (required)
+     * @param spendingPlanIterationItemCreateRequestBody Iteration item to be updated with required parameter (planned_amount) (required)
      * @return SpendingPlanIterationItemResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2077,7 +2077,7 @@ public class SpendingPlanApi {
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
      * @param iterationItemGuid The unique ID for the &#x60;iteration_item&#x60;. (required)
-     * @param spendingPlanIterationItemCreateRequestBody Iteration item object to be updated with required parameter (iteration_item_guid) (required)
+     * @param spendingPlanIterationItemCreateRequestBody Iteration item to be updated with required parameter (planned_amount) (required)
      * @return ApiResponse&lt;SpendingPlanIterationItemResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2098,7 +2098,7 @@ public class SpendingPlanApi {
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param spendingPlanGuid The unique ID for the &#x60;spending_plan&#x60;. (required)
      * @param iterationItemGuid The unique ID for the &#x60;iteration_item&#x60;. (required)
-     * @param spendingPlanIterationItemCreateRequestBody Iteration item object to be updated with required parameter (iteration_item_guid) (required)
+     * @param spendingPlanIterationItemCreateRequestBody Iteration item to be updated with required parameter (planned_amount) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

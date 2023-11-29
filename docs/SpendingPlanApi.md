@@ -119,7 +119,7 @@ public class Example {
     SpendingPlanApi apiInstance = new SpendingPlanApi(defaultClient);
     String spendingPlanGuid = "SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262"; // String | The unique ID for the `spending_plan`.
     String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
-    SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody = new SpendingPlanIterationItemCreateRequestBody(); // SpendingPlanIterationItemCreateRequestBody | Iteration item to be created with required parameters (planned_amount)
+    SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody = new SpendingPlanIterationItemCreateRequestBody(); // SpendingPlanIterationItemCreateRequestBody | Iteration item to be created with required parameter (planned_amount)
     try {
       SpendingPlanIterationItemResponse result = apiInstance.createSpendingPlanIterationItem(spendingPlanGuid, userGuid, spendingPlanIterationItemCreateRequestBody);
       System.out.println(result);
@@ -140,7 +140,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
 | **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
-| **spendingPlanIterationItemCreateRequestBody** | [**SpendingPlanIterationItemCreateRequestBody**](SpendingPlanIterationItemCreateRequestBody.md)| Iteration item to be created with required parameters (planned_amount) | |
+| **spendingPlanIterationItemCreateRequestBody** | [**SpendingPlanIterationItemCreateRequestBody**](SpendingPlanIterationItemCreateRequestBody.md)| Iteration item to be created with required parameter (planned_amount) | |
 
 ### Return type
 
@@ -999,7 +999,7 @@ public class Example {
     String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
     String spendingPlanGuid = "SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262"; // String | The unique ID for the `spending_plan`.
     String iterationItemGuid = "SII-a4dc1549-da28-1245-9c9c-53eee4cdfbe3"; // String | The unique ID for the `iteration_item`.
-    SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody = new SpendingPlanIterationItemCreateRequestBody(); // SpendingPlanIterationItemCreateRequestBody | Iteration item object to be updated with required parameter (iteration_item_guid)
+    SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody = new SpendingPlanIterationItemCreateRequestBody(); // SpendingPlanIterationItemCreateRequestBody | Iteration item to be updated with required parameter (planned_amount)
     try {
       SpendingPlanIterationItemResponse result = apiInstance.updateSpendingPlanIterationItem(userGuid, spendingPlanGuid, iterationItemGuid, spendingPlanIterationItemCreateRequestBody);
       System.out.println(result);
@@ -1021,7 +1021,7 @@ public class Example {
 | **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
 | **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
 | **iterationItemGuid** | **String**| The unique ID for the &#x60;iteration_item&#x60;. | |
-| **spendingPlanIterationItemCreateRequestBody** | [**SpendingPlanIterationItemCreateRequestBody**](SpendingPlanIterationItemCreateRequestBody.md)| Iteration item object to be updated with required parameter (iteration_item_guid) | |
+| **spendingPlanIterationItemCreateRequestBody** | [**SpendingPlanIterationItemCreateRequestBody**](SpendingPlanIterationItemCreateRequestBody.md)| Iteration item to be updated with required parameter (planned_amount) | |
 
 ### Return type
 
