@@ -17,6 +17,7 @@
 |**includeIdentity** | **Boolean** |  |  [optional] |
 |**includeTransactions** | **Boolean** |  |  [optional] |
 |**isMobileWebview** | **Boolean** |  |  [optional] |
+|**microwidgetInstanceId** | **String** |  |  [optional] |
 |**mode** | **String** |  |  [optional] |
 |**oauthReferralSource** | **String** |  |  [optional] |
 |**uiMessageVersion** | **Integer** |  |  [optional] |

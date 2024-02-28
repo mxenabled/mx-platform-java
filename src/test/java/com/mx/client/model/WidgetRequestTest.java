@@ -118,6 +118,14 @@ public class WidgetRequestTest {
     }
 
     /**
+     * Test the property 'microwidgetInstanceId'
+     */
+    @Test
+    public void microwidgetInstanceIdTest() {
+        // TODO: test microwidgetInstanceId
+    }
+
+    /**
      * Test the property 'mode'
      */
     @Test
