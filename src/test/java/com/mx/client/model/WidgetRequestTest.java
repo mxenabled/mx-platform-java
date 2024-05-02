@@ -110,6 +110,14 @@ public class WidgetRequestTest {
     }
 
     /**
+     * Test the property 'insightGuid'
+     */
+    @Test
+    public void insightGuidTest() {
+        // TODO: test insightGuid
+    }
+
+    /**
      * Test the property 'isMobileWebview'
      */
     @Test

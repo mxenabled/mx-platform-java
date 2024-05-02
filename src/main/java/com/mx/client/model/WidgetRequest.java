@@ -87,6 +87,10 @@ public class WidgetRequest {
   @SerializedName(SERIALIZED_NAME_INCLUDE_TRANSACTIONS)
   private Boolean includeTransactions;
 
+  public static final String SERIALIZED_NAME_INSIGHT_GUID = "insight_guid";
+  @SerializedName(SERIALIZED_NAME_INSIGHT_GUID)
+  private String insightGuid;
+
   public static final String SERIALIZED_NAME_IS_MOBILE_WEBVIEW = "is_mobile_webview";
   @SerializedName(SERIALIZED_NAME_IS_MOBILE_WEBVIEW)
   private Boolean isMobileWebview;
@@ -311,6 +315,27 @@ public class WidgetRequest {
   }
 
 
+  public WidgetRequest insightGuid(String insightGuid) {
+    
+    this.insightGuid = insightGuid;
+    return this;
+  }
+
+   /**
+   * Get insightGuid
+   * @return insightGuid
+  **/
+  @javax.annotation.Nullable
+  public String getInsightGuid() {
+    return insightGuid;
+  }
+
+
+  public void setInsightGuid(String insightGuid) {
+    this.insightGuid = insightGuid;
+  }
+
+
   public WidgetRequest isMobileWebview(Boolean isMobileWebview) {
     
     this.isMobileWebview = isMobileWebview;
@@ -498,6 +523,7 @@ public class WidgetRequest {
         Objects.equals(this.disableInstitutionSearch, widgetRequest.disableInstitutionSearch) &&
         Objects.equals(this.includeIdentity, widgetRequest.includeIdentity) &&
         Objects.equals(this.includeTransactions, widgetRequest.includeTransactions) &&
+        Objects.equals(this.insightGuid, widgetRequest.insightGuid) &&
         Objects.equals(this.isMobileWebview, widgetRequest.isMobileWebview) &&
         Objects.equals(this.microwidgetInstanceId, widgetRequest.microwidgetInstanceId) &&
         Objects.equals(this.mode, widgetRequest.mode) &&
@@ -510,7 +536,7 @@ public class WidgetRequest {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientRedirectUrl, colorScheme, currentInstitutionCode, currentInstitutionGuid, currentMemberGuid, disableBackgroundAgg, disableInstitutionSearch, includeIdentity, includeTransactions, isMobileWebview, microwidgetInstanceId, mode, oauthReferralSource, uiMessageVersion, uiMessageWebviewUrlScheme, updateCredentials, widgetType);
+    return Objects.hash(clientRedirectUrl, colorScheme, currentInstitutionCode, currentInstitutionGuid, currentMemberGuid, disableBackgroundAgg, disableInstitutionSearch, includeIdentity, includeTransactions, insightGuid, isMobileWebview, microwidgetInstanceId, mode, oauthReferralSource, uiMessageVersion, uiMessageWebviewUrlScheme, updateCredentials, widgetType);
   }
 
   @Override
@@ -526,6 +552,7 @@ public class WidgetRequest {
     sb.append("    disableInstitutionSearch: ").append(toIndentedString(disableInstitutionSearch)).append("\n");
     sb.append("    includeIdentity: ").append(toIndentedString(includeIdentity)).append("\n");
     sb.append("    includeTransactions: ").append(toIndentedString(includeTransactions)).append("\n");
+    sb.append("    insightGuid: ").append(toIndentedString(insightGuid)).append("\n");
     sb.append("    isMobileWebview: ").append(toIndentedString(isMobileWebview)).append("\n");
     sb.append("    microwidgetInstanceId: ").append(toIndentedString(microwidgetInstanceId)).append("\n");
     sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
@@ -565,6 +592,7 @@ public class WidgetRequest {
     openapiFields.add("disable_institution_search");
     openapiFields.add("include_identity");
     openapiFields.add("include_transactions");
+    openapiFields.add("insight_guid");
     openapiFields.add("is_mobile_webview");
     openapiFields.add("microwidget_instance_id");
     openapiFields.add("mode");
@@ -621,6 +649,9 @@ public class WidgetRequest {
       }
       if ((jsonObj.get("current_member_guid") != null && !jsonObj.get("current_member_guid").isJsonNull()) && !jsonObj.get("current_member_guid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `current_member_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("current_member_guid").toString()));
+      }
+      if ((jsonObj.get("insight_guid") != null && !jsonObj.get("insight_guid").isJsonNull()) && !jsonObj.get("insight_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `insight_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("insight_guid").toString()));
       }
       if ((jsonObj.get("microwidget_instance_id") != null && !jsonObj.get("microwidget_instance_id").isJsonNull()) && !jsonObj.get("microwidget_instance_id").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `microwidget_instance_id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("microwidget_instance_id").toString()));

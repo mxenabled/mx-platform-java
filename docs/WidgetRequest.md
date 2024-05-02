@@ -16,6 +16,7 @@
 |**disableInstitutionSearch** | **Boolean** |  |  [optional] |
 |**includeIdentity** | **Boolean** |  |  [optional] |
 |**includeTransactions** | **Boolean** |  |  [optional] |
+|**insightGuid** | **String** |  |  [optional] |
 |**isMobileWebview** | **Boolean** |  |  [optional] |
 |**microwidgetInstanceId** | **String** |  |  [optional] |
 |**mode** | **String** |  |  [optional] |
