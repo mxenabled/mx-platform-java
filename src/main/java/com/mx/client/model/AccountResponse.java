@@ -137,10 +137,6 @@ public class AccountResponse {
   @SerializedName(SERIALIZED_NAME_IMPORTED_AT)
   private String importedAt;
 
-  public static final String SERIALIZED_NAME_INTEREST_RATE = "interest_rate";
-  @SerializedName(SERIALIZED_NAME_INTEREST_RATE)
-  private BigDecimal interestRate;
-
   public static final String SERIALIZED_NAME_INSTITUTION_CODE = "institution_code";
   @SerializedName(SERIALIZED_NAME_INSTITUTION_CODE)
   private String institutionCode;
@@ -148,6 +144,10 @@ public class AccountResponse {
   public static final String SERIALIZED_NAME_INSURED_NAME = "insured_name";
   @SerializedName(SERIALIZED_NAME_INSURED_NAME)
   private String insuredName;
+
+  public static final String SERIALIZED_NAME_INTEREST_RATE = "interest_rate";
+  @SerializedName(SERIALIZED_NAME_INTEREST_RATE)
+  private BigDecimal interestRate;
 
   public static final String SERIALIZED_NAME_IS_CLOSED = "is_closed";
   @SerializedName(SERIALIZED_NAME_IS_CLOSED)
@@ -721,27 +721,6 @@ public class AccountResponse {
   }
 
 
-  public AccountResponse interestRate(BigDecimal interestRate) {
-    
-    this.interestRate = interestRate;
-    return this;
-  }
-
-   /**
-   * Get interestRate
-   * @return interestRate
-  **/
-  @javax.annotation.Nullable
-  public BigDecimal getInterestRate() {
-    return interestRate;
-  }
-
-
-  public void setInterestRate(BigDecimal interestRate) {
-    this.interestRate = interestRate;
-  }
-
-
   public AccountResponse institutionCode(String institutionCode) {
     
     this.institutionCode = institutionCode;
@@ -781,6 +760,27 @@ public class AccountResponse {
 
   public void setInsuredName(String insuredName) {
     this.insuredName = insuredName;
+  }
+
+
+  public AccountResponse interestRate(BigDecimal interestRate) {
+    
+    this.interestRate = interestRate;
+    return this;
+  }
+
+   /**
+   * Get interestRate
+   * @return interestRate
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getInterestRate() {
+    return interestRate;
+  }
+
+
+  public void setInterestRate(BigDecimal interestRate) {
+    this.interestRate = interestRate;
   }
 
 
@@ -1487,9 +1487,9 @@ public class AccountResponse {
         Objects.equals(this.holdingsValue, accountResponse.holdingsValue) &&
         Objects.equals(this.id, accountResponse.id) &&
         Objects.equals(this.importedAt, accountResponse.importedAt) &&
-        Objects.equals(this.interestRate, accountResponse.interestRate) &&
         Objects.equals(this.institutionCode, accountResponse.institutionCode) &&
         Objects.equals(this.insuredName, accountResponse.insuredName) &&
+        Objects.equals(this.interestRate, accountResponse.interestRate) &&
         Objects.equals(this.isClosed, accountResponse.isClosed) &&
         Objects.equals(this.isHidden, accountResponse.isHidden) &&
         Objects.equals(this.isManual, accountResponse.isManual) &&
@@ -1530,7 +1530,7 @@ public class AccountResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, accountOwnership, annuityPolicyToDate, annuityProvider, annuityTermYear, apr, apy, availableBalance, availableCredit, balance, cashBalance, cashSurrenderValue, createdAt, creditLimit, currencyCode, dayPaymentIsDue, deathBenefit, guid, holdingsValue, id, importedAt, interestRate, institutionCode, insuredName, isClosed, isHidden, isManual, lastPayment, lastPaymentAt, loanAmount, marginBalance, maturesOn, memberGuid, memberId, memberIsManagedByUser, metadata, minimumBalance, minimumPayment, name, nickname, originalBalance, payOutAmount, paymentDueAt, payoffBalance, premiumAmount, propertyType, routingNumber, startedOn, subtype, todayUglAmount, todayUglPercentage, totalAccountValue, type, updatedAt, userGuid, userId);
+    return Objects.hash(accountNumber, accountOwnership, annuityPolicyToDate, annuityProvider, annuityTermYear, apr, apy, availableBalance, availableCredit, balance, cashBalance, cashSurrenderValue, createdAt, creditLimit, currencyCode, dayPaymentIsDue, deathBenefit, guid, holdingsValue, id, importedAt, institutionCode, insuredName, interestRate, isClosed, isHidden, isManual, lastPayment, lastPaymentAt, loanAmount, marginBalance, maturesOn, memberGuid, memberId, memberIsManagedByUser, metadata, minimumBalance, minimumPayment, name, nickname, originalBalance, payOutAmount, paymentDueAt, payoffBalance, premiumAmount, propertyType, routingNumber, startedOn, subtype, todayUglAmount, todayUglPercentage, totalAccountValue, type, updatedAt, userGuid, userId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1565,9 +1565,9 @@ public class AccountResponse {
     sb.append("    holdingsValue: ").append(toIndentedString(holdingsValue)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    importedAt: ").append(toIndentedString(importedAt)).append("\n");
-    sb.append("    interestRate: ").append(toIndentedString(interestRate)).append("\n");
     sb.append("    institutionCode: ").append(toIndentedString(institutionCode)).append("\n");
     sb.append("    insuredName: ").append(toIndentedString(insuredName)).append("\n");
+    sb.append("    interestRate: ").append(toIndentedString(interestRate)).append("\n");
     sb.append("    isClosed: ").append(toIndentedString(isClosed)).append("\n");
     sb.append("    isHidden: ").append(toIndentedString(isHidden)).append("\n");
     sb.append("    isManual: ").append(toIndentedString(isManual)).append("\n");
@@ -1643,9 +1643,9 @@ public class AccountResponse {
     openapiFields.add("holdings_value");
     openapiFields.add("id");
     openapiFields.add("imported_at");
-    openapiFields.add("interest_rate");
     openapiFields.add("institution_code");
     openapiFields.add("insured_name");
+    openapiFields.add("interest_rate");
     openapiFields.add("is_closed");
     openapiFields.add("is_hidden");
     openapiFields.add("is_manual");

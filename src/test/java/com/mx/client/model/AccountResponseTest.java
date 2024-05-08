@@ -208,14 +208,6 @@ public class AccountResponseTest {
     }
 
     /**
-     * Test the property 'interestRate'
-     */
-    @Test
-    public void interestRateTest() {
-        // TODO: test interestRate
-    }
-
-    /**
      * Test the property 'institutionCode'
      */
     @Test
@@ -229,6 +221,14 @@ public class AccountResponseTest {
     @Test
     public void insuredNameTest() {
         // TODO: test insuredName
+    }
+
+    /**
+     * Test the property 'interestRate'
+     */
+    @Test
+    public void interestRateTest() {
+        // TODO: test interestRate
     }
 
     /**

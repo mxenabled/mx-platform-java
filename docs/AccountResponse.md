@@ -28,9 +28,9 @@
 |**holdingsValue** | **BigDecimal** |  |  [optional] |
 |**id** | **String** |  |  [optional] |
 |**importedAt** | **String** |  |  [optional] |
-|**interestRate** | **BigDecimal** |  |  [optional] |
 |**institutionCode** | **String** |  |  [optional] |
 |**insuredName** | **String** |  |  [optional] |
+|**interestRate** | **BigDecimal** |  |  [optional] |
 |**isClosed** | **Boolean** |  |  [optional] |
 |**isHidden** | **Boolean** |  |  [optional] |
 |**isManual** | **Boolean** |  |  [optional] |

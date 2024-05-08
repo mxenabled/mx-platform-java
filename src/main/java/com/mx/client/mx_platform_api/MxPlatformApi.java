@@ -1042,7 +1042,7 @@ public class MxPlatformApi {
 
     /**
      * Create manual account
-     * This endpoint can only be used to create manual accounts. Creating a manual account will automatically create it under the Manual Institution member. Since a manual account has no credentials tied to the member, the account will never aggregate or include data from a data feed..
+     * This endpoint can only be used to create manual accounts. Creating a manual account will automatically create it under the Manual Institution member. Since a manual account has no credentials tied to the member, the account will never aggregate or include data from a data feed.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param accountCreateRequestBody Manual account object to be created. (required)
      * @return AccountResponseBody
@@ -1060,7 +1060,7 @@ public class MxPlatformApi {
 
     /**
      * Create manual account
-     * This endpoint can only be used to create manual accounts. Creating a manual account will automatically create it under the Manual Institution member. Since a manual account has no credentials tied to the member, the account will never aggregate or include data from a data feed..
+     * This endpoint can only be used to create manual accounts. Creating a manual account will automatically create it under the Manual Institution member. Since a manual account has no credentials tied to the member, the account will never aggregate or include data from a data feed.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param accountCreateRequestBody Manual account object to be created. (required)
      * @return ApiResponse&lt;AccountResponseBody&gt;
@@ -1079,7 +1079,7 @@ public class MxPlatformApi {
 
     /**
      * Create manual account (asynchronously)
-     * This endpoint can only be used to create manual accounts. Creating a manual account will automatically create it under the Manual Institution member. Since a manual account has no credentials tied to the member, the account will never aggregate or include data from a data feed..
+     * This endpoint can only be used to create manual accounts. Creating a manual account will automatically create it under the Manual Institution member. Since a manual account has no credentials tied to the member, the account will never aggregate or include data from a data feed.
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
      * @param accountCreateRequestBody Manual account object to be created. (required)
      * @param _callback The callback to be executed when the API call finishes

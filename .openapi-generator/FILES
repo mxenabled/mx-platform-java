@@ -39,6 +39,11 @@ docs/HoldingResponse.md
 docs/HoldingResponseBody.md
 docs/HoldingsResponseBody.md
 docs/ImageOptionResponse.md
+docs/InsightResponse.md
+docs/InsightResponseBody.md
+docs/InsightUpdateRequest.md
+docs/InsightsApi.md
+docs/InsightsResponseBody.md
 docs/InstitutionResponse.md
 docs/InstitutionResponseBody.md
 docs/InstitutionsResponseBody.md
@@ -79,6 +84,8 @@ docs/PaymentProcessorAuthorizationCodeRequest.md
 docs/PaymentProcessorAuthorizationCodeRequestBody.md
 docs/PaymentProcessorAuthorizationCodeResponse.md
 docs/PaymentProcessorAuthorizationCodeResponseBody.md
+docs/ScheduledPaymentResponse.md
+docs/ScheduledPaymentsResponseBody.md
 docs/SpendingPlanAccountResponse.md
 docs/SpendingPlanAccountsResponse.md
 docs/SpendingPlanApi.md
@@ -191,6 +198,10 @@ src/main/java/com/mx/client/model/HoldingResponse.java
 src/main/java/com/mx/client/model/HoldingResponseBody.java
 src/main/java/com/mx/client/model/HoldingsResponseBody.java
 src/main/java/com/mx/client/model/ImageOptionResponse.java
+src/main/java/com/mx/client/model/InsightResponse.java
+src/main/java/com/mx/client/model/InsightResponseBody.java
+src/main/java/com/mx/client/model/InsightUpdateRequest.java
+src/main/java/com/mx/client/model/InsightsResponseBody.java
 src/main/java/com/mx/client/model/InstitutionResponse.java
 src/main/java/com/mx/client/model/InstitutionResponseBody.java
 src/main/java/com/mx/client/model/InstitutionsResponseBody.java
@@ -230,6 +241,8 @@ src/main/java/com/mx/client/model/PaymentProcessorAuthorizationCodeRequest.java
 src/main/java/com/mx/client/model/PaymentProcessorAuthorizationCodeRequestBody.java
 src/main/java/com/mx/client/model/PaymentProcessorAuthorizationCodeResponse.java
 src/main/java/com/mx/client/model/PaymentProcessorAuthorizationCodeResponseBody.java
+src/main/java/com/mx/client/model/ScheduledPaymentResponse.java
+src/main/java/com/mx/client/model/ScheduledPaymentsResponseBody.java
 src/main/java/com/mx/client/model/SpendingPlanAccountResponse.java
 src/main/java/com/mx/client/model/SpendingPlanAccountsResponse.java
 src/main/java/com/mx/client/model/SpendingPlanIterationItemCreateRequestBody.java
@@ -282,6 +295,7 @@ src/main/java/com/mx/client/model/WidgetRequest.java
 src/main/java/com/mx/client/model/WidgetRequestBody.java
 src/main/java/com/mx/client/model/WidgetResponse.java
 src/main/java/com/mx/client/model/WidgetResponseBody.java
+src/main/java/com/mx/client/mx_platform_api/InsightsApi.java
 src/main/java/com/mx/client/mx_platform_api/MxPlatformApi.java
 src/main/java/com/mx/client/mx_platform_api/SpendingPlanApi.java
 src/test/java/com/mx/client/model/AccountCreateRequestBodyTest.java
@@ -323,6 +337,10 @@ src/test/java/com/mx/client/model/HoldingResponseBodyTest.java
 src/test/java/com/mx/client/model/HoldingResponseTest.java
 src/test/java/com/mx/client/model/HoldingsResponseBodyTest.java
 src/test/java/com/mx/client/model/ImageOptionResponseTest.java
+src/test/java/com/mx/client/model/InsightResponseBodyTest.java
+src/test/java/com/mx/client/model/InsightResponseTest.java
+src/test/java/com/mx/client/model/InsightUpdateRequestTest.java
+src/test/java/com/mx/client/model/InsightsResponseBodyTest.java
 src/test/java/com/mx/client/model/InstitutionResponseBodyTest.java
 src/test/java/com/mx/client/model/InstitutionResponseTest.java
 src/test/java/com/mx/client/model/InstitutionsResponseBodyTest.java
@@ -362,6 +380,8 @@ src/test/java/com/mx/client/model/PaymentProcessorAuthorizationCodeRequestBodyTe
 src/test/java/com/mx/client/model/PaymentProcessorAuthorizationCodeRequestTest.java
 src/test/java/com/mx/client/model/PaymentProcessorAuthorizationCodeResponseBodyTest.java
 src/test/java/com/mx/client/model/PaymentProcessorAuthorizationCodeResponseTest.java
+src/test/java/com/mx/client/model/ScheduledPaymentResponseTest.java
+src/test/java/com/mx/client/model/ScheduledPaymentsResponseBodyTest.java
 src/test/java/com/mx/client/model/SpendingPlanAccountResponseTest.java
 src/test/java/com/mx/client/model/SpendingPlanAccountsResponseTest.java
 src/test/java/com/mx/client/model/SpendingPlanIterationItemCreateRequestBodyTest.java
@@ -414,5 +434,6 @@ src/test/java/com/mx/client/model/WidgetRequestBodyTest.java
 src/test/java/com/mx/client/model/WidgetRequestTest.java
 src/test/java/com/mx/client/model/WidgetResponseBodyTest.java
 src/test/java/com/mx/client/model/WidgetResponseTest.java
+src/test/java/com/mx/client/mx_platform_api/InsightsApiTest.java
 src/test/java/com/mx/client/mx_platform_api/MxPlatformApiTest.java
 src/test/java/com/mx/client/mx_platform_api/SpendingPlanApiTest.java
