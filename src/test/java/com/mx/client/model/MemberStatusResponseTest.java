@@ -82,6 +82,14 @@ public class MemberStatusResponseTest {
     }
 
     /**
+     * Test the property 'hasProcessedAccountNumbers'
+     */
+    @Test
+    public void hasProcessedAccountNumbersTest() {
+        // TODO: test hasProcessedAccountNumbers
+    }
+
+    /**
      * Test the property 'hasProcessedTransactions'
      */
     @Test
