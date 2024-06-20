@@ -75,6 +75,10 @@ public class MemberStatusResponse {
   @SerializedName(SERIALIZED_NAME_HAS_PROCESSED_ACCOUNTS)
   private Boolean hasProcessedAccounts;
 
+  public static final String SERIALIZED_NAME_HAS_PROCESSED_ACCOUNT_NUMBERS = "has_processed_account_numbers";
+  @SerializedName(SERIALIZED_NAME_HAS_PROCESSED_ACCOUNT_NUMBERS)
+  private Boolean hasProcessedAccountNumbers;
+
   public static final String SERIALIZED_NAME_HAS_PROCESSED_TRANSACTIONS = "has_processed_transactions";
   @SerializedName(SERIALIZED_NAME_HAS_PROCESSED_TRANSACTIONS)
   private Boolean hasProcessedTransactions;
@@ -207,6 +211,27 @@ public class MemberStatusResponse {
   }
 
 
+  public MemberStatusResponse hasProcessedAccountNumbers(Boolean hasProcessedAccountNumbers) {
+    
+    this.hasProcessedAccountNumbers = hasProcessedAccountNumbers;
+    return this;
+  }
+
+   /**
+   * Get hasProcessedAccountNumbers
+   * @return hasProcessedAccountNumbers
+  **/
+  @javax.annotation.Nullable
+  public Boolean getHasProcessedAccountNumbers() {
+    return hasProcessedAccountNumbers;
+  }
+
+
+  public void setHasProcessedAccountNumbers(Boolean hasProcessedAccountNumbers) {
+    this.hasProcessedAccountNumbers = hasProcessedAccountNumbers;
+  }
+
+
   public MemberStatusResponse hasProcessedTransactions(Boolean hasProcessedTransactions) {
     
     this.hasProcessedTransactions = hasProcessedTransactions;
@@ -306,6 +331,7 @@ public class MemberStatusResponse {
         Objects.equals(this.connectionStatus, memberStatusResponse.connectionStatus) &&
         Objects.equals(this.guid, memberStatusResponse.guid) &&
         Objects.equals(this.hasProcessedAccounts, memberStatusResponse.hasProcessedAccounts) &&
+        Objects.equals(this.hasProcessedAccountNumbers, memberStatusResponse.hasProcessedAccountNumbers) &&
         Objects.equals(this.hasProcessedTransactions, memberStatusResponse.hasProcessedTransactions) &&
         Objects.equals(this.isAuthenticated, memberStatusResponse.isAuthenticated) &&
         Objects.equals(this.isBeingAggregated, memberStatusResponse.isBeingAggregated) &&
@@ -318,7 +344,7 @@ public class MemberStatusResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregatedAt, challenges, connectionStatus, guid, hasProcessedAccounts, hasProcessedTransactions, isAuthenticated, isBeingAggregated, successfullyAggregatedAt);
+    return Objects.hash(aggregatedAt, challenges, connectionStatus, guid, hasProcessedAccounts, hasProcessedAccountNumbers, hasProcessedTransactions, isAuthenticated, isBeingAggregated, successfullyAggregatedAt);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -337,6 +363,7 @@ public class MemberStatusResponse {
     sb.append("    connectionStatus: ").append(toIndentedString(connectionStatus)).append("\n");
     sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    hasProcessedAccounts: ").append(toIndentedString(hasProcessedAccounts)).append("\n");
+    sb.append("    hasProcessedAccountNumbers: ").append(toIndentedString(hasProcessedAccountNumbers)).append("\n");
     sb.append("    hasProcessedTransactions: ").append(toIndentedString(hasProcessedTransactions)).append("\n");
     sb.append("    isAuthenticated: ").append(toIndentedString(isAuthenticated)).append("\n");
     sb.append("    isBeingAggregated: ").append(toIndentedString(isBeingAggregated)).append("\n");
@@ -368,6 +395,7 @@ public class MemberStatusResponse {
     openapiFields.add("connection_status");
     openapiFields.add("guid");
     openapiFields.add("has_processed_accounts");
+    openapiFields.add("has_processed_account_numbers");
     openapiFields.add("has_processed_transactions");
     openapiFields.add("is_authenticated");
     openapiFields.add("is_being_aggregated");
