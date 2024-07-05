@@ -15,8 +15,11 @@
 |**institutionCode** | **String** |  |  [optional] |
 |**isBeingAggregated** | **Boolean** |  |  [optional] |
 |**isManagedByUser** | **Boolean** |  |  [optional] |
+|**isManual** | **Boolean** |  |  [optional] |
 |**isOauth** | **Boolean** |  |  [optional] |
 |**metadata** | **String** |  |  [optional] |
+|**mostRecentJobDetailCode** | **String** |  |  [optional] |
+|**mostRecentJobDetailText** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**oauthWindowUri** | **String** |  |  [optional] |
 |**successfullyAggregatedAt** | **String** |  |  [optional] |

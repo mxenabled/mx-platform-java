@@ -103,6 +103,14 @@ public class MemberResponseTest {
     }
 
     /**
+     * Test the property 'isManual'
+     */
+    @Test
+    public void isManualTest() {
+        // TODO: test isManual
+    }
+
+    /**
      * Test the property 'isOauth'
      */
     @Test
@@ -116,6 +124,22 @@ public class MemberResponseTest {
     @Test
     public void metadataTest() {
         // TODO: test metadata
+    }
+
+    /**
+     * Test the property 'mostRecentJobDetailCode'
+     */
+    @Test
+    public void mostRecentJobDetailCodeTest() {
+        // TODO: test mostRecentJobDetailCode
+    }
+
+    /**
+     * Test the property 'mostRecentJobDetailText'
+     */
+    @Test
+    public void mostRecentJobDetailTextTest() {
+        // TODO: test mostRecentJobDetailText
     }
 
     /**

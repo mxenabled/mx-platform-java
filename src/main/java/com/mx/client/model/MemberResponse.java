@@ -84,6 +84,10 @@ public class MemberResponse {
   @SerializedName(SERIALIZED_NAME_IS_MANAGED_BY_USER)
   private Boolean isManagedByUser;
 
+  public static final String SERIALIZED_NAME_IS_MANUAL = "is_manual";
+  @SerializedName(SERIALIZED_NAME_IS_MANUAL)
+  private Boolean isManual;
+
   public static final String SERIALIZED_NAME_IS_OAUTH = "is_oauth";
   @SerializedName(SERIALIZED_NAME_IS_OAUTH)
   private Boolean isOauth;
@@ -91,6 +95,14 @@ public class MemberResponse {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private String metadata;
+
+  public static final String SERIALIZED_NAME_MOST_RECENT_JOB_DETAIL_CODE = "most_recent_job_detail_code";
+  @SerializedName(SERIALIZED_NAME_MOST_RECENT_JOB_DETAIL_CODE)
+  private String mostRecentJobDetailCode;
+
+  public static final String SERIALIZED_NAME_MOST_RECENT_JOB_DETAIL_TEXT = "most_recent_job_detail_text";
+  @SerializedName(SERIALIZED_NAME_MOST_RECENT_JOB_DETAIL_TEXT)
+  private String mostRecentJobDetailText;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
@@ -283,6 +295,27 @@ public class MemberResponse {
   }
 
 
+  public MemberResponse isManual(Boolean isManual) {
+    
+    this.isManual = isManual;
+    return this;
+  }
+
+   /**
+   * Get isManual
+   * @return isManual
+  **/
+  @javax.annotation.Nullable
+  public Boolean getIsManual() {
+    return isManual;
+  }
+
+
+  public void setIsManual(Boolean isManual) {
+    this.isManual = isManual;
+  }
+
+
   public MemberResponse isOauth(Boolean isOauth) {
     
     this.isOauth = isOauth;
@@ -322,6 +355,48 @@ public class MemberResponse {
 
   public void setMetadata(String metadata) {
     this.metadata = metadata;
+  }
+
+
+  public MemberResponse mostRecentJobDetailCode(String mostRecentJobDetailCode) {
+    
+    this.mostRecentJobDetailCode = mostRecentJobDetailCode;
+    return this;
+  }
+
+   /**
+   * Get mostRecentJobDetailCode
+   * @return mostRecentJobDetailCode
+  **/
+  @javax.annotation.Nullable
+  public String getMostRecentJobDetailCode() {
+    return mostRecentJobDetailCode;
+  }
+
+
+  public void setMostRecentJobDetailCode(String mostRecentJobDetailCode) {
+    this.mostRecentJobDetailCode = mostRecentJobDetailCode;
+  }
+
+
+  public MemberResponse mostRecentJobDetailText(String mostRecentJobDetailText) {
+    
+    this.mostRecentJobDetailText = mostRecentJobDetailText;
+    return this;
+  }
+
+   /**
+   * Get mostRecentJobDetailText
+   * @return mostRecentJobDetailText
+  **/
+  @javax.annotation.Nullable
+  public String getMostRecentJobDetailText() {
+    return mostRecentJobDetailText;
+  }
+
+
+  public void setMostRecentJobDetailText(String mostRecentJobDetailText) {
+    this.mostRecentJobDetailText = mostRecentJobDetailText;
   }
 
 
@@ -448,8 +523,11 @@ public class MemberResponse {
         Objects.equals(this.institutionCode, memberResponse.institutionCode) &&
         Objects.equals(this.isBeingAggregated, memberResponse.isBeingAggregated) &&
         Objects.equals(this.isManagedByUser, memberResponse.isManagedByUser) &&
+        Objects.equals(this.isManual, memberResponse.isManual) &&
         Objects.equals(this.isOauth, memberResponse.isOauth) &&
         Objects.equals(this.metadata, memberResponse.metadata) &&
+        Objects.equals(this.mostRecentJobDetailCode, memberResponse.mostRecentJobDetailCode) &&
+        Objects.equals(this.mostRecentJobDetailText, memberResponse.mostRecentJobDetailText) &&
         Objects.equals(this.name, memberResponse.name) &&
         Objects.equals(this.oauthWindowUri, memberResponse.oauthWindowUri) &&
         Objects.equals(this.successfullyAggregatedAt, memberResponse.successfullyAggregatedAt) &&
@@ -463,7 +541,7 @@ public class MemberResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregatedAt, backgroundAggregationIsDisabled, connectionStatus, guid, id, institutionCode, isBeingAggregated, isManagedByUser, isOauth, metadata, name, oauthWindowUri, successfullyAggregatedAt, userGuid, userId);
+    return Objects.hash(aggregatedAt, backgroundAggregationIsDisabled, connectionStatus, guid, id, institutionCode, isBeingAggregated, isManagedByUser, isManual, isOauth, metadata, mostRecentJobDetailCode, mostRecentJobDetailText, name, oauthWindowUri, successfullyAggregatedAt, userGuid, userId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -485,8 +563,11 @@ public class MemberResponse {
     sb.append("    institutionCode: ").append(toIndentedString(institutionCode)).append("\n");
     sb.append("    isBeingAggregated: ").append(toIndentedString(isBeingAggregated)).append("\n");
     sb.append("    isManagedByUser: ").append(toIndentedString(isManagedByUser)).append("\n");
+    sb.append("    isManual: ").append(toIndentedString(isManual)).append("\n");
     sb.append("    isOauth: ").append(toIndentedString(isOauth)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    mostRecentJobDetailCode: ").append(toIndentedString(mostRecentJobDetailCode)).append("\n");
+    sb.append("    mostRecentJobDetailText: ").append(toIndentedString(mostRecentJobDetailText)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    oauthWindowUri: ").append(toIndentedString(oauthWindowUri)).append("\n");
     sb.append("    successfullyAggregatedAt: ").append(toIndentedString(successfullyAggregatedAt)).append("\n");
@@ -522,8 +603,11 @@ public class MemberResponse {
     openapiFields.add("institution_code");
     openapiFields.add("is_being_aggregated");
     openapiFields.add("is_managed_by_user");
+    openapiFields.add("is_manual");
     openapiFields.add("is_oauth");
     openapiFields.add("metadata");
+    openapiFields.add("most_recent_job_detail_code");
+    openapiFields.add("most_recent_job_detail_text");
     openapiFields.add("name");
     openapiFields.add("oauth_window_uri");
     openapiFields.add("successfully_aggregated_at");
@@ -572,6 +656,12 @@ public class MemberResponse {
       }
       if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
+      }
+      if ((jsonObj.get("most_recent_job_detail_code") != null && !jsonObj.get("most_recent_job_detail_code").isJsonNull()) && !jsonObj.get("most_recent_job_detail_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `most_recent_job_detail_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("most_recent_job_detail_code").toString()));
+      }
+      if ((jsonObj.get("most_recent_job_detail_text") != null && !jsonObj.get("most_recent_job_detail_text").isJsonNull()) && !jsonObj.get("most_recent_job_detail_text").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `most_recent_job_detail_text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("most_recent_job_detail_text").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
