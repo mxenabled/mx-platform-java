@@ -456,6 +456,14 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'totalAccountValueUgl'
+     */
+    @Test
+    public void totalAccountValueUglTest() {
+        // TODO: test totalAccountValueUgl
+    }
+
+    /**
      * Test the property 'type'
      */
     @Test

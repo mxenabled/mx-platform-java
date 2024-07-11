@@ -261,6 +261,10 @@ public class AccountResponse {
   @SerializedName(SERIALIZED_NAME_TOTAL_ACCOUNT_VALUE)
   private BigDecimal totalAccountValue;
 
+  public static final String SERIALIZED_NAME_TOTAL_ACCOUNT_VALUE_UGL = "total_account_value_ugl";
+  @SerializedName(SERIALIZED_NAME_TOTAL_ACCOUNT_VALUE_UGL)
+  private BigDecimal totalAccountValueUgl;
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
@@ -1372,6 +1376,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse totalAccountValueUgl(BigDecimal totalAccountValueUgl) {
+    
+    this.totalAccountValueUgl = totalAccountValueUgl;
+    return this;
+  }
+
+   /**
+   * Get totalAccountValueUgl
+   * @return totalAccountValueUgl
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getTotalAccountValueUgl() {
+    return totalAccountValueUgl;
+  }
+
+
+  public void setTotalAccountValueUgl(BigDecimal totalAccountValueUgl) {
+    this.totalAccountValueUgl = totalAccountValueUgl;
+  }
+
+
   public AccountResponse type(String type) {
     
     this.type = type;
@@ -1518,6 +1543,7 @@ public class AccountResponse {
         Objects.equals(this.todayUglAmount, accountResponse.todayUglAmount) &&
         Objects.equals(this.todayUglPercentage, accountResponse.todayUglPercentage) &&
         Objects.equals(this.totalAccountValue, accountResponse.totalAccountValue) &&
+        Objects.equals(this.totalAccountValueUgl, accountResponse.totalAccountValueUgl) &&
         Objects.equals(this.type, accountResponse.type) &&
         Objects.equals(this.updatedAt, accountResponse.updatedAt) &&
         Objects.equals(this.userGuid, accountResponse.userGuid) &&
@@ -1530,7 +1556,7 @@ public class AccountResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, accountOwnership, annuityPolicyToDate, annuityProvider, annuityTermYear, apr, apy, availableBalance, availableCredit, balance, cashBalance, cashSurrenderValue, createdAt, creditLimit, currencyCode, dayPaymentIsDue, deathBenefit, guid, holdingsValue, id, importedAt, institutionCode, insuredName, interestRate, isClosed, isHidden, isManual, lastPayment, lastPaymentAt, loanAmount, marginBalance, maturesOn, memberGuid, memberId, memberIsManagedByUser, metadata, minimumBalance, minimumPayment, name, nickname, originalBalance, payOutAmount, paymentDueAt, payoffBalance, premiumAmount, propertyType, routingNumber, startedOn, subtype, todayUglAmount, todayUglPercentage, totalAccountValue, type, updatedAt, userGuid, userId);
+    return Objects.hash(accountNumber, accountOwnership, annuityPolicyToDate, annuityProvider, annuityTermYear, apr, apy, availableBalance, availableCredit, balance, cashBalance, cashSurrenderValue, createdAt, creditLimit, currencyCode, dayPaymentIsDue, deathBenefit, guid, holdingsValue, id, importedAt, institutionCode, insuredName, interestRate, isClosed, isHidden, isManual, lastPayment, lastPaymentAt, loanAmount, marginBalance, maturesOn, memberGuid, memberId, memberIsManagedByUser, metadata, minimumBalance, minimumPayment, name, nickname, originalBalance, payOutAmount, paymentDueAt, payoffBalance, premiumAmount, propertyType, routingNumber, startedOn, subtype, todayUglAmount, todayUglPercentage, totalAccountValue, totalAccountValueUgl, type, updatedAt, userGuid, userId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1596,6 +1622,7 @@ public class AccountResponse {
     sb.append("    todayUglAmount: ").append(toIndentedString(todayUglAmount)).append("\n");
     sb.append("    todayUglPercentage: ").append(toIndentedString(todayUglPercentage)).append("\n");
     sb.append("    totalAccountValue: ").append(toIndentedString(totalAccountValue)).append("\n");
+    sb.append("    totalAccountValueUgl: ").append(toIndentedString(totalAccountValueUgl)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    userGuid: ").append(toIndentedString(userGuid)).append("\n");
@@ -1674,6 +1701,7 @@ public class AccountResponse {
     openapiFields.add("today_ugl_amount");
     openapiFields.add("today_ugl_percentage");
     openapiFields.add("total_account_value");
+    openapiFields.add("total_account_value_ugl");
     openapiFields.add("type");
     openapiFields.add("updated_at");
     openapiFields.add("user_guid");

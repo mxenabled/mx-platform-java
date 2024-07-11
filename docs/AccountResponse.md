@@ -59,6 +59,7 @@
 |**todayUglAmount** | **BigDecimal** |  |  [optional] |
 |**todayUglPercentage** | **BigDecimal** |  |  [optional] |
 |**totalAccountValue** | **BigDecimal** |  |  [optional] |
+|**totalAccountValueUgl** | **BigDecimal** |  |  [optional] |
 |**type** | **String** |  |  [optional] |
 |**updatedAt** | **String** |  |  [optional] |
 |**userGuid** | **String** |  |  [optional] |
