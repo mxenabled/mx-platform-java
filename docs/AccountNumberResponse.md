@@ -10,6 +10,7 @@
 |**accountGuid** | **String** |  |  [optional] |
 |**accountNumber** | **String** |  |  [optional] |
 |**guid** | **String** |  |  [optional] |
+|**loanGuarantor** | **String** |  |  [optional] |
 |**institutionNumber** | **String** |  |  [optional] |
 |**memberGuid** | **String** |  |  [optional] |
 |**passedValidation** | **Boolean** |  |  [optional] |

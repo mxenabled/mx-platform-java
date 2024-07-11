@@ -63,6 +63,14 @@ public class AccountNumberResponseTest {
     }
 
     /**
+     * Test the property 'loanGuarantor'
+     */
+    @Test
+    public void loanGuarantorTest() {
+        // TODO: test loanGuarantor
+    }
+
+    /**
      * Test the property 'institutionNumber'
      */
     @Test

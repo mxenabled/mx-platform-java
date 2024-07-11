@@ -64,6 +64,10 @@ public class AccountNumberResponse {
   @SerializedName(SERIALIZED_NAME_GUID)
   private String guid;
 
+  public static final String SERIALIZED_NAME_LOAN_GUARANTOR = "loan_guarantor";
+  @SerializedName(SERIALIZED_NAME_LOAN_GUARANTOR)
+  private String loanGuarantor;
+
   public static final String SERIALIZED_NAME_INSTITUTION_NUMBER = "institution_number";
   @SerializedName(SERIALIZED_NAME_INSTITUTION_NUMBER)
   private String institutionNumber;
@@ -151,6 +155,27 @@ public class AccountNumberResponse {
 
   public void setGuid(String guid) {
     this.guid = guid;
+  }
+
+
+  public AccountNumberResponse loanGuarantor(String loanGuarantor) {
+    
+    this.loanGuarantor = loanGuarantor;
+    return this;
+  }
+
+   /**
+   * Get loanGuarantor
+   * @return loanGuarantor
+  **/
+  @javax.annotation.Nullable
+  public String getLoanGuarantor() {
+    return loanGuarantor;
+  }
+
+
+  public void setLoanGuarantor(String loanGuarantor) {
+    this.loanGuarantor = loanGuarantor;
   }
 
 
@@ -293,6 +318,7 @@ public class AccountNumberResponse {
     return Objects.equals(this.accountGuid, accountNumberResponse.accountGuid) &&
         Objects.equals(this.accountNumber, accountNumberResponse.accountNumber) &&
         Objects.equals(this.guid, accountNumberResponse.guid) &&
+        Objects.equals(this.loanGuarantor, accountNumberResponse.loanGuarantor) &&
         Objects.equals(this.institutionNumber, accountNumberResponse.institutionNumber) &&
         Objects.equals(this.memberGuid, accountNumberResponse.memberGuid) &&
         Objects.equals(this.passedValidation, accountNumberResponse.passedValidation) &&
@@ -307,7 +333,7 @@ public class AccountNumberResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountGuid, accountNumber, guid, institutionNumber, memberGuid, passedValidation, routingNumber, transitNumber, userGuid);
+    return Objects.hash(accountGuid, accountNumber, guid, loanGuarantor, institutionNumber, memberGuid, passedValidation, routingNumber, transitNumber, userGuid);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -324,6 +350,7 @@ public class AccountNumberResponse {
     sb.append("    accountGuid: ").append(toIndentedString(accountGuid)).append("\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
+    sb.append("    loanGuarantor: ").append(toIndentedString(loanGuarantor)).append("\n");
     sb.append("    institutionNumber: ").append(toIndentedString(institutionNumber)).append("\n");
     sb.append("    memberGuid: ").append(toIndentedString(memberGuid)).append("\n");
     sb.append("    passedValidation: ").append(toIndentedString(passedValidation)).append("\n");
@@ -355,6 +382,7 @@ public class AccountNumberResponse {
     openapiFields.add("account_guid");
     openapiFields.add("account_number");
     openapiFields.add("guid");
+    openapiFields.add("loan_guarantor");
     openapiFields.add("institution_number");
     openapiFields.add("member_guid");
     openapiFields.add("passed_validation");
@@ -395,6 +423,9 @@ public class AccountNumberResponse {
       }
       if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
+      if ((jsonObj.get("loan_guarantor") != null && !jsonObj.get("loan_guarantor").isJsonNull()) && !jsonObj.get("loan_guarantor").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `loan_guarantor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loan_guarantor").toString()));
       }
       if ((jsonObj.get("institution_number") != null && !jsonObj.get("institution_number").isJsonNull()) && !jsonObj.get("institution_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `institution_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("institution_number").toString()));
