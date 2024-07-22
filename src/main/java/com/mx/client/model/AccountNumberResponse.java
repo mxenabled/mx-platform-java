@@ -68,6 +68,10 @@ public class AccountNumberResponse {
   @SerializedName(SERIALIZED_NAME_LOAN_GUARANTOR)
   private String loanGuarantor;
 
+  public static final String SERIALIZED_NAME_LOAN_REFERENCE_NUMBER = "loan_reference_number";
+  @SerializedName(SERIALIZED_NAME_LOAN_REFERENCE_NUMBER)
+  private String loanReferenceNumber;
+
   public static final String SERIALIZED_NAME_INSTITUTION_NUMBER = "institution_number";
   @SerializedName(SERIALIZED_NAME_INSTITUTION_NUMBER)
   private String institutionNumber;
@@ -83,6 +87,10 @@ public class AccountNumberResponse {
   public static final String SERIALIZED_NAME_ROUTING_NUMBER = "routing_number";
   @SerializedName(SERIALIZED_NAME_ROUTING_NUMBER)
   private String routingNumber;
+
+  public static final String SERIALIZED_NAME_SEQUENCE_NUMBER = "sequence_number";
+  @SerializedName(SERIALIZED_NAME_SEQUENCE_NUMBER)
+  private String sequenceNumber;
 
   public static final String SERIALIZED_NAME_TRANSIT_NUMBER = "transit_number";
   @SerializedName(SERIALIZED_NAME_TRANSIT_NUMBER)
@@ -179,6 +187,27 @@ public class AccountNumberResponse {
   }
 
 
+  public AccountNumberResponse loanReferenceNumber(String loanReferenceNumber) {
+    
+    this.loanReferenceNumber = loanReferenceNumber;
+    return this;
+  }
+
+   /**
+   * Get loanReferenceNumber
+   * @return loanReferenceNumber
+  **/
+  @javax.annotation.Nullable
+  public String getLoanReferenceNumber() {
+    return loanReferenceNumber;
+  }
+
+
+  public void setLoanReferenceNumber(String loanReferenceNumber) {
+    this.loanReferenceNumber = loanReferenceNumber;
+  }
+
+
   public AccountNumberResponse institutionNumber(String institutionNumber) {
     
     this.institutionNumber = institutionNumber;
@@ -263,6 +292,27 @@ public class AccountNumberResponse {
   }
 
 
+  public AccountNumberResponse sequenceNumber(String sequenceNumber) {
+    
+    this.sequenceNumber = sequenceNumber;
+    return this;
+  }
+
+   /**
+   * Get sequenceNumber
+   * @return sequenceNumber
+  **/
+  @javax.annotation.Nullable
+  public String getSequenceNumber() {
+    return sequenceNumber;
+  }
+
+
+  public void setSequenceNumber(String sequenceNumber) {
+    this.sequenceNumber = sequenceNumber;
+  }
+
+
   public AccountNumberResponse transitNumber(String transitNumber) {
     
     this.transitNumber = transitNumber;
@@ -319,10 +369,12 @@ public class AccountNumberResponse {
         Objects.equals(this.accountNumber, accountNumberResponse.accountNumber) &&
         Objects.equals(this.guid, accountNumberResponse.guid) &&
         Objects.equals(this.loanGuarantor, accountNumberResponse.loanGuarantor) &&
+        Objects.equals(this.loanReferenceNumber, accountNumberResponse.loanReferenceNumber) &&
         Objects.equals(this.institutionNumber, accountNumberResponse.institutionNumber) &&
         Objects.equals(this.memberGuid, accountNumberResponse.memberGuid) &&
         Objects.equals(this.passedValidation, accountNumberResponse.passedValidation) &&
         Objects.equals(this.routingNumber, accountNumberResponse.routingNumber) &&
+        Objects.equals(this.sequenceNumber, accountNumberResponse.sequenceNumber) &&
         Objects.equals(this.transitNumber, accountNumberResponse.transitNumber) &&
         Objects.equals(this.userGuid, accountNumberResponse.userGuid);
   }
@@ -333,7 +385,7 @@ public class AccountNumberResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountGuid, accountNumber, guid, loanGuarantor, institutionNumber, memberGuid, passedValidation, routingNumber, transitNumber, userGuid);
+    return Objects.hash(accountGuid, accountNumber, guid, loanGuarantor, loanReferenceNumber, institutionNumber, memberGuid, passedValidation, routingNumber, sequenceNumber, transitNumber, userGuid);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -351,10 +403,12 @@ public class AccountNumberResponse {
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
     sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    loanGuarantor: ").append(toIndentedString(loanGuarantor)).append("\n");
+    sb.append("    loanReferenceNumber: ").append(toIndentedString(loanReferenceNumber)).append("\n");
     sb.append("    institutionNumber: ").append(toIndentedString(institutionNumber)).append("\n");
     sb.append("    memberGuid: ").append(toIndentedString(memberGuid)).append("\n");
     sb.append("    passedValidation: ").append(toIndentedString(passedValidation)).append("\n");
     sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
+    sb.append("    sequenceNumber: ").append(toIndentedString(sequenceNumber)).append("\n");
     sb.append("    transitNumber: ").append(toIndentedString(transitNumber)).append("\n");
     sb.append("    userGuid: ").append(toIndentedString(userGuid)).append("\n");
     sb.append("}");
@@ -383,10 +437,12 @@ public class AccountNumberResponse {
     openapiFields.add("account_number");
     openapiFields.add("guid");
     openapiFields.add("loan_guarantor");
+    openapiFields.add("loan_reference_number");
     openapiFields.add("institution_number");
     openapiFields.add("member_guid");
     openapiFields.add("passed_validation");
     openapiFields.add("routing_number");
+    openapiFields.add("sequence_number");
     openapiFields.add("transit_number");
     openapiFields.add("user_guid");
 
@@ -427,6 +483,9 @@ public class AccountNumberResponse {
       if ((jsonObj.get("loan_guarantor") != null && !jsonObj.get("loan_guarantor").isJsonNull()) && !jsonObj.get("loan_guarantor").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `loan_guarantor` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loan_guarantor").toString()));
       }
+      if ((jsonObj.get("loan_reference_number") != null && !jsonObj.get("loan_reference_number").isJsonNull()) && !jsonObj.get("loan_reference_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `loan_reference_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loan_reference_number").toString()));
+      }
       if ((jsonObj.get("institution_number") != null && !jsonObj.get("institution_number").isJsonNull()) && !jsonObj.get("institution_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `institution_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("institution_number").toString()));
       }
@@ -435,6 +494,9 @@ public class AccountNumberResponse {
       }
       if ((jsonObj.get("routing_number") != null && !jsonObj.get("routing_number").isJsonNull()) && !jsonObj.get("routing_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `routing_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("routing_number").toString()));
+      }
+      if ((jsonObj.get("sequence_number") != null && !jsonObj.get("sequence_number").isJsonNull()) && !jsonObj.get("sequence_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sequence_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sequence_number").toString()));
       }
       if ((jsonObj.get("transit_number") != null && !jsonObj.get("transit_number").isJsonNull()) && !jsonObj.get("transit_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `transit_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("transit_number").toString()));

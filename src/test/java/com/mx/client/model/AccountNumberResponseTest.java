@@ -71,6 +71,14 @@ public class AccountNumberResponseTest {
     }
 
     /**
+     * Test the property 'loanReferenceNumber'
+     */
+    @Test
+    public void loanReferenceNumberTest() {
+        // TODO: test loanReferenceNumber
+    }
+
+    /**
      * Test the property 'institutionNumber'
      */
     @Test
@@ -100,6 +108,14 @@ public class AccountNumberResponseTest {
     @Test
     public void routingNumberTest() {
         // TODO: test routingNumber
+    }
+
+    /**
+     * Test the property 'sequenceNumber'
+     */
+    @Test
+    public void sequenceNumberTest() {
+        // TODO: test sequenceNumber
     }
 
     /**
