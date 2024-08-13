@@ -245,6 +245,10 @@ public class AccountResponse {
   @SerializedName(SERIALIZED_NAME_STARTED_ON)
   private String startedOn;
 
+  public static final String SERIALIZED_NAME_STATEMENT_BALANCE = "statement_balance";
+  @SerializedName(SERIALIZED_NAME_STATEMENT_BALANCE)
+  private BigDecimal statementBalance;
+
   public static final String SERIALIZED_NAME_SUBTYPE = "subtype";
   @SerializedName(SERIALIZED_NAME_SUBTYPE)
   private String subtype;
@@ -1292,6 +1296,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse statementBalance(BigDecimal statementBalance) {
+    
+    this.statementBalance = statementBalance;
+    return this;
+  }
+
+   /**
+   * Get statementBalance
+   * @return statementBalance
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getStatementBalance() {
+    return statementBalance;
+  }
+
+
+  public void setStatementBalance(BigDecimal statementBalance) {
+    this.statementBalance = statementBalance;
+  }
+
+
   public AccountResponse subtype(String subtype) {
     
     this.subtype = subtype;
@@ -1539,6 +1564,7 @@ public class AccountResponse {
         Objects.equals(this.propertyType, accountResponse.propertyType) &&
         Objects.equals(this.routingNumber, accountResponse.routingNumber) &&
         Objects.equals(this.startedOn, accountResponse.startedOn) &&
+        Objects.equals(this.statementBalance, accountResponse.statementBalance) &&
         Objects.equals(this.subtype, accountResponse.subtype) &&
         Objects.equals(this.todayUglAmount, accountResponse.todayUglAmount) &&
         Objects.equals(this.todayUglPercentage, accountResponse.todayUglPercentage) &&
@@ -1556,7 +1582,7 @@ public class AccountResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, accountOwnership, annuityPolicyToDate, annuityProvider, annuityTermYear, apr, apy, availableBalance, availableCredit, balance, cashBalance, cashSurrenderValue, createdAt, creditLimit, currencyCode, dayPaymentIsDue, deathBenefit, guid, holdingsValue, id, importedAt, institutionCode, insuredName, interestRate, isClosed, isHidden, isManual, lastPayment, lastPaymentAt, loanAmount, marginBalance, maturesOn, memberGuid, memberId, memberIsManagedByUser, metadata, minimumBalance, minimumPayment, name, nickname, originalBalance, payOutAmount, paymentDueAt, payoffBalance, premiumAmount, propertyType, routingNumber, startedOn, subtype, todayUglAmount, todayUglPercentage, totalAccountValue, totalAccountValueUgl, type, updatedAt, userGuid, userId);
+    return Objects.hash(accountNumber, accountOwnership, annuityPolicyToDate, annuityProvider, annuityTermYear, apr, apy, availableBalance, availableCredit, balance, cashBalance, cashSurrenderValue, createdAt, creditLimit, currencyCode, dayPaymentIsDue, deathBenefit, guid, holdingsValue, id, importedAt, institutionCode, insuredName, interestRate, isClosed, isHidden, isManual, lastPayment, lastPaymentAt, loanAmount, marginBalance, maturesOn, memberGuid, memberId, memberIsManagedByUser, metadata, minimumBalance, minimumPayment, name, nickname, originalBalance, payOutAmount, paymentDueAt, payoffBalance, premiumAmount, propertyType, routingNumber, startedOn, statementBalance, subtype, todayUglAmount, todayUglPercentage, totalAccountValue, totalAccountValueUgl, type, updatedAt, userGuid, userId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1618,6 +1644,7 @@ public class AccountResponse {
     sb.append("    propertyType: ").append(toIndentedString(propertyType)).append("\n");
     sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
     sb.append("    startedOn: ").append(toIndentedString(startedOn)).append("\n");
+    sb.append("    statementBalance: ").append(toIndentedString(statementBalance)).append("\n");
     sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
     sb.append("    todayUglAmount: ").append(toIndentedString(todayUglAmount)).append("\n");
     sb.append("    todayUglPercentage: ").append(toIndentedString(todayUglPercentage)).append("\n");
@@ -1697,6 +1724,7 @@ public class AccountResponse {
     openapiFields.add("property_type");
     openapiFields.add("routing_number");
     openapiFields.add("started_on");
+    openapiFields.add("statement_balance");
     openapiFields.add("subtype");
     openapiFields.add("today_ugl_amount");
     openapiFields.add("today_ugl_percentage");

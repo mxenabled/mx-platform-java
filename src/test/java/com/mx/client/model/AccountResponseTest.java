@@ -424,6 +424,14 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'statementBalance'
+     */
+    @Test
+    public void statementBalanceTest() {
+        // TODO: test statementBalance
+    }
+
+    /**
      * Test the property 'subtype'
      */
     @Test

@@ -55,6 +55,7 @@
 |**propertyType** | **String** |  |  [optional] |
 |**routingNumber** | **String** |  |  [optional] |
 |**startedOn** | **String** |  |  [optional] |
+|**statementBalance** | **BigDecimal** |  |  [optional] |
 |**subtype** | **String** |  |  [optional] |
 |**todayUglAmount** | **BigDecimal** |  |  [optional] |
 |**todayUglPercentage** | **BigDecimal** |  |  [optional] |
