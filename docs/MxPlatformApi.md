@@ -16,6 +16,7 @@ All URIs are relative to *https://api.mx.com*
 | [**createTagging**](MxPlatformApi.md#createTagging) | **POST** /users/{user_guid}/taggings | Create tagging |
 | [**createTransactionRule**](MxPlatformApi.md#createTransactionRule) | **POST** /users/{user_guid}/transaction_rules | Create transaction rule |
 | [**createUser**](MxPlatformApi.md#createUser) | **POST** /users | Create user |
+| [**creditCard**](MxPlatformApi.md#creditCard) | **GET** /credit_card_products/{credit_card_product_guid} | Read a Credit Card Product |
 | [**deleteCategory**](MxPlatformApi.md#deleteCategory) | **DELETE** /users/{user_guid}/categories/{category_guid} | Delete category |
 | [**deleteManagedAccount**](MxPlatformApi.md#deleteManagedAccount) | **DELETE** /users/{user_guid}/managed_members/{member_guid}/accounts/{account_guid} | Delete managed account |
 | [**deleteManagedMember**](MxPlatformApi.md#deleteManagedMember) | **DELETE** /users/{user_guid}/managed_members/{member_guid} | Delete managed member |
@@ -31,6 +32,7 @@ All URIs are relative to *https://api.mx.com*
 | [**downloadTaxDocument**](MxPlatformApi.md#downloadTaxDocument) | **GET** /users/{user_guid}/members/{member_guid}/tax_documents/{tax_document_guid}.pdf | Download a Tax Document PDF |
 | [**enhanceTransactions**](MxPlatformApi.md#enhanceTransactions) | **POST** /transactions/enhance | Enhance transactions |
 | [**extendHistory**](MxPlatformApi.md#extendHistory) | **POST** /users/{user_guid}/members/{member_guid}/extend_history | Extend history |
+| [**fetchRewards**](MxPlatformApi.md#fetchRewards) | **POST** /users/{user_guid}/members/{member_guid}/fetch_rewards | Fetch Rewards |
 | [**fetchStatements**](MxPlatformApi.md#fetchStatements) | **POST** /users/{user_guid}/members/{member_guid}/fetch_statements | Fetch statements |
 | [**fetchTaxDocuments**](MxPlatformApi.md#fetchTaxDocuments) | **POST** /users/{user_guid}/members/{member_guid}/fetch_tax_documents | Fetch Tax Documents |
 | [**identifyMember**](MxPlatformApi.md#identifyMember) | **POST** /users/{user_guid}/members/{member_guid}/identify | Identify member |
@@ -55,6 +57,7 @@ All URIs are relative to *https://api.mx.com*
 | [**listMemberCredentials**](MxPlatformApi.md#listMemberCredentials) | **GET** /users/{user_guid}/members/{member_guid}/credentials | List member credentials |
 | [**listMembers**](MxPlatformApi.md#listMembers) | **GET** /users/{user_guid}/members | List members |
 | [**listMerchants**](MxPlatformApi.md#listMerchants) | **GET** /merchants | List merchants |
+| [**listRewards**](MxPlatformApi.md#listRewards) | **GET** /users/{user_guid}/members/{member_guid}/rewards | List Rewards |
 | [**listStatementsByMember**](MxPlatformApi.md#listStatementsByMember) | **GET** /users/{user_guid}/members/{member_guid}/statements | List statements by member |
 | [**listTaggings**](MxPlatformApi.md#listTaggings) | **GET** /users/{user_guid}/taggings | List taggings |
 | [**listTags**](MxPlatformApi.md#listTags) | **GET** /users/{user_guid}/tags | List tags |
@@ -79,6 +82,7 @@ All URIs are relative to *https://api.mx.com*
 | [**readMemberStatus**](MxPlatformApi.md#readMemberStatus) | **GET** /users/{user_guid}/members/{member_guid}/status | Read member status |
 | [**readMerchant**](MxPlatformApi.md#readMerchant) | **GET** /merchants/{merchant_guid} | Read merchant |
 | [**readMerchantLocation**](MxPlatformApi.md#readMerchantLocation) | **GET** /merchant_locations/{merchant_location_guid} | Read merchant location |
+| [**readRewards**](MxPlatformApi.md#readRewards) | **GET** /users/{user_guid}/members/{member_guid}/rewards/{reward_guid} | Read Reward |
 | [**readStatementByMember**](MxPlatformApi.md#readStatementByMember) | **GET** /users/{user_guid}/members/{member_guid}/statements/{statement_guid} | Read statement by member |
 | [**readTag**](MxPlatformApi.md#readTag) | **GET** /users/{user_guid}/tags/{tag_guid} | Read tag |
 | [**readTagging**](MxPlatformApi.md#readTagging) | **GET** /users/{user_guid}/taggings/{tagging_guid} | Read tagging |
@@ -942,6 +946,74 @@ public class Example {
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="creditCard"></a>
+# **creditCard**
+> CreditCardProductResponse creditCard(creditCardProductGuid)
+
+Read a Credit Card Product
+
+This endpoint returns the specified &#x60;credit_card_product&#x60; according to the unique GUID.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String creditCardProductGuid = "credit_card_product_guid"; // String | The required `credit_card_product_guid` can be found on the `account` object.
+    try {
+      CreditCardProductResponse result = apiInstance.creditCard(creditCardProductGuid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#creditCard");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **creditCardProductGuid** | **String**| The required &#x60;credit_card_product_guid&#x60; can be found on the &#x60;account&#x60; object. | |
+
+### Return type
+
+[**CreditCardProductResponse**](CreditCardProductResponse.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/vnd.mx.api.v1+json
 
 ### HTTP response details
@@ -1992,6 +2064,76 @@ public class Example {
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **202** | Accepted |  -  |
+
+<a id="fetchRewards"></a>
+# **fetchRewards**
+> MemberResponseBody fetchRewards(userGuid, memberGuid)
+
+Fetch Rewards
+
+Calling this endpoint initiates an aggregation-type event which will gather the member&#39;s rewards information, as well as account and transaction information. Rewards data is also gathered with daily background aggregations.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String memberGuid = "MBR-fa7537f3-48aa-a683-a02a-b18345562f54"; // String | The unique identifier for the member. Defined by MX.
+    try {
+      MemberResponseBody result = apiInstance.fetchRewards(userGuid, memberGuid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#fetchRewards");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **memberGuid** | **String**| The unique identifier for the member. Defined by MX. | |
+
+### Return type
+
+[**MemberResponseBody**](MemberResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
 
 <a id="fetchStatements"></a>
 # **fetchStatements**
@@ -3751,6 +3893,76 @@ public class Example {
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 
+<a id="listRewards"></a>
+# **listRewards**
+> RewardsResponseBody listRewards(userGuid, memberGuid)
+
+List Rewards
+
+Use this endpoint to list all the &#x60;rewards&#x60; associated with a specified &#x60;member&#x60;.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String memberGuid = "MBR-fa7537f3-48aa-a683-a02a-b18345562f54"; // String | The unique identifier for the member. Defined by MX.
+    try {
+      RewardsResponseBody result = apiInstance.listRewards(userGuid, memberGuid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#listRewards");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **memberGuid** | **String**| The unique identifier for the member. Defined by MX. | |
+
+### Return type
+
+[**RewardsResponseBody**](RewardsResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
 <a id="listStatementsByMember"></a>
 # **listStatementsByMember**
 > StatementsResponseBody listStatementsByMember(memberGuid, userGuid, page, recordsPerPage)
@@ -5472,6 +5684,78 @@ public class Example {
 ### Return type
 
 [**MerchantLocationResponseBody**](MerchantLocationResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="readRewards"></a>
+# **readRewards**
+> RewardResponseBody readRewards(userGuid, memberGuid, rewardGuid)
+
+Read Reward
+
+Use this endpoint to read a specific &#x60;reward&#x60; based on its unique GUID..
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String memberGuid = "MBR-fa7537f3-48aa-a683-a02a-b18345562f54"; // String | The unique identifier for the member. Defined by MX.
+    String rewardGuid = "RWD-fa7537f3-48aa-a683-a02a-b324322f54"; // String | The unique identifier for the rewards. Defined by MX.
+    try {
+      RewardResponseBody result = apiInstance.readRewards(userGuid, memberGuid, rewardGuid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#readRewards");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **memberGuid** | **String**| The unique identifier for the member. Defined by MX. | |
+| **rewardGuid** | **String**| The unique identifier for the rewards. Defined by MX. | |
+
+### Return type
+
+[**RewardResponseBody**](RewardResponseBody.md)
 
 ### Authorization
 
