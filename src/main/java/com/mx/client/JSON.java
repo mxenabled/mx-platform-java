@@ -124,6 +124,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.CredentialRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.CredentialResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.CredentialsResponseBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.CreditCardProduct.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.CreditCardProductResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.EnhanceTransactionResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.EnhanceTransactionsRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.EnhanceTransactionsRequestBody.CustomTypeAdapterFactory());
@@ -175,6 +177,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.PaymentProcessorAuthorizationCodeRequestBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.PaymentProcessorAuthorizationCodeResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.PaymentProcessorAuthorizationCodeResponseBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.RewardResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.RewardResponseBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.RewardsResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.RewardsResponseBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.ScheduledPaymentResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.ScheduledPaymentsResponseBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.SpendingPlanAccountResponse.CustomTypeAdapterFactory());

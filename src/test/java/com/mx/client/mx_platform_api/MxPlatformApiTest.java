@@ -30,6 +30,7 @@ import com.mx.client.model.ChallengesResponseBody;
 import com.mx.client.model.ConnectWidgetRequestBody;
 import com.mx.client.model.ConnectWidgetResponseBody;
 import com.mx.client.model.CredentialsResponseBody;
+import com.mx.client.model.CreditCardProductResponse;
 import com.mx.client.model.EnhanceTransactionsRequestBody;
 import com.mx.client.model.EnhanceTransactionsResponseBody;
 import java.io.File;
@@ -55,6 +56,8 @@ import com.mx.client.model.MerchantsResponseBody;
 import com.mx.client.model.OAuthWindowResponseBody;
 import com.mx.client.model.PaymentProcessorAuthorizationCodeRequestBody;
 import com.mx.client.model.PaymentProcessorAuthorizationCodeResponseBody;
+import com.mx.client.model.RewardResponseBody;
+import com.mx.client.model.RewardsResponseBody;
 import com.mx.client.model.StatementResponseBody;
 import com.mx.client.model.StatementsResponseBody;
 import com.mx.client.model.TagCreateRequestBody;
@@ -275,6 +278,20 @@ public class MxPlatformApiTest {
     public void createUserTest() throws ApiException {
         UserCreateRequestBody userCreateRequestBody = null;
         UserResponseBody response = api.createUser(userCreateRequestBody);
+        // TODO: test validations
+    }
+
+    /**
+     * Read a Credit Card Product
+     *
+     * This endpoint returns the specified &#x60;credit_card_product&#x60; according to the unique GUID.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void creditCardTest() throws ApiException {
+        String creditCardProductGuid = null;
+        CreditCardProductResponse response = api.creditCard(creditCardProductGuid);
         // TODO: test validations
     }
 
@@ -502,6 +519,21 @@ public class MxPlatformApiTest {
         String memberGuid = null;
         String userGuid = null;
         MemberResponseBody response = api.extendHistory(memberGuid, userGuid);
+        // TODO: test validations
+    }
+
+    /**
+     * Fetch Rewards
+     *
+     * Calling this endpoint initiates an aggregation-type event which will gather the member&#39;s rewards information, as well as account and transaction information. Rewards data is also gathered with daily background aggregations.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void fetchRewardsTest() throws ApiException {
+        String userGuid = null;
+        String memberGuid = null;
+        MemberResponseBody response = api.fetchRewards(userGuid, memberGuid);
         // TODO: test validations
     }
 
@@ -905,6 +937,21 @@ public class MxPlatformApiTest {
     }
 
     /**
+     * List Rewards
+     *
+     * Use this endpoint to list all the &#x60;rewards&#x60; associated with a specified &#x60;member&#x60;.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void listRewardsTest() throws ApiException {
+        String userGuid = null;
+        String memberGuid = null;
+        RewardsResponseBody response = api.listRewards(userGuid, memberGuid);
+        // TODO: test validations
+    }
+
+    /**
      * List statements by member
      *
      * Use this endpoint to get an array of available statements.
@@ -1289,6 +1336,22 @@ public class MxPlatformApiTest {
     public void readMerchantLocationTest() throws ApiException {
         String merchantLocationGuid = null;
         MerchantLocationResponseBody response = api.readMerchantLocation(merchantLocationGuid);
+        // TODO: test validations
+    }
+
+    /**
+     * Read Reward
+     *
+     * Use this endpoint to read a specific &#x60;reward&#x60; based on its unique GUID..
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void readRewardsTest() throws ApiException {
+        String userGuid = null;
+        String memberGuid = null;
+        String rewardGuid = null;
+        RewardResponseBody response = api.readRewards(userGuid, memberGuid, rewardGuid);
         // TODO: test validations
     }
 

@@ -43,6 +43,7 @@ import com.mx.client.model.ChallengesResponseBody;
 import com.mx.client.model.ConnectWidgetRequestBody;
 import com.mx.client.model.ConnectWidgetResponseBody;
 import com.mx.client.model.CredentialsResponseBody;
+import com.mx.client.model.CreditCardProductResponse;
 import com.mx.client.model.EnhanceTransactionsRequestBody;
 import com.mx.client.model.EnhanceTransactionsResponseBody;
 import java.io.File;
@@ -68,6 +69,8 @@ import com.mx.client.model.MerchantsResponseBody;
 import com.mx.client.model.OAuthWindowResponseBody;
 import com.mx.client.model.PaymentProcessorAuthorizationCodeRequestBody;
 import com.mx.client.model.PaymentProcessorAuthorizationCodeResponseBody;
+import com.mx.client.model.RewardResponseBody;
+import com.mx.client.model.RewardsResponseBody;
 import com.mx.client.model.StatementResponseBody;
 import com.mx.client.model.StatementsResponseBody;
 import com.mx.client.model.TagCreateRequestBody;
@@ -1750,6 +1753,129 @@ public class MxPlatformApi {
 
         okhttp3.Call localVarCall = createUserValidateBeforeCall(userCreateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<UserResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for creditCard
+     * @param creditCardProductGuid The required &#x60;credit_card_product_guid&#x60; can be found on the &#x60;account&#x60; object. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call creditCardCall(String creditCardProductGuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/credit_card_products/{credit_card_product_guid}"
+            .replace("{" + "credit_card_product_guid" + "}", localVarApiClient.escapeString(creditCardProductGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call creditCardValidateBeforeCall(String creditCardProductGuid, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'creditCardProductGuid' is set
+        if (creditCardProductGuid == null) {
+            throw new ApiException("Missing the required parameter 'creditCardProductGuid' when calling creditCard(Async)");
+        }
+
+        return creditCardCall(creditCardProductGuid, _callback);
+
+    }
+
+    /**
+     * Read a Credit Card Product
+     * This endpoint returns the specified &#x60;credit_card_product&#x60; according to the unique GUID.
+     * @param creditCardProductGuid The required &#x60;credit_card_product_guid&#x60; can be found on the &#x60;account&#x60; object. (required)
+     * @return CreditCardProductResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public CreditCardProductResponse creditCard(String creditCardProductGuid) throws ApiException {
+        ApiResponse<CreditCardProductResponse> localVarResp = creditCardWithHttpInfo(creditCardProductGuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read a Credit Card Product
+     * This endpoint returns the specified &#x60;credit_card_product&#x60; according to the unique GUID.
+     * @param creditCardProductGuid The required &#x60;credit_card_product_guid&#x60; can be found on the &#x60;account&#x60; object. (required)
+     * @return ApiResponse&lt;CreditCardProductResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<CreditCardProductResponse> creditCardWithHttpInfo(String creditCardProductGuid) throws ApiException {
+        okhttp3.Call localVarCall = creditCardValidateBeforeCall(creditCardProductGuid, null);
+        Type localVarReturnType = new TypeToken<CreditCardProductResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read a Credit Card Product (asynchronously)
+     * This endpoint returns the specified &#x60;credit_card_product&#x60; according to the unique GUID.
+     * @param creditCardProductGuid The required &#x60;credit_card_product_guid&#x60; can be found on the &#x60;account&#x60; object. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call creditCardAsync(String creditCardProductGuid, final ApiCallback<CreditCardProductResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = creditCardValidateBeforeCall(creditCardProductGuid, _callback);
+        Type localVarReturnType = new TypeToken<CreditCardProductResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3714,6 +3840,139 @@ public class MxPlatformApi {
     public okhttp3.Call extendHistoryAsync(String memberGuid, String userGuid, final ApiCallback<MemberResponseBody> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = extendHistoryValidateBeforeCall(memberGuid, userGuid, _callback);
+        Type localVarReturnType = new TypeToken<MemberResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for fetchRewards
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique identifier for the member. Defined by MX. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchRewardsCall(String userGuid, String memberGuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/members/{member_guid}/fetch_rewards"
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()))
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call fetchRewardsValidateBeforeCall(String userGuid, String memberGuid, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling fetchRewards(Async)");
+        }
+
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling fetchRewards(Async)");
+        }
+
+        return fetchRewardsCall(userGuid, memberGuid, _callback);
+
+    }
+
+    /**
+     * Fetch Rewards
+     * Calling this endpoint initiates an aggregation-type event which will gather the member&#39;s rewards information, as well as account and transaction information. Rewards data is also gathered with daily background aggregations.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique identifier for the member. Defined by MX. (required)
+     * @return MemberResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public MemberResponseBody fetchRewards(String userGuid, String memberGuid) throws ApiException {
+        ApiResponse<MemberResponseBody> localVarResp = fetchRewardsWithHttpInfo(userGuid, memberGuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Fetch Rewards
+     * Calling this endpoint initiates an aggregation-type event which will gather the member&#39;s rewards information, as well as account and transaction information. Rewards data is also gathered with daily background aggregations.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique identifier for the member. Defined by MX. (required)
+     * @return ApiResponse&lt;MemberResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<MemberResponseBody> fetchRewardsWithHttpInfo(String userGuid, String memberGuid) throws ApiException {
+        okhttp3.Call localVarCall = fetchRewardsValidateBeforeCall(userGuid, memberGuid, null);
+        Type localVarReturnType = new TypeToken<MemberResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Fetch Rewards (asynchronously)
+     * Calling this endpoint initiates an aggregation-type event which will gather the member&#39;s rewards information, as well as account and transaction information. Rewards data is also gathered with daily background aggregations.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique identifier for the member. Defined by MX. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call fetchRewardsAsync(String userGuid, String memberGuid, final ApiCallback<MemberResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = fetchRewardsValidateBeforeCall(userGuid, memberGuid, _callback);
         Type localVarReturnType = new TypeToken<MemberResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -7193,6 +7452,139 @@ public class MxPlatformApi {
         return localVarCall;
     }
     /**
+     * Build call for listRewards
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique identifier for the member. Defined by MX. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listRewardsCall(String userGuid, String memberGuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/members/{member_guid}/rewards"
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()))
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listRewardsValidateBeforeCall(String userGuid, String memberGuid, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling listRewards(Async)");
+        }
+
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling listRewards(Async)");
+        }
+
+        return listRewardsCall(userGuid, memberGuid, _callback);
+
+    }
+
+    /**
+     * List Rewards
+     * Use this endpoint to list all the &#x60;rewards&#x60; associated with a specified &#x60;member&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique identifier for the member. Defined by MX. (required)
+     * @return RewardsResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public RewardsResponseBody listRewards(String userGuid, String memberGuid) throws ApiException {
+        ApiResponse<RewardsResponseBody> localVarResp = listRewardsWithHttpInfo(userGuid, memberGuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List Rewards
+     * Use this endpoint to list all the &#x60;rewards&#x60; associated with a specified &#x60;member&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique identifier for the member. Defined by MX. (required)
+     * @return ApiResponse&lt;RewardsResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RewardsResponseBody> listRewardsWithHttpInfo(String userGuid, String memberGuid) throws ApiException {
+        okhttp3.Call localVarCall = listRewardsValidateBeforeCall(userGuid, memberGuid, null);
+        Type localVarReturnType = new TypeToken<RewardsResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List Rewards (asynchronously)
+     * Use this endpoint to list all the &#x60;rewards&#x60; associated with a specified &#x60;member&#x60;.
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique identifier for the member. Defined by MX. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call listRewardsAsync(String userGuid, String memberGuid, final ApiCallback<RewardsResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listRewardsValidateBeforeCall(userGuid, memberGuid, _callback);
+        Type localVarReturnType = new TypeToken<RewardsResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for listStatementsByMember
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
@@ -10591,6 +10983,149 @@ public class MxPlatformApi {
 
         okhttp3.Call localVarCall = readMerchantLocationValidateBeforeCall(merchantLocationGuid, _callback);
         Type localVarReturnType = new TypeToken<MerchantLocationResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for readRewards
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique identifier for the member. Defined by MX. (required)
+     * @param rewardGuid The unique identifier for the rewards. Defined by MX. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readRewardsCall(String userGuid, String memberGuid, String rewardGuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/members/{member_guid}/rewards/{reward_guid}"
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()))
+            .replace("{" + "member_guid" + "}", localVarApiClient.escapeString(memberGuid.toString()))
+            .replace("{" + "reward_guid" + "}", localVarApiClient.escapeString(rewardGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call readRewardsValidateBeforeCall(String userGuid, String memberGuid, String rewardGuid, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling readRewards(Async)");
+        }
+
+        // verify the required parameter 'memberGuid' is set
+        if (memberGuid == null) {
+            throw new ApiException("Missing the required parameter 'memberGuid' when calling readRewards(Async)");
+        }
+
+        // verify the required parameter 'rewardGuid' is set
+        if (rewardGuid == null) {
+            throw new ApiException("Missing the required parameter 'rewardGuid' when calling readRewards(Async)");
+        }
+
+        return readRewardsCall(userGuid, memberGuid, rewardGuid, _callback);
+
+    }
+
+    /**
+     * Read Reward
+     * Use this endpoint to read a specific &#x60;reward&#x60; based on its unique GUID..
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique identifier for the member. Defined by MX. (required)
+     * @param rewardGuid The unique identifier for the rewards. Defined by MX. (required)
+     * @return RewardResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public RewardResponseBody readRewards(String userGuid, String memberGuid, String rewardGuid) throws ApiException {
+        ApiResponse<RewardResponseBody> localVarResp = readRewardsWithHttpInfo(userGuid, memberGuid, rewardGuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read Reward
+     * Use this endpoint to read a specific &#x60;reward&#x60; based on its unique GUID..
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique identifier for the member. Defined by MX. (required)
+     * @param rewardGuid The unique identifier for the rewards. Defined by MX. (required)
+     * @return ApiResponse&lt;RewardResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<RewardResponseBody> readRewardsWithHttpInfo(String userGuid, String memberGuid, String rewardGuid) throws ApiException {
+        okhttp3.Call localVarCall = readRewardsValidateBeforeCall(userGuid, memberGuid, rewardGuid, null);
+        Type localVarReturnType = new TypeToken<RewardResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read Reward (asynchronously)
+     * Use this endpoint to read a specific &#x60;reward&#x60; based on its unique GUID..
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param memberGuid The unique identifier for the member. Defined by MX. (required)
+     * @param rewardGuid The unique identifier for the rewards. Defined by MX. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call readRewardsAsync(String userGuid, String memberGuid, String rewardGuid, final ApiCallback<RewardResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = readRewardsValidateBeforeCall(userGuid, memberGuid, rewardGuid, _callback);
+        Type localVarReturnType = new TypeToken<RewardResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
