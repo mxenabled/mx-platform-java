@@ -39,11 +39,11 @@ public class CreditCardProductResponseTest {
     }
 
     /**
-     * Test the property 'reward'
+     * Test the property 'creditCardProduct'
      */
     @Test
-    public void rewardTest() {
-        // TODO: test reward
+    public void creditCardProductTest() {
+        // TODO: test creditCardProduct
     }
 
 }

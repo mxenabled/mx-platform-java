@@ -66,11 +66,15 @@ import com.mx.client.model.MembersResponseBody;
 import com.mx.client.model.MerchantLocationResponseBody;
 import com.mx.client.model.MerchantResponseBody;
 import com.mx.client.model.MerchantsResponseBody;
+import com.mx.client.model.MonthlyCashFlowProfileRequestBody;
+import com.mx.client.model.MonthlyCashFlowResponseBody;
 import com.mx.client.model.OAuthWindowResponseBody;
 import com.mx.client.model.PaymentProcessorAuthorizationCodeRequestBody;
 import com.mx.client.model.PaymentProcessorAuthorizationCodeResponseBody;
 import com.mx.client.model.RewardResponseBody;
 import com.mx.client.model.RewardsResponseBody;
+import com.mx.client.model.SplitTransactionRequestBody;
+import com.mx.client.model.SplitTransactionsResponseBody;
 import com.mx.client.model.StatementResponseBody;
 import com.mx.client.model.StatementsResponseBody;
 import com.mx.client.model.TagCreateRequestBody;
@@ -14383,6 +14387,528 @@ public class MxPlatformApi {
 
         okhttp3.Call localVarCall = updateUserValidateBeforeCall(userGuid, userUpdateRequestBody, _callback);
         Type localVarReturnType = new TypeToken<UserResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for usersUserGuidMonthlyCashFlowProfileGet
+     * @param userGuid The unique identifier for the user. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call usersUserGuidMonthlyCashFlowProfileGetCall(String userGuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/monthly_cash_flow_profile"
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call usersUserGuidMonthlyCashFlowProfileGetValidateBeforeCall(String userGuid, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling usersUserGuidMonthlyCashFlowProfileGet(Async)");
+        }
+
+        return usersUserGuidMonthlyCashFlowProfileGetCall(userGuid, _callback);
+
+    }
+
+    /**
+     * Read monthly cash flow profile
+     * 
+     * @param userGuid The unique identifier for the user. (required)
+     * @return MonthlyCashFlowResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public MonthlyCashFlowResponseBody usersUserGuidMonthlyCashFlowProfileGet(String userGuid) throws ApiException {
+        ApiResponse<MonthlyCashFlowResponseBody> localVarResp = usersUserGuidMonthlyCashFlowProfileGetWithHttpInfo(userGuid);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read monthly cash flow profile
+     * 
+     * @param userGuid The unique identifier for the user. (required)
+     * @return ApiResponse&lt;MonthlyCashFlowResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<MonthlyCashFlowResponseBody> usersUserGuidMonthlyCashFlowProfileGetWithHttpInfo(String userGuid) throws ApiException {
+        okhttp3.Call localVarCall = usersUserGuidMonthlyCashFlowProfileGetValidateBeforeCall(userGuid, null);
+        Type localVarReturnType = new TypeToken<MonthlyCashFlowResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read monthly cash flow profile (asynchronously)
+     * 
+     * @param userGuid The unique identifier for the user. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call usersUserGuidMonthlyCashFlowProfileGetAsync(String userGuid, final ApiCallback<MonthlyCashFlowResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = usersUserGuidMonthlyCashFlowProfileGetValidateBeforeCall(userGuid, _callback);
+        Type localVarReturnType = new TypeToken<MonthlyCashFlowResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for usersUserGuidMonthlyCashFlowProfilePut
+     * @param userGuid The unique identifier for the user. (required)
+     * @param monthlyCashFlowProfileRequestBody  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call usersUserGuidMonthlyCashFlowProfilePutCall(String userGuid, MonthlyCashFlowProfileRequestBody monthlyCashFlowProfileRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = monthlyCashFlowProfileRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/monthly_cash_flow_profile"
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call usersUserGuidMonthlyCashFlowProfilePutValidateBeforeCall(String userGuid, MonthlyCashFlowProfileRequestBody monthlyCashFlowProfileRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling usersUserGuidMonthlyCashFlowProfilePut(Async)");
+        }
+
+        // verify the required parameter 'monthlyCashFlowProfileRequestBody' is set
+        if (monthlyCashFlowProfileRequestBody == null) {
+            throw new ApiException("Missing the required parameter 'monthlyCashFlowProfileRequestBody' when calling usersUserGuidMonthlyCashFlowProfilePut(Async)");
+        }
+
+        return usersUserGuidMonthlyCashFlowProfilePutCall(userGuid, monthlyCashFlowProfileRequestBody, _callback);
+
+    }
+
+    /**
+     * Update monthly cash flow profile
+     * Use this endpoint to update the attributes of a &#x60;monthly_cash_flow_profile&#x60;.
+     * @param userGuid The unique identifier for the user. (required)
+     * @param monthlyCashFlowProfileRequestBody  (required)
+     * @return MonthlyCashFlowResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public MonthlyCashFlowResponseBody usersUserGuidMonthlyCashFlowProfilePut(String userGuid, MonthlyCashFlowProfileRequestBody monthlyCashFlowProfileRequestBody) throws ApiException {
+        ApiResponse<MonthlyCashFlowResponseBody> localVarResp = usersUserGuidMonthlyCashFlowProfilePutWithHttpInfo(userGuid, monthlyCashFlowProfileRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update monthly cash flow profile
+     * Use this endpoint to update the attributes of a &#x60;monthly_cash_flow_profile&#x60;.
+     * @param userGuid The unique identifier for the user. (required)
+     * @param monthlyCashFlowProfileRequestBody  (required)
+     * @return ApiResponse&lt;MonthlyCashFlowResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<MonthlyCashFlowResponseBody> usersUserGuidMonthlyCashFlowProfilePutWithHttpInfo(String userGuid, MonthlyCashFlowProfileRequestBody monthlyCashFlowProfileRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = usersUserGuidMonthlyCashFlowProfilePutValidateBeforeCall(userGuid, monthlyCashFlowProfileRequestBody, null);
+        Type localVarReturnType = new TypeToken<MonthlyCashFlowResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update monthly cash flow profile (asynchronously)
+     * Use this endpoint to update the attributes of a &#x60;monthly_cash_flow_profile&#x60;.
+     * @param userGuid The unique identifier for the user. (required)
+     * @param monthlyCashFlowProfileRequestBody  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call usersUserGuidMonthlyCashFlowProfilePutAsync(String userGuid, MonthlyCashFlowProfileRequestBody monthlyCashFlowProfileRequestBody, final ApiCallback<MonthlyCashFlowResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = usersUserGuidMonthlyCashFlowProfilePutValidateBeforeCall(userGuid, monthlyCashFlowProfileRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<MonthlyCashFlowResponseBody>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for usersUserGuidTransactionsTransactionGuidSplitDelete
+     * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No content </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call usersUserGuidTransactionsTransactionGuidSplitDeleteCall(String transactionGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/transactions/{transaction_guid}/split"
+            .replace("{" + "transaction_guid" + "}", localVarApiClient.escapeString(transactionGuid.toString()))
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call usersUserGuidTransactionsTransactionGuidSplitDeleteValidateBeforeCall(String transactionGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'transactionGuid' is set
+        if (transactionGuid == null) {
+            throw new ApiException("Missing the required parameter 'transactionGuid' when calling usersUserGuidTransactionsTransactionGuidSplitDelete(Async)");
+        }
+
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling usersUserGuidTransactionsTransactionGuidSplitDelete(Async)");
+        }
+
+        return usersUserGuidTransactionsTransactionGuidSplitDeleteCall(transactionGuid, userGuid, _callback);
+
+    }
+
+    /**
+     * Delete split transactions
+     * This endpoint deletes all split transactions linked to a parent transaction, but it leaves the parent transaction active. This request will also update the parent transaction&#39;s has_been_split field to false. This endpoint accepts the optional MX-Skip-Webhook header.
+     * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No content </td><td>  -  </td></tr>
+     </table>
+     */
+    public void usersUserGuidTransactionsTransactionGuidSplitDelete(String transactionGuid, String userGuid) throws ApiException {
+        usersUserGuidTransactionsTransactionGuidSplitDeleteWithHttpInfo(transactionGuid, userGuid);
+    }
+
+    /**
+     * Delete split transactions
+     * This endpoint deletes all split transactions linked to a parent transaction, but it leaves the parent transaction active. This request will also update the parent transaction&#39;s has_been_split field to false. This endpoint accepts the optional MX-Skip-Webhook header.
+     * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @return ApiResponse&lt;Void&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No content </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Void> usersUserGuidTransactionsTransactionGuidSplitDeleteWithHttpInfo(String transactionGuid, String userGuid) throws ApiException {
+        okhttp3.Call localVarCall = usersUserGuidTransactionsTransactionGuidSplitDeleteValidateBeforeCall(transactionGuid, userGuid, null);
+        return localVarApiClient.execute(localVarCall);
+    }
+
+    /**
+     * Delete split transactions (asynchronously)
+     * This endpoint deletes all split transactions linked to a parent transaction, but it leaves the parent transaction active. This request will also update the parent transaction&#39;s has_been_split field to false. This endpoint accepts the optional MX-Skip-Webhook header.
+     * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
+     * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 204 </td><td> No content </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call usersUserGuidTransactionsTransactionGuidSplitDeleteAsync(String transactionGuid, String userGuid, final ApiCallback<Void> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = usersUserGuidTransactionsTransactionGuidSplitDeleteValidateBeforeCall(transactionGuid, userGuid, _callback);
+        localVarApiClient.executeAsync(localVarCall, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for usersUserGuidTransactionsTransactionGuidSplitPost
+     * @param userGuid The unique identifier for the user. Defined by MX. (required)
+     * @param transactionGuid The unique identifier for the transaction. Defined by MX. (required)
+     * @param splitTransactionRequestBody  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call usersUserGuidTransactionsTransactionGuidSplitPostCall(String userGuid, String transactionGuid, SplitTransactionRequestBody splitTransactionRequestBody, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = splitTransactionRequestBody;
+
+        // create path and map variables
+        String localVarPath = "/users/{user_guid}/transactions/{transaction_guid}/split"
+            .replace("{" + "user_guid" + "}", localVarApiClient.escapeString(userGuid.toString()))
+            .replace("{" + "transaction_guid" + "}", localVarApiClient.escapeString(transactionGuid.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/vnd.mx.api.v1+json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "basicAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call usersUserGuidTransactionsTransactionGuidSplitPostValidateBeforeCall(String userGuid, String transactionGuid, SplitTransactionRequestBody splitTransactionRequestBody, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'userGuid' is set
+        if (userGuid == null) {
+            throw new ApiException("Missing the required parameter 'userGuid' when calling usersUserGuidTransactionsTransactionGuidSplitPost(Async)");
+        }
+
+        // verify the required parameter 'transactionGuid' is set
+        if (transactionGuid == null) {
+            throw new ApiException("Missing the required parameter 'transactionGuid' when calling usersUserGuidTransactionsTransactionGuidSplitPost(Async)");
+        }
+
+        return usersUserGuidTransactionsTransactionGuidSplitPostCall(userGuid, transactionGuid, splitTransactionRequestBody, _callback);
+
+    }
+
+    /**
+     * Create split transactions
+     * This endpoint creates two or more child transactions that are branched from a previous transaction. This endpoint allows you to link multiple categories, descriptions, and amounts to a parent transaction.  When a split transaction is created, the parent transaction&#39;s &#x60;has_been_split&#x60; field will automatically be updated to true and the child transactions&#39; &#x60;parent_guid&#x60; will have the transaction guid of the parent. The total amount of the child transactions must equal the amount of the parent transaction. Once a transaction has been split it can&#39;t be split again.    In order to re-split a transaction, it must first be un-split. This can be done by calling the Delete Split Transactions endpoint. Calling this endpoint will delete the existing child transactions and update the parent transaction&#39;s &#x60;has_been_split&#x60; field to false. You can then re-split the parent transaction by calling Create Split Transaction again.
+     * @param userGuid The unique identifier for the user. Defined by MX. (required)
+     * @param transactionGuid The unique identifier for the transaction. Defined by MX. (required)
+     * @param splitTransactionRequestBody  (optional)
+     * @return SplitTransactionsResponseBody
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public SplitTransactionsResponseBody usersUserGuidTransactionsTransactionGuidSplitPost(String userGuid, String transactionGuid, SplitTransactionRequestBody splitTransactionRequestBody) throws ApiException {
+        ApiResponse<SplitTransactionsResponseBody> localVarResp = usersUserGuidTransactionsTransactionGuidSplitPostWithHttpInfo(userGuid, transactionGuid, splitTransactionRequestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create split transactions
+     * This endpoint creates two or more child transactions that are branched from a previous transaction. This endpoint allows you to link multiple categories, descriptions, and amounts to a parent transaction.  When a split transaction is created, the parent transaction&#39;s &#x60;has_been_split&#x60; field will automatically be updated to true and the child transactions&#39; &#x60;parent_guid&#x60; will have the transaction guid of the parent. The total amount of the child transactions must equal the amount of the parent transaction. Once a transaction has been split it can&#39;t be split again.    In order to re-split a transaction, it must first be un-split. This can be done by calling the Delete Split Transactions endpoint. Calling this endpoint will delete the existing child transactions and update the parent transaction&#39;s &#x60;has_been_split&#x60; field to false. You can then re-split the parent transaction by calling Create Split Transaction again.
+     * @param userGuid The unique identifier for the user. Defined by MX. (required)
+     * @param transactionGuid The unique identifier for the transaction. Defined by MX. (required)
+     * @param splitTransactionRequestBody  (optional)
+     * @return ApiResponse&lt;SplitTransactionsResponseBody&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<SplitTransactionsResponseBody> usersUserGuidTransactionsTransactionGuidSplitPostWithHttpInfo(String userGuid, String transactionGuid, SplitTransactionRequestBody splitTransactionRequestBody) throws ApiException {
+        okhttp3.Call localVarCall = usersUserGuidTransactionsTransactionGuidSplitPostValidateBeforeCall(userGuid, transactionGuid, splitTransactionRequestBody, null);
+        Type localVarReturnType = new TypeToken<SplitTransactionsResponseBody>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create split transactions (asynchronously)
+     * This endpoint creates two or more child transactions that are branched from a previous transaction. This endpoint allows you to link multiple categories, descriptions, and amounts to a parent transaction.  When a split transaction is created, the parent transaction&#39;s &#x60;has_been_split&#x60; field will automatically be updated to true and the child transactions&#39; &#x60;parent_guid&#x60; will have the transaction guid of the parent. The total amount of the child transactions must equal the amount of the parent transaction. Once a transaction has been split it can&#39;t be split again.    In order to re-split a transaction, it must first be un-split. This can be done by calling the Delete Split Transactions endpoint. Calling this endpoint will delete the existing child transactions and update the parent transaction&#39;s &#x60;has_been_split&#x60; field to false. You can then re-split the parent transaction by calling Create Split Transaction again.
+     * @param userGuid The unique identifier for the user. Defined by MX. (required)
+     * @param transactionGuid The unique identifier for the transaction. Defined by MX. (required)
+     * @param splitTransactionRequestBody  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> OK </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call usersUserGuidTransactionsTransactionGuidSplitPostAsync(String userGuid, String transactionGuid, SplitTransactionRequestBody splitTransactionRequestBody, final ApiCallback<SplitTransactionsResponseBody> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = usersUserGuidTransactionsTransactionGuidSplitPostValidateBeforeCall(userGuid, transactionGuid, splitTransactionRequestBody, _callback);
+        Type localVarReturnType = new TypeToken<SplitTransactionsResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

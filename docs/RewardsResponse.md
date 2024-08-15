@@ -16,6 +16,7 @@
 |**guid** | **String** |  |  [optional] |
 |**memberGuid** | **String** |  |  [optional] |
 |**unitType** | **String** |  |  [optional] |
+|**updatedAt** | **String** |  |  [optional] |
 |**userGuid** | **String** |  |  [optional] |
 
 

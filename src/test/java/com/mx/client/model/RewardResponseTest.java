@@ -110,6 +110,14 @@ public class RewardResponseTest {
     }
 
     /**
+     * Test the property 'updatedAt'
+     */
+    @Test
+    public void updatedAtTest() {
+        // TODO: test updatedAt
+    }
+
+    /**
      * Test the property 'userGuid'
      */
     @Test
