@@ -53,11 +53,15 @@ import com.mx.client.model.MembersResponseBody;
 import com.mx.client.model.MerchantLocationResponseBody;
 import com.mx.client.model.MerchantResponseBody;
 import com.mx.client.model.MerchantsResponseBody;
+import com.mx.client.model.MonthlyCashFlowProfileRequestBody;
+import com.mx.client.model.MonthlyCashFlowResponseBody;
 import com.mx.client.model.OAuthWindowResponseBody;
 import com.mx.client.model.PaymentProcessorAuthorizationCodeRequestBody;
 import com.mx.client.model.PaymentProcessorAuthorizationCodeResponseBody;
 import com.mx.client.model.RewardResponseBody;
 import com.mx.client.model.RewardsResponseBody;
+import com.mx.client.model.SplitTransactionRequestBody;
+import com.mx.client.model.SplitTransactionsResponseBody;
 import com.mx.client.model.StatementResponseBody;
 import com.mx.client.model.StatementsResponseBody;
 import com.mx.client.model.TagCreateRequestBody;
@@ -1718,6 +1722,64 @@ public class MxPlatformApiTest {
         String userGuid = null;
         UserUpdateRequestBody userUpdateRequestBody = null;
         UserResponseBody response = api.updateUser(userGuid, userUpdateRequestBody);
+        // TODO: test validations
+    }
+
+    /**
+     * Read monthly cash flow profile
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void usersUserGuidMonthlyCashFlowProfileGetTest() throws ApiException {
+        String userGuid = null;
+        MonthlyCashFlowResponseBody response = api.usersUserGuidMonthlyCashFlowProfileGet(userGuid);
+        // TODO: test validations
+    }
+
+    /**
+     * Update monthly cash flow profile
+     *
+     * Use this endpoint to update the attributes of a &#x60;monthly_cash_flow_profile&#x60;.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void usersUserGuidMonthlyCashFlowProfilePutTest() throws ApiException {
+        String userGuid = null;
+        MonthlyCashFlowProfileRequestBody monthlyCashFlowProfileRequestBody = null;
+        MonthlyCashFlowResponseBody response = api.usersUserGuidMonthlyCashFlowProfilePut(userGuid, monthlyCashFlowProfileRequestBody);
+        // TODO: test validations
+    }
+
+    /**
+     * Delete split transactions
+     *
+     * This endpoint deletes all split transactions linked to a parent transaction, but it leaves the parent transaction active. This request will also update the parent transaction&#39;s has_been_split field to false. This endpoint accepts the optional MX-Skip-Webhook header.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void usersUserGuidTransactionsTransactionGuidSplitDeleteTest() throws ApiException {
+        String transactionGuid = null;
+        String userGuid = null;
+        api.usersUserGuidTransactionsTransactionGuidSplitDelete(transactionGuid, userGuid);
+        // TODO: test validations
+    }
+
+    /**
+     * Create split transactions
+     *
+     * This endpoint creates two or more child transactions that are branched from a previous transaction. This endpoint allows you to link multiple categories, descriptions, and amounts to a parent transaction.  When a split transaction is created, the parent transaction&#39;s &#x60;has_been_split&#x60; field will automatically be updated to true and the child transactions&#39; &#x60;parent_guid&#x60; will have the transaction guid of the parent. The total amount of the child transactions must equal the amount of the parent transaction. Once a transaction has been split it can&#39;t be split again.    In order to re-split a transaction, it must first be un-split. This can be done by calling the Delete Split Transactions endpoint. Calling this endpoint will delete the existing child transactions and update the parent transaction&#39;s &#x60;has_been_split&#x60; field to false. You can then re-split the parent transaction by calling Create Split Transaction again.
+     *
+     * @throws ApiException if the Api call fails
+     */
+    @Test
+    public void usersUserGuidTransactionsTransactionGuidSplitPostTest() throws ApiException {
+        String userGuid = null;
+        String transactionGuid = null;
+        SplitTransactionRequestBody splitTransactionRequestBody = null;
+        SplitTransactionsResponseBody response = api.usersUserGuidTransactionsTransactionGuidSplitPost(userGuid, transactionGuid, splitTransactionRequestBody);
         // TODO: test validations
     }
 

@@ -87,6 +87,10 @@ public class RewardResponse {
   @SerializedName(SERIALIZED_NAME_UNIT_TYPE)
   private String unitType;
 
+  public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+  @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+  private String updatedAt;
+
   public static final String SERIALIZED_NAME_USER_GUID = "user_guid";
   @SerializedName(SERIALIZED_NAME_USER_GUID)
   private String userGuid;
@@ -283,6 +287,27 @@ public class RewardResponse {
   }
 
 
+  public RewardResponse updatedAt(String updatedAt) {
+    
+    this.updatedAt = updatedAt;
+    return this;
+  }
+
+   /**
+   * Get updatedAt
+   * @return updatedAt
+  **/
+  @javax.annotation.Nullable
+  public String getUpdatedAt() {
+    return updatedAt;
+  }
+
+
+  public void setUpdatedAt(String updatedAt) {
+    this.updatedAt = updatedAt;
+  }
+
+
   public RewardResponse userGuid(String userGuid) {
     
     this.userGuid = userGuid;
@@ -323,12 +348,13 @@ public class RewardResponse {
         Objects.equals(this.guid, rewardResponse.guid) &&
         Objects.equals(this.memberGuid, rewardResponse.memberGuid) &&
         Objects.equals(this.unitType, rewardResponse.unitType) &&
+        Objects.equals(this.updatedAt, rewardResponse.updatedAt) &&
         Objects.equals(this.userGuid, rewardResponse.userGuid);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountGuid, balanceType, balance, createdAt, description, expiresOn, guid, memberGuid, unitType, userGuid);
+    return Objects.hash(accountGuid, balanceType, balance, createdAt, description, expiresOn, guid, memberGuid, unitType, updatedAt, userGuid);
   }
 
   @Override
@@ -344,6 +370,7 @@ public class RewardResponse {
     sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    memberGuid: ").append(toIndentedString(memberGuid)).append("\n");
     sb.append("    unitType: ").append(toIndentedString(unitType)).append("\n");
+    sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    userGuid: ").append(toIndentedString(userGuid)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -376,6 +403,7 @@ public class RewardResponse {
     openapiFields.add("guid");
     openapiFields.add("member_guid");
     openapiFields.add("unit_type");
+    openapiFields.add("updated_at");
     openapiFields.add("user_guid");
 
     // a set of required properties/fields (JSON key names)
@@ -426,6 +454,9 @@ public class RewardResponse {
       }
       if ((jsonObj.get("unit_type") != null && !jsonObj.get("unit_type").isJsonNull()) && !jsonObj.get("unit_type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `unit_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("unit_type").toString()));
+      }
+      if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull()) && !jsonObj.get("updated_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("updated_at").toString()));
       }
       if ((jsonObj.get("user_guid") != null && !jsonObj.get("user_guid").isJsonNull()) && !jsonObj.get("user_guid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `user_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_guid").toString()));

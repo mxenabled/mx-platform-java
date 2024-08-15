@@ -20,8 +20,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,19 +54,19 @@ import com.mx.client.JSON;
 public class CreditCardProduct {
   public static final String SERIALIZED_NAME_ANNUAL_FEE = "annual_fee";
   @SerializedName(SERIALIZED_NAME_ANNUAL_FEE)
-  private Object annualFee = null;
+  private BigDecimal annualFee;
 
   public static final String SERIALIZED_NAME_DURATION_OF_INTRODUCTORY_RATE_ON_BALANCE_TRANSFER = "duration_of_introductory_rate_on_balance_transfer";
   @SerializedName(SERIALIZED_NAME_DURATION_OF_INTRODUCTORY_RATE_ON_BALANCE_TRANSFER)
-  private Object durationOfIntroductoryRateOnBalanceTransfer = null;
+  private Integer durationOfIntroductoryRateOnBalanceTransfer;
 
   public static final String SERIALIZED_NAME_DURATION_OF_INTRODUCTORY_RATE_ON_PURCHASES = "duration_of_introductory_rate_on_purchases";
   @SerializedName(SERIALIZED_NAME_DURATION_OF_INTRODUCTORY_RATE_ON_PURCHASES)
-  private Object durationOfIntroductoryRateOnPurchases = null;
+  private Integer durationOfIntroductoryRateOnPurchases;
 
   public static final String SERIALIZED_NAME_GUID = "guid";
   @SerializedName(SERIALIZED_NAME_GUID)
-  private Object guid = null;
+  private String guid;
 
   public static final String SERIALIZED_NAME_HAS_CASHBACK_REWARDS = "has_cashback_rewards";
   @SerializedName(SERIALIZED_NAME_HAS_CASHBACK_REWARDS)
@@ -92,13 +92,13 @@ public class CreditCardProduct {
   @SerializedName(SERIALIZED_NAME_HAS_ZERO_PERCENT_INTRODUCTORY_RATE_ON_BALANCE_TRANSFER)
   private Boolean hasZeroPercentIntroductoryRateOnBalanceTransfer;
 
-  public static final String SERIALIZED_NAME_FINANCIAL_INSTITUTION = "financial_institution";
-  @SerializedName(SERIALIZED_NAME_FINANCIAL_INSTITUTION)
-  private Boolean financialInstitution;
+  public static final String SERIALIZED_NAME_IS_ACCEPTING_APPLICANTS = "is_accepting_applicants";
+  @SerializedName(SERIALIZED_NAME_IS_ACCEPTING_APPLICANTS)
+  private Boolean isAcceptingApplicants;
 
-  public static final String SERIALIZED_NAME_IS_ACCEPTING_APPLICATIONS = "is_accepting_applications";
-  @SerializedName(SERIALIZED_NAME_IS_ACCEPTING_APPLICATIONS)
-  private Boolean isAcceptingApplications;
+  public static final String SERIALIZED_NAME_IS_ACTIVE_CREDIT_CARD_PRODUCT = "is_active_credit_card_product";
+  @SerializedName(SERIALIZED_NAME_IS_ACTIVE_CREDIT_CARD_PRODUCT)
+  private Boolean isActiveCreditCardProduct;
 
   public static final String SERIALIZED_NAME_IS_SMALL_BUSINESS_CARD = "is_small_business_card";
   @SerializedName(SERIALIZED_NAME_IS_SMALL_BUSINESS_CARD)
@@ -111,7 +111,7 @@ public class CreditCardProduct {
   public CreditCardProduct() {
   }
 
-  public CreditCardProduct annualFee(Object annualFee) {
+  public CreditCardProduct annualFee(BigDecimal annualFee) {
     
     this.annualFee = annualFee;
     return this;
@@ -122,17 +122,17 @@ public class CreditCardProduct {
    * @return annualFee
   **/
   @javax.annotation.Nullable
-  public Object getAnnualFee() {
+  public BigDecimal getAnnualFee() {
     return annualFee;
   }
 
 
-  public void setAnnualFee(Object annualFee) {
+  public void setAnnualFee(BigDecimal annualFee) {
     this.annualFee = annualFee;
   }
 
 
-  public CreditCardProduct durationOfIntroductoryRateOnBalanceTransfer(Object durationOfIntroductoryRateOnBalanceTransfer) {
+  public CreditCardProduct durationOfIntroductoryRateOnBalanceTransfer(Integer durationOfIntroductoryRateOnBalanceTransfer) {
     
     this.durationOfIntroductoryRateOnBalanceTransfer = durationOfIntroductoryRateOnBalanceTransfer;
     return this;
@@ -143,17 +143,17 @@ public class CreditCardProduct {
    * @return durationOfIntroductoryRateOnBalanceTransfer
   **/
   @javax.annotation.Nullable
-  public Object getDurationOfIntroductoryRateOnBalanceTransfer() {
+  public Integer getDurationOfIntroductoryRateOnBalanceTransfer() {
     return durationOfIntroductoryRateOnBalanceTransfer;
   }
 
 
-  public void setDurationOfIntroductoryRateOnBalanceTransfer(Object durationOfIntroductoryRateOnBalanceTransfer) {
+  public void setDurationOfIntroductoryRateOnBalanceTransfer(Integer durationOfIntroductoryRateOnBalanceTransfer) {
     this.durationOfIntroductoryRateOnBalanceTransfer = durationOfIntroductoryRateOnBalanceTransfer;
   }
 
 
-  public CreditCardProduct durationOfIntroductoryRateOnPurchases(Object durationOfIntroductoryRateOnPurchases) {
+  public CreditCardProduct durationOfIntroductoryRateOnPurchases(Integer durationOfIntroductoryRateOnPurchases) {
     
     this.durationOfIntroductoryRateOnPurchases = durationOfIntroductoryRateOnPurchases;
     return this;
@@ -164,17 +164,17 @@ public class CreditCardProduct {
    * @return durationOfIntroductoryRateOnPurchases
   **/
   @javax.annotation.Nullable
-  public Object getDurationOfIntroductoryRateOnPurchases() {
+  public Integer getDurationOfIntroductoryRateOnPurchases() {
     return durationOfIntroductoryRateOnPurchases;
   }
 
 
-  public void setDurationOfIntroductoryRateOnPurchases(Object durationOfIntroductoryRateOnPurchases) {
+  public void setDurationOfIntroductoryRateOnPurchases(Integer durationOfIntroductoryRateOnPurchases) {
     this.durationOfIntroductoryRateOnPurchases = durationOfIntroductoryRateOnPurchases;
   }
 
 
-  public CreditCardProduct guid(Object guid) {
+  public CreditCardProduct guid(String guid) {
     
     this.guid = guid;
     return this;
@@ -185,12 +185,12 @@ public class CreditCardProduct {
    * @return guid
   **/
   @javax.annotation.Nullable
-  public Object getGuid() {
+  public String getGuid() {
     return guid;
   }
 
 
-  public void setGuid(Object guid) {
+  public void setGuid(String guid) {
     this.guid = guid;
   }
 
@@ -321,45 +321,45 @@ public class CreditCardProduct {
   }
 
 
-  public CreditCardProduct financialInstitution(Boolean financialInstitution) {
+  public CreditCardProduct isAcceptingApplicants(Boolean isAcceptingApplicants) {
     
-    this.financialInstitution = financialInstitution;
+    this.isAcceptingApplicants = isAcceptingApplicants;
     return this;
   }
 
    /**
-   * Get financialInstitution
-   * @return financialInstitution
+   * Get isAcceptingApplicants
+   * @return isAcceptingApplicants
   **/
   @javax.annotation.Nullable
-  public Boolean getFinancialInstitution() {
-    return financialInstitution;
+  public Boolean getIsAcceptingApplicants() {
+    return isAcceptingApplicants;
   }
 
 
-  public void setFinancialInstitution(Boolean financialInstitution) {
-    this.financialInstitution = financialInstitution;
+  public void setIsAcceptingApplicants(Boolean isAcceptingApplicants) {
+    this.isAcceptingApplicants = isAcceptingApplicants;
   }
 
 
-  public CreditCardProduct isAcceptingApplications(Boolean isAcceptingApplications) {
+  public CreditCardProduct isActiveCreditCardProduct(Boolean isActiveCreditCardProduct) {
     
-    this.isAcceptingApplications = isAcceptingApplications;
+    this.isActiveCreditCardProduct = isActiveCreditCardProduct;
     return this;
   }
 
    /**
-   * Get isAcceptingApplications
-   * @return isAcceptingApplications
+   * Get isActiveCreditCardProduct
+   * @return isActiveCreditCardProduct
   **/
   @javax.annotation.Nullable
-  public Boolean getIsAcceptingApplications() {
-    return isAcceptingApplications;
+  public Boolean getIsActiveCreditCardProduct() {
+    return isActiveCreditCardProduct;
   }
 
 
-  public void setIsAcceptingApplications(Boolean isAcceptingApplications) {
-    this.isAcceptingApplications = isAcceptingApplications;
+  public void setIsActiveCreditCardProduct(Boolean isActiveCreditCardProduct) {
+    this.isActiveCreditCardProduct = isActiveCreditCardProduct;
   }
 
 
@@ -425,26 +425,15 @@ public class CreditCardProduct {
         Objects.equals(this.hasZeroIntroductoryAnnualFee, creditCardProduct.hasZeroIntroductoryAnnualFee) &&
         Objects.equals(this.hasZeroPercentIntroductoryRate, creditCardProduct.hasZeroPercentIntroductoryRate) &&
         Objects.equals(this.hasZeroPercentIntroductoryRateOnBalanceTransfer, creditCardProduct.hasZeroPercentIntroductoryRateOnBalanceTransfer) &&
-        Objects.equals(this.financialInstitution, creditCardProduct.financialInstitution) &&
-        Objects.equals(this.isAcceptingApplications, creditCardProduct.isAcceptingApplications) &&
+        Objects.equals(this.isAcceptingApplicants, creditCardProduct.isAcceptingApplicants) &&
+        Objects.equals(this.isActiveCreditCardProduct, creditCardProduct.isActiveCreditCardProduct) &&
         Objects.equals(this.isSmallBusinessCard, creditCardProduct.isSmallBusinessCard) &&
         Objects.equals(this.name, creditCardProduct.name);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
-    return Objects.hash(annualFee, durationOfIntroductoryRateOnBalanceTransfer, durationOfIntroductoryRateOnPurchases, guid, hasCashbackRewards, hasOtherRewards, hasTravelRewards, hasZeroIntroductoryAnnualFee, hasZeroPercentIntroductoryRate, hasZeroPercentIntroductoryRateOnBalanceTransfer, financialInstitution, isAcceptingApplications, isSmallBusinessCard, name);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(annualFee, durationOfIntroductoryRateOnBalanceTransfer, durationOfIntroductoryRateOnPurchases, guid, hasCashbackRewards, hasOtherRewards, hasTravelRewards, hasZeroIntroductoryAnnualFee, hasZeroPercentIntroductoryRate, hasZeroPercentIntroductoryRateOnBalanceTransfer, isAcceptingApplicants, isActiveCreditCardProduct, isSmallBusinessCard, name);
   }
 
   @Override
@@ -461,8 +450,8 @@ public class CreditCardProduct {
     sb.append("    hasZeroIntroductoryAnnualFee: ").append(toIndentedString(hasZeroIntroductoryAnnualFee)).append("\n");
     sb.append("    hasZeroPercentIntroductoryRate: ").append(toIndentedString(hasZeroPercentIntroductoryRate)).append("\n");
     sb.append("    hasZeroPercentIntroductoryRateOnBalanceTransfer: ").append(toIndentedString(hasZeroPercentIntroductoryRateOnBalanceTransfer)).append("\n");
-    sb.append("    financialInstitution: ").append(toIndentedString(financialInstitution)).append("\n");
-    sb.append("    isAcceptingApplications: ").append(toIndentedString(isAcceptingApplications)).append("\n");
+    sb.append("    isAcceptingApplicants: ").append(toIndentedString(isAcceptingApplicants)).append("\n");
+    sb.append("    isActiveCreditCardProduct: ").append(toIndentedString(isActiveCreditCardProduct)).append("\n");
     sb.append("    isSmallBusinessCard: ").append(toIndentedString(isSmallBusinessCard)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
@@ -497,8 +486,8 @@ public class CreditCardProduct {
     openapiFields.add("has_zero_introductory_annual_fee");
     openapiFields.add("has_zero_percent_introductory_rate");
     openapiFields.add("has_zero_percent_introductory_rate_on_balance_transfer");
-    openapiFields.add("financial_institution");
-    openapiFields.add("is_accepting_applications");
+    openapiFields.add("is_accepting_applicants");
+    openapiFields.add("is_active_credit_card_product");
     openapiFields.add("is_small_business_card");
     openapiFields.add("name");
 
@@ -527,6 +516,9 @@ public class CreditCardProduct {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }

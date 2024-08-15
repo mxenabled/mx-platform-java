@@ -7,18 +7,18 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**annualFee** | **Object** |  |  [optional] |
-|**durationOfIntroductoryRateOnBalanceTransfer** | **Object** |  |  [optional] |
-|**durationOfIntroductoryRateOnPurchases** | **Object** |  |  [optional] |
-|**guid** | **Object** |  |  [optional] |
+|**annualFee** | **BigDecimal** |  |  [optional] |
+|**durationOfIntroductoryRateOnBalanceTransfer** | **Integer** |  |  [optional] |
+|**durationOfIntroductoryRateOnPurchases** | **Integer** |  |  [optional] |
+|**guid** | **String** |  |  [optional] |
 |**hasCashbackRewards** | **Boolean** |  |  [optional] |
 |**hasOtherRewards** | **Boolean** |  |  [optional] |
 |**hasTravelRewards** | **Boolean** |  |  [optional] |
 |**hasZeroIntroductoryAnnualFee** | **Boolean** |  |  [optional] |
 |**hasZeroPercentIntroductoryRate** | **Boolean** |  |  [optional] |
 |**hasZeroPercentIntroductoryRateOnBalanceTransfer** | **Boolean** |  |  [optional] |
-|**financialInstitution** | **Boolean** |  |  [optional] |
-|**isAcceptingApplications** | **Boolean** |  |  [optional] |
+|**isAcceptingApplicants** | **Boolean** |  |  [optional] |
+|**isActiveCreditCardProduct** | **Boolean** |  |  [optional] |
 |**isSmallBusinessCard** | **Boolean** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 

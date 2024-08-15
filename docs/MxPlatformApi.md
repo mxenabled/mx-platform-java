@@ -106,6 +106,10 @@ All URIs are relative to *https://api.mx.com*
 | [**updateTransaction**](MxPlatformApi.md#updateTransaction) | **PUT** /users/{user_guid}/transactions/{transaction_guid} | Update transaction |
 | [**updateTransactionRule**](MxPlatformApi.md#updateTransactionRule) | **PUT** /users/{user_guid}/transaction_rules/{transaction_rule_guid} | Update transaction_rule |
 | [**updateUser**](MxPlatformApi.md#updateUser) | **PUT** /users/{user_guid} | Update user |
+| [**usersUserGuidMonthlyCashFlowProfileGet**](MxPlatformApi.md#usersUserGuidMonthlyCashFlowProfileGet) | **GET** /users/{user_guid}/monthly_cash_flow_profile | Read monthly cash flow profile |
+| [**usersUserGuidMonthlyCashFlowProfilePut**](MxPlatformApi.md#usersUserGuidMonthlyCashFlowProfilePut) | **PUT** /users/{user_guid}/monthly_cash_flow_profile | Update monthly cash flow profile |
+| [**usersUserGuidTransactionsTransactionGuidSplitDelete**](MxPlatformApi.md#usersUserGuidTransactionsTransactionGuidSplitDelete) | **DELETE** /users/{user_guid}/transactions/{transaction_guid}/split | Delete split transactions |
+| [**usersUserGuidTransactionsTransactionGuidSplitPost**](MxPlatformApi.md#usersUserGuidTransactionsTransactionGuidSplitPost) | **POST** /users/{user_guid}/transactions/{transaction_guid}/split | Create split transactions |
 | [**verifyMember**](MxPlatformApi.md#verifyMember) | **POST** /users/{user_guid}/members/{member_guid}/verify | Verify member |
 
 
@@ -7408,6 +7412,283 @@ public class Example {
 ### Return type
 
 [**UserResponseBody**](UserResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="usersUserGuidMonthlyCashFlowProfileGet"></a>
+# **usersUserGuidMonthlyCashFlowProfileGet**
+> MonthlyCashFlowResponseBody usersUserGuidMonthlyCashFlowProfileGet(userGuid)
+
+Read monthly cash flow profile
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String userGuid = "userGuid_example"; // String | The unique identifier for the user.
+    try {
+      MonthlyCashFlowResponseBody result = apiInstance.usersUserGuidMonthlyCashFlowProfileGet(userGuid);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#usersUserGuidMonthlyCashFlowProfileGet");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique identifier for the user. | |
+
+### Return type
+
+[**MonthlyCashFlowResponseBody**](MonthlyCashFlowResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="usersUserGuidMonthlyCashFlowProfilePut"></a>
+# **usersUserGuidMonthlyCashFlowProfilePut**
+> MonthlyCashFlowResponseBody usersUserGuidMonthlyCashFlowProfilePut(userGuid, monthlyCashFlowProfileRequestBody)
+
+Update monthly cash flow profile
+
+Use this endpoint to update the attributes of a &#x60;monthly_cash_flow_profile&#x60;.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String userGuid = "userGuid_example"; // String | The unique identifier for the user.
+    MonthlyCashFlowProfileRequestBody monthlyCashFlowProfileRequestBody = new MonthlyCashFlowProfileRequestBody(); // MonthlyCashFlowProfileRequestBody | 
+    try {
+      MonthlyCashFlowResponseBody result = apiInstance.usersUserGuidMonthlyCashFlowProfilePut(userGuid, monthlyCashFlowProfileRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#usersUserGuidMonthlyCashFlowProfilePut");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique identifier for the user. | |
+| **monthlyCashFlowProfileRequestBody** | [**MonthlyCashFlowProfileRequestBody**](MonthlyCashFlowProfileRequestBody.md)|  | |
+
+### Return type
+
+[**MonthlyCashFlowResponseBody**](MonthlyCashFlowResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="usersUserGuidTransactionsTransactionGuidSplitDelete"></a>
+# **usersUserGuidTransactionsTransactionGuidSplitDelete**
+> usersUserGuidTransactionsTransactionGuidSplitDelete(transactionGuid, userGuid)
+
+Delete split transactions
+
+This endpoint deletes all split transactions linked to a parent transaction, but it leaves the parent transaction active. This request will also update the parent transaction&#39;s has_been_split field to false. This endpoint accepts the optional MX-Skip-Webhook header.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String transactionGuid = "TRN-810828b0-5210-4878-9bd3-f4ce514f90c4"; // String | The unique id for a `transaction`.
+    String userGuid = "USR-85628b0-5210-4878-9bd3-f4ce154f90c4"; // String | The unique id for a `user`.
+    try {
+      apiInstance.usersUserGuidTransactionsTransactionGuidSplitDelete(transactionGuid, userGuid);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#usersUserGuidTransactionsTransactionGuidSplitDelete");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **transactionGuid** | **String**| The unique id for a &#x60;transaction&#x60;. | |
+| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No content |  -  |
+
+<a id="usersUserGuidTransactionsTransactionGuidSplitPost"></a>
+# **usersUserGuidTransactionsTransactionGuidSplitPost**
+> SplitTransactionsResponseBody usersUserGuidTransactionsTransactionGuidSplitPost(userGuid, transactionGuid, splitTransactionRequestBody)
+
+Create split transactions
+
+This endpoint creates two or more child transactions that are branched from a previous transaction. This endpoint allows you to link multiple categories, descriptions, and amounts to a parent transaction.  When a split transaction is created, the parent transaction&#39;s &#x60;has_been_split&#x60; field will automatically be updated to true and the child transactions&#39; &#x60;parent_guid&#x60; will have the transaction guid of the parent. The total amount of the child transactions must equal the amount of the parent transaction. Once a transaction has been split it can&#39;t be split again.    In order to re-split a transaction, it must first be un-split. This can be done by calling the Delete Split Transactions endpoint. Calling this endpoint will delete the existing child transactions and update the parent transaction&#39;s &#x60;has_been_split&#x60; field to false. You can then re-split the parent transaction by calling Create Split Transaction again.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.MxPlatformApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
+    String userGuid = "userGuid_example"; // String | The unique identifier for the user. Defined by MX.
+    String transactionGuid = "transactionGuid_example"; // String | The unique identifier for the transaction. Defined by MX.
+    SplitTransactionRequestBody splitTransactionRequestBody = new SplitTransactionRequestBody(); // SplitTransactionRequestBody | 
+    try {
+      SplitTransactionsResponseBody result = apiInstance.usersUserGuidTransactionsTransactionGuidSplitPost(userGuid, transactionGuid, splitTransactionRequestBody);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MxPlatformApi#usersUserGuidTransactionsTransactionGuidSplitPost");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique identifier for the user. Defined by MX. | |
+| **transactionGuid** | **String**| The unique identifier for the transaction. Defined by MX. | |
+| **splitTransactionRequestBody** | [**SplitTransactionRequestBody**](SplitTransactionRequestBody.md)|  | [optional] |
+
+### Return type
+
+[**SplitTransactionsResponseBody**](SplitTransactionsResponseBody.md)
 
 ### Authorization
 

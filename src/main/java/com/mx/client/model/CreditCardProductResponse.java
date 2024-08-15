@@ -52,31 +52,31 @@ import com.mx.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class CreditCardProductResponse {
-  public static final String SERIALIZED_NAME_REWARD = "reward";
-  @SerializedName(SERIALIZED_NAME_REWARD)
-  private CreditCardProduct reward;
+  public static final String SERIALIZED_NAME_CREDIT_CARD_PRODUCT = "credit_card_product";
+  @SerializedName(SERIALIZED_NAME_CREDIT_CARD_PRODUCT)
+  private CreditCardProduct creditCardProduct;
 
   public CreditCardProductResponse() {
   }
 
-  public CreditCardProductResponse reward(CreditCardProduct reward) {
+  public CreditCardProductResponse creditCardProduct(CreditCardProduct creditCardProduct) {
     
-    this.reward = reward;
+    this.creditCardProduct = creditCardProduct;
     return this;
   }
 
    /**
-   * Get reward
-   * @return reward
+   * Get creditCardProduct
+   * @return creditCardProduct
   **/
   @javax.annotation.Nullable
-  public CreditCardProduct getReward() {
-    return reward;
+  public CreditCardProduct getCreditCardProduct() {
+    return creditCardProduct;
   }
 
 
-  public void setReward(CreditCardProduct reward) {
-    this.reward = reward;
+  public void setCreditCardProduct(CreditCardProduct creditCardProduct) {
+    this.creditCardProduct = creditCardProduct;
   }
 
 
@@ -90,19 +90,19 @@ public class CreditCardProductResponse {
       return false;
     }
     CreditCardProductResponse creditCardProductResponse = (CreditCardProductResponse) o;
-    return Objects.equals(this.reward, creditCardProductResponse.reward);
+    return Objects.equals(this.creditCardProduct, creditCardProductResponse.creditCardProduct);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(reward);
+    return Objects.hash(creditCardProduct);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreditCardProductResponse {\n");
-    sb.append("    reward: ").append(toIndentedString(reward)).append("\n");
+    sb.append("    creditCardProduct: ").append(toIndentedString(creditCardProduct)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -125,7 +125,7 @@ public class CreditCardProductResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("reward");
+    openapiFields.add("credit_card_product");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -152,9 +152,9 @@ public class CreditCardProductResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      // validate the optional field `reward`
-      if (jsonObj.get("reward") != null && !jsonObj.get("reward").isJsonNull()) {
-        CreditCardProduct.validateJsonElement(jsonObj.get("reward"));
+      // validate the optional field `credit_card_product`
+      if (jsonObj.get("credit_card_product") != null && !jsonObj.get("credit_card_product").isJsonNull()) {
+        CreditCardProduct.validateJsonElement(jsonObj.get("credit_card_product"));
       }
   }
 

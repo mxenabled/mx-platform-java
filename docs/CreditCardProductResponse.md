@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**reward** | [**CreditCardProduct**](CreditCardProduct.md) |  |  [optional] |
+|**creditCardProduct** | [**CreditCardProduct**](CreditCardProduct.md) |  |  [optional] |
 
 
 

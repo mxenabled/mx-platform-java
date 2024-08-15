@@ -19,8 +19,8 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
-import org.openapitools.jackson.nullable.JsonNullable;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -119,19 +119,19 @@ public class CreditCardProductTest {
     }
 
     /**
-     * Test the property 'financialInstitution'
+     * Test the property 'isAcceptingApplicants'
      */
     @Test
-    public void financialInstitutionTest() {
-        // TODO: test financialInstitution
+    public void isAcceptingApplicantsTest() {
+        // TODO: test isAcceptingApplicants
     }
 
     /**
-     * Test the property 'isAcceptingApplications'
+     * Test the property 'isActiveCreditCardProduct'
      */
     @Test
-    public void isAcceptingApplicationsTest() {
-        // TODO: test isAcceptingApplications
+    public void isActiveCreditCardProductTest() {
+        // TODO: test isActiveCreditCardProduct
     }
 
     /**
