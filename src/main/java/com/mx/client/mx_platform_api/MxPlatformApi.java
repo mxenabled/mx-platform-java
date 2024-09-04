@@ -12792,7 +12792,7 @@ public class MxPlatformApi {
      * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param accountUpdateRequestBody Account object to be created with optional parameters (is_hidden) (required)
+     * @param accountUpdateRequestBody  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -12878,11 +12878,11 @@ public class MxPlatformApi {
 
     /**
      * Update account by member
-     * This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource.
+     * This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource, including manual accounts. For manual accounts, you can update every field listed. For aggregated accounts, you can only update &#x60;is_business&#x60;, &#x60;is_hidden&#x60; and &#x60;metadata&#x60;.
      * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param accountUpdateRequestBody Account object to be created with optional parameters (is_hidden) (required)
+     * @param accountUpdateRequestBody  (required)
      * @return AccountResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -12898,11 +12898,11 @@ public class MxPlatformApi {
 
     /**
      * Update account by member
-     * This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource.
+     * This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource, including manual accounts. For manual accounts, you can update every field listed. For aggregated accounts, you can only update &#x60;is_business&#x60;, &#x60;is_hidden&#x60; and &#x60;metadata&#x60;.
      * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param accountUpdateRequestBody Account object to be created with optional parameters (is_hidden) (required)
+     * @param accountUpdateRequestBody  (required)
      * @return ApiResponse&lt;AccountResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -12919,11 +12919,11 @@ public class MxPlatformApi {
 
     /**
      * Update account by member (asynchronously)
-     * This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource.
+     * This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource, including manual accounts. For manual accounts, you can update every field listed. For aggregated accounts, you can only update &#x60;is_business&#x60;, &#x60;is_hidden&#x60; and &#x60;metadata&#x60;.
      * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
-     * @param accountUpdateRequestBody Account object to be created with optional parameters (is_hidden) (required)
+     * @param accountUpdateRequestBody  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

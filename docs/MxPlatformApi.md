@@ -6635,7 +6635,7 @@ public class Example {
 
 Update account by member
 
-This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource.
+This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource, including manual accounts. For manual accounts, you can update every field listed. For aggregated accounts, you can only update &#x60;is_business&#x60;, &#x60;is_hidden&#x60; and &#x60;metadata&#x60;.
 
 ### Example
 ```java
@@ -6661,7 +6661,7 @@ public class Example {
     String accountGuid = "ACT-06d7f44b-caae-0f6e-1384-01f52e75dcb1"; // String | The unique id for an `account`.
     String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
     String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
-    AccountUpdateRequestBody accountUpdateRequestBody = new AccountUpdateRequestBody(); // AccountUpdateRequestBody | Account object to be created with optional parameters (is_hidden)
+    AccountUpdateRequestBody accountUpdateRequestBody = new AccountUpdateRequestBody(); // AccountUpdateRequestBody | 
     try {
       AccountResponseBody result = apiInstance.updateAccountByMember(accountGuid, memberGuid, userGuid, accountUpdateRequestBody);
       System.out.println(result);
@@ -6683,7 +6683,7 @@ public class Example {
 | **accountGuid** | **String**| The unique id for an &#x60;account&#x60;. | |
 | **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
 | **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
-| **accountUpdateRequestBody** | [**AccountUpdateRequestBody**](AccountUpdateRequestBody.md)| Account object to be created with optional parameters (is_hidden) | |
+| **accountUpdateRequestBody** | [**AccountUpdateRequestBody**](AccountUpdateRequestBody.md)|  | |
 
 ### Return type
 

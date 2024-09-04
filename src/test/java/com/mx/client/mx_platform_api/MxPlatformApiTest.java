@@ -1549,7 +1549,7 @@ public class MxPlatformApiTest {
     /**
      * Update account by member
      *
-     * This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource.
+     * This endpoint allows you to update certain attributes of an &#x60;account&#x60; resource, including manual accounts. For manual accounts, you can update every field listed. For aggregated accounts, you can only update &#x60;is_business&#x60;, &#x60;is_hidden&#x60; and &#x60;metadata&#x60;.
      *
      * @throws ApiException if the Api call fails
      */
