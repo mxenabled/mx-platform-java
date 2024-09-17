@@ -181,6 +181,13 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.MerchantResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.MerchantResponseBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.MerchantsResponseBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.MicrodepositRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.MicrodepositRequestBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.MicrodepositResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.MicrodepositResponseBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.MicrodepositVerifyRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.MicrodepositVerifyRequestBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.MicrodepositsResponseBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.MonthlyCashFlowProfileRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.MonthlyCashFlowProfileRequestBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.MonthlyCashFlowResponse.CustomTypeAdapterFactory());
@@ -234,6 +241,9 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.TaxDocumentResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.TaxDocumentResponseBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.TaxDocumentsResponseBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.TransactionCreateRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.TransactionCreateRequestBody.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.TransactionCreateResponseBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.TransactionResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.TransactionResponseBody.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new com.mx.client.model.TransactionRuleCreateRequest.CustomTypeAdapterFactory());
