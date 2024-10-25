@@ -24,6 +24,7 @@
 |**currencyCode** | **String** |  |  [optional] |
 |**dayPaymentIsDue** | **Integer** |  |  [optional] |
 |**deathBenefit** | **Integer** |  |  [optional] |
+|**federalInsuranceStatus** | **String** |  |  [optional] |
 |**guid** | **String** |  |  [optional] |
 |**holdingsValue** | **BigDecimal** |  |  [optional] |
 |**id** | **String** |  |  [optional] |

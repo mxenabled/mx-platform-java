@@ -18,6 +18,7 @@
 |**supportsAccountStatement** | **Boolean** |  |  [optional] |
 |**supportsAccountVerification** | **Boolean** |  |  [optional] |
 |**supportsOauth** | **Boolean** |  |  [optional] |
+|**supportsTaxDocument** | **Boolean** |  |  [optional] |
 |**supportsTransactionHistory** | **Boolean** |  |  [optional] |
 |**troubleSigningInUrl** | **String** |  |  [optional] |
 |**url** | **String** |  |  [optional] |

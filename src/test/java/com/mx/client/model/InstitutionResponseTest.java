@@ -127,6 +127,14 @@ public class InstitutionResponseTest {
     }
 
     /**
+     * Test the property 'supportsTaxDocument'
+     */
+    @Test
+    public void supportsTaxDocumentTest() {
+        // TODO: test supportsTaxDocument
+    }
+
+    /**
      * Test the property 'supportsTransactionHistory'
      */
     @Test

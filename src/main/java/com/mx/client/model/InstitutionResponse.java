@@ -96,6 +96,10 @@ public class InstitutionResponse {
   @SerializedName(SERIALIZED_NAME_SUPPORTS_OAUTH)
   private Boolean supportsOauth;
 
+  public static final String SERIALIZED_NAME_SUPPORTS_TAX_DOCUMENT = "supports_tax_document";
+  @SerializedName(SERIALIZED_NAME_SUPPORTS_TAX_DOCUMENT)
+  private Boolean supportsTaxDocument;
+
   public static final String SERIALIZED_NAME_SUPPORTS_TRANSACTION_HISTORY = "supports_transaction_history";
   @SerializedName(SERIALIZED_NAME_SUPPORTS_TRANSACTION_HISTORY)
   private Boolean supportsTransactionHistory;
@@ -342,6 +346,27 @@ public class InstitutionResponse {
   }
 
 
+  public InstitutionResponse supportsTaxDocument(Boolean supportsTaxDocument) {
+    
+    this.supportsTaxDocument = supportsTaxDocument;
+    return this;
+  }
+
+   /**
+   * Get supportsTaxDocument
+   * @return supportsTaxDocument
+  **/
+  @javax.annotation.Nullable
+  public Boolean getSupportsTaxDocument() {
+    return supportsTaxDocument;
+  }
+
+
+  public void setSupportsTaxDocument(Boolean supportsTaxDocument) {
+    this.supportsTaxDocument = supportsTaxDocument;
+  }
+
+
   public InstitutionResponse supportsTransactionHistory(Boolean supportsTransactionHistory) {
     
     this.supportsTransactionHistory = supportsTransactionHistory;
@@ -426,6 +451,7 @@ public class InstitutionResponse {
         Objects.equals(this.supportsAccountStatement, institutionResponse.supportsAccountStatement) &&
         Objects.equals(this.supportsAccountVerification, institutionResponse.supportsAccountVerification) &&
         Objects.equals(this.supportsOauth, institutionResponse.supportsOauth) &&
+        Objects.equals(this.supportsTaxDocument, institutionResponse.supportsTaxDocument) &&
         Objects.equals(this.supportsTransactionHistory, institutionResponse.supportsTransactionHistory) &&
         Objects.equals(this.troubleSigningInUrl, institutionResponse.troubleSigningInUrl) &&
         Objects.equals(this.url, institutionResponse.url);
@@ -437,7 +463,7 @@ public class InstitutionResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, forgotPasswordUrl, forgotUsernameUrl, instructionalText, mediumLogoUrl, name, smallLogoUrl, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsOauth, supportsTransactionHistory, troubleSigningInUrl, url);
+    return Objects.hash(code, forgotPasswordUrl, forgotUsernameUrl, instructionalText, mediumLogoUrl, name, smallLogoUrl, supportsAccountIdentification, supportsAccountStatement, supportsAccountVerification, supportsOauth, supportsTaxDocument, supportsTransactionHistory, troubleSigningInUrl, url);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -462,6 +488,7 @@ public class InstitutionResponse {
     sb.append("    supportsAccountStatement: ").append(toIndentedString(supportsAccountStatement)).append("\n");
     sb.append("    supportsAccountVerification: ").append(toIndentedString(supportsAccountVerification)).append("\n");
     sb.append("    supportsOauth: ").append(toIndentedString(supportsOauth)).append("\n");
+    sb.append("    supportsTaxDocument: ").append(toIndentedString(supportsTaxDocument)).append("\n");
     sb.append("    supportsTransactionHistory: ").append(toIndentedString(supportsTransactionHistory)).append("\n");
     sb.append("    troubleSigningInUrl: ").append(toIndentedString(troubleSigningInUrl)).append("\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
@@ -498,6 +525,7 @@ public class InstitutionResponse {
     openapiFields.add("supports_account_statement");
     openapiFields.add("supports_account_verification");
     openapiFields.add("supports_oauth");
+    openapiFields.add("supports_tax_document");
     openapiFields.add("supports_transaction_history");
     openapiFields.add("trouble_signing_in_url");
     openapiFields.add("url");

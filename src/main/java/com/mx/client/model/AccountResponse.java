@@ -121,6 +121,10 @@ public class AccountResponse {
   @SerializedName(SERIALIZED_NAME_DEATH_BENEFIT)
   private Integer deathBenefit;
 
+  public static final String SERIALIZED_NAME_FEDERAL_INSURANCE_STATUS = "federal_insurance_status";
+  @SerializedName(SERIALIZED_NAME_FEDERAL_INSURANCE_STATUS)
+  private String federalInsuranceStatus;
+
   public static final String SERIALIZED_NAME_GUID = "guid";
   @SerializedName(SERIALIZED_NAME_GUID)
   private String guid;
@@ -642,6 +646,27 @@ public class AccountResponse {
 
   public void setDeathBenefit(Integer deathBenefit) {
     this.deathBenefit = deathBenefit;
+  }
+
+
+  public AccountResponse federalInsuranceStatus(String federalInsuranceStatus) {
+    
+    this.federalInsuranceStatus = federalInsuranceStatus;
+    return this;
+  }
+
+   /**
+   * Get federalInsuranceStatus
+   * @return federalInsuranceStatus
+  **/
+  @javax.annotation.Nullable
+  public String getFederalInsuranceStatus() {
+    return federalInsuranceStatus;
+  }
+
+
+  public void setFederalInsuranceStatus(String federalInsuranceStatus) {
+    this.federalInsuranceStatus = federalInsuranceStatus;
   }
 
 
@@ -1533,6 +1558,7 @@ public class AccountResponse {
         Objects.equals(this.currencyCode, accountResponse.currencyCode) &&
         Objects.equals(this.dayPaymentIsDue, accountResponse.dayPaymentIsDue) &&
         Objects.equals(this.deathBenefit, accountResponse.deathBenefit) &&
+        Objects.equals(this.federalInsuranceStatus, accountResponse.federalInsuranceStatus) &&
         Objects.equals(this.guid, accountResponse.guid) &&
         Objects.equals(this.holdingsValue, accountResponse.holdingsValue) &&
         Objects.equals(this.id, accountResponse.id) &&
@@ -1582,7 +1608,7 @@ public class AccountResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, accountOwnership, annuityPolicyToDate, annuityProvider, annuityTermYear, apr, apy, availableBalance, availableCredit, balance, cashBalance, cashSurrenderValue, createdAt, creditLimit, currencyCode, dayPaymentIsDue, deathBenefit, guid, holdingsValue, id, importedAt, institutionCode, insuredName, interestRate, isClosed, isHidden, isManual, lastPayment, lastPaymentAt, loanAmount, marginBalance, maturesOn, memberGuid, memberId, memberIsManagedByUser, metadata, minimumBalance, minimumPayment, name, nickname, originalBalance, payOutAmount, paymentDueAt, payoffBalance, premiumAmount, propertyType, routingNumber, startedOn, statementBalance, subtype, todayUglAmount, todayUglPercentage, totalAccountValue, totalAccountValueUgl, type, updatedAt, userGuid, userId);
+    return Objects.hash(accountNumber, accountOwnership, annuityPolicyToDate, annuityProvider, annuityTermYear, apr, apy, availableBalance, availableCredit, balance, cashBalance, cashSurrenderValue, createdAt, creditLimit, currencyCode, dayPaymentIsDue, deathBenefit, federalInsuranceStatus, guid, holdingsValue, id, importedAt, institutionCode, insuredName, interestRate, isClosed, isHidden, isManual, lastPayment, lastPaymentAt, loanAmount, marginBalance, maturesOn, memberGuid, memberId, memberIsManagedByUser, metadata, minimumBalance, minimumPayment, name, nickname, originalBalance, payOutAmount, paymentDueAt, payoffBalance, premiumAmount, propertyType, routingNumber, startedOn, statementBalance, subtype, todayUglAmount, todayUglPercentage, totalAccountValue, totalAccountValueUgl, type, updatedAt, userGuid, userId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1613,6 +1639,7 @@ public class AccountResponse {
     sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
     sb.append("    dayPaymentIsDue: ").append(toIndentedString(dayPaymentIsDue)).append("\n");
     sb.append("    deathBenefit: ").append(toIndentedString(deathBenefit)).append("\n");
+    sb.append("    federalInsuranceStatus: ").append(toIndentedString(federalInsuranceStatus)).append("\n");
     sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    holdingsValue: ").append(toIndentedString(holdingsValue)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
@@ -1693,6 +1720,7 @@ public class AccountResponse {
     openapiFields.add("currency_code");
     openapiFields.add("day_payment_is_due");
     openapiFields.add("death_benefit");
+    openapiFields.add("federal_insurance_status");
     openapiFields.add("guid");
     openapiFields.add("holdings_value");
     openapiFields.add("id");
@@ -1777,6 +1805,9 @@ public class AccountResponse {
       }
       if ((jsonObj.get("currency_code") != null && !jsonObj.get("currency_code").isJsonNull()) && !jsonObj.get("currency_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `currency_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("currency_code").toString()));
+      }
+      if ((jsonObj.get("federal_insurance_status") != null && !jsonObj.get("federal_insurance_status").isJsonNull()) && !jsonObj.get("federal_insurance_status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `federal_insurance_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("federal_insurance_status").toString()));
       }
       if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));

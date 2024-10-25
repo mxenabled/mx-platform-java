@@ -176,6 +176,14 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'federalInsuranceStatus'
+     */
+    @Test
+    public void federalInsuranceStatusTest() {
+        // TODO: test federalInsuranceStatus
+    }
+
+    /**
      * Test the property 'guid'
      */
     @Test
