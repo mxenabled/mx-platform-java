@@ -24,7 +24,7 @@ mvn clean package
 ```
 
 Then manually install the following JARs:
-  - `target/mx-platform-java-0.43.0.jar`
+  - `target/mx-platform-java-0.43.1.jar`
   - `target/lib/*.jar`
 
 ### Maven users
@@ -35,7 +35,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.mx</groupId>
   <artifactId>mx-platform-java</artifactId>
-  <version>0.43.0</version>
+  <version>0.43.1</version>
   <scope>compile</scope>
 </dependency>
 ```
