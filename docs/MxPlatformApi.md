@@ -677,6 +677,7 @@ public class Example {
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+| **200** | OK |  -  |
 | **202** | Accepted |  -  |
 
 <a id="createTag"></a>
