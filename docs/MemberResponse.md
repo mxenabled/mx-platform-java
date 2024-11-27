@@ -23,6 +23,7 @@
 |**name** | **String** |  |  [optional] |
 |**oauthWindowUri** | **String** |  |  [optional] |
 |**successfullyAggregatedAt** | **String** |  |  [optional] |
+|**useCases** | **List&lt;String&gt;** |  |  [optional] |
 |**userGuid** | **String** |  |  [optional] |
 |**userId** | **String** |  |  [optional] |
 

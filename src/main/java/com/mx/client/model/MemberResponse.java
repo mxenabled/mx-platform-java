@@ -20,7 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import org.openapitools.jackson.nullable.JsonNullable;
 
 import com.google.gson.Gson;
@@ -115,6 +117,10 @@ public class MemberResponse {
   public static final String SERIALIZED_NAME_SUCCESSFULLY_AGGREGATED_AT = "successfully_aggregated_at";
   @SerializedName(SERIALIZED_NAME_SUCCESSFULLY_AGGREGATED_AT)
   private String successfullyAggregatedAt;
+
+  public static final String SERIALIZED_NAME_USE_CASES = "use_cases";
+  @SerializedName(SERIALIZED_NAME_USE_CASES)
+  private List<String> useCases;
 
   public static final String SERIALIZED_NAME_USER_GUID = "user_guid";
   @SerializedName(SERIALIZED_NAME_USER_GUID)
@@ -463,6 +469,35 @@ public class MemberResponse {
   }
 
 
+  public MemberResponse useCases(List<String> useCases) {
+    
+    this.useCases = useCases;
+    return this;
+  }
+
+  public MemberResponse addUseCasesItem(String useCasesItem) {
+    if (this.useCases == null) {
+      this.useCases = new ArrayList<>();
+    }
+    this.useCases.add(useCasesItem);
+    return this;
+  }
+
+   /**
+   * Get useCases
+   * @return useCases
+  **/
+  @javax.annotation.Nullable
+  public List<String> getUseCases() {
+    return useCases;
+  }
+
+
+  public void setUseCases(List<String> useCases) {
+    this.useCases = useCases;
+  }
+
+
   public MemberResponse userGuid(String userGuid) {
     
     this.userGuid = userGuid;
@@ -531,6 +566,7 @@ public class MemberResponse {
         Objects.equals(this.name, memberResponse.name) &&
         Objects.equals(this.oauthWindowUri, memberResponse.oauthWindowUri) &&
         Objects.equals(this.successfullyAggregatedAt, memberResponse.successfullyAggregatedAt) &&
+        Objects.equals(this.useCases, memberResponse.useCases) &&
         Objects.equals(this.userGuid, memberResponse.userGuid) &&
         Objects.equals(this.userId, memberResponse.userId);
   }
@@ -541,7 +577,7 @@ public class MemberResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregatedAt, backgroundAggregationIsDisabled, connectionStatus, guid, id, institutionCode, isBeingAggregated, isManagedByUser, isManual, isOauth, metadata, mostRecentJobDetailCode, mostRecentJobDetailText, name, oauthWindowUri, successfullyAggregatedAt, userGuid, userId);
+    return Objects.hash(aggregatedAt, backgroundAggregationIsDisabled, connectionStatus, guid, id, institutionCode, isBeingAggregated, isManagedByUser, isManual, isOauth, metadata, mostRecentJobDetailCode, mostRecentJobDetailText, name, oauthWindowUri, successfullyAggregatedAt, useCases, userGuid, userId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -571,6 +607,7 @@ public class MemberResponse {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    oauthWindowUri: ").append(toIndentedString(oauthWindowUri)).append("\n");
     sb.append("    successfullyAggregatedAt: ").append(toIndentedString(successfullyAggregatedAt)).append("\n");
+    sb.append("    useCases: ").append(toIndentedString(useCases)).append("\n");
     sb.append("    userGuid: ").append(toIndentedString(userGuid)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
     sb.append("}");
@@ -611,6 +648,7 @@ public class MemberResponse {
     openapiFields.add("name");
     openapiFields.add("oauth_window_uri");
     openapiFields.add("successfully_aggregated_at");
+    openapiFields.add("use_cases");
     openapiFields.add("user_guid");
     openapiFields.add("user_id");
 
@@ -671,6 +709,10 @@ public class MemberResponse {
       }
       if ((jsonObj.get("successfully_aggregated_at") != null && !jsonObj.get("successfully_aggregated_at").isJsonNull()) && !jsonObj.get("successfully_aggregated_at").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `successfully_aggregated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("successfully_aggregated_at").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("use_cases") != null && !jsonObj.get("use_cases").isJsonNull() && !jsonObj.get("use_cases").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `use_cases` to be an array in the JSON string but got `%s`", jsonObj.get("use_cases").toString()));
       }
       if ((jsonObj.get("user_guid") != null && !jsonObj.get("user_guid").isJsonNull()) && !jsonObj.get("user_guid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `user_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user_guid").toString()));
