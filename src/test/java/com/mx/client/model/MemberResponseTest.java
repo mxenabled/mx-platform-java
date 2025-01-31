@@ -41,6 +41,14 @@ public class MemberResponseTest {
     }
 
     /**
+     * Test the property 'actionableError'
+     */
+    @Test
+    public void actionableErrorTest() {
+        // TODO: test actionableError
+    }
+
+    /**
      * Test the property 'aggregatedAt'
      */
     @Test

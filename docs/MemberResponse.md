@@ -7,6 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
+|**actionableError** | **String** |  |  [optional] |
 |**aggregatedAt** | **String** |  |  [optional] |
 |**backgroundAggregationIsDisabled** | **Boolean** |  |  [optional] |
 |**connectionStatus** | **String** |  |  [optional] |

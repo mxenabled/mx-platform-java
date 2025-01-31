@@ -54,6 +54,10 @@ import com.mx.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MemberResponse {
+  public static final String SERIALIZED_NAME_ACTIONABLE_ERROR = "actionable_error";
+  @SerializedName(SERIALIZED_NAME_ACTIONABLE_ERROR)
+  private String actionableError;
+
   public static final String SERIALIZED_NAME_AGGREGATED_AT = "aggregated_at";
   @SerializedName(SERIALIZED_NAME_AGGREGATED_AT)
   private String aggregatedAt;
@@ -132,6 +136,27 @@ public class MemberResponse {
 
   public MemberResponse() {
   }
+
+  public MemberResponse actionableError(String actionableError) {
+    
+    this.actionableError = actionableError;
+    return this;
+  }
+
+   /**
+   * Get actionableError
+   * @return actionableError
+  **/
+  @javax.annotation.Nullable
+  public String getActionableError() {
+    return actionableError;
+  }
+
+
+  public void setActionableError(String actionableError) {
+    this.actionableError = actionableError;
+  }
+
 
   public MemberResponse aggregatedAt(String aggregatedAt) {
     
@@ -550,7 +575,8 @@ public class MemberResponse {
       return false;
     }
     MemberResponse memberResponse = (MemberResponse) o;
-    return Objects.equals(this.aggregatedAt, memberResponse.aggregatedAt) &&
+    return Objects.equals(this.actionableError, memberResponse.actionableError) &&
+        Objects.equals(this.aggregatedAt, memberResponse.aggregatedAt) &&
         Objects.equals(this.backgroundAggregationIsDisabled, memberResponse.backgroundAggregationIsDisabled) &&
         Objects.equals(this.connectionStatus, memberResponse.connectionStatus) &&
         Objects.equals(this.guid, memberResponse.guid) &&
@@ -577,7 +603,7 @@ public class MemberResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(aggregatedAt, backgroundAggregationIsDisabled, connectionStatus, guid, id, institutionCode, isBeingAggregated, isManagedByUser, isManual, isOauth, metadata, mostRecentJobDetailCode, mostRecentJobDetailText, name, oauthWindowUri, successfullyAggregatedAt, useCases, userGuid, userId);
+    return Objects.hash(actionableError, aggregatedAt, backgroundAggregationIsDisabled, connectionStatus, guid, id, institutionCode, isBeingAggregated, isManagedByUser, isManual, isOauth, metadata, mostRecentJobDetailCode, mostRecentJobDetailText, name, oauthWindowUri, successfullyAggregatedAt, useCases, userGuid, userId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -591,6 +617,7 @@ public class MemberResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MemberResponse {\n");
+    sb.append("    actionableError: ").append(toIndentedString(actionableError)).append("\n");
     sb.append("    aggregatedAt: ").append(toIndentedString(aggregatedAt)).append("\n");
     sb.append("    backgroundAggregationIsDisabled: ").append(toIndentedString(backgroundAggregationIsDisabled)).append("\n");
     sb.append("    connectionStatus: ").append(toIndentedString(connectionStatus)).append("\n");
@@ -632,6 +659,7 @@ public class MemberResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("actionable_error");
     openapiFields.add("aggregated_at");
     openapiFields.add("background_aggregation_is_disabled");
     openapiFields.add("connection_status");
@@ -677,6 +705,9 @@ public class MemberResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("actionable_error") != null && !jsonObj.get("actionable_error").isJsonNull()) && !jsonObj.get("actionable_error").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `actionable_error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("actionable_error").toString()));
+      }
       if ((jsonObj.get("aggregated_at") != null && !jsonObj.get("aggregated_at").isJsonNull()) && !jsonObj.get("aggregated_at").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `aggregated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aggregated_at").toString()));
       }
