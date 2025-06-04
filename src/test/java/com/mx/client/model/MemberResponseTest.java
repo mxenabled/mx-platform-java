@@ -41,14 +41,6 @@ public class MemberResponseTest {
     }
 
     /**
-     * Test the property 'actionableError'
-     */
-    @Test
-    public void actionableErrorTest() {
-        // TODO: test actionableError
-    }
-
-    /**
      * Test the property 'aggregatedAt'
      */
     @Test
@@ -73,6 +65,22 @@ public class MemberResponseTest {
     }
 
     /**
+     * Test the property 'connectionStatusMessage'
+     */
+    @Test
+    public void connectionStatusMessageTest() {
+        // TODO: test connectionStatusMessage
+    }
+
+    /**
+     * Test the property 'error'
+     */
+    @Test
+    public void errorTest() {
+        // TODO: test error
+    }
+
+    /**
      * Test the property 'guid'
      */
     @Test
@@ -94,6 +102,14 @@ public class MemberResponseTest {
     @Test
     public void institutionCodeTest() {
         // TODO: test institutionCode
+    }
+
+    /**
+     * Test the property 'institutionGuid'
+     */
+    @Test
+    public void institutionGuidTest() {
+        // TODO: test institutionGuid
     }
 
     /**
@@ -153,11 +169,27 @@ public class MemberResponseTest {
     }
 
     /**
+     * Test the property 'mostRecentJobGuid'
+     */
+    @Test
+    public void mostRecentJobGuidTest() {
+        // TODO: test mostRecentJobGuid
+    }
+
+    /**
      * Test the property 'name'
      */
     @Test
     public void nameTest() {
         // TODO: test name
+    }
+
+    /**
+     * Test the property 'needsUpdatedCredentials'
+     */
+    @Test
+    public void needsUpdatedCredentialsTest() {
+        // TODO: test needsUpdatedCredentials
     }
 
     /**

@@ -54,10 +54,6 @@ import com.mx.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class MemberResponse {
-  public static final String SERIALIZED_NAME_ACTIONABLE_ERROR = "actionable_error";
-  @SerializedName(SERIALIZED_NAME_ACTIONABLE_ERROR)
-  private String actionableError;
-
   public static final String SERIALIZED_NAME_AGGREGATED_AT = "aggregated_at";
   @SerializedName(SERIALIZED_NAME_AGGREGATED_AT)
   private String aggregatedAt;
@@ -70,6 +66,14 @@ public class MemberResponse {
   @SerializedName(SERIALIZED_NAME_CONNECTION_STATUS)
   private String connectionStatus;
 
+  public static final String SERIALIZED_NAME_CONNECTION_STATUS_MESSAGE = "connection_status_message";
+  @SerializedName(SERIALIZED_NAME_CONNECTION_STATUS_MESSAGE)
+  private String connectionStatusMessage;
+
+  public static final String SERIALIZED_NAME_ERROR = "error";
+  @SerializedName(SERIALIZED_NAME_ERROR)
+  private String error;
+
   public static final String SERIALIZED_NAME_GUID = "guid";
   @SerializedName(SERIALIZED_NAME_GUID)
   private String guid;
@@ -81,6 +85,10 @@ public class MemberResponse {
   public static final String SERIALIZED_NAME_INSTITUTION_CODE = "institution_code";
   @SerializedName(SERIALIZED_NAME_INSTITUTION_CODE)
   private String institutionCode;
+
+  public static final String SERIALIZED_NAME_INSTITUTION_GUID = "institution_guid";
+  @SerializedName(SERIALIZED_NAME_INSTITUTION_GUID)
+  private String institutionGuid;
 
   public static final String SERIALIZED_NAME_IS_BEING_AGGREGATED = "is_being_aggregated";
   @SerializedName(SERIALIZED_NAME_IS_BEING_AGGREGATED)
@@ -104,15 +112,23 @@ public class MemberResponse {
 
   public static final String SERIALIZED_NAME_MOST_RECENT_JOB_DETAIL_CODE = "most_recent_job_detail_code";
   @SerializedName(SERIALIZED_NAME_MOST_RECENT_JOB_DETAIL_CODE)
-  private String mostRecentJobDetailCode;
+  private Integer mostRecentJobDetailCode;
 
   public static final String SERIALIZED_NAME_MOST_RECENT_JOB_DETAIL_TEXT = "most_recent_job_detail_text";
   @SerializedName(SERIALIZED_NAME_MOST_RECENT_JOB_DETAIL_TEXT)
-  private String mostRecentJobDetailText;
+  private Boolean mostRecentJobDetailText;
+
+  public static final String SERIALIZED_NAME_MOST_RECENT_JOB_GUID = "most_recent_job_guid";
+  @SerializedName(SERIALIZED_NAME_MOST_RECENT_JOB_GUID)
+  private Boolean mostRecentJobGuid;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
+  public static final String SERIALIZED_NAME_NEEDS_UPDATED_CREDENTIALS = "needs_updated_credentials";
+  @SerializedName(SERIALIZED_NAME_NEEDS_UPDATED_CREDENTIALS)
+  private Boolean needsUpdatedCredentials;
 
   public static final String SERIALIZED_NAME_OAUTH_WINDOW_URI = "oauth_window_uri";
   @SerializedName(SERIALIZED_NAME_OAUTH_WINDOW_URI)
@@ -122,9 +138,56 @@ public class MemberResponse {
   @SerializedName(SERIALIZED_NAME_SUCCESSFULLY_AGGREGATED_AT)
   private String successfullyAggregatedAt;
 
+  /**
+   * Gets or Sets useCases
+   */
+  @JsonAdapter(UseCasesEnum.Adapter.class)
+  public enum UseCasesEnum {
+    MONEY_MOVEMENT("MONEY_MOVEMENT"),
+    
+    PFM("PFM");
+
+    private String value;
+
+    UseCasesEnum(String value) {
+      this.value = value;
+    }
+
+    public String getValue() {
+      return value;
+    }
+
+    @Override
+    public String toString() {
+      return String.valueOf(value);
+    }
+
+    public static UseCasesEnum fromValue(String value) {
+      for (UseCasesEnum b : UseCasesEnum.values()) {
+        if (b.value.equals(value)) {
+          return b;
+        }
+      }
+      throw new IllegalArgumentException("Unexpected value '" + value + "'");
+    }
+
+    public static class Adapter extends TypeAdapter<UseCasesEnum> {
+      @Override
+      public void write(final JsonWriter jsonWriter, final UseCasesEnum enumeration) throws IOException {
+        jsonWriter.value(enumeration.getValue());
+      }
+
+      @Override
+      public UseCasesEnum read(final JsonReader jsonReader) throws IOException {
+        String value =  jsonReader.nextString();
+        return UseCasesEnum.fromValue(value);
+      }
+    }
+  }
+
   public static final String SERIALIZED_NAME_USE_CASES = "use_cases";
   @SerializedName(SERIALIZED_NAME_USE_CASES)
-  private List<String> useCases;
+  private List<UseCasesEnum> useCases;
 
   public static final String SERIALIZED_NAME_USER_GUID = "user_guid";
   @SerializedName(SERIALIZED_NAME_USER_GUID)
@@ -136,27 +199,6 @@ public class MemberResponse {
 
   public MemberResponse() {
   }
-
-  public MemberResponse actionableError(String actionableError) {
-    
-    this.actionableError = actionableError;
-    return this;
-  }
-
-   /**
-   * Get actionableError
-   * @return actionableError
-  **/
-  @javax.annotation.Nullable
-  public String getActionableError() {
-    return actionableError;
-  }
-
-
-  public void setActionableError(String actionableError) {
-    this.actionableError = actionableError;
-  }
-
 
   public MemberResponse aggregatedAt(String aggregatedAt) {
     
@@ -221,6 +263,48 @@ public class MemberResponse {
   }
 
 
+  public MemberResponse connectionStatusMessage(String connectionStatusMessage) {
+    
+    this.connectionStatusMessage = connectionStatusMessage;
+    return this;
+  }
+
+   /**
+   * Get connectionStatusMessage
+   * @return connectionStatusMessage
+  **/
+  @javax.annotation.Nullable
+  public String getConnectionStatusMessage() {
+    return connectionStatusMessage;
+  }
+
+
+  public void setConnectionStatusMessage(String connectionStatusMessage) {
+    this.connectionStatusMessage = connectionStatusMessage;
+  }
+
+
+  public MemberResponse error(String error) {
+    
+    this.error = error;
+    return this;
+  }
+
+   /**
+   * Get error
+   * @return error
+  **/
+  @javax.annotation.Nullable
+  public String getError() {
+    return error;
+  }
+
+
+  public void setError(String error) {
+    this.error = error;
+  }
+
+
   public MemberResponse guid(String guid) {
     
     this.guid = guid;
@@ -281,6 +365,27 @@ public class MemberResponse {
 
   public void setInstitutionCode(String institutionCode) {
     this.institutionCode = institutionCode;
+  }
+
+
+  public MemberResponse institutionGuid(String institutionGuid) {
+    
+    this.institutionGuid = institutionGuid;
+    return this;
+  }
+
+   /**
+   * Get institutionGuid
+   * @return institutionGuid
+  **/
+  @javax.annotation.Nullable
+  public String getInstitutionGuid() {
+    return institutionGuid;
+  }
+
+
+  public void setInstitutionGuid(String institutionGuid) {
+    this.institutionGuid = institutionGuid;
   }
 
 
@@ -389,7 +494,7 @@ public class MemberResponse {
   }
 
 
-  public MemberResponse mostRecentJobDetailCode(String mostRecentJobDetailCode) {
+  public MemberResponse mostRecentJobDetailCode(Integer mostRecentJobDetailCode) {
     
     this.mostRecentJobDetailCode = mostRecentJobDetailCode;
     return this;
@@ -400,17 +505,17 @@ public class MemberResponse {
    * @return mostRecentJobDetailCode
   **/
   @javax.annotation.Nullable
-  public String getMostRecentJobDetailCode() {
+  public Integer getMostRecentJobDetailCode() {
     return mostRecentJobDetailCode;
   }
 
 
-  public void setMostRecentJobDetailCode(String mostRecentJobDetailCode) {
+  public void setMostRecentJobDetailCode(Integer mostRecentJobDetailCode) {
     this.mostRecentJobDetailCode = mostRecentJobDetailCode;
   }
 
 
-  public MemberResponse mostRecentJobDetailText(String mostRecentJobDetailText) {
+  public MemberResponse mostRecentJobDetailText(Boolean mostRecentJobDetailText) {
     
     this.mostRecentJobDetailText = mostRecentJobDetailText;
     return this;
@@ -421,13 +526,34 @@ public class MemberResponse {
    * @return mostRecentJobDetailText
   **/
   @javax.annotation.Nullable
-  public String getMostRecentJobDetailText() {
+  public Boolean getMostRecentJobDetailText() {
     return mostRecentJobDetailText;
   }
 
 
-  public void setMostRecentJobDetailText(String mostRecentJobDetailText) {
+  public void setMostRecentJobDetailText(Boolean mostRecentJobDetailText) {
     this.mostRecentJobDetailText = mostRecentJobDetailText;
+  }
+
+
+  public MemberResponse mostRecentJobGuid(Boolean mostRecentJobGuid) {
+    
+    this.mostRecentJobGuid = mostRecentJobGuid;
+    return this;
+  }
+
+   /**
+   * Get mostRecentJobGuid
+   * @return mostRecentJobGuid
+  **/
+  @javax.annotation.Nullable
+  public Boolean getMostRecentJobGuid() {
+    return mostRecentJobGuid;
+  }
+
+
+  public void setMostRecentJobGuid(Boolean mostRecentJobGuid) {
+    this.mostRecentJobGuid = mostRecentJobGuid;
   }
 
 
@@ -449,6 +575,27 @@ public class MemberResponse {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+
+  public MemberResponse needsUpdatedCredentials(Boolean needsUpdatedCredentials) {
+    
+    this.needsUpdatedCredentials = needsUpdatedCredentials;
+    return this;
+  }
+
+   /**
+   * Get needsUpdatedCredentials
+   * @return needsUpdatedCredentials
+  **/
+  @javax.annotation.Nullable
+  public Boolean getNeedsUpdatedCredentials() {
+    return needsUpdatedCredentials;
+  }
+
+
+  public void setNeedsUpdatedCredentials(Boolean needsUpdatedCredentials) {
+    this.needsUpdatedCredentials = needsUpdatedCredentials;
   }
 
 
@@ -494,13 +641,13 @@ public class MemberResponse {
   }
 
 
-  public MemberResponse useCases(List<String> useCases) {
+  public MemberResponse useCases(List<UseCasesEnum> useCases) {
     
     this.useCases = useCases;
     return this;
   }
 
-  public MemberResponse addUseCasesItem(String useCasesItem) {
+  public MemberResponse addUseCasesItem(UseCasesEnum useCasesItem) {
     if (this.useCases == null) {
       this.useCases = new ArrayList<>();
     }
@@ -509,16 +656,16 @@ public class MemberResponse {
   }
 
    /**
-   * Get useCases
+   * The use case associated with the member. Valid values are &#x60;PFM&#x60; and/or &#x60;MONEY_MOVEMENT&#x60;. Only set this if you&#39;ve met with MX and have opted in to using this field.
    * @return useCases
   **/
   @javax.annotation.Nullable
-  public List<String> getUseCases() {
+  public List<UseCasesEnum> getUseCases() {
     return useCases;
   }
 
 
-  public void setUseCases(List<String> useCases) {
+  public void setUseCases(List<UseCasesEnum> useCases) {
     this.useCases = useCases;
   }
 
@@ -575,13 +722,15 @@ public class MemberResponse {
       return false;
     }
     MemberResponse memberResponse = (MemberResponse) o;
-    return Objects.equals(this.actionableError, memberResponse.actionableError) &&
-        Objects.equals(this.aggregatedAt, memberResponse.aggregatedAt) &&
+    return Objects.equals(this.aggregatedAt, memberResponse.aggregatedAt) &&
         Objects.equals(this.backgroundAggregationIsDisabled, memberResponse.backgroundAggregationIsDisabled) &&
         Objects.equals(this.connectionStatus, memberResponse.connectionStatus) &&
+        Objects.equals(this.connectionStatusMessage, memberResponse.connectionStatusMessage) &&
+        Objects.equals(this.error, memberResponse.error) &&
         Objects.equals(this.guid, memberResponse.guid) &&
         Objects.equals(this.id, memberResponse.id) &&
         Objects.equals(this.institutionCode, memberResponse.institutionCode) &&
+        Objects.equals(this.institutionGuid, memberResponse.institutionGuid) &&
         Objects.equals(this.isBeingAggregated, memberResponse.isBeingAggregated) &&
         Objects.equals(this.isManagedByUser, memberResponse.isManagedByUser) &&
         Objects.equals(this.isManual, memberResponse.isManual) &&
@@ -589,7 +738,9 @@ public class MemberResponse {
         Objects.equals(this.metadata, memberResponse.metadata) &&
         Objects.equals(this.mostRecentJobDetailCode, memberResponse.mostRecentJobDetailCode) &&
         Objects.equals(this.mostRecentJobDetailText, memberResponse.mostRecentJobDetailText) &&
+        Objects.equals(this.mostRecentJobGuid, memberResponse.mostRecentJobGuid) &&
         Objects.equals(this.name, memberResponse.name) &&
+        Objects.equals(this.needsUpdatedCredentials, memberResponse.needsUpdatedCredentials) &&
         Objects.equals(this.oauthWindowUri, memberResponse.oauthWindowUri) &&
         Objects.equals(this.successfullyAggregatedAt, memberResponse.successfullyAggregatedAt) &&
         Objects.equals(this.useCases, memberResponse.useCases) &&
@@ -603,7 +754,7 @@ public class MemberResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(actionableError, aggregatedAt, backgroundAggregationIsDisabled, connectionStatus, guid, id, institutionCode, isBeingAggregated, isManagedByUser, isManual, isOauth, metadata, mostRecentJobDetailCode, mostRecentJobDetailText, name, oauthWindowUri, successfullyAggregatedAt, useCases, userGuid, userId);
+    return Objects.hash(aggregatedAt, backgroundAggregationIsDisabled, connectionStatus, connectionStatusMessage, error, guid, id, institutionCode, institutionGuid, isBeingAggregated, isManagedByUser, isManual, isOauth, metadata, mostRecentJobDetailCode, mostRecentJobDetailText, mostRecentJobGuid, name, needsUpdatedCredentials, oauthWindowUri, successfullyAggregatedAt, useCases, userGuid, userId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -617,13 +768,15 @@ public class MemberResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class MemberResponse {\n");
-    sb.append("    actionableError: ").append(toIndentedString(actionableError)).append("\n");
     sb.append("    aggregatedAt: ").append(toIndentedString(aggregatedAt)).append("\n");
     sb.append("    backgroundAggregationIsDisabled: ").append(toIndentedString(backgroundAggregationIsDisabled)).append("\n");
     sb.append("    connectionStatus: ").append(toIndentedString(connectionStatus)).append("\n");
+    sb.append("    connectionStatusMessage: ").append(toIndentedString(connectionStatusMessage)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    institutionCode: ").append(toIndentedString(institutionCode)).append("\n");
+    sb.append("    institutionGuid: ").append(toIndentedString(institutionGuid)).append("\n");
     sb.append("    isBeingAggregated: ").append(toIndentedString(isBeingAggregated)).append("\n");
     sb.append("    isManagedByUser: ").append(toIndentedString(isManagedByUser)).append("\n");
     sb.append("    isManual: ").append(toIndentedString(isManual)).append("\n");
@@ -631,7 +784,9 @@ public class MemberResponse {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    mostRecentJobDetailCode: ").append(toIndentedString(mostRecentJobDetailCode)).append("\n");
     sb.append("    mostRecentJobDetailText: ").append(toIndentedString(mostRecentJobDetailText)).append("\n");
+    sb.append("    mostRecentJobGuid: ").append(toIndentedString(mostRecentJobGuid)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    needsUpdatedCredentials: ").append(toIndentedString(needsUpdatedCredentials)).append("\n");
     sb.append("    oauthWindowUri: ").append(toIndentedString(oauthWindowUri)).append("\n");
     sb.append("    successfullyAggregatedAt: ").append(toIndentedString(successfullyAggregatedAt)).append("\n");
     sb.append("    useCases: ").append(toIndentedString(useCases)).append("\n");
@@ -659,13 +814,15 @@ public class MemberResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("actionable_error");
     openapiFields.add("aggregated_at");
     openapiFields.add("background_aggregation_is_disabled");
     openapiFields.add("connection_status");
+    openapiFields.add("connection_status_message");
+    openapiFields.add("error");
     openapiFields.add("guid");
     openapiFields.add("id");
     openapiFields.add("institution_code");
+    openapiFields.add("institution_guid");
     openapiFields.add("is_being_aggregated");
     openapiFields.add("is_managed_by_user");
     openapiFields.add("is_manual");
@@ -673,7 +830,9 @@ public class MemberResponse {
     openapiFields.add("metadata");
     openapiFields.add("most_recent_job_detail_code");
     openapiFields.add("most_recent_job_detail_text");
+    openapiFields.add("most_recent_job_guid");
     openapiFields.add("name");
+    openapiFields.add("needs_updated_credentials");
     openapiFields.add("oauth_window_uri");
     openapiFields.add("successfully_aggregated_at");
     openapiFields.add("use_cases");
@@ -705,14 +864,17 @@ public class MemberResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("actionable_error") != null && !jsonObj.get("actionable_error").isJsonNull()) && !jsonObj.get("actionable_error").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `actionable_error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("actionable_error").toString()));
-      }
       if ((jsonObj.get("aggregated_at") != null && !jsonObj.get("aggregated_at").isJsonNull()) && !jsonObj.get("aggregated_at").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `aggregated_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("aggregated_at").toString()));
       }
       if ((jsonObj.get("connection_status") != null && !jsonObj.get("connection_status").isJsonNull()) && !jsonObj.get("connection_status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `connection_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection_status").toString()));
+      }
+      if ((jsonObj.get("connection_status_message") != null && !jsonObj.get("connection_status_message").isJsonNull()) && !jsonObj.get("connection_status_message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `connection_status_message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("connection_status_message").toString()));
+      }
+      if ((jsonObj.get("error") != null && !jsonObj.get("error").isJsonNull()) && !jsonObj.get("error").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `error` to be a primitive type in the JSON string but got `%s`", jsonObj.get("error").toString()));
       }
       if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
@@ -723,14 +885,11 @@ public class MemberResponse {
       if ((jsonObj.get("institution_code") != null && !jsonObj.get("institution_code").isJsonNull()) && !jsonObj.get("institution_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `institution_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("institution_code").toString()));
       }
+      if ((jsonObj.get("institution_guid") != null && !jsonObj.get("institution_guid").isJsonNull()) && !jsonObj.get("institution_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `institution_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("institution_guid").toString()));
+      }
       if ((jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) && !jsonObj.get("metadata").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `metadata` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metadata").toString()));
-      }
-      if ((jsonObj.get("most_recent_job_detail_code") != null && !jsonObj.get("most_recent_job_detail_code").isJsonNull()) && !jsonObj.get("most_recent_job_detail_code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `most_recent_job_detail_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("most_recent_job_detail_code").toString()));
-      }
-      if ((jsonObj.get("most_recent_job_detail_text") != null && !jsonObj.get("most_recent_job_detail_text").isJsonNull()) && !jsonObj.get("most_recent_job_detail_text").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `most_recent_job_detail_text` to be a primitive type in the JSON string but got `%s`", jsonObj.get("most_recent_job_detail_text").toString()));
       }
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
