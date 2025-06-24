@@ -57,6 +57,10 @@ public class AccountResponse {
   @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER)
   private String accountNumber;
 
+  public static final String SERIALIZED_NAME_ACCOUNT_NUMBER_SET_BY = "account_number_set_by";
+  @SerializedName(SERIALIZED_NAME_ACCOUNT_NUMBER_SET_BY)
+  private Integer accountNumberSetBy;
+
   public static final String SERIALIZED_NAME_ACCOUNT_OWNERSHIP = "account_ownership";
   @SerializedName(SERIALIZED_NAME_ACCOUNT_OWNERSHIP)
   private String accountOwnership;
@@ -71,35 +75,67 @@ public class AccountResponse {
 
   public static final String SERIALIZED_NAME_ANNUITY_TERM_YEAR = "annuity_term_year";
   @SerializedName(SERIALIZED_NAME_ANNUITY_TERM_YEAR)
-  private BigDecimal annuityTermYear;
+  private Integer annuityTermYear;
 
   public static final String SERIALIZED_NAME_APR = "apr";
   @SerializedName(SERIALIZED_NAME_APR)
   private BigDecimal apr;
 
+  public static final String SERIALIZED_NAME_APR_SET_BY = "apr_set_by";
+  @SerializedName(SERIALIZED_NAME_APR_SET_BY)
+  private Integer aprSetBy;
+
   public static final String SERIALIZED_NAME_APY = "apy";
   @SerializedName(SERIALIZED_NAME_APY)
   private BigDecimal apy;
+
+  public static final String SERIALIZED_NAME_APY_SET_BY = "apy_set_by";
+  @SerializedName(SERIALIZED_NAME_APY_SET_BY)
+  private Integer apySetBy;
 
   public static final String SERIALIZED_NAME_AVAILABLE_BALANCE = "available_balance";
   @SerializedName(SERIALIZED_NAME_AVAILABLE_BALANCE)
   private BigDecimal availableBalance;
 
+  public static final String SERIALIZED_NAME_AVAILABLE_BALANCE_SET_BY = "available_balance_set_by";
+  @SerializedName(SERIALIZED_NAME_AVAILABLE_BALANCE_SET_BY)
+  private Integer availableBalanceSetBy;
+
   public static final String SERIALIZED_NAME_AVAILABLE_CREDIT = "available_credit";
   @SerializedName(SERIALIZED_NAME_AVAILABLE_CREDIT)
   private BigDecimal availableCredit;
+
+  public static final String SERIALIZED_NAME_AVAILABLE_CREDIT_SET_BY = "available_credit_set_by";
+  @SerializedName(SERIALIZED_NAME_AVAILABLE_CREDIT_SET_BY)
+  private Integer availableCreditSetBy;
 
   public static final String SERIALIZED_NAME_BALANCE = "balance";
   @SerializedName(SERIALIZED_NAME_BALANCE)
   private BigDecimal balance;
 
+  public static final String SERIALIZED_NAME_BALANCE_SET_BY = "balance_set_by";
+  @SerializedName(SERIALIZED_NAME_BALANCE_SET_BY)
+  private Integer balanceSetBy;
+
+  public static final String SERIALIZED_NAME_CALCULATED_APR = "calculated_apr";
+  @SerializedName(SERIALIZED_NAME_CALCULATED_APR)
+  private BigDecimal calculatedApr;
+
   public static final String SERIALIZED_NAME_CASH_BALANCE = "cash_balance";
   @SerializedName(SERIALIZED_NAME_CASH_BALANCE)
   private BigDecimal cashBalance;
 
+  public static final String SERIALIZED_NAME_CASH_BALANCE_SET_BY = "cash_balance_set_by";
+  @SerializedName(SERIALIZED_NAME_CASH_BALANCE_SET_BY)
+  private Integer cashBalanceSetBy;
+
   public static final String SERIALIZED_NAME_CASH_SURRENDER_VALUE = "cash_surrender_value";
   @SerializedName(SERIALIZED_NAME_CASH_SURRENDER_VALUE)
   private BigDecimal cashSurrenderValue;
+
+  public static final String SERIALIZED_NAME_CASH_SURRENDER_VALUE_SET_BY = "cash_surrender_value_set_by";
+  @SerializedName(SERIALIZED_NAME_CASH_SURRENDER_VALUE_SET_BY)
+  private Integer cashSurrenderValueSetBy;
 
   public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
   @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -109,21 +145,161 @@ public class AccountResponse {
   @SerializedName(SERIALIZED_NAME_CREDIT_LIMIT)
   private BigDecimal creditLimit;
 
+  public static final String SERIALIZED_NAME_CREDIT_LIMIT_SET_BY = "credit_limit_set_by";
+  @SerializedName(SERIALIZED_NAME_CREDIT_LIMIT_SET_BY)
+  private Integer creditLimitSetBy;
+
   public static final String SERIALIZED_NAME_CURRENCY_CODE = "currency_code";
   @SerializedName(SERIALIZED_NAME_CURRENCY_CODE)
   private String currencyCode;
+
+  public static final String SERIALIZED_NAME_CURRENCY_CODE_SET_BY = "currency_code_set_by";
+  @SerializedName(SERIALIZED_NAME_CURRENCY_CODE_SET_BY)
+  private Integer currencyCodeSetBy;
 
   public static final String SERIALIZED_NAME_DAY_PAYMENT_IS_DUE = "day_payment_is_due";
   @SerializedName(SERIALIZED_NAME_DAY_PAYMENT_IS_DUE)
   private Integer dayPaymentIsDue;
 
+  public static final String SERIALIZED_NAME_DAY_PAYMENT_IS_DUE_SET_BY = "day_payment_is_due_set_by";
+  @SerializedName(SERIALIZED_NAME_DAY_PAYMENT_IS_DUE_SET_BY)
+  private Integer dayPaymentIsDueSetBy;
+
   public static final String SERIALIZED_NAME_DEATH_BENEFIT = "death_benefit";
   @SerializedName(SERIALIZED_NAME_DEATH_BENEFIT)
   private Integer deathBenefit;
 
+  public static final String SERIALIZED_NAME_DEATH_BENEFIT_SET_BY = "death_benefit_set_by";
+  @SerializedName(SERIALIZED_NAME_DEATH_BENEFIT_SET_BY)
+  private Integer deathBenefitSetBy;
+
   public static final String SERIALIZED_NAME_FEDERAL_INSURANCE_STATUS = "federal_insurance_status";
   @SerializedName(SERIALIZED_NAME_FEDERAL_INSURANCE_STATUS)
   private String federalInsuranceStatus;
+
+  public static final String SERIALIZED_NAME_FEED_ACCOUNT_NUMBER = "feed_account_number";
+  @SerializedName(SERIALIZED_NAME_FEED_ACCOUNT_NUMBER)
+  private String feedAccountNumber;
+
+  public static final String SERIALIZED_NAME_FEED_ACCOUNT_SUBTYPE = "feed_account_subtype";
+  @SerializedName(SERIALIZED_NAME_FEED_ACCOUNT_SUBTYPE)
+  private Integer feedAccountSubtype;
+
+  public static final String SERIALIZED_NAME_FEED_ACCOUNT_TYPE = "feed_account_type";
+  @SerializedName(SERIALIZED_NAME_FEED_ACCOUNT_TYPE)
+  private Integer feedAccountType;
+
+  public static final String SERIALIZED_NAME_FEED_APR = "feed_apr";
+  @SerializedName(SERIALIZED_NAME_FEED_APR)
+  private BigDecimal feedApr;
+
+  public static final String SERIALIZED_NAME_FEED_APY = "feed_apy";
+  @SerializedName(SERIALIZED_NAME_FEED_APY)
+  private BigDecimal feedApy;
+
+  public static final String SERIALIZED_NAME_FEED_AVAILABLE_BALANCE = "feed_available_balance";
+  @SerializedName(SERIALIZED_NAME_FEED_AVAILABLE_BALANCE)
+  private BigDecimal feedAvailableBalance;
+
+  public static final String SERIALIZED_NAME_FEED_BALANCE = "feed_balance";
+  @SerializedName(SERIALIZED_NAME_FEED_BALANCE)
+  private BigDecimal feedBalance;
+
+  public static final String SERIALIZED_NAME_FEED_CASH_BALANCE = "feed_cash_balance";
+  @SerializedName(SERIALIZED_NAME_FEED_CASH_BALANCE)
+  private BigDecimal feedCashBalance;
+
+  public static final String SERIALIZED_NAME_FEED_CASH_SURRENDER_VALUE = "feed_cash_surrender_value";
+  @SerializedName(SERIALIZED_NAME_FEED_CASH_SURRENDER_VALUE)
+  private BigDecimal feedCashSurrenderValue;
+
+  public static final String SERIALIZED_NAME_FEED_CREDIT_LIMIT = "feed_credit_limit";
+  @SerializedName(SERIALIZED_NAME_FEED_CREDIT_LIMIT)
+  private BigDecimal feedCreditLimit;
+
+  public static final String SERIALIZED_NAME_FEED_CURRENCY_CODE = "feed_currency_code";
+  @SerializedName(SERIALIZED_NAME_FEED_CURRENCY_CODE)
+  private String feedCurrencyCode;
+
+  public static final String SERIALIZED_NAME_FEED_DAY_PAYMENT_IS_DUE = "feed_day_payment_is_due";
+  @SerializedName(SERIALIZED_NAME_FEED_DAY_PAYMENT_IS_DUE)
+  private Integer feedDayPaymentIsDue;
+
+  public static final String SERIALIZED_NAME_FEED_DEATH_BENEFIT = "feed_death_benefit";
+  @SerializedName(SERIALIZED_NAME_FEED_DEATH_BENEFIT)
+  private Integer feedDeathBenefit;
+
+  public static final String SERIALIZED_NAME_FEED_HOLDINGS_VALUE = "feed_holdings_value";
+  @SerializedName(SERIALIZED_NAME_FEED_HOLDINGS_VALUE)
+  private BigDecimal feedHoldingsValue;
+
+  public static final String SERIALIZED_NAME_FEED_INTEREST_RATE = "feed_interest_rate";
+  @SerializedName(SERIALIZED_NAME_FEED_INTEREST_RATE)
+  private BigDecimal feedInterestRate;
+
+  public static final String SERIALIZED_NAME_FEED_IS_CLOSED = "feed_is_closed";
+  @SerializedName(SERIALIZED_NAME_FEED_IS_CLOSED)
+  private Boolean feedIsClosed;
+
+  public static final String SERIALIZED_NAME_FEED_LAST_PAYMENT = "feed_last_payment";
+  @SerializedName(SERIALIZED_NAME_FEED_LAST_PAYMENT)
+  private BigDecimal feedLastPayment;
+
+  public static final String SERIALIZED_NAME_FEED_LAST_PAYMENT_AT = "feed_last_payment_at";
+  @SerializedName(SERIALIZED_NAME_FEED_LAST_PAYMENT_AT)
+  private String feedLastPaymentAt;
+
+  public static final String SERIALIZED_NAME_FEED_LOAN_AMOUNT = "feed_loan_amount";
+  @SerializedName(SERIALIZED_NAME_FEED_LOAN_AMOUNT)
+  private BigDecimal feedLoanAmount;
+
+  public static final String SERIALIZED_NAME_FEED_MATURES_ON = "feed_matures_on";
+  @SerializedName(SERIALIZED_NAME_FEED_MATURES_ON)
+  private String feedMaturesOn;
+
+  public static final String SERIALIZED_NAME_FEED_MINIMUM_BALANCE = "feed_minimum_balance";
+  @SerializedName(SERIALIZED_NAME_FEED_MINIMUM_BALANCE)
+  private BigDecimal feedMinimumBalance;
+
+  public static final String SERIALIZED_NAME_FEED_MINIMUM_PAYMENT = "feed_minimum_payment";
+  @SerializedName(SERIALIZED_NAME_FEED_MINIMUM_PAYMENT)
+  private BigDecimal feedMinimumPayment;
+
+  public static final String SERIALIZED_NAME_FEED_NAME = "feed_name";
+  @SerializedName(SERIALIZED_NAME_FEED_NAME)
+  private String feedName;
+
+  public static final String SERIALIZED_NAME_FEED_NICKNAME = "feed_nickname";
+  @SerializedName(SERIALIZED_NAME_FEED_NICKNAME)
+  private String feedNickname;
+
+  public static final String SERIALIZED_NAME_FEED_ORIGINAL_BALANCE = "feed_original_balance";
+  @SerializedName(SERIALIZED_NAME_FEED_ORIGINAL_BALANCE)
+  private BigDecimal feedOriginalBalance;
+
+  public static final String SERIALIZED_NAME_FEED_PAYMENT_DUE_AT = "feed_payment_due_at";
+  @SerializedName(SERIALIZED_NAME_FEED_PAYMENT_DUE_AT)
+  private String feedPaymentDueAt;
+
+  public static final String SERIALIZED_NAME_FEED_PAYOFF_BALANCE = "feed_payoff_balance";
+  @SerializedName(SERIALIZED_NAME_FEED_PAYOFF_BALANCE)
+  private BigDecimal feedPayoffBalance;
+
+  public static final String SERIALIZED_NAME_FEED_ROUTING_NUMBER = "feed_routing_number";
+  @SerializedName(SERIALIZED_NAME_FEED_ROUTING_NUMBER)
+  private String feedRoutingNumber;
+
+  public static final String SERIALIZED_NAME_FEED_STARTED_ON = "feed_started_on";
+  @SerializedName(SERIALIZED_NAME_FEED_STARTED_ON)
+  private String feedStartedOn;
+
+  public static final String SERIALIZED_NAME_FEED_STATEMENT_BALANCE = "feed_statement_balance";
+  @SerializedName(SERIALIZED_NAME_FEED_STATEMENT_BALANCE)
+  private BigDecimal feedStatementBalance;
+
+  public static final String SERIALIZED_NAME_FEED_TOTAL_ACCOUNT_VALUE = "feed_total_account_value";
+  @SerializedName(SERIALIZED_NAME_FEED_TOTAL_ACCOUNT_VALUE)
+  private BigDecimal feedTotalAccountValue;
 
   public static final String SERIALIZED_NAME_GUID = "guid";
   @SerializedName(SERIALIZED_NAME_GUID)
@@ -132,6 +308,10 @@ public class AccountResponse {
   public static final String SERIALIZED_NAME_HOLDINGS_VALUE = "holdings_value";
   @SerializedName(SERIALIZED_NAME_HOLDINGS_VALUE)
   private BigDecimal holdingsValue;
+
+  public static final String SERIALIZED_NAME_HOLDINGS_VALUE_SET_BY = "holdings_value_set_by";
+  @SerializedName(SERIALIZED_NAME_HOLDINGS_VALUE_SET_BY)
+  private Integer holdingsValueSetBy;
 
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -145,6 +325,10 @@ public class AccountResponse {
   @SerializedName(SERIALIZED_NAME_INSTITUTION_CODE)
   private String institutionCode;
 
+  public static final String SERIALIZED_NAME_INSTITUTION_GUID = "institution_guid";
+  @SerializedName(SERIALIZED_NAME_INSTITUTION_GUID)
+  private String institutionGuid;
+
   public static final String SERIALIZED_NAME_INSURED_NAME = "insured_name";
   @SerializedName(SERIALIZED_NAME_INSURED_NAME)
   private String insuredName;
@@ -153,9 +337,17 @@ public class AccountResponse {
   @SerializedName(SERIALIZED_NAME_INTEREST_RATE)
   private BigDecimal interestRate;
 
+  public static final String SERIALIZED_NAME_INTEREST_RATE_SET_BY = "interest_rate_set_by";
+  @SerializedName(SERIALIZED_NAME_INTEREST_RATE_SET_BY)
+  private Integer interestRateSetBy;
+
   public static final String SERIALIZED_NAME_IS_CLOSED = "is_closed";
   @SerializedName(SERIALIZED_NAME_IS_CLOSED)
   private Boolean isClosed;
+
+  public static final String SERIALIZED_NAME_IS_CLOSED_SET_BY = "is_closed_set_by";
+  @SerializedName(SERIALIZED_NAME_IS_CLOSED_SET_BY)
+  private Integer isClosedSetBy;
 
   public static final String SERIALIZED_NAME_IS_HIDDEN = "is_hidden";
   @SerializedName(SERIALIZED_NAME_IS_HIDDEN)
@@ -169,13 +361,25 @@ public class AccountResponse {
   @SerializedName(SERIALIZED_NAME_LAST_PAYMENT)
   private BigDecimal lastPayment;
 
+  public static final String SERIALIZED_NAME_LAST_PAYMENT_SET_BY = "last_payment_set_by";
+  @SerializedName(SERIALIZED_NAME_LAST_PAYMENT_SET_BY)
+  private Integer lastPaymentSetBy;
+
   public static final String SERIALIZED_NAME_LAST_PAYMENT_AT = "last_payment_at";
   @SerializedName(SERIALIZED_NAME_LAST_PAYMENT_AT)
   private String lastPaymentAt;
 
+  public static final String SERIALIZED_NAME_LAST_PAYMENT_AT_SET_BY = "last_payment_at_set_by";
+  @SerializedName(SERIALIZED_NAME_LAST_PAYMENT_AT_SET_BY)
+  private Integer lastPaymentAtSetBy;
+
   public static final String SERIALIZED_NAME_LOAN_AMOUNT = "loan_amount";
   @SerializedName(SERIALIZED_NAME_LOAN_AMOUNT)
   private BigDecimal loanAmount;
+
+  public static final String SERIALIZED_NAME_LOAN_AMOUNT_SET_BY = "loan_amount_set_by";
+  @SerializedName(SERIALIZED_NAME_LOAN_AMOUNT_SET_BY)
+  private Integer loanAmountSetBy;
 
   public static final String SERIALIZED_NAME_MARGIN_BALANCE = "margin_balance";
   @SerializedName(SERIALIZED_NAME_MARGIN_BALANCE)
@@ -184,6 +388,10 @@ public class AccountResponse {
   public static final String SERIALIZED_NAME_MATURES_ON = "matures_on";
   @SerializedName(SERIALIZED_NAME_MATURES_ON)
   private String maturesOn;
+
+  public static final String SERIALIZED_NAME_MATURES_ON_SET_BY = "matures_on_set_by";
+  @SerializedName(SERIALIZED_NAME_MATURES_ON_SET_BY)
+  private Integer maturesOnSetBy;
 
   public static final String SERIALIZED_NAME_MEMBER_GUID = "member_guid";
   @SerializedName(SERIALIZED_NAME_MEMBER_GUID)
@@ -205,21 +413,41 @@ public class AccountResponse {
   @SerializedName(SERIALIZED_NAME_MINIMUM_BALANCE)
   private BigDecimal minimumBalance;
 
+  public static final String SERIALIZED_NAME_MINIMUM_BALANCE_SET_BY = "minimum_balance_set_by";
+  @SerializedName(SERIALIZED_NAME_MINIMUM_BALANCE_SET_BY)
+  private Integer minimumBalanceSetBy;
+
   public static final String SERIALIZED_NAME_MINIMUM_PAYMENT = "minimum_payment";
   @SerializedName(SERIALIZED_NAME_MINIMUM_PAYMENT)
   private BigDecimal minimumPayment;
+
+  public static final String SERIALIZED_NAME_MINIMUM_PAYMENT_SET_BY = "minimum_payment_set_by";
+  @SerializedName(SERIALIZED_NAME_MINIMUM_PAYMENT_SET_BY)
+  private Integer minimumPaymentSetBy;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
+  public static final String SERIALIZED_NAME_NAME_SET_BY = "name_set_by";
+  @SerializedName(SERIALIZED_NAME_NAME_SET_BY)
+  private Integer nameSetBy;
+
   public static final String SERIALIZED_NAME_NICKNAME = "nickname";
   @SerializedName(SERIALIZED_NAME_NICKNAME)
   private String nickname;
 
+  public static final String SERIALIZED_NAME_NICKNAME_SET_BY = "nickname_set_by";
+  @SerializedName(SERIALIZED_NAME_NICKNAME_SET_BY)
+  private Integer nicknameSetBy;
+
   public static final String SERIALIZED_NAME_ORIGINAL_BALANCE = "original_balance";
   @SerializedName(SERIALIZED_NAME_ORIGINAL_BALANCE)
   private BigDecimal originalBalance;
+
+  public static final String SERIALIZED_NAME_ORIGINAL_BALANCE_SET_BY = "original_balance_set_by";
+  @SerializedName(SERIALIZED_NAME_ORIGINAL_BALANCE_SET_BY)
+  private Integer originalBalanceSetBy;
 
   public static final String SERIALIZED_NAME_PAY_OUT_AMOUNT = "pay_out_amount";
   @SerializedName(SERIALIZED_NAME_PAY_OUT_AMOUNT)
@@ -229,17 +457,25 @@ public class AccountResponse {
   @SerializedName(SERIALIZED_NAME_PAYMENT_DUE_AT)
   private String paymentDueAt;
 
+  public static final String SERIALIZED_NAME_PAYMENT_DUE_AT_SET_BY = "payment_due_at_set_by";
+  @SerializedName(SERIALIZED_NAME_PAYMENT_DUE_AT_SET_BY)
+  private Integer paymentDueAtSetBy;
+
   public static final String SERIALIZED_NAME_PAYOFF_BALANCE = "payoff_balance";
   @SerializedName(SERIALIZED_NAME_PAYOFF_BALANCE)
   private BigDecimal payoffBalance;
 
+  public static final String SERIALIZED_NAME_PAYOFF_BALANCE_SET_BY = "payoff_balance_set_by";
+  @SerializedName(SERIALIZED_NAME_PAYOFF_BALANCE_SET_BY)
+  private Integer payoffBalanceSetBy;
+
   public static final String SERIALIZED_NAME_PREMIUM_AMOUNT = "premium_amount";
   @SerializedName(SERIALIZED_NAME_PREMIUM_AMOUNT)
-  private BigDecimal premiumAmount;
+  private String premiumAmount;
 
   public static final String SERIALIZED_NAME_PROPERTY_TYPE = "property_type";
   @SerializedName(SERIALIZED_NAME_PROPERTY_TYPE)
-  private String propertyType;
+  private Integer propertyType;
 
   public static final String SERIALIZED_NAME_ROUTING_NUMBER = "routing_number";
   @SerializedName(SERIALIZED_NAME_ROUTING_NUMBER)
@@ -249,13 +485,25 @@ public class AccountResponse {
   @SerializedName(SERIALIZED_NAME_STARTED_ON)
   private String startedOn;
 
+  public static final String SERIALIZED_NAME_STARTED_ON_SET_BY = "started_on_set_by";
+  @SerializedName(SERIALIZED_NAME_STARTED_ON_SET_BY)
+  private Integer startedOnSetBy;
+
   public static final String SERIALIZED_NAME_STATEMENT_BALANCE = "statement_balance";
   @SerializedName(SERIALIZED_NAME_STATEMENT_BALANCE)
   private BigDecimal statementBalance;
 
+  public static final String SERIALIZED_NAME_STATEMENT_BALANCE_SET_BY = "statement_balance_set_by";
+  @SerializedName(SERIALIZED_NAME_STATEMENT_BALANCE_SET_BY)
+  private Integer statementBalanceSetBy;
+
   public static final String SERIALIZED_NAME_SUBTYPE = "subtype";
   @SerializedName(SERIALIZED_NAME_SUBTYPE)
   private String subtype;
+
+  public static final String SERIALIZED_NAME_SUBTYPE_SET_BY = "subtype_set_by";
+  @SerializedName(SERIALIZED_NAME_SUBTYPE_SET_BY)
+  private Integer subtypeSetBy;
 
   public static final String SERIALIZED_NAME_TODAY_UGL_AMOUNT = "today_ugl_amount";
   @SerializedName(SERIALIZED_NAME_TODAY_UGL_AMOUNT)
@@ -269,6 +517,10 @@ public class AccountResponse {
   @SerializedName(SERIALIZED_NAME_TOTAL_ACCOUNT_VALUE)
   private BigDecimal totalAccountValue;
 
+  public static final String SERIALIZED_NAME_TOTAL_ACCOUNT_VALUE_SET_BY = "total_account_value_set_by";
+  @SerializedName(SERIALIZED_NAME_TOTAL_ACCOUNT_VALUE_SET_BY)
+  private Integer totalAccountValueSetBy;
+
   public static final String SERIALIZED_NAME_TOTAL_ACCOUNT_VALUE_UGL = "total_account_value_ugl";
   @SerializedName(SERIALIZED_NAME_TOTAL_ACCOUNT_VALUE_UGL)
   private BigDecimal totalAccountValueUgl;
@@ -276,6 +528,10 @@ public class AccountResponse {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
+
+  public static final String SERIALIZED_NAME_TYPE_SET_BY = "type_set_by";
+  @SerializedName(SERIALIZED_NAME_TYPE_SET_BY)
+  private Integer typeSetBy;
 
   public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
   @SerializedName(SERIALIZED_NAME_UPDATED_AT)
@@ -310,6 +566,27 @@ public class AccountResponse {
 
   public void setAccountNumber(String accountNumber) {
     this.accountNumber = accountNumber;
+  }
+
+
+  public AccountResponse accountNumberSetBy(Integer accountNumberSetBy) {
+    
+    this.accountNumberSetBy = accountNumberSetBy;
+    return this;
+  }
+
+   /**
+   * Get accountNumberSetBy
+   * @return accountNumberSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getAccountNumberSetBy() {
+    return accountNumberSetBy;
+  }
+
+
+  public void setAccountNumberSetBy(Integer accountNumberSetBy) {
+    this.accountNumberSetBy = accountNumberSetBy;
   }
 
 
@@ -376,7 +653,7 @@ public class AccountResponse {
   }
 
 
-  public AccountResponse annuityTermYear(BigDecimal annuityTermYear) {
+  public AccountResponse annuityTermYear(Integer annuityTermYear) {
     
     this.annuityTermYear = annuityTermYear;
     return this;
@@ -387,12 +664,12 @@ public class AccountResponse {
    * @return annuityTermYear
   **/
   @javax.annotation.Nullable
-  public BigDecimal getAnnuityTermYear() {
+  public Integer getAnnuityTermYear() {
     return annuityTermYear;
   }
 
 
-  public void setAnnuityTermYear(BigDecimal annuityTermYear) {
+  public void setAnnuityTermYear(Integer annuityTermYear) {
     this.annuityTermYear = annuityTermYear;
   }
 
@@ -418,6 +695,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse aprSetBy(Integer aprSetBy) {
+    
+    this.aprSetBy = aprSetBy;
+    return this;
+  }
+
+   /**
+   * Get aprSetBy
+   * @return aprSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getAprSetBy() {
+    return aprSetBy;
+  }
+
+
+  public void setAprSetBy(Integer aprSetBy) {
+    this.aprSetBy = aprSetBy;
+  }
+
+
   public AccountResponse apy(BigDecimal apy) {
     
     this.apy = apy;
@@ -436,6 +734,27 @@ public class AccountResponse {
 
   public void setApy(BigDecimal apy) {
     this.apy = apy;
+  }
+
+
+  public AccountResponse apySetBy(Integer apySetBy) {
+    
+    this.apySetBy = apySetBy;
+    return this;
+  }
+
+   /**
+   * Get apySetBy
+   * @return apySetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getApySetBy() {
+    return apySetBy;
+  }
+
+
+  public void setApySetBy(Integer apySetBy) {
+    this.apySetBy = apySetBy;
   }
 
 
@@ -460,6 +779,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse availableBalanceSetBy(Integer availableBalanceSetBy) {
+    
+    this.availableBalanceSetBy = availableBalanceSetBy;
+    return this;
+  }
+
+   /**
+   * Get availableBalanceSetBy
+   * @return availableBalanceSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getAvailableBalanceSetBy() {
+    return availableBalanceSetBy;
+  }
+
+
+  public void setAvailableBalanceSetBy(Integer availableBalanceSetBy) {
+    this.availableBalanceSetBy = availableBalanceSetBy;
+  }
+
+
   public AccountResponse availableCredit(BigDecimal availableCredit) {
     
     this.availableCredit = availableCredit;
@@ -478,6 +818,27 @@ public class AccountResponse {
 
   public void setAvailableCredit(BigDecimal availableCredit) {
     this.availableCredit = availableCredit;
+  }
+
+
+  public AccountResponse availableCreditSetBy(Integer availableCreditSetBy) {
+    
+    this.availableCreditSetBy = availableCreditSetBy;
+    return this;
+  }
+
+   /**
+   * Get availableCreditSetBy
+   * @return availableCreditSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getAvailableCreditSetBy() {
+    return availableCreditSetBy;
+  }
+
+
+  public void setAvailableCreditSetBy(Integer availableCreditSetBy) {
+    this.availableCreditSetBy = availableCreditSetBy;
   }
 
 
@@ -502,6 +863,48 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse balanceSetBy(Integer balanceSetBy) {
+    
+    this.balanceSetBy = balanceSetBy;
+    return this;
+  }
+
+   /**
+   * Get balanceSetBy
+   * @return balanceSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getBalanceSetBy() {
+    return balanceSetBy;
+  }
+
+
+  public void setBalanceSetBy(Integer balanceSetBy) {
+    this.balanceSetBy = balanceSetBy;
+  }
+
+
+  public AccountResponse calculatedApr(BigDecimal calculatedApr) {
+    
+    this.calculatedApr = calculatedApr;
+    return this;
+  }
+
+   /**
+   * Get calculatedApr
+   * @return calculatedApr
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getCalculatedApr() {
+    return calculatedApr;
+  }
+
+
+  public void setCalculatedApr(BigDecimal calculatedApr) {
+    this.calculatedApr = calculatedApr;
+  }
+
+
   public AccountResponse cashBalance(BigDecimal cashBalance) {
     
     this.cashBalance = cashBalance;
@@ -523,6 +926,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse cashBalanceSetBy(Integer cashBalanceSetBy) {
+    
+    this.cashBalanceSetBy = cashBalanceSetBy;
+    return this;
+  }
+
+   /**
+   * Get cashBalanceSetBy
+   * @return cashBalanceSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getCashBalanceSetBy() {
+    return cashBalanceSetBy;
+  }
+
+
+  public void setCashBalanceSetBy(Integer cashBalanceSetBy) {
+    this.cashBalanceSetBy = cashBalanceSetBy;
+  }
+
+
   public AccountResponse cashSurrenderValue(BigDecimal cashSurrenderValue) {
     
     this.cashSurrenderValue = cashSurrenderValue;
@@ -541,6 +965,27 @@ public class AccountResponse {
 
   public void setCashSurrenderValue(BigDecimal cashSurrenderValue) {
     this.cashSurrenderValue = cashSurrenderValue;
+  }
+
+
+  public AccountResponse cashSurrenderValueSetBy(Integer cashSurrenderValueSetBy) {
+    
+    this.cashSurrenderValueSetBy = cashSurrenderValueSetBy;
+    return this;
+  }
+
+   /**
+   * Get cashSurrenderValueSetBy
+   * @return cashSurrenderValueSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getCashSurrenderValueSetBy() {
+    return cashSurrenderValueSetBy;
+  }
+
+
+  public void setCashSurrenderValueSetBy(Integer cashSurrenderValueSetBy) {
+    this.cashSurrenderValueSetBy = cashSurrenderValueSetBy;
   }
 
 
@@ -586,6 +1031,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse creditLimitSetBy(Integer creditLimitSetBy) {
+    
+    this.creditLimitSetBy = creditLimitSetBy;
+    return this;
+  }
+
+   /**
+   * Get creditLimitSetBy
+   * @return creditLimitSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getCreditLimitSetBy() {
+    return creditLimitSetBy;
+  }
+
+
+  public void setCreditLimitSetBy(Integer creditLimitSetBy) {
+    this.creditLimitSetBy = creditLimitSetBy;
+  }
+
+
   public AccountResponse currencyCode(String currencyCode) {
     
     this.currencyCode = currencyCode;
@@ -604,6 +1070,27 @@ public class AccountResponse {
 
   public void setCurrencyCode(String currencyCode) {
     this.currencyCode = currencyCode;
+  }
+
+
+  public AccountResponse currencyCodeSetBy(Integer currencyCodeSetBy) {
+    
+    this.currencyCodeSetBy = currencyCodeSetBy;
+    return this;
+  }
+
+   /**
+   * Get currencyCodeSetBy
+   * @return currencyCodeSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getCurrencyCodeSetBy() {
+    return currencyCodeSetBy;
+  }
+
+
+  public void setCurrencyCodeSetBy(Integer currencyCodeSetBy) {
+    this.currencyCodeSetBy = currencyCodeSetBy;
   }
 
 
@@ -628,6 +1115,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse dayPaymentIsDueSetBy(Integer dayPaymentIsDueSetBy) {
+    
+    this.dayPaymentIsDueSetBy = dayPaymentIsDueSetBy;
+    return this;
+  }
+
+   /**
+   * Get dayPaymentIsDueSetBy
+   * @return dayPaymentIsDueSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getDayPaymentIsDueSetBy() {
+    return dayPaymentIsDueSetBy;
+  }
+
+
+  public void setDayPaymentIsDueSetBy(Integer dayPaymentIsDueSetBy) {
+    this.dayPaymentIsDueSetBy = dayPaymentIsDueSetBy;
+  }
+
+
   public AccountResponse deathBenefit(Integer deathBenefit) {
     
     this.deathBenefit = deathBenefit;
@@ -649,6 +1157,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse deathBenefitSetBy(Integer deathBenefitSetBy) {
+    
+    this.deathBenefitSetBy = deathBenefitSetBy;
+    return this;
+  }
+
+   /**
+   * Get deathBenefitSetBy
+   * @return deathBenefitSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getDeathBenefitSetBy() {
+    return deathBenefitSetBy;
+  }
+
+
+  public void setDeathBenefitSetBy(Integer deathBenefitSetBy) {
+    this.deathBenefitSetBy = deathBenefitSetBy;
+  }
+
+
   public AccountResponse federalInsuranceStatus(String federalInsuranceStatus) {
     
     this.federalInsuranceStatus = federalInsuranceStatus;
@@ -667,6 +1196,657 @@ public class AccountResponse {
 
   public void setFederalInsuranceStatus(String federalInsuranceStatus) {
     this.federalInsuranceStatus = federalInsuranceStatus;
+  }
+
+
+  public AccountResponse feedAccountNumber(String feedAccountNumber) {
+    
+    this.feedAccountNumber = feedAccountNumber;
+    return this;
+  }
+
+   /**
+   * Get feedAccountNumber
+   * @return feedAccountNumber
+  **/
+  @javax.annotation.Nullable
+  public String getFeedAccountNumber() {
+    return feedAccountNumber;
+  }
+
+
+  public void setFeedAccountNumber(String feedAccountNumber) {
+    this.feedAccountNumber = feedAccountNumber;
+  }
+
+
+  public AccountResponse feedAccountSubtype(Integer feedAccountSubtype) {
+    
+    this.feedAccountSubtype = feedAccountSubtype;
+    return this;
+  }
+
+   /**
+   * Get feedAccountSubtype
+   * @return feedAccountSubtype
+  **/
+  @javax.annotation.Nullable
+  public Integer getFeedAccountSubtype() {
+    return feedAccountSubtype;
+  }
+
+
+  public void setFeedAccountSubtype(Integer feedAccountSubtype) {
+    this.feedAccountSubtype = feedAccountSubtype;
+  }
+
+
+  public AccountResponse feedAccountType(Integer feedAccountType) {
+    
+    this.feedAccountType = feedAccountType;
+    return this;
+  }
+
+   /**
+   * Get feedAccountType
+   * @return feedAccountType
+  **/
+  @javax.annotation.Nullable
+  public Integer getFeedAccountType() {
+    return feedAccountType;
+  }
+
+
+  public void setFeedAccountType(Integer feedAccountType) {
+    this.feedAccountType = feedAccountType;
+  }
+
+
+  public AccountResponse feedApr(BigDecimal feedApr) {
+    
+    this.feedApr = feedApr;
+    return this;
+  }
+
+   /**
+   * Get feedApr
+   * @return feedApr
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedApr() {
+    return feedApr;
+  }
+
+
+  public void setFeedApr(BigDecimal feedApr) {
+    this.feedApr = feedApr;
+  }
+
+
+  public AccountResponse feedApy(BigDecimal feedApy) {
+    
+    this.feedApy = feedApy;
+    return this;
+  }
+
+   /**
+   * Get feedApy
+   * @return feedApy
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedApy() {
+    return feedApy;
+  }
+
+
+  public void setFeedApy(BigDecimal feedApy) {
+    this.feedApy = feedApy;
+  }
+
+
+  public AccountResponse feedAvailableBalance(BigDecimal feedAvailableBalance) {
+    
+    this.feedAvailableBalance = feedAvailableBalance;
+    return this;
+  }
+
+   /**
+   * Get feedAvailableBalance
+   * @return feedAvailableBalance
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedAvailableBalance() {
+    return feedAvailableBalance;
+  }
+
+
+  public void setFeedAvailableBalance(BigDecimal feedAvailableBalance) {
+    this.feedAvailableBalance = feedAvailableBalance;
+  }
+
+
+  public AccountResponse feedBalance(BigDecimal feedBalance) {
+    
+    this.feedBalance = feedBalance;
+    return this;
+  }
+
+   /**
+   * Get feedBalance
+   * @return feedBalance
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedBalance() {
+    return feedBalance;
+  }
+
+
+  public void setFeedBalance(BigDecimal feedBalance) {
+    this.feedBalance = feedBalance;
+  }
+
+
+  public AccountResponse feedCashBalance(BigDecimal feedCashBalance) {
+    
+    this.feedCashBalance = feedCashBalance;
+    return this;
+  }
+
+   /**
+   * Get feedCashBalance
+   * @return feedCashBalance
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedCashBalance() {
+    return feedCashBalance;
+  }
+
+
+  public void setFeedCashBalance(BigDecimal feedCashBalance) {
+    this.feedCashBalance = feedCashBalance;
+  }
+
+
+  public AccountResponse feedCashSurrenderValue(BigDecimal feedCashSurrenderValue) {
+    
+    this.feedCashSurrenderValue = feedCashSurrenderValue;
+    return this;
+  }
+
+   /**
+   * Get feedCashSurrenderValue
+   * @return feedCashSurrenderValue
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedCashSurrenderValue() {
+    return feedCashSurrenderValue;
+  }
+
+
+  public void setFeedCashSurrenderValue(BigDecimal feedCashSurrenderValue) {
+    this.feedCashSurrenderValue = feedCashSurrenderValue;
+  }
+
+
+  public AccountResponse feedCreditLimit(BigDecimal feedCreditLimit) {
+    
+    this.feedCreditLimit = feedCreditLimit;
+    return this;
+  }
+
+   /**
+   * Get feedCreditLimit
+   * @return feedCreditLimit
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedCreditLimit() {
+    return feedCreditLimit;
+  }
+
+
+  public void setFeedCreditLimit(BigDecimal feedCreditLimit) {
+    this.feedCreditLimit = feedCreditLimit;
+  }
+
+
+  public AccountResponse feedCurrencyCode(String feedCurrencyCode) {
+    
+    this.feedCurrencyCode = feedCurrencyCode;
+    return this;
+  }
+
+   /**
+   * Get feedCurrencyCode
+   * @return feedCurrencyCode
+  **/
+  @javax.annotation.Nullable
+  public String getFeedCurrencyCode() {
+    return feedCurrencyCode;
+  }
+
+
+  public void setFeedCurrencyCode(String feedCurrencyCode) {
+    this.feedCurrencyCode = feedCurrencyCode;
+  }
+
+
+  public AccountResponse feedDayPaymentIsDue(Integer feedDayPaymentIsDue) {
+    
+    this.feedDayPaymentIsDue = feedDayPaymentIsDue;
+    return this;
+  }
+
+   /**
+   * Get feedDayPaymentIsDue
+   * @return feedDayPaymentIsDue
+  **/
+  @javax.annotation.Nullable
+  public Integer getFeedDayPaymentIsDue() {
+    return feedDayPaymentIsDue;
+  }
+
+
+  public void setFeedDayPaymentIsDue(Integer feedDayPaymentIsDue) {
+    this.feedDayPaymentIsDue = feedDayPaymentIsDue;
+  }
+
+
+  public AccountResponse feedDeathBenefit(Integer feedDeathBenefit) {
+    
+    this.feedDeathBenefit = feedDeathBenefit;
+    return this;
+  }
+
+   /**
+   * Get feedDeathBenefit
+   * @return feedDeathBenefit
+  **/
+  @javax.annotation.Nullable
+  public Integer getFeedDeathBenefit() {
+    return feedDeathBenefit;
+  }
+
+
+  public void setFeedDeathBenefit(Integer feedDeathBenefit) {
+    this.feedDeathBenefit = feedDeathBenefit;
+  }
+
+
+  public AccountResponse feedHoldingsValue(BigDecimal feedHoldingsValue) {
+    
+    this.feedHoldingsValue = feedHoldingsValue;
+    return this;
+  }
+
+   /**
+   * Get feedHoldingsValue
+   * @return feedHoldingsValue
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedHoldingsValue() {
+    return feedHoldingsValue;
+  }
+
+
+  public void setFeedHoldingsValue(BigDecimal feedHoldingsValue) {
+    this.feedHoldingsValue = feedHoldingsValue;
+  }
+
+
+  public AccountResponse feedInterestRate(BigDecimal feedInterestRate) {
+    
+    this.feedInterestRate = feedInterestRate;
+    return this;
+  }
+
+   /**
+   * Get feedInterestRate
+   * @return feedInterestRate
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedInterestRate() {
+    return feedInterestRate;
+  }
+
+
+  public void setFeedInterestRate(BigDecimal feedInterestRate) {
+    this.feedInterestRate = feedInterestRate;
+  }
+
+
+  public AccountResponse feedIsClosed(Boolean feedIsClosed) {
+    
+    this.feedIsClosed = feedIsClosed;
+    return this;
+  }
+
+   /**
+   * Get feedIsClosed
+   * @return feedIsClosed
+  **/
+  @javax.annotation.Nullable
+  public Boolean getFeedIsClosed() {
+    return feedIsClosed;
+  }
+
+
+  public void setFeedIsClosed(Boolean feedIsClosed) {
+    this.feedIsClosed = feedIsClosed;
+  }
+
+
+  public AccountResponse feedLastPayment(BigDecimal feedLastPayment) {
+    
+    this.feedLastPayment = feedLastPayment;
+    return this;
+  }
+
+   /**
+   * Get feedLastPayment
+   * @return feedLastPayment
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedLastPayment() {
+    return feedLastPayment;
+  }
+
+
+  public void setFeedLastPayment(BigDecimal feedLastPayment) {
+    this.feedLastPayment = feedLastPayment;
+  }
+
+
+  public AccountResponse feedLastPaymentAt(String feedLastPaymentAt) {
+    
+    this.feedLastPaymentAt = feedLastPaymentAt;
+    return this;
+  }
+
+   /**
+   * Get feedLastPaymentAt
+   * @return feedLastPaymentAt
+  **/
+  @javax.annotation.Nullable
+  public String getFeedLastPaymentAt() {
+    return feedLastPaymentAt;
+  }
+
+
+  public void setFeedLastPaymentAt(String feedLastPaymentAt) {
+    this.feedLastPaymentAt = feedLastPaymentAt;
+  }
+
+
+  public AccountResponse feedLoanAmount(BigDecimal feedLoanAmount) {
+    
+    this.feedLoanAmount = feedLoanAmount;
+    return this;
+  }
+
+   /**
+   * Get feedLoanAmount
+   * @return feedLoanAmount
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedLoanAmount() {
+    return feedLoanAmount;
+  }
+
+
+  public void setFeedLoanAmount(BigDecimal feedLoanAmount) {
+    this.feedLoanAmount = feedLoanAmount;
+  }
+
+
+  public AccountResponse feedMaturesOn(String feedMaturesOn) {
+    
+    this.feedMaturesOn = feedMaturesOn;
+    return this;
+  }
+
+   /**
+   * Get feedMaturesOn
+   * @return feedMaturesOn
+  **/
+  @javax.annotation.Nullable
+  public String getFeedMaturesOn() {
+    return feedMaturesOn;
+  }
+
+
+  public void setFeedMaturesOn(String feedMaturesOn) {
+    this.feedMaturesOn = feedMaturesOn;
+  }
+
+
+  public AccountResponse feedMinimumBalance(BigDecimal feedMinimumBalance) {
+    
+    this.feedMinimumBalance = feedMinimumBalance;
+    return this;
+  }
+
+   /**
+   * Get feedMinimumBalance
+   * @return feedMinimumBalance
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedMinimumBalance() {
+    return feedMinimumBalance;
+  }
+
+
+  public void setFeedMinimumBalance(BigDecimal feedMinimumBalance) {
+    this.feedMinimumBalance = feedMinimumBalance;
+  }
+
+
+  public AccountResponse feedMinimumPayment(BigDecimal feedMinimumPayment) {
+    
+    this.feedMinimumPayment = feedMinimumPayment;
+    return this;
+  }
+
+   /**
+   * Get feedMinimumPayment
+   * @return feedMinimumPayment
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedMinimumPayment() {
+    return feedMinimumPayment;
+  }
+
+
+  public void setFeedMinimumPayment(BigDecimal feedMinimumPayment) {
+    this.feedMinimumPayment = feedMinimumPayment;
+  }
+
+
+  public AccountResponse feedName(String feedName) {
+    
+    this.feedName = feedName;
+    return this;
+  }
+
+   /**
+   * Get feedName
+   * @return feedName
+  **/
+  @javax.annotation.Nullable
+  public String getFeedName() {
+    return feedName;
+  }
+
+
+  public void setFeedName(String feedName) {
+    this.feedName = feedName;
+  }
+
+
+  public AccountResponse feedNickname(String feedNickname) {
+    
+    this.feedNickname = feedNickname;
+    return this;
+  }
+
+   /**
+   * Get feedNickname
+   * @return feedNickname
+  **/
+  @javax.annotation.Nullable
+  public String getFeedNickname() {
+    return feedNickname;
+  }
+
+
+  public void setFeedNickname(String feedNickname) {
+    this.feedNickname = feedNickname;
+  }
+
+
+  public AccountResponse feedOriginalBalance(BigDecimal feedOriginalBalance) {
+    
+    this.feedOriginalBalance = feedOriginalBalance;
+    return this;
+  }
+
+   /**
+   * Get feedOriginalBalance
+   * @return feedOriginalBalance
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedOriginalBalance() {
+    return feedOriginalBalance;
+  }
+
+
+  public void setFeedOriginalBalance(BigDecimal feedOriginalBalance) {
+    this.feedOriginalBalance = feedOriginalBalance;
+  }
+
+
+  public AccountResponse feedPaymentDueAt(String feedPaymentDueAt) {
+    
+    this.feedPaymentDueAt = feedPaymentDueAt;
+    return this;
+  }
+
+   /**
+   * Get feedPaymentDueAt
+   * @return feedPaymentDueAt
+  **/
+  @javax.annotation.Nullable
+  public String getFeedPaymentDueAt() {
+    return feedPaymentDueAt;
+  }
+
+
+  public void setFeedPaymentDueAt(String feedPaymentDueAt) {
+    this.feedPaymentDueAt = feedPaymentDueAt;
+  }
+
+
+  public AccountResponse feedPayoffBalance(BigDecimal feedPayoffBalance) {
+    
+    this.feedPayoffBalance = feedPayoffBalance;
+    return this;
+  }
+
+   /**
+   * Get feedPayoffBalance
+   * @return feedPayoffBalance
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedPayoffBalance() {
+    return feedPayoffBalance;
+  }
+
+
+  public void setFeedPayoffBalance(BigDecimal feedPayoffBalance) {
+    this.feedPayoffBalance = feedPayoffBalance;
+  }
+
+
+  public AccountResponse feedRoutingNumber(String feedRoutingNumber) {
+    
+    this.feedRoutingNumber = feedRoutingNumber;
+    return this;
+  }
+
+   /**
+   * Get feedRoutingNumber
+   * @return feedRoutingNumber
+  **/
+  @javax.annotation.Nullable
+  public String getFeedRoutingNumber() {
+    return feedRoutingNumber;
+  }
+
+
+  public void setFeedRoutingNumber(String feedRoutingNumber) {
+    this.feedRoutingNumber = feedRoutingNumber;
+  }
+
+
+  public AccountResponse feedStartedOn(String feedStartedOn) {
+    
+    this.feedStartedOn = feedStartedOn;
+    return this;
+  }
+
+   /**
+   * Get feedStartedOn
+   * @return feedStartedOn
+  **/
+  @javax.annotation.Nullable
+  public String getFeedStartedOn() {
+    return feedStartedOn;
+  }
+
+
+  public void setFeedStartedOn(String feedStartedOn) {
+    this.feedStartedOn = feedStartedOn;
+  }
+
+
+  public AccountResponse feedStatementBalance(BigDecimal feedStatementBalance) {
+    
+    this.feedStatementBalance = feedStatementBalance;
+    return this;
+  }
+
+   /**
+   * Get feedStatementBalance
+   * @return feedStatementBalance
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedStatementBalance() {
+    return feedStatementBalance;
+  }
+
+
+  public void setFeedStatementBalance(BigDecimal feedStatementBalance) {
+    this.feedStatementBalance = feedStatementBalance;
+  }
+
+
+  public AccountResponse feedTotalAccountValue(BigDecimal feedTotalAccountValue) {
+    
+    this.feedTotalAccountValue = feedTotalAccountValue;
+    return this;
+  }
+
+   /**
+   * Get feedTotalAccountValue
+   * @return feedTotalAccountValue
+  **/
+  @javax.annotation.Nullable
+  public BigDecimal getFeedTotalAccountValue() {
+    return feedTotalAccountValue;
+  }
+
+
+  public void setFeedTotalAccountValue(BigDecimal feedTotalAccountValue) {
+    this.feedTotalAccountValue = feedTotalAccountValue;
   }
 
 
@@ -709,6 +1889,27 @@ public class AccountResponse {
 
   public void setHoldingsValue(BigDecimal holdingsValue) {
     this.holdingsValue = holdingsValue;
+  }
+
+
+  public AccountResponse holdingsValueSetBy(Integer holdingsValueSetBy) {
+    
+    this.holdingsValueSetBy = holdingsValueSetBy;
+    return this;
+  }
+
+   /**
+   * Get holdingsValueSetBy
+   * @return holdingsValueSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getHoldingsValueSetBy() {
+    return holdingsValueSetBy;
+  }
+
+
+  public void setHoldingsValueSetBy(Integer holdingsValueSetBy) {
+    this.holdingsValueSetBy = holdingsValueSetBy;
   }
 
 
@@ -775,6 +1976,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse institutionGuid(String institutionGuid) {
+    
+    this.institutionGuid = institutionGuid;
+    return this;
+  }
+
+   /**
+   * Get institutionGuid
+   * @return institutionGuid
+  **/
+  @javax.annotation.Nullable
+  public String getInstitutionGuid() {
+    return institutionGuid;
+  }
+
+
+  public void setInstitutionGuid(String institutionGuid) {
+    this.institutionGuid = institutionGuid;
+  }
+
+
   public AccountResponse insuredName(String insuredName) {
     
     this.insuredName = insuredName;
@@ -817,6 +2039,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse interestRateSetBy(Integer interestRateSetBy) {
+    
+    this.interestRateSetBy = interestRateSetBy;
+    return this;
+  }
+
+   /**
+   * Get interestRateSetBy
+   * @return interestRateSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getInterestRateSetBy() {
+    return interestRateSetBy;
+  }
+
+
+  public void setInterestRateSetBy(Integer interestRateSetBy) {
+    this.interestRateSetBy = interestRateSetBy;
+  }
+
+
   public AccountResponse isClosed(Boolean isClosed) {
     
     this.isClosed = isClosed;
@@ -835,6 +2078,27 @@ public class AccountResponse {
 
   public void setIsClosed(Boolean isClosed) {
     this.isClosed = isClosed;
+  }
+
+
+  public AccountResponse isClosedSetBy(Integer isClosedSetBy) {
+    
+    this.isClosedSetBy = isClosedSetBy;
+    return this;
+  }
+
+   /**
+   * Get isClosedSetBy
+   * @return isClosedSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getIsClosedSetBy() {
+    return isClosedSetBy;
+  }
+
+
+  public void setIsClosedSetBy(Integer isClosedSetBy) {
+    this.isClosedSetBy = isClosedSetBy;
   }
 
 
@@ -901,6 +2165,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse lastPaymentSetBy(Integer lastPaymentSetBy) {
+    
+    this.lastPaymentSetBy = lastPaymentSetBy;
+    return this;
+  }
+
+   /**
+   * Get lastPaymentSetBy
+   * @return lastPaymentSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getLastPaymentSetBy() {
+    return lastPaymentSetBy;
+  }
+
+
+  public void setLastPaymentSetBy(Integer lastPaymentSetBy) {
+    this.lastPaymentSetBy = lastPaymentSetBy;
+  }
+
+
   public AccountResponse lastPaymentAt(String lastPaymentAt) {
     
     this.lastPaymentAt = lastPaymentAt;
@@ -922,6 +2207,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse lastPaymentAtSetBy(Integer lastPaymentAtSetBy) {
+    
+    this.lastPaymentAtSetBy = lastPaymentAtSetBy;
+    return this;
+  }
+
+   /**
+   * Get lastPaymentAtSetBy
+   * @return lastPaymentAtSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getLastPaymentAtSetBy() {
+    return lastPaymentAtSetBy;
+  }
+
+
+  public void setLastPaymentAtSetBy(Integer lastPaymentAtSetBy) {
+    this.lastPaymentAtSetBy = lastPaymentAtSetBy;
+  }
+
+
   public AccountResponse loanAmount(BigDecimal loanAmount) {
     
     this.loanAmount = loanAmount;
@@ -940,6 +2246,27 @@ public class AccountResponse {
 
   public void setLoanAmount(BigDecimal loanAmount) {
     this.loanAmount = loanAmount;
+  }
+
+
+  public AccountResponse loanAmountSetBy(Integer loanAmountSetBy) {
+    
+    this.loanAmountSetBy = loanAmountSetBy;
+    return this;
+  }
+
+   /**
+   * Get loanAmountSetBy
+   * @return loanAmountSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getLoanAmountSetBy() {
+    return loanAmountSetBy;
+  }
+
+
+  public void setLoanAmountSetBy(Integer loanAmountSetBy) {
+    this.loanAmountSetBy = loanAmountSetBy;
   }
 
 
@@ -982,6 +2309,27 @@ public class AccountResponse {
 
   public void setMaturesOn(String maturesOn) {
     this.maturesOn = maturesOn;
+  }
+
+
+  public AccountResponse maturesOnSetBy(Integer maturesOnSetBy) {
+    
+    this.maturesOnSetBy = maturesOnSetBy;
+    return this;
+  }
+
+   /**
+   * Get maturesOnSetBy
+   * @return maturesOnSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getMaturesOnSetBy() {
+    return maturesOnSetBy;
+  }
+
+
+  public void setMaturesOnSetBy(Integer maturesOnSetBy) {
+    this.maturesOnSetBy = maturesOnSetBy;
   }
 
 
@@ -1090,6 +2438,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse minimumBalanceSetBy(Integer minimumBalanceSetBy) {
+    
+    this.minimumBalanceSetBy = minimumBalanceSetBy;
+    return this;
+  }
+
+   /**
+   * Get minimumBalanceSetBy
+   * @return minimumBalanceSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getMinimumBalanceSetBy() {
+    return minimumBalanceSetBy;
+  }
+
+
+  public void setMinimumBalanceSetBy(Integer minimumBalanceSetBy) {
+    this.minimumBalanceSetBy = minimumBalanceSetBy;
+  }
+
+
   public AccountResponse minimumPayment(BigDecimal minimumPayment) {
     
     this.minimumPayment = minimumPayment;
@@ -1108,6 +2477,27 @@ public class AccountResponse {
 
   public void setMinimumPayment(BigDecimal minimumPayment) {
     this.minimumPayment = minimumPayment;
+  }
+
+
+  public AccountResponse minimumPaymentSetBy(Integer minimumPaymentSetBy) {
+    
+    this.minimumPaymentSetBy = minimumPaymentSetBy;
+    return this;
+  }
+
+   /**
+   * Get minimumPaymentSetBy
+   * @return minimumPaymentSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getMinimumPaymentSetBy() {
+    return minimumPaymentSetBy;
+  }
+
+
+  public void setMinimumPaymentSetBy(Integer minimumPaymentSetBy) {
+    this.minimumPaymentSetBy = minimumPaymentSetBy;
   }
 
 
@@ -1132,6 +2522,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse nameSetBy(Integer nameSetBy) {
+    
+    this.nameSetBy = nameSetBy;
+    return this;
+  }
+
+   /**
+   * Get nameSetBy
+   * @return nameSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getNameSetBy() {
+    return nameSetBy;
+  }
+
+
+  public void setNameSetBy(Integer nameSetBy) {
+    this.nameSetBy = nameSetBy;
+  }
+
+
   public AccountResponse nickname(String nickname) {
     
     this.nickname = nickname;
@@ -1153,6 +2564,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse nicknameSetBy(Integer nicknameSetBy) {
+    
+    this.nicknameSetBy = nicknameSetBy;
+    return this;
+  }
+
+   /**
+   * Get nicknameSetBy
+   * @return nicknameSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getNicknameSetBy() {
+    return nicknameSetBy;
+  }
+
+
+  public void setNicknameSetBy(Integer nicknameSetBy) {
+    this.nicknameSetBy = nicknameSetBy;
+  }
+
+
   public AccountResponse originalBalance(BigDecimal originalBalance) {
     
     this.originalBalance = originalBalance;
@@ -1171,6 +2603,27 @@ public class AccountResponse {
 
   public void setOriginalBalance(BigDecimal originalBalance) {
     this.originalBalance = originalBalance;
+  }
+
+
+  public AccountResponse originalBalanceSetBy(Integer originalBalanceSetBy) {
+    
+    this.originalBalanceSetBy = originalBalanceSetBy;
+    return this;
+  }
+
+   /**
+   * Get originalBalanceSetBy
+   * @return originalBalanceSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getOriginalBalanceSetBy() {
+    return originalBalanceSetBy;
+  }
+
+
+  public void setOriginalBalanceSetBy(Integer originalBalanceSetBy) {
+    this.originalBalanceSetBy = originalBalanceSetBy;
   }
 
 
@@ -1216,6 +2669,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse paymentDueAtSetBy(Integer paymentDueAtSetBy) {
+    
+    this.paymentDueAtSetBy = paymentDueAtSetBy;
+    return this;
+  }
+
+   /**
+   * Get paymentDueAtSetBy
+   * @return paymentDueAtSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getPaymentDueAtSetBy() {
+    return paymentDueAtSetBy;
+  }
+
+
+  public void setPaymentDueAtSetBy(Integer paymentDueAtSetBy) {
+    this.paymentDueAtSetBy = paymentDueAtSetBy;
+  }
+
+
   public AccountResponse payoffBalance(BigDecimal payoffBalance) {
     
     this.payoffBalance = payoffBalance;
@@ -1237,7 +2711,28 @@ public class AccountResponse {
   }
 
 
-  public AccountResponse premiumAmount(BigDecimal premiumAmount) {
+  public AccountResponse payoffBalanceSetBy(Integer payoffBalanceSetBy) {
+    
+    this.payoffBalanceSetBy = payoffBalanceSetBy;
+    return this;
+  }
+
+   /**
+   * Get payoffBalanceSetBy
+   * @return payoffBalanceSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getPayoffBalanceSetBy() {
+    return payoffBalanceSetBy;
+  }
+
+
+  public void setPayoffBalanceSetBy(Integer payoffBalanceSetBy) {
+    this.payoffBalanceSetBy = payoffBalanceSetBy;
+  }
+
+
+  public AccountResponse premiumAmount(String premiumAmount) {
     
     this.premiumAmount = premiumAmount;
     return this;
@@ -1248,17 +2743,17 @@ public class AccountResponse {
    * @return premiumAmount
   **/
   @javax.annotation.Nullable
-  public BigDecimal getPremiumAmount() {
+  public String getPremiumAmount() {
     return premiumAmount;
   }
 
 
-  public void setPremiumAmount(BigDecimal premiumAmount) {
+  public void setPremiumAmount(String premiumAmount) {
     this.premiumAmount = premiumAmount;
   }
 
 
-  public AccountResponse propertyType(String propertyType) {
+  public AccountResponse propertyType(Integer propertyType) {
     
     this.propertyType = propertyType;
     return this;
@@ -1269,12 +2764,12 @@ public class AccountResponse {
    * @return propertyType
   **/
   @javax.annotation.Nullable
-  public String getPropertyType() {
+  public Integer getPropertyType() {
     return propertyType;
   }
 
 
-  public void setPropertyType(String propertyType) {
+  public void setPropertyType(Integer propertyType) {
     this.propertyType = propertyType;
   }
 
@@ -1321,6 +2816,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse startedOnSetBy(Integer startedOnSetBy) {
+    
+    this.startedOnSetBy = startedOnSetBy;
+    return this;
+  }
+
+   /**
+   * Get startedOnSetBy
+   * @return startedOnSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getStartedOnSetBy() {
+    return startedOnSetBy;
+  }
+
+
+  public void setStartedOnSetBy(Integer startedOnSetBy) {
+    this.startedOnSetBy = startedOnSetBy;
+  }
+
+
   public AccountResponse statementBalance(BigDecimal statementBalance) {
     
     this.statementBalance = statementBalance;
@@ -1342,6 +2858,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse statementBalanceSetBy(Integer statementBalanceSetBy) {
+    
+    this.statementBalanceSetBy = statementBalanceSetBy;
+    return this;
+  }
+
+   /**
+   * Get statementBalanceSetBy
+   * @return statementBalanceSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getStatementBalanceSetBy() {
+    return statementBalanceSetBy;
+  }
+
+
+  public void setStatementBalanceSetBy(Integer statementBalanceSetBy) {
+    this.statementBalanceSetBy = statementBalanceSetBy;
+  }
+
+
   public AccountResponse subtype(String subtype) {
     
     this.subtype = subtype;
@@ -1360,6 +2897,27 @@ public class AccountResponse {
 
   public void setSubtype(String subtype) {
     this.subtype = subtype;
+  }
+
+
+  public AccountResponse subtypeSetBy(Integer subtypeSetBy) {
+    
+    this.subtypeSetBy = subtypeSetBy;
+    return this;
+  }
+
+   /**
+   * Get subtypeSetBy
+   * @return subtypeSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getSubtypeSetBy() {
+    return subtypeSetBy;
+  }
+
+
+  public void setSubtypeSetBy(Integer subtypeSetBy) {
+    this.subtypeSetBy = subtypeSetBy;
   }
 
 
@@ -1426,6 +2984,27 @@ public class AccountResponse {
   }
 
 
+  public AccountResponse totalAccountValueSetBy(Integer totalAccountValueSetBy) {
+    
+    this.totalAccountValueSetBy = totalAccountValueSetBy;
+    return this;
+  }
+
+   /**
+   * Get totalAccountValueSetBy
+   * @return totalAccountValueSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getTotalAccountValueSetBy() {
+    return totalAccountValueSetBy;
+  }
+
+
+  public void setTotalAccountValueSetBy(Integer totalAccountValueSetBy) {
+    this.totalAccountValueSetBy = totalAccountValueSetBy;
+  }
+
+
   public AccountResponse totalAccountValueUgl(BigDecimal totalAccountValueUgl) {
     
     this.totalAccountValueUgl = totalAccountValueUgl;
@@ -1465,6 +3044,27 @@ public class AccountResponse {
 
   public void setType(String type) {
     this.type = type;
+  }
+
+
+  public AccountResponse typeSetBy(Integer typeSetBy) {
+    
+    this.typeSetBy = typeSetBy;
+    return this;
+  }
+
+   /**
+   * Get typeSetBy
+   * @return typeSetBy
+  **/
+  @javax.annotation.Nullable
+  public Integer getTypeSetBy() {
+    return typeSetBy;
+  }
+
+
+  public void setTypeSetBy(Integer typeSetBy) {
+    this.typeSetBy = typeSetBy;
   }
 
 
@@ -1542,61 +3142,125 @@ public class AccountResponse {
     }
     AccountResponse accountResponse = (AccountResponse) o;
     return Objects.equals(this.accountNumber, accountResponse.accountNumber) &&
+        Objects.equals(this.accountNumberSetBy, accountResponse.accountNumberSetBy) &&
         Objects.equals(this.accountOwnership, accountResponse.accountOwnership) &&
         Objects.equals(this.annuityPolicyToDate, accountResponse.annuityPolicyToDate) &&
         Objects.equals(this.annuityProvider, accountResponse.annuityProvider) &&
         Objects.equals(this.annuityTermYear, accountResponse.annuityTermYear) &&
         Objects.equals(this.apr, accountResponse.apr) &&
+        Objects.equals(this.aprSetBy, accountResponse.aprSetBy) &&
         Objects.equals(this.apy, accountResponse.apy) &&
+        Objects.equals(this.apySetBy, accountResponse.apySetBy) &&
         Objects.equals(this.availableBalance, accountResponse.availableBalance) &&
+        Objects.equals(this.availableBalanceSetBy, accountResponse.availableBalanceSetBy) &&
         Objects.equals(this.availableCredit, accountResponse.availableCredit) &&
+        Objects.equals(this.availableCreditSetBy, accountResponse.availableCreditSetBy) &&
         Objects.equals(this.balance, accountResponse.balance) &&
+        Objects.equals(this.balanceSetBy, accountResponse.balanceSetBy) &&
+        Objects.equals(this.calculatedApr, accountResponse.calculatedApr) &&
         Objects.equals(this.cashBalance, accountResponse.cashBalance) &&
+        Objects.equals(this.cashBalanceSetBy, accountResponse.cashBalanceSetBy) &&
         Objects.equals(this.cashSurrenderValue, accountResponse.cashSurrenderValue) &&
+        Objects.equals(this.cashSurrenderValueSetBy, accountResponse.cashSurrenderValueSetBy) &&
         Objects.equals(this.createdAt, accountResponse.createdAt) &&
         Objects.equals(this.creditLimit, accountResponse.creditLimit) &&
+        Objects.equals(this.creditLimitSetBy, accountResponse.creditLimitSetBy) &&
         Objects.equals(this.currencyCode, accountResponse.currencyCode) &&
+        Objects.equals(this.currencyCodeSetBy, accountResponse.currencyCodeSetBy) &&
         Objects.equals(this.dayPaymentIsDue, accountResponse.dayPaymentIsDue) &&
+        Objects.equals(this.dayPaymentIsDueSetBy, accountResponse.dayPaymentIsDueSetBy) &&
         Objects.equals(this.deathBenefit, accountResponse.deathBenefit) &&
+        Objects.equals(this.deathBenefitSetBy, accountResponse.deathBenefitSetBy) &&
         Objects.equals(this.federalInsuranceStatus, accountResponse.federalInsuranceStatus) &&
+        Objects.equals(this.feedAccountNumber, accountResponse.feedAccountNumber) &&
+        Objects.equals(this.feedAccountSubtype, accountResponse.feedAccountSubtype) &&
+        Objects.equals(this.feedAccountType, accountResponse.feedAccountType) &&
+        Objects.equals(this.feedApr, accountResponse.feedApr) &&
+        Objects.equals(this.feedApy, accountResponse.feedApy) &&
+        Objects.equals(this.feedAvailableBalance, accountResponse.feedAvailableBalance) &&
+        Objects.equals(this.feedBalance, accountResponse.feedBalance) &&
+        Objects.equals(this.feedCashBalance, accountResponse.feedCashBalance) &&
+        Objects.equals(this.feedCashSurrenderValue, accountResponse.feedCashSurrenderValue) &&
+        Objects.equals(this.feedCreditLimit, accountResponse.feedCreditLimit) &&
+        Objects.equals(this.feedCurrencyCode, accountResponse.feedCurrencyCode) &&
+        Objects.equals(this.feedDayPaymentIsDue, accountResponse.feedDayPaymentIsDue) &&
+        Objects.equals(this.feedDeathBenefit, accountResponse.feedDeathBenefit) &&
+        Objects.equals(this.feedHoldingsValue, accountResponse.feedHoldingsValue) &&
+        Objects.equals(this.feedInterestRate, accountResponse.feedInterestRate) &&
+        Objects.equals(this.feedIsClosed, accountResponse.feedIsClosed) &&
+        Objects.equals(this.feedLastPayment, accountResponse.feedLastPayment) &&
+        Objects.equals(this.feedLastPaymentAt, accountResponse.feedLastPaymentAt) &&
+        Objects.equals(this.feedLoanAmount, accountResponse.feedLoanAmount) &&
+        Objects.equals(this.feedMaturesOn, accountResponse.feedMaturesOn) &&
+        Objects.equals(this.feedMinimumBalance, accountResponse.feedMinimumBalance) &&
+        Objects.equals(this.feedMinimumPayment, accountResponse.feedMinimumPayment) &&
+        Objects.equals(this.feedName, accountResponse.feedName) &&
+        Objects.equals(this.feedNickname, accountResponse.feedNickname) &&
+        Objects.equals(this.feedOriginalBalance, accountResponse.feedOriginalBalance) &&
+        Objects.equals(this.feedPaymentDueAt, accountResponse.feedPaymentDueAt) &&
+        Objects.equals(this.feedPayoffBalance, accountResponse.feedPayoffBalance) &&
+        Objects.equals(this.feedRoutingNumber, accountResponse.feedRoutingNumber) &&
+        Objects.equals(this.feedStartedOn, accountResponse.feedStartedOn) &&
+        Objects.equals(this.feedStatementBalance, accountResponse.feedStatementBalance) &&
+        Objects.equals(this.feedTotalAccountValue, accountResponse.feedTotalAccountValue) &&
         Objects.equals(this.guid, accountResponse.guid) &&
         Objects.equals(this.holdingsValue, accountResponse.holdingsValue) &&
+        Objects.equals(this.holdingsValueSetBy, accountResponse.holdingsValueSetBy) &&
         Objects.equals(this.id, accountResponse.id) &&
         Objects.equals(this.importedAt, accountResponse.importedAt) &&
         Objects.equals(this.institutionCode, accountResponse.institutionCode) &&
+        Objects.equals(this.institutionGuid, accountResponse.institutionGuid) &&
         Objects.equals(this.insuredName, accountResponse.insuredName) &&
         Objects.equals(this.interestRate, accountResponse.interestRate) &&
+        Objects.equals(this.interestRateSetBy, accountResponse.interestRateSetBy) &&
         Objects.equals(this.isClosed, accountResponse.isClosed) &&
+        Objects.equals(this.isClosedSetBy, accountResponse.isClosedSetBy) &&
         Objects.equals(this.isHidden, accountResponse.isHidden) &&
         Objects.equals(this.isManual, accountResponse.isManual) &&
         Objects.equals(this.lastPayment, accountResponse.lastPayment) &&
+        Objects.equals(this.lastPaymentSetBy, accountResponse.lastPaymentSetBy) &&
         Objects.equals(this.lastPaymentAt, accountResponse.lastPaymentAt) &&
+        Objects.equals(this.lastPaymentAtSetBy, accountResponse.lastPaymentAtSetBy) &&
         Objects.equals(this.loanAmount, accountResponse.loanAmount) &&
+        Objects.equals(this.loanAmountSetBy, accountResponse.loanAmountSetBy) &&
         Objects.equals(this.marginBalance, accountResponse.marginBalance) &&
         Objects.equals(this.maturesOn, accountResponse.maturesOn) &&
+        Objects.equals(this.maturesOnSetBy, accountResponse.maturesOnSetBy) &&
         Objects.equals(this.memberGuid, accountResponse.memberGuid) &&
         Objects.equals(this.memberId, accountResponse.memberId) &&
         Objects.equals(this.memberIsManagedByUser, accountResponse.memberIsManagedByUser) &&
         Objects.equals(this.metadata, accountResponse.metadata) &&
         Objects.equals(this.minimumBalance, accountResponse.minimumBalance) &&
+        Objects.equals(this.minimumBalanceSetBy, accountResponse.minimumBalanceSetBy) &&
         Objects.equals(this.minimumPayment, accountResponse.minimumPayment) &&
+        Objects.equals(this.minimumPaymentSetBy, accountResponse.minimumPaymentSetBy) &&
         Objects.equals(this.name, accountResponse.name) &&
+        Objects.equals(this.nameSetBy, accountResponse.nameSetBy) &&
         Objects.equals(this.nickname, accountResponse.nickname) &&
+        Objects.equals(this.nicknameSetBy, accountResponse.nicknameSetBy) &&
         Objects.equals(this.originalBalance, accountResponse.originalBalance) &&
+        Objects.equals(this.originalBalanceSetBy, accountResponse.originalBalanceSetBy) &&
         Objects.equals(this.payOutAmount, accountResponse.payOutAmount) &&
         Objects.equals(this.paymentDueAt, accountResponse.paymentDueAt) &&
+        Objects.equals(this.paymentDueAtSetBy, accountResponse.paymentDueAtSetBy) &&
         Objects.equals(this.payoffBalance, accountResponse.payoffBalance) &&
+        Objects.equals(this.payoffBalanceSetBy, accountResponse.payoffBalanceSetBy) &&
         Objects.equals(this.premiumAmount, accountResponse.premiumAmount) &&
         Objects.equals(this.propertyType, accountResponse.propertyType) &&
         Objects.equals(this.routingNumber, accountResponse.routingNumber) &&
         Objects.equals(this.startedOn, accountResponse.startedOn) &&
+        Objects.equals(this.startedOnSetBy, accountResponse.startedOnSetBy) &&
         Objects.equals(this.statementBalance, accountResponse.statementBalance) &&
+        Objects.equals(this.statementBalanceSetBy, accountResponse.statementBalanceSetBy) &&
         Objects.equals(this.subtype, accountResponse.subtype) &&
+        Objects.equals(this.subtypeSetBy, accountResponse.subtypeSetBy) &&
         Objects.equals(this.todayUglAmount, accountResponse.todayUglAmount) &&
         Objects.equals(this.todayUglPercentage, accountResponse.todayUglPercentage) &&
         Objects.equals(this.totalAccountValue, accountResponse.totalAccountValue) &&
+        Objects.equals(this.totalAccountValueSetBy, accountResponse.totalAccountValueSetBy) &&
         Objects.equals(this.totalAccountValueUgl, accountResponse.totalAccountValueUgl) &&
         Objects.equals(this.type, accountResponse.type) &&
+        Objects.equals(this.typeSetBy, accountResponse.typeSetBy) &&
         Objects.equals(this.updatedAt, accountResponse.updatedAt) &&
         Objects.equals(this.userGuid, accountResponse.userGuid) &&
         Objects.equals(this.userId, accountResponse.userId);
@@ -1608,7 +3272,7 @@ public class AccountResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountNumber, accountOwnership, annuityPolicyToDate, annuityProvider, annuityTermYear, apr, apy, availableBalance, availableCredit, balance, cashBalance, cashSurrenderValue, createdAt, creditLimit, currencyCode, dayPaymentIsDue, deathBenefit, federalInsuranceStatus, guid, holdingsValue, id, importedAt, institutionCode, insuredName, interestRate, isClosed, isHidden, isManual, lastPayment, lastPaymentAt, loanAmount, marginBalance, maturesOn, memberGuid, memberId, memberIsManagedByUser, metadata, minimumBalance, minimumPayment, name, nickname, originalBalance, payOutAmount, paymentDueAt, payoffBalance, premiumAmount, propertyType, routingNumber, startedOn, statementBalance, subtype, todayUglAmount, todayUglPercentage, totalAccountValue, totalAccountValueUgl, type, updatedAt, userGuid, userId);
+    return Objects.hash(accountNumber, accountNumberSetBy, accountOwnership, annuityPolicyToDate, annuityProvider, annuityTermYear, apr, aprSetBy, apy, apySetBy, availableBalance, availableBalanceSetBy, availableCredit, availableCreditSetBy, balance, balanceSetBy, calculatedApr, cashBalance, cashBalanceSetBy, cashSurrenderValue, cashSurrenderValueSetBy, createdAt, creditLimit, creditLimitSetBy, currencyCode, currencyCodeSetBy, dayPaymentIsDue, dayPaymentIsDueSetBy, deathBenefit, deathBenefitSetBy, federalInsuranceStatus, feedAccountNumber, feedAccountSubtype, feedAccountType, feedApr, feedApy, feedAvailableBalance, feedBalance, feedCashBalance, feedCashSurrenderValue, feedCreditLimit, feedCurrencyCode, feedDayPaymentIsDue, feedDeathBenefit, feedHoldingsValue, feedInterestRate, feedIsClosed, feedLastPayment, feedLastPaymentAt, feedLoanAmount, feedMaturesOn, feedMinimumBalance, feedMinimumPayment, feedName, feedNickname, feedOriginalBalance, feedPaymentDueAt, feedPayoffBalance, feedRoutingNumber, feedStartedOn, feedStatementBalance, feedTotalAccountValue, guid, holdingsValue, holdingsValueSetBy, id, importedAt, institutionCode, institutionGuid, insuredName, interestRate, interestRateSetBy, isClosed, isClosedSetBy, isHidden, isManual, lastPayment, lastPaymentSetBy, lastPaymentAt, lastPaymentAtSetBy, loanAmount, loanAmountSetBy, marginBalance, maturesOn, maturesOnSetBy, memberGuid, memberId, memberIsManagedByUser, metadata, minimumBalance, minimumBalanceSetBy, minimumPayment, minimumPaymentSetBy, name, nameSetBy, nickname, nicknameSetBy, originalBalance, originalBalanceSetBy, payOutAmount, paymentDueAt, paymentDueAtSetBy, payoffBalance, payoffBalanceSetBy, premiumAmount, propertyType, routingNumber, startedOn, startedOnSetBy, statementBalance, statementBalanceSetBy, subtype, subtypeSetBy, todayUglAmount, todayUglPercentage, totalAccountValue, totalAccountValueSetBy, totalAccountValueUgl, type, typeSetBy, updatedAt, userGuid, userId);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -1623,61 +3287,125 @@ public class AccountResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class AccountResponse {\n");
     sb.append("    accountNumber: ").append(toIndentedString(accountNumber)).append("\n");
+    sb.append("    accountNumberSetBy: ").append(toIndentedString(accountNumberSetBy)).append("\n");
     sb.append("    accountOwnership: ").append(toIndentedString(accountOwnership)).append("\n");
     sb.append("    annuityPolicyToDate: ").append(toIndentedString(annuityPolicyToDate)).append("\n");
     sb.append("    annuityProvider: ").append(toIndentedString(annuityProvider)).append("\n");
     sb.append("    annuityTermYear: ").append(toIndentedString(annuityTermYear)).append("\n");
     sb.append("    apr: ").append(toIndentedString(apr)).append("\n");
+    sb.append("    aprSetBy: ").append(toIndentedString(aprSetBy)).append("\n");
     sb.append("    apy: ").append(toIndentedString(apy)).append("\n");
+    sb.append("    apySetBy: ").append(toIndentedString(apySetBy)).append("\n");
     sb.append("    availableBalance: ").append(toIndentedString(availableBalance)).append("\n");
+    sb.append("    availableBalanceSetBy: ").append(toIndentedString(availableBalanceSetBy)).append("\n");
     sb.append("    availableCredit: ").append(toIndentedString(availableCredit)).append("\n");
+    sb.append("    availableCreditSetBy: ").append(toIndentedString(availableCreditSetBy)).append("\n");
     sb.append("    balance: ").append(toIndentedString(balance)).append("\n");
+    sb.append("    balanceSetBy: ").append(toIndentedString(balanceSetBy)).append("\n");
+    sb.append("    calculatedApr: ").append(toIndentedString(calculatedApr)).append("\n");
     sb.append("    cashBalance: ").append(toIndentedString(cashBalance)).append("\n");
+    sb.append("    cashBalanceSetBy: ").append(toIndentedString(cashBalanceSetBy)).append("\n");
     sb.append("    cashSurrenderValue: ").append(toIndentedString(cashSurrenderValue)).append("\n");
+    sb.append("    cashSurrenderValueSetBy: ").append(toIndentedString(cashSurrenderValueSetBy)).append("\n");
     sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
     sb.append("    creditLimit: ").append(toIndentedString(creditLimit)).append("\n");
+    sb.append("    creditLimitSetBy: ").append(toIndentedString(creditLimitSetBy)).append("\n");
     sb.append("    currencyCode: ").append(toIndentedString(currencyCode)).append("\n");
+    sb.append("    currencyCodeSetBy: ").append(toIndentedString(currencyCodeSetBy)).append("\n");
     sb.append("    dayPaymentIsDue: ").append(toIndentedString(dayPaymentIsDue)).append("\n");
+    sb.append("    dayPaymentIsDueSetBy: ").append(toIndentedString(dayPaymentIsDueSetBy)).append("\n");
     sb.append("    deathBenefit: ").append(toIndentedString(deathBenefit)).append("\n");
+    sb.append("    deathBenefitSetBy: ").append(toIndentedString(deathBenefitSetBy)).append("\n");
     sb.append("    federalInsuranceStatus: ").append(toIndentedString(federalInsuranceStatus)).append("\n");
+    sb.append("    feedAccountNumber: ").append(toIndentedString(feedAccountNumber)).append("\n");
+    sb.append("    feedAccountSubtype: ").append(toIndentedString(feedAccountSubtype)).append("\n");
+    sb.append("    feedAccountType: ").append(toIndentedString(feedAccountType)).append("\n");
+    sb.append("    feedApr: ").append(toIndentedString(feedApr)).append("\n");
+    sb.append("    feedApy: ").append(toIndentedString(feedApy)).append("\n");
+    sb.append("    feedAvailableBalance: ").append(toIndentedString(feedAvailableBalance)).append("\n");
+    sb.append("    feedBalance: ").append(toIndentedString(feedBalance)).append("\n");
+    sb.append("    feedCashBalance: ").append(toIndentedString(feedCashBalance)).append("\n");
+    sb.append("    feedCashSurrenderValue: ").append(toIndentedString(feedCashSurrenderValue)).append("\n");
+    sb.append("    feedCreditLimit: ").append(toIndentedString(feedCreditLimit)).append("\n");
+    sb.append("    feedCurrencyCode: ").append(toIndentedString(feedCurrencyCode)).append("\n");
+    sb.append("    feedDayPaymentIsDue: ").append(toIndentedString(feedDayPaymentIsDue)).append("\n");
+    sb.append("    feedDeathBenefit: ").append(toIndentedString(feedDeathBenefit)).append("\n");
+    sb.append("    feedHoldingsValue: ").append(toIndentedString(feedHoldingsValue)).append("\n");
+    sb.append("    feedInterestRate: ").append(toIndentedString(feedInterestRate)).append("\n");
+    sb.append("    feedIsClosed: ").append(toIndentedString(feedIsClosed)).append("\n");
+    sb.append("    feedLastPayment: ").append(toIndentedString(feedLastPayment)).append("\n");
+    sb.append("    feedLastPaymentAt: ").append(toIndentedString(feedLastPaymentAt)).append("\n");
+    sb.append("    feedLoanAmount: ").append(toIndentedString(feedLoanAmount)).append("\n");
+    sb.append("    feedMaturesOn: ").append(toIndentedString(feedMaturesOn)).append("\n");
+    sb.append("    feedMinimumBalance: ").append(toIndentedString(feedMinimumBalance)).append("\n");
+    sb.append("    feedMinimumPayment: ").append(toIndentedString(feedMinimumPayment)).append("\n");
+    sb.append("    feedName: ").append(toIndentedString(feedName)).append("\n");
+    sb.append("    feedNickname: ").append(toIndentedString(feedNickname)).append("\n");
+    sb.append("    feedOriginalBalance: ").append(toIndentedString(feedOriginalBalance)).append("\n");
+    sb.append("    feedPaymentDueAt: ").append(toIndentedString(feedPaymentDueAt)).append("\n");
+    sb.append("    feedPayoffBalance: ").append(toIndentedString(feedPayoffBalance)).append("\n");
+    sb.append("    feedRoutingNumber: ").append(toIndentedString(feedRoutingNumber)).append("\n");
+    sb.append("    feedStartedOn: ").append(toIndentedString(feedStartedOn)).append("\n");
+    sb.append("    feedStatementBalance: ").append(toIndentedString(feedStatementBalance)).append("\n");
+    sb.append("    feedTotalAccountValue: ").append(toIndentedString(feedTotalAccountValue)).append("\n");
     sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    holdingsValue: ").append(toIndentedString(holdingsValue)).append("\n");
+    sb.append("    holdingsValueSetBy: ").append(toIndentedString(holdingsValueSetBy)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    importedAt: ").append(toIndentedString(importedAt)).append("\n");
     sb.append("    institutionCode: ").append(toIndentedString(institutionCode)).append("\n");
+    sb.append("    institutionGuid: ").append(toIndentedString(institutionGuid)).append("\n");
     sb.append("    insuredName: ").append(toIndentedString(insuredName)).append("\n");
     sb.append("    interestRate: ").append(toIndentedString(interestRate)).append("\n");
+    sb.append("    interestRateSetBy: ").append(toIndentedString(interestRateSetBy)).append("\n");
     sb.append("    isClosed: ").append(toIndentedString(isClosed)).append("\n");
+    sb.append("    isClosedSetBy: ").append(toIndentedString(isClosedSetBy)).append("\n");
     sb.append("    isHidden: ").append(toIndentedString(isHidden)).append("\n");
     sb.append("    isManual: ").append(toIndentedString(isManual)).append("\n");
     sb.append("    lastPayment: ").append(toIndentedString(lastPayment)).append("\n");
+    sb.append("    lastPaymentSetBy: ").append(toIndentedString(lastPaymentSetBy)).append("\n");
     sb.append("    lastPaymentAt: ").append(toIndentedString(lastPaymentAt)).append("\n");
+    sb.append("    lastPaymentAtSetBy: ").append(toIndentedString(lastPaymentAtSetBy)).append("\n");
     sb.append("    loanAmount: ").append(toIndentedString(loanAmount)).append("\n");
+    sb.append("    loanAmountSetBy: ").append(toIndentedString(loanAmountSetBy)).append("\n");
     sb.append("    marginBalance: ").append(toIndentedString(marginBalance)).append("\n");
     sb.append("    maturesOn: ").append(toIndentedString(maturesOn)).append("\n");
+    sb.append("    maturesOnSetBy: ").append(toIndentedString(maturesOnSetBy)).append("\n");
     sb.append("    memberGuid: ").append(toIndentedString(memberGuid)).append("\n");
     sb.append("    memberId: ").append(toIndentedString(memberId)).append("\n");
     sb.append("    memberIsManagedByUser: ").append(toIndentedString(memberIsManagedByUser)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    minimumBalance: ").append(toIndentedString(minimumBalance)).append("\n");
+    sb.append("    minimumBalanceSetBy: ").append(toIndentedString(minimumBalanceSetBy)).append("\n");
     sb.append("    minimumPayment: ").append(toIndentedString(minimumPayment)).append("\n");
+    sb.append("    minimumPaymentSetBy: ").append(toIndentedString(minimumPaymentSetBy)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    nameSetBy: ").append(toIndentedString(nameSetBy)).append("\n");
     sb.append("    nickname: ").append(toIndentedString(nickname)).append("\n");
+    sb.append("    nicknameSetBy: ").append(toIndentedString(nicknameSetBy)).append("\n");
     sb.append("    originalBalance: ").append(toIndentedString(originalBalance)).append("\n");
+    sb.append("    originalBalanceSetBy: ").append(toIndentedString(originalBalanceSetBy)).append("\n");
     sb.append("    payOutAmount: ").append(toIndentedString(payOutAmount)).append("\n");
     sb.append("    paymentDueAt: ").append(toIndentedString(paymentDueAt)).append("\n");
+    sb.append("    paymentDueAtSetBy: ").append(toIndentedString(paymentDueAtSetBy)).append("\n");
     sb.append("    payoffBalance: ").append(toIndentedString(payoffBalance)).append("\n");
+    sb.append("    payoffBalanceSetBy: ").append(toIndentedString(payoffBalanceSetBy)).append("\n");
     sb.append("    premiumAmount: ").append(toIndentedString(premiumAmount)).append("\n");
     sb.append("    propertyType: ").append(toIndentedString(propertyType)).append("\n");
     sb.append("    routingNumber: ").append(toIndentedString(routingNumber)).append("\n");
     sb.append("    startedOn: ").append(toIndentedString(startedOn)).append("\n");
+    sb.append("    startedOnSetBy: ").append(toIndentedString(startedOnSetBy)).append("\n");
     sb.append("    statementBalance: ").append(toIndentedString(statementBalance)).append("\n");
+    sb.append("    statementBalanceSetBy: ").append(toIndentedString(statementBalanceSetBy)).append("\n");
     sb.append("    subtype: ").append(toIndentedString(subtype)).append("\n");
+    sb.append("    subtypeSetBy: ").append(toIndentedString(subtypeSetBy)).append("\n");
     sb.append("    todayUglAmount: ").append(toIndentedString(todayUglAmount)).append("\n");
     sb.append("    todayUglPercentage: ").append(toIndentedString(todayUglPercentage)).append("\n");
     sb.append("    totalAccountValue: ").append(toIndentedString(totalAccountValue)).append("\n");
+    sb.append("    totalAccountValueSetBy: ").append(toIndentedString(totalAccountValueSetBy)).append("\n");
     sb.append("    totalAccountValueUgl: ").append(toIndentedString(totalAccountValueUgl)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    typeSetBy: ").append(toIndentedString(typeSetBy)).append("\n");
     sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
     sb.append("    userGuid: ").append(toIndentedString(userGuid)).append("\n");
     sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
@@ -1704,61 +3432,125 @@ public class AccountResponse {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("account_number");
+    openapiFields.add("account_number_set_by");
     openapiFields.add("account_ownership");
     openapiFields.add("annuity_policy_to_date");
     openapiFields.add("annuity_provider");
     openapiFields.add("annuity_term_year");
     openapiFields.add("apr");
+    openapiFields.add("apr_set_by");
     openapiFields.add("apy");
+    openapiFields.add("apy_set_by");
     openapiFields.add("available_balance");
+    openapiFields.add("available_balance_set_by");
     openapiFields.add("available_credit");
+    openapiFields.add("available_credit_set_by");
     openapiFields.add("balance");
+    openapiFields.add("balance_set_by");
+    openapiFields.add("calculated_apr");
     openapiFields.add("cash_balance");
+    openapiFields.add("cash_balance_set_by");
     openapiFields.add("cash_surrender_value");
+    openapiFields.add("cash_surrender_value_set_by");
     openapiFields.add("created_at");
     openapiFields.add("credit_limit");
+    openapiFields.add("credit_limit_set_by");
     openapiFields.add("currency_code");
+    openapiFields.add("currency_code_set_by");
     openapiFields.add("day_payment_is_due");
+    openapiFields.add("day_payment_is_due_set_by");
     openapiFields.add("death_benefit");
+    openapiFields.add("death_benefit_set_by");
     openapiFields.add("federal_insurance_status");
+    openapiFields.add("feed_account_number");
+    openapiFields.add("feed_account_subtype");
+    openapiFields.add("feed_account_type");
+    openapiFields.add("feed_apr");
+    openapiFields.add("feed_apy");
+    openapiFields.add("feed_available_balance");
+    openapiFields.add("feed_balance");
+    openapiFields.add("feed_cash_balance");
+    openapiFields.add("feed_cash_surrender_value");
+    openapiFields.add("feed_credit_limit");
+    openapiFields.add("feed_currency_code");
+    openapiFields.add("feed_day_payment_is_due");
+    openapiFields.add("feed_death_benefit");
+    openapiFields.add("feed_holdings_value");
+    openapiFields.add("feed_interest_rate");
+    openapiFields.add("feed_is_closed");
+    openapiFields.add("feed_last_payment");
+    openapiFields.add("feed_last_payment_at");
+    openapiFields.add("feed_loan_amount");
+    openapiFields.add("feed_matures_on");
+    openapiFields.add("feed_minimum_balance");
+    openapiFields.add("feed_minimum_payment");
+    openapiFields.add("feed_name");
+    openapiFields.add("feed_nickname");
+    openapiFields.add("feed_original_balance");
+    openapiFields.add("feed_payment_due_at");
+    openapiFields.add("feed_payoff_balance");
+    openapiFields.add("feed_routing_number");
+    openapiFields.add("feed_started_on");
+    openapiFields.add("feed_statement_balance");
+    openapiFields.add("feed_total_account_value");
     openapiFields.add("guid");
     openapiFields.add("holdings_value");
+    openapiFields.add("holdings_value_set_by");
     openapiFields.add("id");
     openapiFields.add("imported_at");
     openapiFields.add("institution_code");
+    openapiFields.add("institution_guid");
     openapiFields.add("insured_name");
     openapiFields.add("interest_rate");
+    openapiFields.add("interest_rate_set_by");
     openapiFields.add("is_closed");
+    openapiFields.add("is_closed_set_by");
     openapiFields.add("is_hidden");
     openapiFields.add("is_manual");
     openapiFields.add("last_payment");
+    openapiFields.add("last_payment_set_by");
     openapiFields.add("last_payment_at");
+    openapiFields.add("last_payment_at_set_by");
     openapiFields.add("loan_amount");
+    openapiFields.add("loan_amount_set_by");
     openapiFields.add("margin_balance");
     openapiFields.add("matures_on");
+    openapiFields.add("matures_on_set_by");
     openapiFields.add("member_guid");
     openapiFields.add("member_id");
     openapiFields.add("member_is_managed_by_user");
     openapiFields.add("metadata");
     openapiFields.add("minimum_balance");
+    openapiFields.add("minimum_balance_set_by");
     openapiFields.add("minimum_payment");
+    openapiFields.add("minimum_payment_set_by");
     openapiFields.add("name");
+    openapiFields.add("name_set_by");
     openapiFields.add("nickname");
+    openapiFields.add("nickname_set_by");
     openapiFields.add("original_balance");
+    openapiFields.add("original_balance_set_by");
     openapiFields.add("pay_out_amount");
     openapiFields.add("payment_due_at");
+    openapiFields.add("payment_due_at_set_by");
     openapiFields.add("payoff_balance");
+    openapiFields.add("payoff_balance_set_by");
     openapiFields.add("premium_amount");
     openapiFields.add("property_type");
     openapiFields.add("routing_number");
     openapiFields.add("started_on");
+    openapiFields.add("started_on_set_by");
     openapiFields.add("statement_balance");
+    openapiFields.add("statement_balance_set_by");
     openapiFields.add("subtype");
+    openapiFields.add("subtype_set_by");
     openapiFields.add("today_ugl_amount");
     openapiFields.add("today_ugl_percentage");
     openapiFields.add("total_account_value");
+    openapiFields.add("total_account_value_set_by");
     openapiFields.add("total_account_value_ugl");
     openapiFields.add("type");
+    openapiFields.add("type_set_by");
     openapiFields.add("updated_at");
     openapiFields.add("user_guid");
     openapiFields.add("user_id");
@@ -1809,6 +3601,33 @@ public class AccountResponse {
       if ((jsonObj.get("federal_insurance_status") != null && !jsonObj.get("federal_insurance_status").isJsonNull()) && !jsonObj.get("federal_insurance_status").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `federal_insurance_status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("federal_insurance_status").toString()));
       }
+      if ((jsonObj.get("feed_account_number") != null && !jsonObj.get("feed_account_number").isJsonNull()) && !jsonObj.get("feed_account_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `feed_account_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("feed_account_number").toString()));
+      }
+      if ((jsonObj.get("feed_currency_code") != null && !jsonObj.get("feed_currency_code").isJsonNull()) && !jsonObj.get("feed_currency_code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `feed_currency_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("feed_currency_code").toString()));
+      }
+      if ((jsonObj.get("feed_last_payment_at") != null && !jsonObj.get("feed_last_payment_at").isJsonNull()) && !jsonObj.get("feed_last_payment_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `feed_last_payment_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("feed_last_payment_at").toString()));
+      }
+      if ((jsonObj.get("feed_matures_on") != null && !jsonObj.get("feed_matures_on").isJsonNull()) && !jsonObj.get("feed_matures_on").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `feed_matures_on` to be a primitive type in the JSON string but got `%s`", jsonObj.get("feed_matures_on").toString()));
+      }
+      if ((jsonObj.get("feed_name") != null && !jsonObj.get("feed_name").isJsonNull()) && !jsonObj.get("feed_name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `feed_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("feed_name").toString()));
+      }
+      if ((jsonObj.get("feed_nickname") != null && !jsonObj.get("feed_nickname").isJsonNull()) && !jsonObj.get("feed_nickname").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `feed_nickname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("feed_nickname").toString()));
+      }
+      if ((jsonObj.get("feed_payment_due_at") != null && !jsonObj.get("feed_payment_due_at").isJsonNull()) && !jsonObj.get("feed_payment_due_at").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `feed_payment_due_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("feed_payment_due_at").toString()));
+      }
+      if ((jsonObj.get("feed_routing_number") != null && !jsonObj.get("feed_routing_number").isJsonNull()) && !jsonObj.get("feed_routing_number").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `feed_routing_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("feed_routing_number").toString()));
+      }
+      if ((jsonObj.get("feed_started_on") != null && !jsonObj.get("feed_started_on").isJsonNull()) && !jsonObj.get("feed_started_on").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `feed_started_on` to be a primitive type in the JSON string but got `%s`", jsonObj.get("feed_started_on").toString()));
+      }
       if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
       }
@@ -1820,6 +3639,9 @@ public class AccountResponse {
       }
       if ((jsonObj.get("institution_code") != null && !jsonObj.get("institution_code").isJsonNull()) && !jsonObj.get("institution_code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `institution_code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("institution_code").toString()));
+      }
+      if ((jsonObj.get("institution_guid") != null && !jsonObj.get("institution_guid").isJsonNull()) && !jsonObj.get("institution_guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `institution_guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("institution_guid").toString()));
       }
       if ((jsonObj.get("insured_name") != null && !jsonObj.get("insured_name").isJsonNull()) && !jsonObj.get("insured_name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `insured_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("insured_name").toString()));
@@ -1848,8 +3670,8 @@ public class AccountResponse {
       if ((jsonObj.get("payment_due_at") != null && !jsonObj.get("payment_due_at").isJsonNull()) && !jsonObj.get("payment_due_at").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `payment_due_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payment_due_at").toString()));
       }
-      if ((jsonObj.get("property_type") != null && !jsonObj.get("property_type").isJsonNull()) && !jsonObj.get("property_type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `property_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("property_type").toString()));
+      if ((jsonObj.get("premium_amount") != null && !jsonObj.get("premium_amount").isJsonNull()) && !jsonObj.get("premium_amount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `premium_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("premium_amount").toString()));
       }
       if ((jsonObj.get("routing_number") != null && !jsonObj.get("routing_number").isJsonNull()) && !jsonObj.get("routing_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `routing_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("routing_number").toString()));

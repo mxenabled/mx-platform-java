@@ -48,6 +48,14 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'accountNumberSetBy'
+     */
+    @Test
+    public void accountNumberSetByTest() {
+        // TODO: test accountNumberSetBy
+    }
+
+    /**
      * Test the property 'accountOwnership'
      */
     @Test
@@ -88,11 +96,27 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'aprSetBy'
+     */
+    @Test
+    public void aprSetByTest() {
+        // TODO: test aprSetBy
+    }
+
+    /**
      * Test the property 'apy'
      */
     @Test
     public void apyTest() {
         // TODO: test apy
+    }
+
+    /**
+     * Test the property 'apySetBy'
+     */
+    @Test
+    public void apySetByTest() {
+        // TODO: test apySetBy
     }
 
     /**
@@ -104,11 +128,27 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'availableBalanceSetBy'
+     */
+    @Test
+    public void availableBalanceSetByTest() {
+        // TODO: test availableBalanceSetBy
+    }
+
+    /**
      * Test the property 'availableCredit'
      */
     @Test
     public void availableCreditTest() {
         // TODO: test availableCredit
+    }
+
+    /**
+     * Test the property 'availableCreditSetBy'
+     */
+    @Test
+    public void availableCreditSetByTest() {
+        // TODO: test availableCreditSetBy
     }
 
     /**
@@ -120,6 +160,22 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'balanceSetBy'
+     */
+    @Test
+    public void balanceSetByTest() {
+        // TODO: test balanceSetBy
+    }
+
+    /**
+     * Test the property 'calculatedApr'
+     */
+    @Test
+    public void calculatedAprTest() {
+        // TODO: test calculatedApr
+    }
+
+    /**
      * Test the property 'cashBalance'
      */
     @Test
@@ -128,11 +184,27 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'cashBalanceSetBy'
+     */
+    @Test
+    public void cashBalanceSetByTest() {
+        // TODO: test cashBalanceSetBy
+    }
+
+    /**
      * Test the property 'cashSurrenderValue'
      */
     @Test
     public void cashSurrenderValueTest() {
         // TODO: test cashSurrenderValue
+    }
+
+    /**
+     * Test the property 'cashSurrenderValueSetBy'
+     */
+    @Test
+    public void cashSurrenderValueSetByTest() {
+        // TODO: test cashSurrenderValueSetBy
     }
 
     /**
@@ -152,11 +224,27 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'creditLimitSetBy'
+     */
+    @Test
+    public void creditLimitSetByTest() {
+        // TODO: test creditLimitSetBy
+    }
+
+    /**
      * Test the property 'currencyCode'
      */
     @Test
     public void currencyCodeTest() {
         // TODO: test currencyCode
+    }
+
+    /**
+     * Test the property 'currencyCodeSetBy'
+     */
+    @Test
+    public void currencyCodeSetByTest() {
+        // TODO: test currencyCodeSetBy
     }
 
     /**
@@ -168,6 +256,14 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'dayPaymentIsDueSetBy'
+     */
+    @Test
+    public void dayPaymentIsDueSetByTest() {
+        // TODO: test dayPaymentIsDueSetBy
+    }
+
+    /**
      * Test the property 'deathBenefit'
      */
     @Test
@@ -176,11 +272,267 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'deathBenefitSetBy'
+     */
+    @Test
+    public void deathBenefitSetByTest() {
+        // TODO: test deathBenefitSetBy
+    }
+
+    /**
      * Test the property 'federalInsuranceStatus'
      */
     @Test
     public void federalInsuranceStatusTest() {
         // TODO: test federalInsuranceStatus
+    }
+
+    /**
+     * Test the property 'feedAccountNumber'
+     */
+    @Test
+    public void feedAccountNumberTest() {
+        // TODO: test feedAccountNumber
+    }
+
+    /**
+     * Test the property 'feedAccountSubtype'
+     */
+    @Test
+    public void feedAccountSubtypeTest() {
+        // TODO: test feedAccountSubtype
+    }
+
+    /**
+     * Test the property 'feedAccountType'
+     */
+    @Test
+    public void feedAccountTypeTest() {
+        // TODO: test feedAccountType
+    }
+
+    /**
+     * Test the property 'feedApr'
+     */
+    @Test
+    public void feedAprTest() {
+        // TODO: test feedApr
+    }
+
+    /**
+     * Test the property 'feedApy'
+     */
+    @Test
+    public void feedApyTest() {
+        // TODO: test feedApy
+    }
+
+    /**
+     * Test the property 'feedAvailableBalance'
+     */
+    @Test
+    public void feedAvailableBalanceTest() {
+        // TODO: test feedAvailableBalance
+    }
+
+    /**
+     * Test the property 'feedBalance'
+     */
+    @Test
+    public void feedBalanceTest() {
+        // TODO: test feedBalance
+    }
+
+    /**
+     * Test the property 'feedCashBalance'
+     */
+    @Test
+    public void feedCashBalanceTest() {
+        // TODO: test feedCashBalance
+    }
+
+    /**
+     * Test the property 'feedCashSurrenderValue'
+     */
+    @Test
+    public void feedCashSurrenderValueTest() {
+        // TODO: test feedCashSurrenderValue
+    }
+
+    /**
+     * Test the property 'feedCreditLimit'
+     */
+    @Test
+    public void feedCreditLimitTest() {
+        // TODO: test feedCreditLimit
+    }
+
+    /**
+     * Test the property 'feedCurrencyCode'
+     */
+    @Test
+    public void feedCurrencyCodeTest() {
+        // TODO: test feedCurrencyCode
+    }
+
+    /**
+     * Test the property 'feedDayPaymentIsDue'
+     */
+    @Test
+    public void feedDayPaymentIsDueTest() {
+        // TODO: test feedDayPaymentIsDue
+    }
+
+    /**
+     * Test the property 'feedDeathBenefit'
+     */
+    @Test
+    public void feedDeathBenefitTest() {
+        // TODO: test feedDeathBenefit
+    }
+
+    /**
+     * Test the property 'feedHoldingsValue'
+     */
+    @Test
+    public void feedHoldingsValueTest() {
+        // TODO: test feedHoldingsValue
+    }
+
+    /**
+     * Test the property 'feedInterestRate'
+     */
+    @Test
+    public void feedInterestRateTest() {
+        // TODO: test feedInterestRate
+    }
+
+    /**
+     * Test the property 'feedIsClosed'
+     */
+    @Test
+    public void feedIsClosedTest() {
+        // TODO: test feedIsClosed
+    }
+
+    /**
+     * Test the property 'feedLastPayment'
+     */
+    @Test
+    public void feedLastPaymentTest() {
+        // TODO: test feedLastPayment
+    }
+
+    /**
+     * Test the property 'feedLastPaymentAt'
+     */
+    @Test
+    public void feedLastPaymentAtTest() {
+        // TODO: test feedLastPaymentAt
+    }
+
+    /**
+     * Test the property 'feedLoanAmount'
+     */
+    @Test
+    public void feedLoanAmountTest() {
+        // TODO: test feedLoanAmount
+    }
+
+    /**
+     * Test the property 'feedMaturesOn'
+     */
+    @Test
+    public void feedMaturesOnTest() {
+        // TODO: test feedMaturesOn
+    }
+
+    /**
+     * Test the property 'feedMinimumBalance'
+     */
+    @Test
+    public void feedMinimumBalanceTest() {
+        // TODO: test feedMinimumBalance
+    }
+
+    /**
+     * Test the property 'feedMinimumPayment'
+     */
+    @Test
+    public void feedMinimumPaymentTest() {
+        // TODO: test feedMinimumPayment
+    }
+
+    /**
+     * Test the property 'feedName'
+     */
+    @Test
+    public void feedNameTest() {
+        // TODO: test feedName
+    }
+
+    /**
+     * Test the property 'feedNickname'
+     */
+    @Test
+    public void feedNicknameTest() {
+        // TODO: test feedNickname
+    }
+
+    /**
+     * Test the property 'feedOriginalBalance'
+     */
+    @Test
+    public void feedOriginalBalanceTest() {
+        // TODO: test feedOriginalBalance
+    }
+
+    /**
+     * Test the property 'feedPaymentDueAt'
+     */
+    @Test
+    public void feedPaymentDueAtTest() {
+        // TODO: test feedPaymentDueAt
+    }
+
+    /**
+     * Test the property 'feedPayoffBalance'
+     */
+    @Test
+    public void feedPayoffBalanceTest() {
+        // TODO: test feedPayoffBalance
+    }
+
+    /**
+     * Test the property 'feedRoutingNumber'
+     */
+    @Test
+    public void feedRoutingNumberTest() {
+        // TODO: test feedRoutingNumber
+    }
+
+    /**
+     * Test the property 'feedStartedOn'
+     */
+    @Test
+    public void feedStartedOnTest() {
+        // TODO: test feedStartedOn
+    }
+
+    /**
+     * Test the property 'feedStatementBalance'
+     */
+    @Test
+    public void feedStatementBalanceTest() {
+        // TODO: test feedStatementBalance
+    }
+
+    /**
+     * Test the property 'feedTotalAccountValue'
+     */
+    @Test
+    public void feedTotalAccountValueTest() {
+        // TODO: test feedTotalAccountValue
     }
 
     /**
@@ -197,6 +549,14 @@ public class AccountResponseTest {
     @Test
     public void holdingsValueTest() {
         // TODO: test holdingsValue
+    }
+
+    /**
+     * Test the property 'holdingsValueSetBy'
+     */
+    @Test
+    public void holdingsValueSetByTest() {
+        // TODO: test holdingsValueSetBy
     }
 
     /**
@@ -224,6 +584,14 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'institutionGuid'
+     */
+    @Test
+    public void institutionGuidTest() {
+        // TODO: test institutionGuid
+    }
+
+    /**
      * Test the property 'insuredName'
      */
     @Test
@@ -240,11 +608,27 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'interestRateSetBy'
+     */
+    @Test
+    public void interestRateSetByTest() {
+        // TODO: test interestRateSetBy
+    }
+
+    /**
      * Test the property 'isClosed'
      */
     @Test
     public void isClosedTest() {
         // TODO: test isClosed
+    }
+
+    /**
+     * Test the property 'isClosedSetBy'
+     */
+    @Test
+    public void isClosedSetByTest() {
+        // TODO: test isClosedSetBy
     }
 
     /**
@@ -272,6 +656,14 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'lastPaymentSetBy'
+     */
+    @Test
+    public void lastPaymentSetByTest() {
+        // TODO: test lastPaymentSetBy
+    }
+
+    /**
      * Test the property 'lastPaymentAt'
      */
     @Test
@@ -280,11 +672,27 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'lastPaymentAtSetBy'
+     */
+    @Test
+    public void lastPaymentAtSetByTest() {
+        // TODO: test lastPaymentAtSetBy
+    }
+
+    /**
      * Test the property 'loanAmount'
      */
     @Test
     public void loanAmountTest() {
         // TODO: test loanAmount
+    }
+
+    /**
+     * Test the property 'loanAmountSetBy'
+     */
+    @Test
+    public void loanAmountSetByTest() {
+        // TODO: test loanAmountSetBy
     }
 
     /**
@@ -301,6 +709,14 @@ public class AccountResponseTest {
     @Test
     public void maturesOnTest() {
         // TODO: test maturesOn
+    }
+
+    /**
+     * Test the property 'maturesOnSetBy'
+     */
+    @Test
+    public void maturesOnSetByTest() {
+        // TODO: test maturesOnSetBy
     }
 
     /**
@@ -344,11 +760,27 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'minimumBalanceSetBy'
+     */
+    @Test
+    public void minimumBalanceSetByTest() {
+        // TODO: test minimumBalanceSetBy
+    }
+
+    /**
      * Test the property 'minimumPayment'
      */
     @Test
     public void minimumPaymentTest() {
         // TODO: test minimumPayment
+    }
+
+    /**
+     * Test the property 'minimumPaymentSetBy'
+     */
+    @Test
+    public void minimumPaymentSetByTest() {
+        // TODO: test minimumPaymentSetBy
     }
 
     /**
@@ -360,6 +792,14 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'nameSetBy'
+     */
+    @Test
+    public void nameSetByTest() {
+        // TODO: test nameSetBy
+    }
+
+    /**
      * Test the property 'nickname'
      */
     @Test
@@ -368,11 +808,27 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'nicknameSetBy'
+     */
+    @Test
+    public void nicknameSetByTest() {
+        // TODO: test nicknameSetBy
+    }
+
+    /**
      * Test the property 'originalBalance'
      */
     @Test
     public void originalBalanceTest() {
         // TODO: test originalBalance
+    }
+
+    /**
+     * Test the property 'originalBalanceSetBy'
+     */
+    @Test
+    public void originalBalanceSetByTest() {
+        // TODO: test originalBalanceSetBy
     }
 
     /**
@@ -392,11 +848,27 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'paymentDueAtSetBy'
+     */
+    @Test
+    public void paymentDueAtSetByTest() {
+        // TODO: test paymentDueAtSetBy
+    }
+
+    /**
      * Test the property 'payoffBalance'
      */
     @Test
     public void payoffBalanceTest() {
         // TODO: test payoffBalance
+    }
+
+    /**
+     * Test the property 'payoffBalanceSetBy'
+     */
+    @Test
+    public void payoffBalanceSetByTest() {
+        // TODO: test payoffBalanceSetBy
     }
 
     /**
@@ -432,6 +904,14 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'startedOnSetBy'
+     */
+    @Test
+    public void startedOnSetByTest() {
+        // TODO: test startedOnSetBy
+    }
+
+    /**
      * Test the property 'statementBalance'
      */
     @Test
@@ -440,11 +920,27 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'statementBalanceSetBy'
+     */
+    @Test
+    public void statementBalanceSetByTest() {
+        // TODO: test statementBalanceSetBy
+    }
+
+    /**
      * Test the property 'subtype'
      */
     @Test
     public void subtypeTest() {
         // TODO: test subtype
+    }
+
+    /**
+     * Test the property 'subtypeSetBy'
+     */
+    @Test
+    public void subtypeSetByTest() {
+        // TODO: test subtypeSetBy
     }
 
     /**
@@ -472,6 +968,14 @@ public class AccountResponseTest {
     }
 
     /**
+     * Test the property 'totalAccountValueSetBy'
+     */
+    @Test
+    public void totalAccountValueSetByTest() {
+        // TODO: test totalAccountValueSetBy
+    }
+
+    /**
      * Test the property 'totalAccountValueUgl'
      */
     @Test
@@ -485,6 +989,14 @@ public class AccountResponseTest {
     @Test
     public void typeTest() {
         // TODO: test type
+    }
+
+    /**
+     * Test the property 'typeSetBy'
+     */
+    @Test
+    public void typeSetByTest() {
+        // TODO: test typeSetBy
     }
 
     /**
