@@ -115,7 +115,7 @@ All URIs are relative to *https://api.mx.com*
 
 <a id="aggregateMember"></a>
 # **aggregateMember**
-> MemberResponseBody aggregateMember(memberGuid, userGuid)
+> MemberResponseBody aggregateMember(memberGuid, userGuid, includeHoldings, includeTransactions)
 
 Aggregate member
 
@@ -144,8 +144,10 @@ public class Example {
     MxPlatformApi apiInstance = new MxPlatformApi(defaultClient);
     String memberGuid = "MBR-7c6f361b-e582-15b6-60c0-358f12466b4b"; // String | The unique id for a `member`.
     String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    Boolean includeHoldings = false; // Boolean | When set to `false`, the aggregation will not gather holdings data. Defaults to `true`.
+    Boolean includeTransactions = false; // Boolean | When set to `false`, the aggregation will not gather transactions data. Defaults to `true`.
     try {
-      MemberResponseBody result = apiInstance.aggregateMember(memberGuid, userGuid);
+      MemberResponseBody result = apiInstance.aggregateMember(memberGuid, userGuid, includeHoldings, includeTransactions);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MxPlatformApi#aggregateMember");
@@ -164,6 +166,8 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **memberGuid** | **String**| The unique id for a &#x60;member&#x60;. | |
 | **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **includeHoldings** | **Boolean**| When set to &#x60;false&#x60;, the aggregation will not gather holdings data. Defaults to &#x60;true&#x60;. | [optional] |
+| **includeTransactions** | **Boolean**| When set to &#x60;false&#x60;, the aggregation will not gather transactions data. Defaults to &#x60;true&#x60;. | [optional] |
 
 ### Return type
 

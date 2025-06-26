@@ -111,8 +111,8 @@
 |**paymentDueAtSetBy** | **Integer** |  |  [optional] |
 |**payoffBalance** | **BigDecimal** |  |  [optional] |
 |**payoffBalanceSetBy** | **Integer** |  |  [optional] |
-|**premiumAmount** | **String** |  |  [optional] |
-|**propertyType** | **Integer** |  |  [optional] |
+|**premiumAmount** | **BigDecimal** |  |  [optional] |
+|**propertyType** | **String** |  |  [optional] |
 |**routingNumber** | **String** |  |  [optional] |
 |**startedOn** | **String** |  |  [optional] |
 |**startedOnSetBy** | **Integer** |  |  [optional] |

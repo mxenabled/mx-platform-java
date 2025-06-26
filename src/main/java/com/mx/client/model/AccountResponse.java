@@ -471,11 +471,11 @@ public class AccountResponse {
 
   public static final String SERIALIZED_NAME_PREMIUM_AMOUNT = "premium_amount";
   @SerializedName(SERIALIZED_NAME_PREMIUM_AMOUNT)
-  private String premiumAmount;
+  private BigDecimal premiumAmount;
 
   public static final String SERIALIZED_NAME_PROPERTY_TYPE = "property_type";
   @SerializedName(SERIALIZED_NAME_PROPERTY_TYPE)
-  private Integer propertyType;
+  private String propertyType;
 
   public static final String SERIALIZED_NAME_ROUTING_NUMBER = "routing_number";
   @SerializedName(SERIALIZED_NAME_ROUTING_NUMBER)
@@ -2732,7 +2732,7 @@ public class AccountResponse {
   }
 
 
-  public AccountResponse premiumAmount(String premiumAmount) {
+  public AccountResponse premiumAmount(BigDecimal premiumAmount) {
     
     this.premiumAmount = premiumAmount;
     return this;
@@ -2743,17 +2743,17 @@ public class AccountResponse {
    * @return premiumAmount
   **/
   @javax.annotation.Nullable
-  public String getPremiumAmount() {
+  public BigDecimal getPremiumAmount() {
     return premiumAmount;
   }
 
 
-  public void setPremiumAmount(String premiumAmount) {
+  public void setPremiumAmount(BigDecimal premiumAmount) {
     this.premiumAmount = premiumAmount;
   }
 
 
-  public AccountResponse propertyType(Integer propertyType) {
+  public AccountResponse propertyType(String propertyType) {
     
     this.propertyType = propertyType;
     return this;
@@ -2764,12 +2764,12 @@ public class AccountResponse {
    * @return propertyType
   **/
   @javax.annotation.Nullable
-  public Integer getPropertyType() {
+  public String getPropertyType() {
     return propertyType;
   }
 
 
-  public void setPropertyType(Integer propertyType) {
+  public void setPropertyType(String propertyType) {
     this.propertyType = propertyType;
   }
 
@@ -3670,8 +3670,8 @@ public class AccountResponse {
       if ((jsonObj.get("payment_due_at") != null && !jsonObj.get("payment_due_at").isJsonNull()) && !jsonObj.get("payment_due_at").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `payment_due_at` to be a primitive type in the JSON string but got `%s`", jsonObj.get("payment_due_at").toString()));
       }
-      if ((jsonObj.get("premium_amount") != null && !jsonObj.get("premium_amount").isJsonNull()) && !jsonObj.get("premium_amount").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `premium_amount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("premium_amount").toString()));
+      if ((jsonObj.get("property_type") != null && !jsonObj.get("property_type").isJsonNull()) && !jsonObj.get("property_type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `property_type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("property_type").toString()));
       }
       if ((jsonObj.get("routing_number") != null && !jsonObj.get("routing_number").isJsonNull()) && !jsonObj.get("routing_number").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `routing_number` to be a primitive type in the JSON string but got `%s`", jsonObj.get("routing_number").toString()));

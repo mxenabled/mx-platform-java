@@ -114,7 +114,9 @@ public class MxPlatformApiTest {
     public void aggregateMemberTest() throws ApiException {
         String memberGuid = null;
         String userGuid = null;
-        MemberResponseBody response = api.aggregateMember(memberGuid, userGuid);
+        Boolean includeHoldings = null;
+        Boolean includeTransactions = null;
+        MemberResponseBody response = api.aggregateMember(memberGuid, userGuid, includeHoldings, includeTransactions);
         // TODO: test validations
     }
 

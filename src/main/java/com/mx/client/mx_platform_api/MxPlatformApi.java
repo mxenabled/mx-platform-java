@@ -148,6 +148,8 @@ public class MxPlatformApi {
      * Build call for aggregateMember
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param includeHoldings When set to &#x60;false&#x60;, the aggregation will not gather holdings data. Defaults to &#x60;true&#x60;. (optional)
+     * @param includeTransactions When set to &#x60;false&#x60;, the aggregation will not gather transactions data. Defaults to &#x60;true&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -157,7 +159,7 @@ public class MxPlatformApi {
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aggregateMemberCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call aggregateMemberCall(String memberGuid, String userGuid, Boolean includeHoldings, Boolean includeTransactions, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -184,6 +186,14 @@ public class MxPlatformApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (includeHoldings != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include_holdings", includeHoldings));
+        }
+
+        if (includeTransactions != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include_transactions", includeTransactions));
+        }
+
         final String[] localVarAccepts = {
             "application/vnd.mx.api.v1+json"
         };
@@ -204,7 +214,7 @@ public class MxPlatformApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call aggregateMemberValidateBeforeCall(String memberGuid, String userGuid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call aggregateMemberValidateBeforeCall(String memberGuid, String userGuid, Boolean includeHoldings, Boolean includeTransactions, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'memberGuid' is set
         if (memberGuid == null) {
             throw new ApiException("Missing the required parameter 'memberGuid' when calling aggregateMember(Async)");
@@ -215,7 +225,7 @@ public class MxPlatformApi {
             throw new ApiException("Missing the required parameter 'userGuid' when calling aggregateMember(Async)");
         }
 
-        return aggregateMemberCall(memberGuid, userGuid, _callback);
+        return aggregateMemberCall(memberGuid, userGuid, includeHoldings, includeTransactions, _callback);
 
     }
 
@@ -224,6 +234,8 @@ public class MxPlatformApi {
      * Calling this endpoint initiates an aggregation event for the member. This brings in the latest account and transaction data from the connected institution. If this data has recently been updated, MX may not initiate an aggregation event.
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param includeHoldings When set to &#x60;false&#x60;, the aggregation will not gather holdings data. Defaults to &#x60;true&#x60;. (optional)
+     * @param includeTransactions When set to &#x60;false&#x60;, the aggregation will not gather transactions data. Defaults to &#x60;true&#x60;. (optional)
      * @return MemberResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -232,8 +244,8 @@ public class MxPlatformApi {
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
      </table>
      */
-    public MemberResponseBody aggregateMember(String memberGuid, String userGuid) throws ApiException {
-        ApiResponse<MemberResponseBody> localVarResp = aggregateMemberWithHttpInfo(memberGuid, userGuid);
+    public MemberResponseBody aggregateMember(String memberGuid, String userGuid, Boolean includeHoldings, Boolean includeTransactions) throws ApiException {
+        ApiResponse<MemberResponseBody> localVarResp = aggregateMemberWithHttpInfo(memberGuid, userGuid, includeHoldings, includeTransactions);
         return localVarResp.getData();
     }
 
@@ -242,6 +254,8 @@ public class MxPlatformApi {
      * Calling this endpoint initiates an aggregation event for the member. This brings in the latest account and transaction data from the connected institution. If this data has recently been updated, MX may not initiate an aggregation event.
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param includeHoldings When set to &#x60;false&#x60;, the aggregation will not gather holdings data. Defaults to &#x60;true&#x60;. (optional)
+     * @param includeTransactions When set to &#x60;false&#x60;, the aggregation will not gather transactions data. Defaults to &#x60;true&#x60;. (optional)
      * @return ApiResponse&lt;MemberResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -250,8 +264,8 @@ public class MxPlatformApi {
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MemberResponseBody> aggregateMemberWithHttpInfo(String memberGuid, String userGuid) throws ApiException {
-        okhttp3.Call localVarCall = aggregateMemberValidateBeforeCall(memberGuid, userGuid, null);
+    public ApiResponse<MemberResponseBody> aggregateMemberWithHttpInfo(String memberGuid, String userGuid, Boolean includeHoldings, Boolean includeTransactions) throws ApiException {
+        okhttp3.Call localVarCall = aggregateMemberValidateBeforeCall(memberGuid, userGuid, includeHoldings, includeTransactions, null);
         Type localVarReturnType = new TypeToken<MemberResponseBody>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -261,6 +275,8 @@ public class MxPlatformApi {
      * Calling this endpoint initiates an aggregation event for the member. This brings in the latest account and transaction data from the connected institution. If this data has recently been updated, MX may not initiate an aggregation event.
      * @param memberGuid The unique id for a &#x60;member&#x60;. (required)
      * @param userGuid The unique id for a &#x60;user&#x60;. (required)
+     * @param includeHoldings When set to &#x60;false&#x60;, the aggregation will not gather holdings data. Defaults to &#x60;true&#x60;. (optional)
+     * @param includeTransactions When set to &#x60;false&#x60;, the aggregation will not gather transactions data. Defaults to &#x60;true&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -270,9 +286,9 @@ public class MxPlatformApi {
         <tr><td> 202 </td><td> Accepted </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call aggregateMemberAsync(String memberGuid, String userGuid, final ApiCallback<MemberResponseBody> _callback) throws ApiException {
+    public okhttp3.Call aggregateMemberAsync(String memberGuid, String userGuid, Boolean includeHoldings, Boolean includeTransactions, final ApiCallback<MemberResponseBody> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = aggregateMemberValidateBeforeCall(memberGuid, userGuid, _callback);
+        okhttp3.Call localVarCall = aggregateMemberValidateBeforeCall(memberGuid, userGuid, includeHoldings, includeTransactions, _callback);
         Type localVarReturnType = new TypeToken<MemberResponseBody>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
