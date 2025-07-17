@@ -56,6 +56,10 @@ public class ImageOptionResponse {
   @SerializedName(SERIALIZED_NAME_DATA_URI)
   private String dataUri;
 
+  public static final String SERIALIZED_NAME_GUID = "guid";
+  @SerializedName(SERIALIZED_NAME_GUID)
+  private String guid;
+
   public static final String SERIALIZED_NAME_LABEL = "label";
   @SerializedName(SERIALIZED_NAME_LABEL)
   private String label;
@@ -85,6 +89,27 @@ public class ImageOptionResponse {
 
   public void setDataUri(String dataUri) {
     this.dataUri = dataUri;
+  }
+
+
+  public ImageOptionResponse guid(String guid) {
+    
+    this.guid = guid;
+    return this;
+  }
+
+   /**
+   * Get guid
+   * @return guid
+  **/
+  @javax.annotation.Nullable
+  public String getGuid() {
+    return guid;
+  }
+
+
+  public void setGuid(String guid) {
+    this.guid = guid;
   }
 
 
@@ -141,6 +166,7 @@ public class ImageOptionResponse {
     }
     ImageOptionResponse imageOptionResponse = (ImageOptionResponse) o;
     return Objects.equals(this.dataUri, imageOptionResponse.dataUri) &&
+        Objects.equals(this.guid, imageOptionResponse.guid) &&
         Objects.equals(this.label, imageOptionResponse.label) &&
         Objects.equals(this.value, imageOptionResponse.value);
   }
@@ -151,7 +177,7 @@ public class ImageOptionResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataUri, label, value);
+    return Objects.hash(dataUri, guid, label, value);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -166,6 +192,7 @@ public class ImageOptionResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class ImageOptionResponse {\n");
     sb.append("    dataUri: ").append(toIndentedString(dataUri)).append("\n");
+    sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -191,6 +218,7 @@ public class ImageOptionResponse {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
     openapiFields.add("data_uri");
+    openapiFields.add("guid");
     openapiFields.add("label");
     openapiFields.add("value");
 
@@ -221,6 +249,9 @@ public class ImageOptionResponse {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("data_uri") != null && !jsonObj.get("data_uri").isJsonNull()) && !jsonObj.get("data_uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `data_uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("data_uri").toString()));
+      }
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
       }
       if ((jsonObj.get("label") != null && !jsonObj.get("label").isJsonNull()) && !jsonObj.get("label").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));

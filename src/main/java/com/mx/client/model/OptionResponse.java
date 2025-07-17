@@ -52,6 +52,10 @@ import com.mx.client.JSON;
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class OptionResponse {
+  public static final String SERIALIZED_NAME_GUID = "guid";
+  @SerializedName(SERIALIZED_NAME_GUID)
+  private String guid;
+
   public static final String SERIALIZED_NAME_LABEL = "label";
   @SerializedName(SERIALIZED_NAME_LABEL)
   private String label;
@@ -62,6 +66,27 @@ public class OptionResponse {
 
   public OptionResponse() {
   }
+
+  public OptionResponse guid(String guid) {
+    
+    this.guid = guid;
+    return this;
+  }
+
+   /**
+   * Get guid
+   * @return guid
+  **/
+  @javax.annotation.Nullable
+  public String getGuid() {
+    return guid;
+  }
+
+
+  public void setGuid(String guid) {
+    this.guid = guid;
+  }
+
 
   public OptionResponse label(String label) {
     
@@ -115,7 +140,8 @@ public class OptionResponse {
       return false;
     }
     OptionResponse optionResponse = (OptionResponse) o;
-    return Objects.equals(this.label, optionResponse.label) &&
+    return Objects.equals(this.guid, optionResponse.guid) &&
+        Objects.equals(this.label, optionResponse.label) &&
         Objects.equals(this.value, optionResponse.value);
   }
 
@@ -125,7 +151,7 @@ public class OptionResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(label, value);
+    return Objects.hash(guid, label, value);
   }
 
   private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -139,6 +165,7 @@ public class OptionResponse {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OptionResponse {\n");
+    sb.append("    guid: ").append(toIndentedString(guid)).append("\n");
     sb.append("    label: ").append(toIndentedString(label)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("}");
@@ -163,6 +190,7 @@ public class OptionResponse {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("guid");
     openapiFields.add("label");
     openapiFields.add("value");
 
@@ -191,6 +219,9 @@ public class OptionResponse {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+      if ((jsonObj.get("guid") != null && !jsonObj.get("guid").isJsonNull()) && !jsonObj.get("guid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `guid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("guid").toString()));
+      }
       if ((jsonObj.get("label") != null && !jsonObj.get("label").isJsonNull()) && !jsonObj.get("label").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `label` to be a primitive type in the JSON string but got `%s`", jsonObj.get("label").toString()));
       }
