@@ -14,6 +14,7 @@
 |**description** | **String** |  |  [optional] |
 |**guid** | **String** |  |  [optional] |
 |**hasAssociatedAccounts** | **Boolean** |  |  [optional] |
+|**hasAssociatedCategories** | **Boolean** |  |  [optional] |
 |**hasAssociatedMerchants** | **Boolean** |  |  [optional] |
 |**hasAssociatedScheduledPayments** | **Boolean** |  |  [optional] |
 |**hasAssociatedTransactions** | **Boolean** |  |  [optional] |

@@ -7,13 +7,6 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**accountName** | **String** |  |  [optional] |
-|**accountNumber** | **String** |  |  [optional] |
-|**accountType** | **String** |  |  [optional] |
-|**email** | **String** |  |  [optional] |
-|**firstName** | **String** |  |  [optional] |
-|**lastName** | **String** |  |  [optional] |
-|**routingNumber** | **String** |  |  [optional] |
 |**errorMessage** | **String** |  |  [optional] |
 |**guid** | **String** |  |  [optional] |
 |**institutionCode** | **String** |  |  [optional] |

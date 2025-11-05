@@ -18,7 +18,7 @@
 |**currencyCode** | **String** |  |  [optional] |
 |**dayPaymentIsDue** | **Integer** |  |  [optional] |
 |**deathBenefit** | **Integer** |  |  [optional] |
-|**id** | **String** |  |  [optional] |
+|**id** | **String** |  |  |
 |**interestRate** | **BigDecimal** |  |  [optional] |
 |**isClosed** | **Boolean** |  |  [optional] |
 |**isHidden** | **Boolean** |  |  [optional] |

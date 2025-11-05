@@ -11,8 +11,8 @@
 |**challenges** | [**List&lt;ChallengeResponse&gt;**](ChallengeResponse.md) |  |  [optional] |
 |**connectionStatus** | **String** |  |  [optional] |
 |**guid** | **String** |  |  [optional] |
-|**hasProcessedAccounts** | **Boolean** |  |  [optional] |
 |**hasProcessedAccountNumbers** | **Boolean** |  |  [optional] |
+|**hasProcessedAccounts** | **Boolean** |  |  [optional] |
 |**hasProcessedTransactions** | **Boolean** |  |  [optional] |
 |**isAuthenticated** | **Boolean** |  |  [optional] |
 |**isBeingAggregated** | **Boolean** |  |  [optional] |

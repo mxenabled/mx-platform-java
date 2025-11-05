@@ -1,6 +1,6 @@
 # SpendingPlanApi
 
-All URIs are relative to *https://api.mx.com*
+All URIs are relative to *https://int-api.mx.com*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -13,6 +13,7 @@ All URIs are relative to *https://api.mx.com*
 | [**listSpendingPlanIterationItems**](SpendingPlanApi.md#listSpendingPlanIterationItems) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items | List spending plan iteration items |
 | [**listSpendingPlanIterations**](SpendingPlanApi.md#listSpendingPlanIterations) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations | List spending plan iterations |
 | [**listSpendingPlans**](SpendingPlanApi.md#listSpendingPlans) | **GET** /users/{user_guid}/spending_plans | List spending plans |
+| [**readCurrentSpendingPlanIteration**](SpendingPlanApi.md#readCurrentSpendingPlanIteration) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current | Read current spending plan iteration |
 | [**readSpendingPlanAccount**](SpendingPlanApi.md#readSpendingPlanAccount) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/spending_plan_accounts/{spending_plan_account_guid} | Read spending plan account |
 | [**readSpendingPlanIteration**](SpendingPlanApi.md#readSpendingPlanIteration) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/{iteration_number} | Read a spending plan iteration |
 | [**readSpendingPlanIterationItem**](SpendingPlanApi.md#readSpendingPlanIterationItem) | **GET** /users/{user_guid}/spending_plans/{spending_plan_guid}/iterations/current/iteration_items/{iteration_item_guid} | Read a spending plan iteration item |
@@ -41,7 +42,7 @@ import com.mx.client.mx_platform_api.SpendingPlanApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.mx.com");
+    defaultClient.setBasePath("https://int-api.mx.com");
     
     // Configure HTTP basic authorization: basicAuth
     HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
@@ -49,7 +50,7 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     SpendingPlanApi apiInstance = new SpendingPlanApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique identifier for a `user`, beginning with the prefix `USR-`.
     try {
       SpendingPlanResponse result = apiInstance.createSpendingPlan(userGuid);
       System.out.println(result);
@@ -68,7 +69,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. | |
 
 ### Return type
 
@@ -109,7 +110,7 @@ import com.mx.client.mx_platform_api.SpendingPlanApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.mx.com");
+    defaultClient.setBasePath("https://int-api.mx.com");
     
     // Configure HTTP basic authorization: basicAuth
     HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
@@ -118,7 +119,7 @@ public class Example {
 
     SpendingPlanApi apiInstance = new SpendingPlanApi(defaultClient);
     String spendingPlanGuid = "SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262"; // String | The unique ID for the `spending_plan`.
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique identifier for a `user`, beginning with the prefix `USR-`.
     SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody = new SpendingPlanIterationItemCreateRequestBody(); // SpendingPlanIterationItemCreateRequestBody | Iteration item to be created with required parameter (planned_amount)
     try {
       SpendingPlanIterationItemResponse result = apiInstance.createSpendingPlanIterationItem(spendingPlanGuid, userGuid, spendingPlanIterationItemCreateRequestBody);
@@ -139,7 +140,7 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
-| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. | |
 | **spendingPlanIterationItemCreateRequestBody** | [**SpendingPlanIterationItemCreateRequestBody**](SpendingPlanIterationItemCreateRequestBody.md)| Iteration item to be created with required parameter (planned_amount) | |
 
 ### Return type
@@ -181,7 +182,7 @@ import com.mx.client.mx_platform_api.SpendingPlanApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.mx.com");
+    defaultClient.setBasePath("https://int-api.mx.com");
     
     // Configure HTTP basic authorization: basicAuth
     HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
@@ -189,7 +190,7 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     SpendingPlanApi apiInstance = new SpendingPlanApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique ID for a `user`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique identifier for a `user`, beginning with the prefix `USR-`.
     String spendingPlanGuid = "SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262"; // String | The unique ID for the `spending_plan`.
     try {
       apiInstance.deleteSpendingPlan(userGuid, spendingPlanGuid);
@@ -208,7 +209,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userGuid** | **String**| The unique ID for a &#x60;user&#x60;. | |
+| **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. | |
 | **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
 
 ### Return type
@@ -250,7 +251,7 @@ import com.mx.client.mx_platform_api.SpendingPlanApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.mx.com");
+    defaultClient.setBasePath("https://int-api.mx.com");
     
     // Configure HTTP basic authorization: basicAuth
     HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
@@ -258,7 +259,7 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     SpendingPlanApi apiInstance = new SpendingPlanApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique ID for a `user`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique identifier for a `user`, beginning with the prefix `USR-`.
     String spendingPlanGuid = "SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262"; // String | The unique ID for the `spending_plan`.
     String spendingPlanAccountGuid = "ACT-e9f80fee-84da-7s7r-9a5e-0346g4279b4c"; // String | The unique ID for the specified account.
     try {
@@ -278,7 +279,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userGuid** | **String**| The unique ID for a &#x60;user&#x60;. | |
+| **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. | |
 | **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
 | **spendingPlanAccountGuid** | **String**| The unique ID for the specified account. | |
 
@@ -321,7 +322,7 @@ import com.mx.client.mx_platform_api.SpendingPlanApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.mx.com");
+    defaultClient.setBasePath("https://int-api.mx.com");
     
     // Configure HTTP basic authorization: basicAuth
     HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
@@ -329,7 +330,7 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     SpendingPlanApi apiInstance = new SpendingPlanApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique ID for a `user`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique identifier for a `user`, beginning with the prefix `USR-`.
     String spendingPlanGuid = "SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262"; // String | The unique ID for the `spending_plan`.
     String iterationItemGuid = "SII-a4dc1549-da28-1245-9c9c-53eee4cdfbe3"; // String | The unique ID for the `iteration_item`.
     try {
@@ -349,7 +350,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userGuid** | **String**| The unique ID for a &#x60;user&#x60;. | |
+| **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. | |
 | **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
 | **iterationItemGuid** | **String**| The unique ID for the &#x60;iteration_item&#x60;. | |
 
@@ -392,7 +393,7 @@ import com.mx.client.mx_platform_api.SpendingPlanApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.mx.com");
+    defaultClient.setBasePath("https://int-api.mx.com");
     
     // Configure HTTP basic authorization: basicAuth
     HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
@@ -400,10 +401,10 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     SpendingPlanApi apiInstance = new SpendingPlanApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique identifier for a `user`, beginning with the prefix `USR-`.
     String spendingPlanGuid = "SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262"; // String | The unique ID for the `spending_plan`.
-    Integer page = 1; // Integer | Specify current page.
-    Integer recordsPerPage = 10; // Integer | Specify records per page.
+    Integer page = 1; // Integer | Results are paginated. Specify current page.
+    Integer recordsPerPage = 10; // Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
     try {
       SpendingPlanAccountsResponse result = apiInstance.listSpendingPlanAccounts(userGuid, spendingPlanGuid, page, recordsPerPage);
       System.out.println(result);
@@ -422,10 +423,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. | |
 | **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
-| **page** | **Integer**| Specify current page. | [optional] |
-| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **page** | **Integer**| Results are paginated. Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
@@ -466,7 +467,7 @@ import com.mx.client.mx_platform_api.SpendingPlanApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.mx.com");
+    defaultClient.setBasePath("https://int-api.mx.com");
     
     // Configure HTTP basic authorization: basicAuth
     HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
@@ -474,10 +475,10 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     SpendingPlanApi apiInstance = new SpendingPlanApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique identifier for a `user`, beginning with the prefix `USR-`.
     String spendingPlanGuid = "SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262"; // String | The unique ID for the `spending_plan`.
-    Integer page = 1; // Integer | Specify current page.
-    Integer recordsPerPage = 10; // Integer | Specify records per page.
+    Integer page = 1; // Integer | Results are paginated. Specify current page.
+    Integer recordsPerPage = 10; // Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
     try {
       SpendingPlanIterationItemsResponseBody result = apiInstance.listSpendingPlanIterationItems(userGuid, spendingPlanGuid, page, recordsPerPage);
       System.out.println(result);
@@ -496,10 +497,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. | |
 | **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
-| **page** | **Integer**| Specify current page. | [optional] |
-| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **page** | **Integer**| Results are paginated. Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
@@ -540,7 +541,7 @@ import com.mx.client.mx_platform_api.SpendingPlanApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.mx.com");
+    defaultClient.setBasePath("https://int-api.mx.com");
     
     // Configure HTTP basic authorization: basicAuth
     HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
@@ -548,10 +549,10 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     SpendingPlanApi apiInstance = new SpendingPlanApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique identifier for a `user`, beginning with the prefix `USR-`.
     String spendingPlanGuid = "SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262"; // String | The unique ID for the `spending_plan`.
-    Integer page = 1; // Integer | Specify current page.
-    Integer recordsPerPage = 10; // Integer | Specify records per page.
+    Integer page = 1; // Integer | Results are paginated. Specify current page.
+    Integer recordsPerPage = 10; // Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
     try {
       SpendingPlanIterationsResponse result = apiInstance.listSpendingPlanIterations(userGuid, spendingPlanGuid, page, recordsPerPage);
       System.out.println(result);
@@ -570,10 +571,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. | |
 | **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
-| **page** | **Integer**| Specify current page. | [optional] |
-| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **page** | **Integer**| Results are paginated. Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
@@ -614,7 +615,7 @@ import com.mx.client.mx_platform_api.SpendingPlanApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.mx.com");
+    defaultClient.setBasePath("https://int-api.mx.com");
     
     // Configure HTTP basic authorization: basicAuth
     HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
@@ -622,9 +623,9 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     SpendingPlanApi apiInstance = new SpendingPlanApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
-    Integer page = 1; // Integer | Specify current page.
-    Integer recordsPerPage = 10; // Integer | Specify records per page.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique identifier for a `user`, beginning with the prefix `USR-`.
+    Integer page = 1; // Integer | Results are paginated. Specify current page.
+    Integer recordsPerPage = 10; // Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
     try {
       SpendingPlansResponseBody result = apiInstance.listSpendingPlans(userGuid, page, recordsPerPage);
       System.out.println(result);
@@ -643,13 +644,87 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
-| **page** | **Integer**| Specify current page. | [optional] |
-| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. | |
+| **page** | **Integer**| Results are paginated. Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
 [**SpendingPlansResponseBody**](SpendingPlansResponseBody.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/vnd.mx.api.v1+json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+<a id="readCurrentSpendingPlanIteration"></a>
+# **readCurrentSpendingPlanIteration**
+> SpendingPlanIterationResponse readCurrentSpendingPlanIteration(userGuid, spendingPlanGuid, page, recordsPerPage)
+
+Read current spending plan iteration
+
+Use this endpoint to read the attributes of the current spending plan &#x60;iteration&#x60;.
+
+### Example
+```java
+// Import classes:
+import com.mx.client.ApiClient;
+import com.mx.client.ApiException;
+import com.mx.client.Configuration;
+import com.mx.client.auth.*;
+import com.mx.client.models.*;
+import com.mx.client.mx_platform_api.SpendingPlanApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("https://int-api.mx.com");
+    
+    // Configure HTTP basic authorization: basicAuth
+    HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
+    basicAuth.setUsername("YOUR USERNAME");
+    basicAuth.setPassword("YOUR PASSWORD");
+
+    SpendingPlanApi apiInstance = new SpendingPlanApi(defaultClient);
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique identifier for a `user`, beginning with the prefix `USR-`.
+    String spendingPlanGuid = "SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262"; // String | The unique ID for the `spending_plan`.
+    Integer page = 1; // Integer | Results are paginated. Specify current page.
+    Integer recordsPerPage = 10; // Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
+    try {
+      SpendingPlanIterationResponse result = apiInstance.readCurrentSpendingPlanIteration(userGuid, spendingPlanGuid, page, recordsPerPage);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling SpendingPlanApi#readCurrentSpendingPlanIteration");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. | |
+| **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
+| **page** | **Integer**| Results are paginated. Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
+
+### Return type
+
+[**SpendingPlanIterationResponse**](SpendingPlanIterationResponse.md)
 
 ### Authorization
 
@@ -686,7 +761,7 @@ import com.mx.client.mx_platform_api.SpendingPlanApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.mx.com");
+    defaultClient.setBasePath("https://int-api.mx.com");
     
     // Configure HTTP basic authorization: basicAuth
     HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
@@ -694,11 +769,11 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     SpendingPlanApi apiInstance = new SpendingPlanApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique identifier for a `user`, beginning with the prefix `USR-`.
     String spendingPlanGuid = "SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262"; // String | The unique ID for the `spending_plan`.
     String spendingPlanAccountGuid = "ACT-e9f80fee-84da-7s7r-9a5e-0346g4279b4c"; // String | The unique ID for the specified account.
-    Integer page = 1; // Integer | Specify current page.
-    Integer recordsPerPage = 10; // Integer | Specify records per page.
+    Integer page = 1; // Integer | Results are paginated. Specify current page.
+    Integer recordsPerPage = 10; // Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
     try {
       SpendingPlanAccountResponse result = apiInstance.readSpendingPlanAccount(userGuid, spendingPlanGuid, spendingPlanAccountGuid, page, recordsPerPage);
       System.out.println(result);
@@ -717,11 +792,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. | |
 | **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
 | **spendingPlanAccountGuid** | **String**| The unique ID for the specified account. | |
-| **page** | **Integer**| Specify current page. | [optional] |
-| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **page** | **Integer**| Results are paginated. Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
@@ -762,7 +837,7 @@ import com.mx.client.mx_platform_api.SpendingPlanApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.mx.com");
+    defaultClient.setBasePath("https://int-api.mx.com");
     
     // Configure HTTP basic authorization: basicAuth
     HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
@@ -770,11 +845,11 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     SpendingPlanApi apiInstance = new SpendingPlanApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique identifier for a `user`, beginning with the prefix `USR-`.
     String spendingPlanGuid = "SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262"; // String | The unique ID for the `spending_plan`.
-    Integer iterationNumber = 1; // Integer | The current iteration number for the spending plan `iteration``.
-    Integer page = 1; // Integer | Specify current page.
-    Integer recordsPerPage = 10; // Integer | Specify records per page.
+    Integer iterationNumber = 1; // Integer | The current iteration number for the spending plan `iteration`.
+    Integer page = 1; // Integer | Results are paginated. Specify current page.
+    Integer recordsPerPage = 10; // Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
     try {
       SpendingPlanIterationResponse result = apiInstance.readSpendingPlanIteration(userGuid, spendingPlanGuid, iterationNumber, page, recordsPerPage);
       System.out.println(result);
@@ -793,11 +868,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. | |
 | **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
-| **iterationNumber** | **Integer**| The current iteration number for the spending plan &#x60;iteration&#x60;&#x60;. | |
-| **page** | **Integer**| Specify current page. | [optional] |
-| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **iterationNumber** | **Integer**| The current iteration number for the spending plan &#x60;iteration&#x60;. | |
+| **page** | **Integer**| Results are paginated. Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
@@ -838,7 +913,7 @@ import com.mx.client.mx_platform_api.SpendingPlanApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.mx.com");
+    defaultClient.setBasePath("https://int-api.mx.com");
     
     // Configure HTTP basic authorization: basicAuth
     HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
@@ -846,11 +921,11 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     SpendingPlanApi apiInstance = new SpendingPlanApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique identifier for a `user`, beginning with the prefix `USR-`.
     String spendingPlanGuid = "SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262"; // String | The unique ID for the `spending_plan`.
     String iterationItemGuid = "SII-a4dc1549-da28-1245-9c9c-53eee4cdfbe3"; // String | The unique ID for the `iteration_item`.
-    Integer page = 1; // Integer | Specify current page.
-    Integer recordsPerPage = 10; // Integer | Specify records per page.
+    Integer page = 1; // Integer | Results are paginated. Specify current page.
+    Integer recordsPerPage = 10; // Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
     try {
       SpendingPlanIterationItemResponse result = apiInstance.readSpendingPlanIterationItem(userGuid, spendingPlanGuid, iterationItemGuid, page, recordsPerPage);
       System.out.println(result);
@@ -869,11 +944,11 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. | |
 | **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
 | **iterationItemGuid** | **String**| The unique ID for the &#x60;iteration_item&#x60;. | |
-| **page** | **Integer**| Specify current page. | [optional] |
-| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **page** | **Integer**| Results are paginated. Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
@@ -914,7 +989,7 @@ import com.mx.client.mx_platform_api.SpendingPlanApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.mx.com");
+    defaultClient.setBasePath("https://int-api.mx.com");
     
     // Configure HTTP basic authorization: basicAuth
     HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
@@ -922,10 +997,10 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     SpendingPlanApi apiInstance = new SpendingPlanApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique identifier for a `user`, beginning with the prefix `USR-`.
     String spendingPlanGuid = "SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262"; // String | The unique ID for the `spending_plan`.
-    Integer page = 1; // Integer | Specify current page.
-    Integer recordsPerPage = 10; // Integer | Specify records per page.
+    Integer page = 1; // Integer | Results are paginated. Specify current page.
+    Integer recordsPerPage = 10; // Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
     try {
       SpendingPlanResponse result = apiInstance.readSpendingPlanUser(userGuid, spendingPlanGuid, page, recordsPerPage);
       System.out.println(result);
@@ -944,10 +1019,10 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. | |
 | **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
-| **page** | **Integer**| Specify current page. | [optional] |
-| **recordsPerPage** | **Integer**| Specify records per page. | [optional] |
+| **page** | **Integer**| Results are paginated. Specify current page. | [optional] |
+| **recordsPerPage** | **Integer**| This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
@@ -988,7 +1063,7 @@ import com.mx.client.mx_platform_api.SpendingPlanApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("https://api.mx.com");
+    defaultClient.setBasePath("https://int-api.mx.com");
     
     // Configure HTTP basic authorization: basicAuth
     HttpBasicAuth basicAuth = (HttpBasicAuth) defaultClient.getAuthentication("basicAuth");
@@ -996,7 +1071,7 @@ public class Example {
     basicAuth.setPassword("YOUR PASSWORD");
 
     SpendingPlanApi apiInstance = new SpendingPlanApi(defaultClient);
-    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique id for a `user`.
+    String userGuid = "USR-fa7537f3-48aa-a683-a02a-b18940482f54"; // String | The unique identifier for a `user`, beginning with the prefix `USR-`.
     String spendingPlanGuid = "SPL-e5f9a5bd-c5b3-4901-bdc0-62119b9db262"; // String | The unique ID for the `spending_plan`.
     String iterationItemGuid = "SII-a4dc1549-da28-1245-9c9c-53eee4cdfbe3"; // String | The unique ID for the `iteration_item`.
     SpendingPlanIterationItemCreateRequestBody spendingPlanIterationItemCreateRequestBody = new SpendingPlanIterationItemCreateRequestBody(); // SpendingPlanIterationItemCreateRequestBody | Iteration item to be updated with required parameter (planned_amount)
@@ -1018,7 +1093,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **userGuid** | **String**| The unique id for a &#x60;user&#x60;. | |
+| **userGuid** | **String**| The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. | |
 | **spendingPlanGuid** | **String**| The unique ID for the &#x60;spending_plan&#x60;. | |
 | **iterationItemGuid** | **String**| The unique ID for the &#x60;iteration_item&#x60;. | |
 | **spendingPlanIterationItemCreateRequestBody** | [**SpendingPlanIterationItemCreateRequestBody**](SpendingPlanIterationItemCreateRequestBody.md)| Iteration item to be updated with required parameter (planned_amount) | |

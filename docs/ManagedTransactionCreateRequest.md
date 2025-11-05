@@ -23,7 +23,7 @@
 |**merchantGuid** | **String** |  |  [optional] |
 |**merchantLocationGuid** | **String** |  |  [optional] |
 |**metadata** | **String** |  |  [optional] |
-|**postedAt** | **String** |  |  [optional] |
+|**postedAt** | **String** |  |  |
 |**status** | **String** |  |  |
 |**transactedAt** | **String** |  |  |
 |**type** | **String** |  |  |

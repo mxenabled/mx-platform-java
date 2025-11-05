@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**insight** | [**List&lt;InsightResponse&gt;**](InsightResponse.md) |  |  [optional] |
+|**insight** | [**InsightResponse**](InsightResponse.md) |  |  [optional] |
 
 
 

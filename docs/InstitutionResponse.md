@@ -11,6 +11,9 @@
 |**forgotPasswordUrl** | **String** |  |  [optional] |
 |**forgotUsernameUrl** | **String** |  |  [optional] |
 |**instructionalText** | **String** |  |  [optional] |
+|**instructionalTextSteps** | **List&lt;String&gt;** | An array of instructional steps that may contain html elements. |  [optional] |
+|**isDisabledByClient** | **Boolean** |  |  [optional] |
+|**isoCountryCode** | **String** |  |  [optional] |
 |**mediumLogoUrl** | **String** |  |  [optional] |
 |**name** | **String** |  |  [optional] |
 |**smallLogoUrl** | **String** |  |  [optional] |

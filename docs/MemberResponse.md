@@ -11,7 +11,6 @@
 |**backgroundAggregationIsDisabled** | **Boolean** |  |  [optional] |
 |**connectionStatus** | **String** |  |  [optional] |
 |**connectionStatusMessage** | **String** |  |  [optional] |
-|**error** | **String** |  |  [optional] |
 |**guid** | **String** |  |  [optional] |
 |**id** | **String** |  |  [optional] |
 |**institutionCode** | **String** |  |  [optional] |

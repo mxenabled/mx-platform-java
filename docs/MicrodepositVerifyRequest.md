@@ -7,8 +7,8 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**depositAmount1** | **Integer** |  |  [optional] |
-|**depositAmount2** | **Integer** |  |  [optional] |
+|**depositAmount1** | **BigDecimal** |  |  [optional] |
+|**depositAmount2** | **BigDecimal** |  |  [optional] |
 
 
 

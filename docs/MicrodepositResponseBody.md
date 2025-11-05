@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**microDeposit** | [**MicrodepositResponse**](MicrodepositResponse.md) |  |  [optional] |
+|**microDeposit** | [**List&lt;MicrodepositResponseBodyMicroDepositInner&gt;**](MicrodepositResponseBodyMicroDepositInner.md) |  |  [optional] |
 
 
 

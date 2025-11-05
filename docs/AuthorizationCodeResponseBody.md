@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**authorizationCode** | [**List&lt;AuthorizationCodeResponse&gt;**](AuthorizationCodeResponse.md) |  |  [optional] |
+|**authorizationCode** | [**AuthorizationCodeResponse**](AuthorizationCodeResponse.md) |  |  [optional] |
 
 
 
