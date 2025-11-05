@@ -47,6 +47,14 @@ public class ImageOptionResponseTest {
     }
 
     /**
+     * Test the property 'guid'
+     */
+    @Test
+    public void guidTest() {
+        // TODO: test guid
+    }
+
+    /**
      * Test the property 'label'
      */
     @Test

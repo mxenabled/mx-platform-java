@@ -15,7 +15,7 @@ package com.mx.client;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Configuration {
-    public static final String VERSION = "1.10.1";
+    public static final String VERSION = "1.11.0";
 
     private static ApiClient defaultApiClient = new ApiClient();
 
