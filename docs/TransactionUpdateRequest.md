@@ -7,7 +7,10 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**description** | **String** |  |  |
+|**date** | **String** |  |  [optional] |
+|**memo** | **String** |  |  [optional] |
+|**categoryGuid** | **String** |  |  [optional] |
+|**description** | **String** |  |  [optional] |
 
 
 

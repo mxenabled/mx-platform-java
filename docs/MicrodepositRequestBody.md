@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**microDeposit** | [**MicrodepositRequest**](MicrodepositRequest.md) |  |  [optional] |
+|**microDeposit** | [**MicrodepositElements**](MicrodepositElements.md) |  |  [optional] |
 
 
 

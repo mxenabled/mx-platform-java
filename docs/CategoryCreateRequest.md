@@ -9,7 +9,7 @@
 |------------ | ------------- | ------------- | -------------|
 |**metadata** | **String** |  |  [optional] |
 |**name** | **String** |  |  |
-|**parentGuid** | **String** |  |  [optional] |
+|**parentGuid** | **String** |  |  |
 
 
 

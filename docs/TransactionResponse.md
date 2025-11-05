@@ -26,6 +26,7 @@
 |**isFee** | **Boolean** |  |  [optional] |
 |**isIncome** | **Boolean** |  |  [optional] |
 |**isInternational** | **Boolean** |  |  [optional] |
+|**isManual** | **Boolean** |  |  [optional] |
 |**isOverdraftFee** | **Boolean** |  |  [optional] |
 |**isPayrollAdvance** | **Boolean** |  |  [optional] |
 |**isRecurring** | **Boolean** |  |  [optional] |

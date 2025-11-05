@@ -7,7 +7,7 @@
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**rewards** | [**List&lt;RewardsResponse&gt;**](RewardsResponse.md) |  |  [optional] |
+|**rewards** | [**List&lt;RewardsResponseBodyRewardsInner&gt;**](RewardsResponseBodyRewardsInner.md) |  |  [optional] |
 |**pagination** | [**PaginationResponse**](PaginationResponse.md) |  |  [optional] |
 
 
