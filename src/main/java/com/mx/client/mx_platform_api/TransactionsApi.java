@@ -1380,7 +1380,7 @@ public class TransactionsApi {
 
     /**
      * List transactions by account
-     * Requests to this endpoint return a list of transactions associated with the specified account. &lt;br /&gt;&lt;br /&gt;Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter.  To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter). 
+     * Requests to this endpoint return a list of transactions associated with the specified account. &lt;br /&gt;&lt;br /&gt;Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter. To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
      * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param page Results are paginated. Specify current page. (optional)
@@ -1411,7 +1411,7 @@ public class TransactionsApi {
 
     /**
      * List transactions by account
-     * Requests to this endpoint return a list of transactions associated with the specified account. &lt;br /&gt;&lt;br /&gt;Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter.  To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter). 
+     * Requests to this endpoint return a list of transactions associated with the specified account. &lt;br /&gt;&lt;br /&gt;Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter. To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
      * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param page Results are paginated. Specify current page. (optional)
@@ -1443,7 +1443,7 @@ public class TransactionsApi {
 
     /**
      * List transactions by account (asynchronously)
-     * Requests to this endpoint return a list of transactions associated with the specified account. &lt;br /&gt;&lt;br /&gt;Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter.  To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter). 
+     * Requests to this endpoint return a list of transactions associated with the specified account. &lt;br /&gt;&lt;br /&gt;Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter. To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
      * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param page Results are paginated. Specify current page. (optional)
