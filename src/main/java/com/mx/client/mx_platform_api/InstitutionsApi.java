@@ -78,7 +78,7 @@ public class InstitutionsApi {
      * Build call for listFavoriteInstitutions
      * @param isoCountryCode An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include &#x60;US&#x60;, &#x60;CA&#x60;, and &#x60;MX&#x60; (Mexico). (optional)
      * @param page Results are paginated. Specify current page. (optional)
-     * @param recordsPerPage This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;100&#x60;. If the value exceeds &#x60;100&#x60;, the default value of &#x60;25&#x60; will be used instead. (optional)
+     * @param recordsPerPage This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -155,7 +155,7 @@ public class InstitutionsApi {
      * This endpoint returns a paginated list containing institutions that have been set as the partner’s favorites, sorted by popularity. Please contact MX to set a list of favorites.
      * @param isoCountryCode An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include &#x60;US&#x60;, &#x60;CA&#x60;, and &#x60;MX&#x60; (Mexico). (optional)
      * @param page Results are paginated. Specify current page. (optional)
-     * @param recordsPerPage This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;100&#x60;. If the value exceeds &#x60;100&#x60;, the default value of &#x60;25&#x60; will be used instead. (optional)
+     * @param recordsPerPage This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. (optional)
      * @return InstitutionsResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -174,7 +174,7 @@ public class InstitutionsApi {
      * This endpoint returns a paginated list containing institutions that have been set as the partner’s favorites, sorted by popularity. Please contact MX to set a list of favorites.
      * @param isoCountryCode An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include &#x60;US&#x60;, &#x60;CA&#x60;, and &#x60;MX&#x60; (Mexico). (optional)
      * @param page Results are paginated. Specify current page. (optional)
-     * @param recordsPerPage This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;100&#x60;. If the value exceeds &#x60;100&#x60;, the default value of &#x60;25&#x60; will be used instead. (optional)
+     * @param recordsPerPage This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. (optional)
      * @return ApiResponse&lt;InstitutionsResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -194,7 +194,7 @@ public class InstitutionsApi {
      * This endpoint returns a paginated list containing institutions that have been set as the partner’s favorites, sorted by popularity. Please contact MX to set a list of favorites.
      * @param isoCountryCode An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include &#x60;US&#x60;, &#x60;CA&#x60;, and &#x60;MX&#x60; (Mexico). (optional)
      * @param page Results are paginated. Specify current page. (optional)
-     * @param recordsPerPage This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;100&#x60;. If the value exceeds &#x60;100&#x60;, the default value of &#x60;25&#x60; will be used instead. (optional)
+     * @param recordsPerPage This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -355,7 +355,7 @@ public class InstitutionsApi {
      * @param name This will list only institutions in which the appended string appears. (optional)
      * @param isoCountryCode An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include &#x60;US&#x60;, &#x60;CA&#x60;, and &#x60;MX&#x60; (Mexico). (optional)
      * @param page Results are paginated. Specify current page. (optional)
-     * @param recordsPerPage This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;100&#x60;. If the value exceeds &#x60;100&#x60;, the default value of &#x60;25&#x60; will be used instead. (optional)
+     * @param recordsPerPage This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. (optional)
      * @param supportsAccountIdentification Filter only institutions which support account identification. (optional)
      * @param supportsAccountStatement Filter only institutions which support account statements. (optional)
      * @param supportsAccountVerification Filter only institutions which support account verification. (optional)
@@ -457,7 +457,7 @@ public class InstitutionsApi {
      * @param name This will list only institutions in which the appended string appears. (optional)
      * @param isoCountryCode An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include &#x60;US&#x60;, &#x60;CA&#x60;, and &#x60;MX&#x60; (Mexico). (optional)
      * @param page Results are paginated. Specify current page. (optional)
-     * @param recordsPerPage This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;100&#x60;. If the value exceeds &#x60;100&#x60;, the default value of &#x60;25&#x60; will be used instead. (optional)
+     * @param recordsPerPage This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. (optional)
      * @param supportsAccountIdentification Filter only institutions which support account identification. (optional)
      * @param supportsAccountStatement Filter only institutions which support account statements. (optional)
      * @param supportsAccountVerification Filter only institutions which support account verification. (optional)
@@ -481,7 +481,7 @@ public class InstitutionsApi {
      * @param name This will list only institutions in which the appended string appears. (optional)
      * @param isoCountryCode An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include &#x60;US&#x60;, &#x60;CA&#x60;, and &#x60;MX&#x60; (Mexico). (optional)
      * @param page Results are paginated. Specify current page. (optional)
-     * @param recordsPerPage This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;100&#x60;. If the value exceeds &#x60;100&#x60;, the default value of &#x60;25&#x60; will be used instead. (optional)
+     * @param recordsPerPage This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. (optional)
      * @param supportsAccountIdentification Filter only institutions which support account identification. (optional)
      * @param supportsAccountStatement Filter only institutions which support account statements. (optional)
      * @param supportsAccountVerification Filter only institutions which support account verification. (optional)
@@ -506,7 +506,7 @@ public class InstitutionsApi {
      * @param name This will list only institutions in which the appended string appears. (optional)
      * @param isoCountryCode An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include &#x60;US&#x60;, &#x60;CA&#x60;, and &#x60;MX&#x60; (Mexico). (optional)
      * @param page Results are paginated. Specify current page. (optional)
-     * @param recordsPerPage This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;100&#x60;. If the value exceeds &#x60;100&#x60;, the default value of &#x60;25&#x60; will be used instead. (optional)
+     * @param recordsPerPage This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. (optional)
      * @param supportsAccountIdentification Filter only institutions which support account identification. (optional)
      * @param supportsAccountStatement Filter only institutions which support account statements. (optional)
      * @param supportsAccountVerification Filter only institutions which support account verification. (optional)

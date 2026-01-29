@@ -659,7 +659,7 @@ public class MicrodepositsApi {
 
     /**
      * Read a microdeposit for a user
-     * Use this endpoint to read the attributes of a specific microdeposit according to its unique GUID. &lt;br /&gt;&lt;br /&gt; Webhooks for microdeposit status changes are triggered when a status changes. The actual status of the microdeposit guid updates every minute. You may force a status update by calling the read microdeposit endpoint.
+     * Use this endpoint to read the attributes of a specific microdeposit according to its unique GUID. &lt;br&gt;&lt;/br&gt; Webhooks for microdeposit status changes are triggered when a status changes. The actual status of the microdeposit guid updates every minute. You may force a status update by calling the read microdeposit endpoint.
      * @param microDepositGuid The unique identifier for the microdeposit. Defined by MX. (required)
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @return MicrodepositResponseBody
@@ -677,7 +677,7 @@ public class MicrodepositsApi {
 
     /**
      * Read a microdeposit for a user
-     * Use this endpoint to read the attributes of a specific microdeposit according to its unique GUID. &lt;br /&gt;&lt;br /&gt; Webhooks for microdeposit status changes are triggered when a status changes. The actual status of the microdeposit guid updates every minute. You may force a status update by calling the read microdeposit endpoint.
+     * Use this endpoint to read the attributes of a specific microdeposit according to its unique GUID. &lt;br&gt;&lt;/br&gt; Webhooks for microdeposit status changes are triggered when a status changes. The actual status of the microdeposit guid updates every minute. You may force a status update by calling the read microdeposit endpoint.
      * @param microDepositGuid The unique identifier for the microdeposit. Defined by MX. (required)
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @return ApiResponse&lt;MicrodepositResponseBody&gt;
@@ -696,7 +696,7 @@ public class MicrodepositsApi {
 
     /**
      * Read a microdeposit for a user (asynchronously)
-     * Use this endpoint to read the attributes of a specific microdeposit according to its unique GUID. &lt;br /&gt;&lt;br /&gt; Webhooks for microdeposit status changes are triggered when a status changes. The actual status of the microdeposit guid updates every minute. You may force a status update by calling the read microdeposit endpoint.
+     * Use this endpoint to read the attributes of a specific microdeposit according to its unique GUID. &lt;br&gt;&lt;/br&gt; Webhooks for microdeposit status changes are triggered when a status changes. The actual status of the microdeposit guid updates every minute. You may force a status update by calling the read microdeposit endpoint.
      * @param microDepositGuid The unique identifier for the microdeposit. Defined by MX. (required)
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param _callback The callback to be executed when the API call finishes

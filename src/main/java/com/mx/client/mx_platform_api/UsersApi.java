@@ -277,7 +277,7 @@ public class UsersApi {
 
     /**
      * Delete user
-     * Use this endpoint to delete the specified &#x60;user&#x60;. The response will have a status of &#x60;204 No Content&#x60; without an object.  :::warning Deleting a user is permanent. Deleted users can never be restored. For more info, see [Deleting Objects](https://docs.mx.com/api-reference/platform-api/overview/deleting-objects). ::: 
+     * Use this endpoint to delete the specified &#x60;user&#x60;. The response will have a status of &#x60;204 No Content&#x60; without an object.  :::warning Deleting a user is permanent. Deleted users can never be restored. For more info, see [Deleting Objects](/api-reference/platform-api/overview/deleting-objects). ::: 
      * @param accept Specifies the media type expected in the response. (required)
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -293,7 +293,7 @@ public class UsersApi {
 
     /**
      * Delete user
-     * Use this endpoint to delete the specified &#x60;user&#x60;. The response will have a status of &#x60;204 No Content&#x60; without an object.  :::warning Deleting a user is permanent. Deleted users can never be restored. For more info, see [Deleting Objects](https://docs.mx.com/api-reference/platform-api/overview/deleting-objects). ::: 
+     * Use this endpoint to delete the specified &#x60;user&#x60;. The response will have a status of &#x60;204 No Content&#x60; without an object.  :::warning Deleting a user is permanent. Deleted users can never be restored. For more info, see [Deleting Objects](/api-reference/platform-api/overview/deleting-objects). ::: 
      * @param accept Specifies the media type expected in the response. (required)
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @return ApiResponse&lt;Void&gt;
@@ -311,7 +311,7 @@ public class UsersApi {
 
     /**
      * Delete user (asynchronously)
-     * Use this endpoint to delete the specified &#x60;user&#x60;. The response will have a status of &#x60;204 No Content&#x60; without an object.  :::warning Deleting a user is permanent. Deleted users can never be restored. For more info, see [Deleting Objects](https://docs.mx.com/api-reference/platform-api/overview/deleting-objects). ::: 
+     * Use this endpoint to delete the specified &#x60;user&#x60;. The response will have a status of &#x60;204 No Content&#x60; without an object.  :::warning Deleting a user is permanent. Deleted users can never be restored. For more info, see [Deleting Objects](/api-reference/platform-api/overview/deleting-objects). ::: 
      * @param accept Specifies the media type expected in the response. (required)
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param _callback The callback to be executed when the API call finishes

@@ -41,7 +41,7 @@ public class Example {
     InstitutionsApi apiInstance = new InstitutionsApi(defaultClient);
     List<String> isoCountryCode = Arrays.asList(); // List<String> | An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include `US`, `CA`, and `MX` (Mexico).
     Integer page = 1; // Integer | Results are paginated. Specify current page.
-    Integer recordsPerPage = 10; // Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `100`. If the value exceeds `100`, the default value of `25` will be used instead.
+    Integer recordsPerPage = 10; // Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
     try {
       InstitutionsResponseBody result = apiInstance.listFavoriteInstitutions(isoCountryCode, page, recordsPerPage);
       System.out.println(result);
@@ -62,7 +62,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **isoCountryCode** | [**List&lt;String&gt;**](String.md)| An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include &#x60;US&#x60;, &#x60;CA&#x60;, and &#x60;MX&#x60; (Mexico). | [optional] |
 | **page** | **Integer**| Results are paginated. Specify current page. | [optional] |
-| **recordsPerPage** | **Integer**| This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;100&#x60;. If the value exceeds &#x60;100&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
+| **recordsPerPage** | **Integer**| This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 
 ### Return type
 
@@ -186,7 +186,7 @@ public class Example {
     String name = "mxbank"; // String | This will list only institutions in which the appended string appears.
     List<String> isoCountryCode = Arrays.asList(); // List<String> | An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include `US`, `CA`, and `MX` (Mexico).
     Integer page = 1; // Integer | Results are paginated. Specify current page.
-    Integer recordsPerPage = 10; // Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `100`. If the value exceeds `100`, the default value of `25` will be used instead.
+    Integer recordsPerPage = 10; // Integer | This specifies the number of records to be returned on each page. Defaults to `25`. The valid range is from `10` to `1000`. If the value exceeds `1000`, the default value of `25` will be used instead.
     Boolean supportsAccountIdentification = true; // Boolean | Filter only institutions which support account identification.
     Boolean supportsAccountStatement = true; // Boolean | Filter only institutions which support account statements.
     Boolean supportsAccountVerification = true; // Boolean | Filter only institutions which support account verification.
@@ -212,7 +212,7 @@ public class Example {
 | **name** | **String**| This will list only institutions in which the appended string appears. | [optional] |
 | **isoCountryCode** | [**List&lt;String&gt;**](String.md)| An array of strings that filters institutions in the widget by the specified country code. Acceptable codes include &#x60;US&#x60;, &#x60;CA&#x60;, and &#x60;MX&#x60; (Mexico). | [optional] |
 | **page** | **Integer**| Results are paginated. Specify current page. | [optional] |
-| **recordsPerPage** | **Integer**| This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;100&#x60;. If the value exceeds &#x60;100&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
+| **recordsPerPage** | **Integer**| This specifies the number of records to be returned on each page. Defaults to &#x60;25&#x60;. The valid range is from &#x60;10&#x60; to &#x60;1000&#x60;. If the value exceeds &#x60;1000&#x60;, the default value of &#x60;25&#x60; will be used instead. | [optional] |
 | **supportsAccountIdentification** | **Boolean**| Filter only institutions which support account identification. | [optional] |
 | **supportsAccountStatement** | **Boolean**| Filter only institutions which support account statements. | [optional] |
 | **supportsAccountVerification** | **Boolean**| Filter only institutions which support account verification. | [optional] |

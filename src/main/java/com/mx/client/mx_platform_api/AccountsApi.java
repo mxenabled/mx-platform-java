@@ -1050,7 +1050,7 @@ public class AccountsApi {
 
     /**
      * List accounts
-     * This endpoint returns a list of all the accounts associated with the specified &#x60;user&#x60;.  :::warning This request will not return the full account number. It may return the last four digits of the account number if that information has been provided during aggregation. If you need the full account number, please refer to [List account numbers by member](https://docs.mx.com/api-reference/platform-api/reference/list-account-numbers-by-member/), [List account numbers by account](https://docs.mx.com/api-reference/platform-api/reference/list-account-numbers-by-account/), or the [Fetch Account and Routing Numbers](https://docs.mx.com/products/connectivity/instant-account-verification/fetch-account-routing-number-api/#4-read-the-account-numbers) guide. ::: 
+     * This endpoint returns a list of all the accounts associated with the specified &#x60;user&#x60;.  :::warning This request will not return the full account number. It may return the last four digits of the account number if that information has been provided during aggregation. If you need the full account number, please refer to [List account numbers by member](/api-reference/platform-api/reference/list-account-numbers-by-member/) or [List account numbers by account](/api-reference/platform-api/reference/list-account-numbers-by-account/). ::: 
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param page Results are paginated. Specify current page. (optional)
      * @param memberIsManagedByUser List only accounts whose member is managed by the user. (optional)
@@ -1072,7 +1072,7 @@ public class AccountsApi {
 
     /**
      * List accounts
-     * This endpoint returns a list of all the accounts associated with the specified &#x60;user&#x60;.  :::warning This request will not return the full account number. It may return the last four digits of the account number if that information has been provided during aggregation. If you need the full account number, please refer to [List account numbers by member](https://docs.mx.com/api-reference/platform-api/reference/list-account-numbers-by-member/), [List account numbers by account](https://docs.mx.com/api-reference/platform-api/reference/list-account-numbers-by-account/), or the [Fetch Account and Routing Numbers](https://docs.mx.com/products/connectivity/instant-account-verification/fetch-account-routing-number-api/#4-read-the-account-numbers) guide. ::: 
+     * This endpoint returns a list of all the accounts associated with the specified &#x60;user&#x60;.  :::warning This request will not return the full account number. It may return the last four digits of the account number if that information has been provided during aggregation. If you need the full account number, please refer to [List account numbers by member](/api-reference/platform-api/reference/list-account-numbers-by-member/) or [List account numbers by account](/api-reference/platform-api/reference/list-account-numbers-by-account/). ::: 
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param page Results are paginated. Specify current page. (optional)
      * @param memberIsManagedByUser List only accounts whose member is managed by the user. (optional)
@@ -1095,7 +1095,7 @@ public class AccountsApi {
 
     /**
      * List accounts (asynchronously)
-     * This endpoint returns a list of all the accounts associated with the specified &#x60;user&#x60;.  :::warning This request will not return the full account number. It may return the last four digits of the account number if that information has been provided during aggregation. If you need the full account number, please refer to [List account numbers by member](https://docs.mx.com/api-reference/platform-api/reference/list-account-numbers-by-member/), [List account numbers by account](https://docs.mx.com/api-reference/platform-api/reference/list-account-numbers-by-account/), or the [Fetch Account and Routing Numbers](https://docs.mx.com/products/connectivity/instant-account-verification/fetch-account-routing-number-api/#4-read-the-account-numbers) guide. ::: 
+     * This endpoint returns a list of all the accounts associated with the specified &#x60;user&#x60;.  :::warning This request will not return the full account number. It may return the last four digits of the account number if that information has been provided during aggregation. If you need the full account number, please refer to [List account numbers by member](/api-reference/platform-api/reference/list-account-numbers-by-member/) or [List account numbers by account](/api-reference/platform-api/reference/list-account-numbers-by-account/). ::: 
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param page Results are paginated. Specify current page. (optional)
      * @param memberIsManagedByUser List only accounts whose member is managed by the user. (optional)

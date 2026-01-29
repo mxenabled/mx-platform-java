@@ -1380,7 +1380,7 @@ public class TransactionsApi {
 
     /**
      * List transactions by account
-     * Requests to this endpoint return a list of transactions associated with the specified account. &lt;br /&gt;&lt;br /&gt;Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter. To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
+     * Requests to this endpoint return a list of transactions associated with the specified account. &lt;br /&gt;&lt;br /&gt; Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter. To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
      * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param page Results are paginated. Specify current page. (optional)
@@ -1411,7 +1411,7 @@ public class TransactionsApi {
 
     /**
      * List transactions by account
-     * Requests to this endpoint return a list of transactions associated with the specified account. &lt;br /&gt;&lt;br /&gt;Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter. To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
+     * Requests to this endpoint return a list of transactions associated with the specified account. &lt;br /&gt;&lt;br /&gt; Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter. To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
      * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param page Results are paginated. Specify current page. (optional)
@@ -1443,7 +1443,7 @@ public class TransactionsApi {
 
     /**
      * List transactions by account (asynchronously)
-     * Requests to this endpoint return a list of transactions associated with the specified account. &lt;br /&gt;&lt;br /&gt;Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter. To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
+     * Requests to this endpoint return a list of transactions associated with the specified account. &lt;br /&gt;&lt;br /&gt; Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter. To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
      * @param accountGuid The unique id for an &#x60;account&#x60;. (required)
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param page Results are paginated. Specify current page. (optional)
@@ -2039,7 +2039,7 @@ public class TransactionsApi {
 
     /**
      * Read transaction
-     * Requests to this endpoint will return the attributes of the specified &#x60;transaction&#x60;. To read a manual transaction, use the manual transaction guid in the path as the &#x60;transactionGuid&#x60;. &lt;br /&gt;&lt;br /&gt;Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter. To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
+     * Requests to this endpoint will return the attributes of the specified &#x60;transaction&#x60;. To read a manual transaction, use the manual transaction guid in the path as the &#x60;transactionGuid&#x60;. &lt;br /&gt;&lt;br /&gt; Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter. To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
      * @param includes Options for enhanced transactions. This query parameter is optional. Possible additional metadata: &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. The query value is format sensitive. To retrieve all available enhancements, append:  &#x60;?includes&#x3D;repeating_transactions,merchants,classifications,geolocations&#x60;.    The query options may be combined to specific enhancements. For example, to request Repeating Transactions and Geolocation data, use:   &#x60;?includes&#x3D;repeating_transactions,geolocations&#x60;.  - Repeating Transactions: Identifies transactions with predictable recurrence patterns (e.g., Bill, Income, Subscription). - Merchants: Enriches transactions with merchant name. - Classifications: Provides more insight into the type of money movement that is occurring on the transaction, whether it be retail or investments. - Geolocation: Provides geographic metadata.  (optional)
@@ -2058,7 +2058,7 @@ public class TransactionsApi {
 
     /**
      * Read transaction
-     * Requests to this endpoint will return the attributes of the specified &#x60;transaction&#x60;. To read a manual transaction, use the manual transaction guid in the path as the &#x60;transactionGuid&#x60;. &lt;br /&gt;&lt;br /&gt;Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter. To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
+     * Requests to this endpoint will return the attributes of the specified &#x60;transaction&#x60;. To read a manual transaction, use the manual transaction guid in the path as the &#x60;transactionGuid&#x60;. &lt;br /&gt;&lt;br /&gt; Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter. To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
      * @param includes Options for enhanced transactions. This query parameter is optional. Possible additional metadata: &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. The query value is format sensitive. To retrieve all available enhancements, append:  &#x60;?includes&#x3D;repeating_transactions,merchants,classifications,geolocations&#x60;.    The query options may be combined to specific enhancements. For example, to request Repeating Transactions and Geolocation data, use:   &#x60;?includes&#x3D;repeating_transactions,geolocations&#x60;.  - Repeating Transactions: Identifies transactions with predictable recurrence patterns (e.g., Bill, Income, Subscription). - Merchants: Enriches transactions with merchant name. - Classifications: Provides more insight into the type of money movement that is occurring on the transaction, whether it be retail or investments. - Geolocation: Provides geographic metadata.  (optional)
@@ -2078,7 +2078,7 @@ public class TransactionsApi {
 
     /**
      * Read transaction (asynchronously)
-     * Requests to this endpoint will return the attributes of the specified &#x60;transaction&#x60;. To read a manual transaction, use the manual transaction guid in the path as the &#x60;transactionGuid&#x60;. &lt;br /&gt;&lt;br /&gt;Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter. To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
+     * Requests to this endpoint will return the attributes of the specified &#x60;transaction&#x60;. To read a manual transaction, use the manual transaction guid in the path as the &#x60;transactionGuid&#x60;. &lt;br /&gt;&lt;br /&gt; Enhanced transaction data may be requested using the &#x60;includes&#x60; parameter. To use this optional parameter, the value should include the optional metadata requested such as &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. For more information, see the [Optional Enhancement Query Parameter guide](/api-reference/platform-api/reference/transactions-overview#enhanced-transactions#optional-enhancement-query-parameter).
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param transactionGuid The unique id for a &#x60;transaction&#x60;. (required)
      * @param includes Options for enhanced transactions. This query parameter is optional. Possible additional metadata: &#x60;repeating_transactions&#x60;, &#x60;merchants&#x60;, &#x60;classifications&#x60;, &#x60;geolocations&#x60;. The query value is format sensitive. To retrieve all available enhancements, append:  &#x60;?includes&#x3D;repeating_transactions,merchants,classifications,geolocations&#x60;.    The query options may be combined to specific enhancements. For example, to request Repeating Transactions and Geolocation data, use:   &#x60;?includes&#x3D;repeating_transactions,geolocations&#x60;.  - Repeating Transactions: Identifies transactions with predictable recurrence patterns (e.g., Bill, Income, Subscription). - Merchants: Enriches transactions with merchant name. - Classifications: Provides more insight into the type of money movement that is occurring on the transaction, whether it be retail or investments. - Geolocation: Provides geographic metadata.  (optional)
@@ -2168,7 +2168,7 @@ public class TransactionsApi {
 
     /**
      * List Repeating Transactions
-     * Retrieve a list of all recurring transactions for a user. &lt;br /&gt;&lt;br /&gt;For more see the [Repeating Transactions guide](repeating-transactions-overview.mdx).
+     * Retrieve a list of all recurring transactions for a user. &lt;br /&gt;&lt;br /&gt;For more see the [Repeating Transactions guide](/api-reference/platform-api/v20111101/reference/transactions-overview#repeating-transactions).
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @return RepeatingTransactionsResponseBody
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2185,7 +2185,7 @@ public class TransactionsApi {
 
     /**
      * List Repeating Transactions
-     * Retrieve a list of all recurring transactions for a user. &lt;br /&gt;&lt;br /&gt;For more see the [Repeating Transactions guide](repeating-transactions-overview.mdx).
+     * Retrieve a list of all recurring transactions for a user. &lt;br /&gt;&lt;br /&gt;For more see the [Repeating Transactions guide](/api-reference/platform-api/v20111101/reference/transactions-overview#repeating-transactions).
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @return ApiResponse&lt;RepeatingTransactionsResponseBody&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2203,7 +2203,7 @@ public class TransactionsApi {
 
     /**
      * List Repeating Transactions (asynchronously)
-     * Retrieve a list of all recurring transactions for a user. &lt;br /&gt;&lt;br /&gt;For more see the [Repeating Transactions guide](repeating-transactions-overview.mdx).
+     * Retrieve a list of all recurring transactions for a user. &lt;br /&gt;&lt;br /&gt;For more see the [Repeating Transactions guide](/api-reference/platform-api/v20111101/reference/transactions-overview#repeating-transactions).
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2298,7 +2298,7 @@ public class TransactionsApi {
 
     /**
      * Get a Repeating Transaction
-     * Get a Specific Repeating Transaction. &lt;br /&gt;&lt;br /&gt;List For more see the [Repeating Transactions guide](repeating-transactions-overview.mdx)
+     * Get a Specific Repeating Transaction. &lt;br /&gt;&lt;br /&gt;List For more see the  [Repeating Transactions guide](/api-reference/platform-api/v20111101/reference/transactions-overview#repeating-transactions)
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param repeatingTransactionGuid The unique id for a recurring transaction. (required)
      * @return RepeatingTransactionsResponseBody
@@ -2316,7 +2316,7 @@ public class TransactionsApi {
 
     /**
      * Get a Repeating Transaction
-     * Get a Specific Repeating Transaction. &lt;br /&gt;&lt;br /&gt;List For more see the [Repeating Transactions guide](repeating-transactions-overview.mdx)
+     * Get a Specific Repeating Transaction. &lt;br /&gt;&lt;br /&gt;List For more see the  [Repeating Transactions guide](/api-reference/platform-api/v20111101/reference/transactions-overview#repeating-transactions)
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param repeatingTransactionGuid The unique id for a recurring transaction. (required)
      * @return ApiResponse&lt;RepeatingTransactionsResponseBody&gt;
@@ -2335,7 +2335,7 @@ public class TransactionsApi {
 
     /**
      * Get a Repeating Transaction (asynchronously)
-     * Get a Specific Repeating Transaction. &lt;br /&gt;&lt;br /&gt;List For more see the [Repeating Transactions guide](repeating-transactions-overview.mdx)
+     * Get a Specific Repeating Transaction. &lt;br /&gt;&lt;br /&gt;List For more see the  [Repeating Transactions guide](/api-reference/platform-api/v20111101/reference/transactions-overview#repeating-transactions)
      * @param userGuid The unique identifier for a &#x60;user&#x60;, beginning with the prefix &#x60;USR-&#x60;. (required)
      * @param repeatingTransactionGuid The unique id for a recurring transaction. (required)
      * @param _callback The callback to be executed when the API call finishes

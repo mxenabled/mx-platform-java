@@ -346,7 +346,7 @@ public class WidgetRequest {
   }
 
    /**
-   * Only use this option if the &#x60;widget_type&#x60; is set to &#x60;connect_widget&#x60;. This determines whether the institution search is displayed within the Connect Widget. This option must be used with &#x60;current_institution_code&#x60;, &#x60;current_instituion_guid&#x60;, or &#x60;current_member_guid&#x60;. When set to &#x60;true&#x60;, the institution search feature will be disabled and end users will not be able to navigate to it. Defaults to &#x60;false&#x60;. 
+   * Only use this option if the &#x60;widget_type&#x60; is set to &#x60;connect_widget&#x60;. This determines whether the institution search is displayed within the Connect Widget. This option must be used with &#x60;current_institution_code&#x60;, &#x60;current_instituion_guid&#x60;, or &#x60;current_member_guid&#x60;. When set to &#x60;true&#x60;, the institution search feature will be disabled and end users will not be able to navigate to it. Defaults to &#x60;false&#x60;. If you set &#x60;disable_institution_search&#x60; to &#x60;true&#x60;, you must also listen for the [backToSearch event](/connect/guides/handling-events/#back-to-search) to intercept the user from navigating back to search during the flow. Don&#39;t listen for any Primary Action postMessages when you disable search.  All buttons that will take a user to the search institution page are still displayed in the Connect Widget experience and your user can still select them. This may trigger during several steps in the Connect Widget flow, such as Connected, MDV/Microdeposits Verified, Login Error, and Credentials/OAuth (back button). 
    * @return disableInstitutionSearch
   **/
   @javax.annotation.Nullable
